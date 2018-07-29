@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Net.Sockets;
 using System.Threading;
 
-namespace Aura_Client.Controller.Network
+namespace Aura_Client.Network
 {
     /// <summary>
     /// Предназначен для клиент-серверного взаимодействия.
@@ -36,7 +36,7 @@ namespace Aura_Client.Controller.Network
                 stream = client.GetStream(); // получаем поток                
 
                 // запускаем новый поток для получения данных
-                Thread receiveThread = new Thread(new ThreadStart(ReceiveMessage));
+                Thread receiveThread = new Thread(new ThreadStart(ReceivingMessages));
                 receiveThread.Start(); //старт потока
                 Console.WriteLine("\n" + ToString() + " starting successfuly");
 
@@ -45,10 +45,7 @@ namespace Aura_Client.Controller.Network
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-            }
-
-            finally
-            {
+                Console.Read();
                 Disconnect();
             }
 
@@ -56,41 +53,61 @@ namespace Aura_Client.Controller.Network
 
 
 
-        public void SendMessage(string message)
+        public string SendMessage(string message)
         {
-            // отправка сообщений                 
-            byte[] data = Encoding.Unicode.GetBytes(message);
-            stream.Write(data, 0, data.Length);
+            //отправка сообщений  
+            try
+            {
+                byte[] data = Encoding.Unicode.GetBytes(message);
+                stream.Write(data, 0, data.Length);
+                return ReceiveMessage();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.Read();
+                return "-1";
+            }
 
         }
 
-        private void ReceiveMessage()
+        private void ReceivingMessages()
         {
-            // получение сообщений
+            // метод прослушивания порта и получения сообщений
             while (true)
             {
                 try
                 {
-                    byte[] data = new byte[64]; // буфер для получаемых данных
-                    StringBuilder builder = new StringBuilder();
-                    int bytes = 0;
-                    do
-                    {
-                        bytes = stream.Read(data, 0, data.Length);
-                        builder.Append(Encoding.Unicode.GetString(data, 0, bytes));
-                    }
-                    while (stream.DataAvailable);
-
-                    string message = builder.ToString();
+                    string message = ReceiveMessage();
                     HandleMessage(message);
+
                 }
-                catch
+                catch(Exception ex)
                 {
                     Console.WriteLine("Connection closed!"); //соединение было прервано
-                    Console.ReadLine();
+                    Console.ReadLine();                    
                     Disconnect();
+                    throw ex;
+
                 }
             }
+        }
+
+        private string ReceiveMessage()
+        {
+            //метод получения одного сообщения
+            byte[] data = new byte[64]; // буфер для получаемых данных
+            StringBuilder builder = new StringBuilder();
+            int bytes = 0;
+            do
+            {
+                bytes = stream.Read(data, 0, data.Length);
+                builder.Append(Encoding.Unicode.GetString(data, 0, bytes));
+            }
+            while (stream.DataAvailable);
+            string message = builder.ToString();
+
+            return message;
         }
 
         private void HandleMessage(string message)
