@@ -21,37 +21,55 @@ namespace Aura_Client.View
         {
             if (loginTextBox.Text != string.Empty && passwordTextBox.Text != string.Empty)
             {
-                int result = NetworkBridge.TryLogin(loginTextBox.Text, passwordTextBox.Text);
-
-
-                switch (result)
-                {
-                    case -1:
-                        {
-                            resultTextLabel.Text = "Ошибка соединения с сервером";
-                            resultTextLabel.ForeColor = Color.Red;
-
-                        }
-                        break;
-
-                    case 0:
-                        {
-                            resultTextLabel.Text = "Неправильный логин или пароль";
-                            resultTextLabel.ForeColor = Color.Red;
-                        }
-                        break;
-
-                    default:
-                        {
-                            resultTextLabel.Text = "Аутентификация пройдена";
-                            resultTextLabel.ForeColor = Color.Green;
-                            Close();
-                        }
-                        break;
-                }
-
+                NetworkBridge.TryLogin(loginTextBox.Text, passwordTextBox.Text);
 
             }
+        }
+
+        public void SetLoginResult(string result)
+        {
+            switch (result)
+            {
+                case "ERROR":
+                    {
+                        resultTextLabel.Text = "Ошибка соединения с сервером";
+                        resultTextLabel.ForeColor = Color.Red;
+
+                    }
+                    break;
+
+                case "LOGINFAILED":
+                    {
+                        ChangeLoginResultText("Неправильный логин или пароль", Color.Red);
+
+                    }
+                    break;
+
+                case "LOGINSUCCESS":
+                    {
+                        ChangeLoginResultText("Аутентификация пройдена", Color.Green);                       
+
+                    }
+                    break;
+
+                default:
+                    {
+                        ChangeLoginResultText("Неправильный запрос", Color.Red);
+
+                    }
+                    break;
+            }
+
+        }
+
+        private void ChangeLoginResultText(string text, Color color)
+        {
+            resultTextLabel.Invoke(new Action(() =>
+            {
+                resultTextLabel.Text = text;
+                resultTextLabel.ForeColor = color;
+                if(color == Color.Green) Close();
+            }));
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Sockets;
 using System.Threading;
+using Aura_Client.Controller;
 
 namespace Aura_Client.Network
 {
@@ -18,14 +19,17 @@ namespace Aura_Client.Network
         private int port;     //порт клиента, который нужно слушать       
         private TcpClient client;
         private NetworkStream stream;
+        private MessageHandler messageHandler;
 
+        
         public NetworkGate(string serverIPaddress, int serverPort)
         {
             host = serverIPaddress;
             port = serverPort;
+            messageHandler = new MessageHandler();
             StartGate();
 
-        }
+        }        
 
         private void StartGate()
         {
@@ -53,20 +57,20 @@ namespace Aura_Client.Network
 
 
 
-        public string SendMessage(string message)
+        public void SendMessage(string message)
         {
             //отправка сообщений  
             try
             {
                 byte[] data = Encoding.Unicode.GetBytes(message);
                 stream.Write(data, 0, data.Length);
-                return ReceiveMessage();
+               
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
                 Console.Read();
-                return "-1";
+              
             }
 
         }
@@ -84,6 +88,7 @@ namespace Aura_Client.Network
                 }
                 catch(Exception ex)
                 {
+                    Console.WriteLine("Error "+ex.ToString());
                     Console.WriteLine("Connection closed!"); //соединение было прервано
                     Console.ReadLine();                    
                     Disconnect();
@@ -112,7 +117,7 @@ namespace Aura_Client.Network
 
         private void HandleMessage(string message)
         {
-            Console.WriteLine(message);
+            messageHandler.HandleMessage(message);
         }
 
         private void Disconnect()

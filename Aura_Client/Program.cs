@@ -12,7 +12,8 @@ namespace Aura_Client
 {
     class Program
     {
-        public static User user;
+        public static User user = new User();
+        private static LoginWindow loginWindow;
 
         static void Main()
         {
@@ -20,7 +21,7 @@ namespace Aura_Client
             {
                 NetworkBridge.CreateConnection();
 
-                LoginWindow loginWindow = new LoginWindow();
+                loginWindow = new LoginWindow();
                 loginWindow.ShowDialog();
 
                 if (user.roleID > -1)
@@ -39,6 +40,10 @@ namespace Aura_Client
             Console.Read();
         }
 
+        public static void SetLoginResult(string result)
+        {
+            loginWindow.SetLoginResult(result);
+        }
     }
 
 }
