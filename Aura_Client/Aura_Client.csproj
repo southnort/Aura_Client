@@ -50,6 +50,7 @@
     <Compile Include="Controller\Network\MessageHandler.cs" />
     <Compile Include="Controller\Network\NetworkBridge.cs" />
     <Compile Include="Controller\Network\NetworkGate.cs" />
+    <Compile Include="Controller\Network\NetworkManager.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

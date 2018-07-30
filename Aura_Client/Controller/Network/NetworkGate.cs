@@ -15,21 +15,23 @@ namespace Aura_Client.Network
     /// </summary>
     class NetworkGate
     {
+        protected internal MessageHandler messageHandler;
+
         private string host;        //IP-адрес сервера
         private int port;           //порт клиента, который нужно слушать       
         private TcpClient client;
         private NetworkStream stream;
-        private MessageHandler messageHandler;
-
         
-        public NetworkGate(string serverIPaddress, int serverPort)
+
+
+        public NetworkGate(string serverIPaddress, int serverPort, MessageHandler handler)
         {
             host = serverIPaddress;
             port = serverPort;
-            messageHandler = new MessageHandler();
+            messageHandler = handler;
             StartGate();
 
-        }        
+        }
 
         private void StartGate()
         {
@@ -90,7 +92,7 @@ namespace Aura_Client.Network
 
 
 
-       
+
 
         protected internal void SendMessage(string message)
         {
@@ -130,7 +132,7 @@ namespace Aura_Client.Network
 
             catch (Exception ex)
             {
-                Console.WriteLine( ToString() + ".GetMessage Exception: " + ex.Message);
+                Console.WriteLine(ToString() + ".GetMessage Exception: " + ex.Message);
                 return "ERROR";
             }
 
@@ -142,7 +144,7 @@ namespace Aura_Client.Network
             try
             {
                 SendMessage(request);
-                return (T) ReceiveObject();
+                return (T)ReceiveObject();
             }
 
             catch (Exception ex)
@@ -164,7 +166,7 @@ namespace Aura_Client.Network
 
             catch (Exception ex)
             {
-                Console.WriteLine(ToString() + ".Send Exception: " + ex.Message);               
+                Console.WriteLine(ToString() + ".Send Exception: " + ex.Message);
 
             }
 
@@ -222,22 +224,22 @@ namespace Aura_Client.Network
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ToString()+ "ReceiveObject.Deserialize Exception: "+ex.Message);
+                Console.WriteLine(ToString() + "ReceiveObject.Deserialize Exception: " + ex.Message);
                 return null;
             }
 
 
         }
 
-       
+
 
         private void HandleMessage(string message)
         {
             messageHandler.HandleMessage(message);
         }
 
-        
-        
+
+
 
     }
 

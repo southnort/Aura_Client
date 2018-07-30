@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Aura_Client.Controller;
 
 namespace Aura_Client.View
 {
@@ -21,7 +20,7 @@ namespace Aura_Client.View
         {
             if (loginTextBox.Text != string.Empty && passwordTextBox.Text != string.Empty)
             {
-                NetworkBridge.TryLogin(loginTextBox.Text, passwordTextBox.Text);
+               Program.bridge.TryLogin(loginTextBox.Text, passwordTextBox.Text);
 
             }
         }
@@ -47,7 +46,7 @@ namespace Aura_Client.View
 
                 case "LOGINSUCCESS":
                     {
-                        ChangeLoginResultText("Аутентификация пройдена", Color.Green);                       
+                        ChangeLoginResultText("Аутентификация пройдена. Загрузка данных...", Color.Green);                       
 
                     }
                     break;

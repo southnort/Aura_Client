@@ -6,7 +6,7 @@ using System.Text;
 namespace Aura_Client.Network
 {
     /// <summary>
-    /// Класс предназначен для обработки полученных сообщений от клиентов.    /// 
+    /// Класс предназначен для обработки полученных сообщений от клиентов.     
     /// </summary>
     class MessageHandler
     {
@@ -17,20 +17,21 @@ namespace Aura_Client.Network
             switch (arr[0])
             {
                 case "LOGINFAILED":
-                    Program.SetLoginResult(arr[0]); break;
+                    LoginFailed(arr[0]); break;
 
                 case "LOGINSUCCESS":
                     LoginSuccess(arr); break;
 
 
 
-                default: Console.WriteLine("ERROR#No such command " + arr[0]); break;
+                default: Console.WriteLine("ERROR string is incorrect:\n " + message); break;
             }
 
         }
 
         private List<string> SplitString(string message)
         {
+            //разделить строку и убрать служебные символы
             List<string> result = new List<string>();
             message = message.Replace("<", "").Replace(">", "");
             foreach (var str in message.Split(new char[] { '#' }, StringSplitOptions.RemoveEmptyEntries))
@@ -43,6 +44,9 @@ namespace Aura_Client.Network
         }
 
 
+
+
+
         private void LoginSuccess(List<string> str)
         {
             string userName = str[1];
@@ -51,6 +55,11 @@ namespace Aura_Client.Network
             Program.user.roleID = int.Parse(userRoleID);
 
             Program.SetLoginResult(str[0]);
+        }
+
+        private void LoginFailed(string arg)
+        {
+            Program.SetLoginResult(arg);
         }
 
 

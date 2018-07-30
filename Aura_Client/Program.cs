@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Aura_Client.Model;
 using Aura_Client.View;
-using Aura_Client.Controller;
+using Aura_Client.Network;
 
 
 namespace Aura_Client
@@ -13,14 +13,18 @@ namespace Aura_Client
     class Program
     {
         public static User user = new User();
+        public static NetworkBridge bridge = new NetworkBridge();
+
+
+
+
         private static LoginWindow loginWindow;
 
         static void Main()
         {
+            user.ID = -1;
             try
-            {
-                NetworkBridge.CreateConnection();
-
+            {       
                 loginWindow = new LoginWindow();
                 loginWindow.ShowDialog();
 
@@ -39,6 +43,9 @@ namespace Aura_Client
 
             Console.Read();
         }
+
+
+
 
         public static void SetLoginResult(string result)
         {
