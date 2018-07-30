@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Aura_Client.Network;
 using System.IO;
+using Aura_Client.Network;
 
 
 namespace Aura_Client.Controller
@@ -12,7 +12,6 @@ namespace Aura_Client.Controller
     /// <summary>
     /// Мост между основной программой и модулем сетевого взаимодействия.
     /// Переводит методы в текст для запроса по сети.
-    /// Обрабатывает поступившие сетевые запросы и выполняет необходимые методы.
     /// </summary>
     public static class NetworkBridge
     {       
@@ -47,13 +46,17 @@ namespace Aura_Client.Controller
         }
 
 
-
-
         public static void Send(string message)
         {
             //подготовить сообщение и передать воротам для отправки на сервер
             gate.SendMessage("<#" + message + "#>");
         }
+
+
+
+
+
+
 
 
 

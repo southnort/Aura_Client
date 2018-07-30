@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Aura_Client.Controller
+namespace Aura_Client.Network
 {
     /// <summary>
     /// Класс предназначен для обработки полученных сообщений от клиентов.    /// 
