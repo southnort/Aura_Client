@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -18,18 +19,26 @@ namespace Aura_Client.Network
         protected internal MessageHandler messageHandler;
 
         private string host;        //IP-адрес сервера
-        private int port;           //порт клиента, который нужно слушать       
+        private int mainPort;       //порт клиента, направляющий запросы серверу         
         private TcpClient client;
         private NetworkStream stream;
+
+        private TcpListener tcpListener;
+        private int listenPort;                 //порт клиента, который нужно слушать  
+        private NetworkStream listeningStream;
+
         
 
 
-        public NetworkGate(string serverIPaddress, int serverPort, MessageHandler handler)
+        public NetworkGate(string serverIPaddress, int serverPort, int broadcastPort, MessageHandler handler)
         {
             host = serverIPaddress;
-            port = serverPort;
+            mainPort = serverPort;
+            listenPort = broadcastPort;
             messageHandler = handler;
             StartGate();
+            StartListen();
+            Console.WriteLine(ToString() + " starting successfuly");
 
         }
 
@@ -38,13 +47,15 @@ namespace Aura_Client.Network
             client = new TcpClient();
             try
             {
-                client.Connect(host, port); //подключение клиента
+                client.Connect(host, mainPort); //подключение клиента
                 stream = client.GetStream(); // получаем поток                
 
-                // запускаем новый поток для получения данных
-                Thread receiveThread = new Thread(new ThreadStart(ReceivingMessages));
-                receiveThread.Start(); //старт потока
-                Console.WriteLine(ToString() + " starting successfuly");
+                //// запускаем новый поток для получения данных
+                //Thread receiveThread = new Thread(new ThreadStart(ReceivingMessages));
+                //receiveThread.Start(); //старт потока
+
+
+                
 
             }
 
@@ -53,6 +64,28 @@ namespace Aura_Client.Network
                 Console.WriteLine(ex.Message);
                 Console.Read();
                 Disconnect();
+            }
+
+        }
+
+        private void StartListen()
+        {
+            // запускаем новый поток для получения оповещений от сервера
+            try
+            {
+                tcpListener = new TcpListener(IPAddress.Any, listenPort);
+                tcpListener.Start();
+
+
+                TcpClient tcpClient = tcpListener.AcceptTcpClient();
+                listeningStream = tcpClient.GetStream();
+                Thread listeningThread = new Thread(new ThreadStart(ReceivingBroadcasts));
+                listeningThread.Start();
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
             }
 
         }
@@ -66,14 +99,14 @@ namespace Aura_Client.Network
             Environment.Exit(0); //завершение процесса
         }
 
-        private void ReceivingMessages()
+        private void ReceivingBroadcasts()
         {
             // метод постоянного прослушивания порта и получения сообщений без запросов
             while (true)
             {
                 try
                 {
-                    string message = ReceiveString();
+                    string message = ReceiveBroadcast();
                     HandleMessage(message);
 
                 }
@@ -90,6 +123,22 @@ namespace Aura_Client.Network
             }
         }
 
+        private string ReceiveBroadcast()
+        {
+            //метод получения одного оповещения
+            byte[] data = new byte[64]; // буфер для получаемых данных
+            StringBuilder builder = new StringBuilder();
+            int bytes = 0;
+            do
+            {
+                bytes = listeningStream.Read(data, 0, data.Length);
+                builder.Append(Encoding.Unicode.GetString(data, 0, bytes));
+            }
+            while (listeningStream.DataAvailable);
+            string message = builder.ToString();
+
+            return message;
+        }
 
 
 
@@ -97,6 +146,7 @@ namespace Aura_Client.Network
         protected internal void SendMessage(string message)
         {
             //отправить сообщение, не требующее ответа
+            Console.WriteLine("Sending message: " + message);
             byte[] data = Encoding.Unicode.GetBytes(message);
             Send(data);
 
@@ -188,6 +238,7 @@ namespace Aura_Client.Network
             while (stream.DataAvailable);
             string message = builder.ToString();
 
+            Console.WriteLine("Recieving message: " + message);
             return message;
         }
 

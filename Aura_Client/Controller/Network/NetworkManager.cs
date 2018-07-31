@@ -28,8 +28,11 @@ namespace Aura_Client.Network
                 }
 
                 messageHandler = new MessageHandler();
-                gate = new NetworkGate(connectionSettings[0],
-                    int.Parse(connectionSettings[1]), messageHandler);
+                gate = new NetworkGate(
+                    connectionSettings[0],
+                    int.Parse(connectionSettings[1]),
+                    int.Parse(connectionSettings[2]),
+                    messageHandler);
 
             }
 
