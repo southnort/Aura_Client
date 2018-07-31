@@ -9,3 +9,12 @@ C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.e
 C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.pdb
 C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\Aura_DLL.dll
 C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.csproj.CopyComplete
+C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\Aura_Client.exe.config
+C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\Aura_Client.exe
+C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\Aura_Client.pdb
+C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.csprojAssemblyReference.cache
+C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.View.LoginWindow.resources
+C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.csproj.GenerateResource.cache
+C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.csproj.CoreCompileInputs.cache
+C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.exe
+C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.pdb

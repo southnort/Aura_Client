@@ -156,6 +156,8 @@ namespace Aura_Client.Network
 
 
 
+
+
         private void Send(byte[] data)
         {
             try
