@@ -7,7 +7,7 @@ using System.Windows.Forms;
 namespace Aura_Client.View
 {
     //базовый класс для форм
-    abstract public class AuraForm : Form, IShowable
+    public partial class AuraForm : Form, IShowable
     {
         public void OpenAuraForm()
         {

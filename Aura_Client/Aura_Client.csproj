@@ -96,6 +96,9 @@
     <EmbeddedResource Include="View\LoginWindow.resx">
       <DependentUpon>LoginWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\PurchasesCalendarForm.resx">
+      <DependentUpon>PurchasesCalendarForm.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

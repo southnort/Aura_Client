@@ -20,3 +20,4 @@ C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Clie
 C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.pdb
 C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\Aura_DLL.dll
 C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.csproj.CopyComplete
+C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.View.PurchasesCalendarForm.resources

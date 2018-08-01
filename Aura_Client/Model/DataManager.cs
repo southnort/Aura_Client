@@ -10,6 +10,7 @@ namespace Aura_Client.Model
     {
         private Dictionary<string, string> userNames = new Dictionary<string, string>();
         private Dictionary<string, Purchase> purchases = new Dictionary<string, Purchase>();
+       
 
         public void SetUserNames(Dictionary<string, string> users)
         {
@@ -21,6 +22,19 @@ namespace Aura_Client.Model
         {
             this.purchases = purchases;
            
+        }
+
+        public Calendar GetCalendar()
+        {
+            //возвращает все закупки из БД в виде календаря
+            Calendar calendar = new Calendar();
+            foreach (var pair in purchases)
+            {
+                calendar.Add(pair.Value);
+            }
+
+            return calendar;
+
         }
 
     }

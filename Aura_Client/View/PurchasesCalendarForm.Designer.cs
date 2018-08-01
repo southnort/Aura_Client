@@ -69,6 +69,7 @@
             this.yearComboBox.Name = "yearComboBox";
             this.yearComboBox.Size = new System.Drawing.Size(94, 39);
             this.yearComboBox.TabIndex = 3;
+            this.yearComboBox.SelectedIndexChanged += new System.EventHandler(this.yearComboBox_SelectedIndexChanged);
             // 
             // nextMonthButton
             // 
@@ -79,6 +80,7 @@
             this.nextMonthButton.TabIndex = 2;
             this.nextMonthButton.Text = ">";
             this.nextMonthButton.UseVisualStyleBackColor = true;
+            this.nextMonthButton.Click += new System.EventHandler(this.nextMonthButton_Click);
             // 
             // prevMonthButton
             // 
@@ -89,6 +91,7 @@
             this.prevMonthButton.TabIndex = 1;
             this.prevMonthButton.Text = "<";
             this.prevMonthButton.UseVisualStyleBackColor = true;
+            this.prevMonthButton.Click += new System.EventHandler(this.prevMonthButton_Click);
             // 
             // monthComboBox
             // 
@@ -112,6 +115,7 @@
             this.monthComboBox.Name = "monthComboBox";
             this.monthComboBox.Size = new System.Drawing.Size(256, 39);
             this.monthComboBox.TabIndex = 0;
+            this.monthComboBox.SelectedIndexChanged += new System.EventHandler(this.monthComboBox_SelectedIndexChanged);
             // 
             // mainPanel
             // 

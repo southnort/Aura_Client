@@ -34,7 +34,8 @@ namespace Aura_Client
                     var purchases = bridge.GetObject<Dictionary<string, Purchase>>("ALLPURCHASES");
                     dataManager.SetPurchases(purchases);
 
-
+                    PurchasesCalendarForm purchasesCalendarForm = new PurchasesCalendarForm();
+                    purchasesCalendarForm.ShowDialog();
                 }
 
             }
