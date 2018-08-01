@@ -17,11 +17,11 @@ namespace Aura_Client.Network
     {
 
 
-        public void TryLogin(string login, string password)
+        public string TryLogin(string login, string password)
         {
             //запрос серверу на логин            
             var request = "LOGIN#" + login + "#" + password;
-            messageHandler.HandleMessage(ReceiveMessage(request));
+            return messageHandler.HandleMessage(ReceiveMessage(request));
 
         }
 

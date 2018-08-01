@@ -15,13 +15,9 @@ namespace Aura_Client
     {
         public static User user = new User();
         public static NetworkBridge bridge = new NetworkBridge();
-        public static Dictionary<string, string> users;
-        public static Dictionary<string, Purchase> purchases;
-
-
-
-
-
+        public static List<IShowable> openedForms = new List<IShowable>();
+        public static DataManager dataManager = new DataManager();
+        
         static void Main()
         {
             user.ID = -1;
@@ -32,9 +28,15 @@ namespace Aura_Client
 
                 if (user.roleID > -1)
                 {
-                    Console.WriteLine("Аутентификация успешна!");
-                    Console.Read();
+                    Console.WriteLine("Autentification successful");
+                    var users = bridge.GetObject<Dictionary<string, string>>("USERNAMES");
+                    dataManager.SetUserNames(users);
+                    var purchases = bridge.GetObject<Dictionary<string, Purchase>>("ALLPURCHASES");
+                    dataManager.SetPurchases(purchases);
+
+
                 }
+
             }
 
             catch (Exception ex)

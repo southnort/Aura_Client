@@ -9,11 +9,12 @@ using System.Windows.Forms;
 
 namespace Aura_Client.View
 {
-    public partial class PurchasesCalendarForm : Form
+    public partial class PurchasesCalendarForm : AuraForm
     {
         public PurchasesCalendarForm()
         {
             InitializeComponent();
         }
     }
+
 }

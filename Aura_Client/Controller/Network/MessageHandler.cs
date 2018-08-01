@@ -10,14 +10,13 @@ namespace Aura_Client.Network
     /// </summary>
     class MessageHandler
     {
-        protected internal void HandleMessage(string message)
+        protected internal string HandleMessage(string message)
         {
             //обработать полученное сообщение и ответить клиенту
             List<string> arr = SplitString(message);
             switch (arr[0])
             {
-                case "LOGINFAILED":
-                    LoginFailed(arr[0]); break;
+                case "LOGINFAILED": break;
 
                 case "LOGINSUCCESS":
                     LoginSuccess(arr); break;
@@ -26,6 +25,8 @@ namespace Aura_Client.Network
 
                 default: Console.WriteLine("ERROR string is incorrect:\n " + message); break;
             }
+
+            return arr[0];
 
         }
 
@@ -54,14 +55,10 @@ namespace Aura_Client.Network
             Program.user.name = userName;
             Program.user.roleID = int.Parse(userRoleID);
 
-            Program.SetLoginResult(str[0]);
         }
 
-        private void LoginFailed(string arg)
-        {
-            Program.SetLoginResult(arg);
-        }
 
 
     }
+
 }

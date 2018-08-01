@@ -20,7 +20,7 @@ namespace Aura_Client.View
         {
             if (loginTextBox.Text != string.Empty && passwordTextBox.Text != string.Empty)
             {
-               Program.bridge.TryLogin(loginTextBox.Text, passwordTextBox.Text);
+              SetLoginResult(Program.bridge.TryLogin(loginTextBox.Text, passwordTextBox.Text));
 
             }
         }
@@ -46,8 +46,8 @@ namespace Aura_Client.View
 
                 case "LOGINSUCCESS":
                     {
-                        ChangeLoginResultText("Аутентификация пройдена. Загрузка данных...", Color.Green);                       
-
+                        ChangeLoginResultText("Аутентификация пройдена. Загрузка данных...", Color.Green);
+                        Close();
                     }
                     break;
 

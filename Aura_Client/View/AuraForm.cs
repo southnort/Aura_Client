@@ -1,21 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
 namespace Aura_Client.View
 {
-    public partial class DayInCalendarForm : UserControl, IShowable
+    //базовый класс для форм
+    abstract public class AuraForm : Form, IShowable
     {
-        public DayInCalendarForm()
-        {
-            InitializeComponent();
-        }
-
         public void OpenAuraForm()
         {
             Program.openedForms.Add(this);
@@ -25,7 +18,12 @@ namespace Aura_Client.View
         {
             Program.openedForms.Remove(this);
         }
-
-
     }
+
+    interface IShowable
+    {
+        void OpenAuraForm();
+        void CloseAuraForm();
+    }
+
 }

@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Aura_Client.View
 {
-    public partial class DayInCalendarFullForm : Form
+    public partial class DayInCalendarFullForm : AuraForm
     {
         public DayInCalendarFullForm()
         {

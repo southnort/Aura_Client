@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Aura_Client.View
 {
-    public partial class PurchaseForm : Form
+    public partial class PurchaseForm : AuraForm
     {
         public PurchaseForm()
         {
