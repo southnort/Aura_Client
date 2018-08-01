@@ -37,5 +37,16 @@ namespace Aura_Client.Model
 
         }
 
+
+        public List<string> UserNames()
+        {
+            return userNames.Values.ToList<string>();
+        }
+
+        public List<Purchase> Purchases()
+        {
+            return purchases.Values.ToList<Purchase>();
+        }
+
     }
 }
