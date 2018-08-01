@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Aura.Model;
 using Aura_Client.Model;
 using Aura_Client.View;
 using Aura_Client.Network;
@@ -14,18 +15,19 @@ namespace Aura_Client
     {
         public static User user = new User();
         public static NetworkBridge bridge = new NetworkBridge();
+        public static Dictionary<string, string> users;
+        public static Dictionary<string, Purchase> purchases;
 
 
 
 
-        private static LoginWindow loginWindow;
 
         static void Main()
         {
             user.ID = -1;
             try
-            {       
-                loginWindow = new LoginWindow();
+            {
+                LoginWindow loginWindow = new LoginWindow();
                 loginWindow.ShowDialog();
 
                 if (user.roleID > -1)
@@ -47,10 +49,7 @@ namespace Aura_Client
 
 
 
-        public static void SetLoginResult(string result)
-        {
-            loginWindow.SetLoginResult(result);
-        }
+
     }
 
 }
