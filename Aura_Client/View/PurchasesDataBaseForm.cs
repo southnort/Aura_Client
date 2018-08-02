@@ -62,6 +62,7 @@ namespace Aura_Client.View
 
 
                     dataGridView1.Rows.Add(newRow);
+                    
 
 
 

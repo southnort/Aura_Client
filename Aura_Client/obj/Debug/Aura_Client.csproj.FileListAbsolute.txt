@@ -23,3 +23,4 @@ C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Clie
 C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.View.MainForm.resources
 C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.View.PurchaseForm.resources
 C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.View.DayInCalendarForm.resources
+C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.View.DayInCalendarFullForm.resources

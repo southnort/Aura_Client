@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Aura_DLL, Version=0.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -107,10 +110,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Icon.ico" />
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="View\DayInCalendarForm.resx">
       <DependentUpon>DayInCalendarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\DayInCalendarFullForm.resx">
+      <DependentUpon>DayInCalendarFullForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\LoginWindow.resx">
       <DependentUpon>LoginWindow.cs</DependentUpon>

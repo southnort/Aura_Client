@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DayInCalendarFullForm));
             this.mainPanel = new System.Windows.Forms.Panel();
             this.dateLabel = new System.Windows.Forms.Label();
             this.newPurchaseButton = new System.Windows.Forms.Button();
@@ -70,6 +71,7 @@
             this.Controls.Add(this.dateLabel);
             this.Controls.Add(this.mainPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "DayInCalendarFullForm";
             this.Text = "DayInCalendarFullForm";
