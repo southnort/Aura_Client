@@ -13,6 +13,8 @@ namespace Aura_Client.Model
         //класс, описывающий календарь
         public void Add(Purchase purchase)
         {
+            if (purchase == null) return;
+
             Add(purchase.purchaseEisDate, purchase);
             Add(purchase.bidsStartDate, purchase);
             Add(purchase.bidsEndDate, purchase);
@@ -56,4 +58,8 @@ namespace Aura_Client.Model
 
         }
     }
+
+
 }
+
+

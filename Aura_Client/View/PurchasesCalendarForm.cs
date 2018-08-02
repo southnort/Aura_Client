@@ -27,6 +27,8 @@ namespace Aura_Client.View
             year = DateTime.Today.Year - 2016;
             ShowDate();
 
+            mainPanel.Focus();
+
             RefreshTable();
 
         }
@@ -89,25 +91,25 @@ namespace Aura_Client.View
             mainPanel.Controls.Clear();
         }
 
-        private List<DayInCalendar> GetDays(Calendar calendar)
+        private List<Aura_Client.Model.DayInCalendar> GetDays(Calendar calendar)
         {
             //создаем лист дней для выбранного месяца
-            List<DayInCalendar> days = new List<DayInCalendar>();
+            List<Aura_Client.Model.DayInCalendar> days = new List<Aura_Client.Model.DayInCalendar>();
 
             //заполняем его пустыми днями
-            for (int i = 0; i < DateTime.DaysInMonth(year + 2016, month + 1); i++)
-            {
-                try
-                {
-                    days.Add(new DayInCalendar(new DateTime(year + 2016, month + 1, i + 1)));
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine((year + 2016) + " " + (month + 1) + " " + (i + 1));
-                    throw ex;
-                }
+            //for (int i = 0; i < DateTime.DaysInMonth(year + 2016, month + 1); i++)
+            //{
+            //    try
+            //    {
+            //        days.Add(new Aura_Client.Model.DayInCalendar(new DateTime(year + 2016, month + 1, i + 1)));
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        Console.WriteLine((year + 2016) + " " + (month + 1) + " " + (i + 1));
+            //        throw ex;
+            //    }
 
-            }
+            //}
 
             //добавляем в нужные пустые дни события из календаря
             foreach (var pair in calendar)
@@ -116,16 +118,26 @@ namespace Aura_Client.View
                     days.Add(pair.Value);
             }
 
+            for (int i = 0; i < DateTime.DaysInMonth(year + 2016, month + 1); i++)
+            {
+                var date = new Aura_Client.Model.DayInCalendar(new DateTime(year + 2016, month + 1, i + 1));
+                if (!days.Contains(date))
+                {
+                    days.Add(date);
+                }
+            }
+                    
+
             return days;
         }
 
-        private void Fill(List<DayInCalendar> days)
+        private void Fill(List<Aura_Client.Model.DayInCalendar> days)
         {
             //заполнить таблицу днями недели из List'а
-            //в листе должны быть даты только из 
+            //в листе должны быть даты только из
             for (int i = 0; i < days.Count; i++)
             {
-                DayInCalendar day = days[i];
+                Aura_Client.Model.DayInCalendar day = days[i];
 
                 DayInCalendarForm form = new DayInCalendarForm(day);
                 mainPanel.Controls.Add(form);

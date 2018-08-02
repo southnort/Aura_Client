@@ -37,9 +37,9 @@ namespace Aura_Client.View
             }
 
             employeID.Items.Add("<не указано>");
-            foreach (var item in Program.dataManager.UserNames())
+            foreach (var item in Program.dataManager.userNames)
             {
-                employeID.Items.Add(item);
+                employeID.Items.Add(item.Value);
             }
 
             foreach (var item in Catalog.organisationsNames)

@@ -223,7 +223,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(97, 179);
+            this.label9.Location = new System.Drawing.Point(97, 161);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(121, 13);
             this.label9.TabIndex = 17;
@@ -234,7 +234,7 @@
             // 
             this.bidsStartDate.CustomFormat = "\'\'";
             this.bidsStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.bidsStartDate.Location = new System.Drawing.Point(224, 179);
+            this.bidsStartDate.Location = new System.Drawing.Point(224, 161);
             this.bidsStartDate.Name = "bidsStartDate";
             this.bidsStartDate.Size = new System.Drawing.Size(158, 20);
             this.bidsStartDate.TabIndex = 16;
@@ -242,7 +242,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(79, 205);
+            this.label10.Location = new System.Drawing.Point(79, 187);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(139, 13);
             this.label10.TabIndex = 19;
@@ -253,7 +253,7 @@
             // 
             this.bidsEndDate.CustomFormat = "\'\'";
             this.bidsEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.bidsEndDate.Location = new System.Drawing.Point(224, 205);
+            this.bidsEndDate.Location = new System.Drawing.Point(224, 187);
             this.bidsEndDate.Name = "bidsEndDate";
             this.bidsEndDate.Size = new System.Drawing.Size(158, 20);
             this.bidsEndDate.TabIndex = 18;
@@ -261,7 +261,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(77, 231);
+            this.label11.Location = new System.Drawing.Point(77, 213);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(141, 13);
             this.label11.TabIndex = 21;
@@ -272,7 +272,7 @@
             // 
             this.bidsOpenDate.CustomFormat = "\'\'";
             this.bidsOpenDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.bidsOpenDate.Location = new System.Drawing.Point(224, 231);
+            this.bidsOpenDate.Location = new System.Drawing.Point(224, 213);
             this.bidsOpenDate.Name = "bidsOpenDate";
             this.bidsOpenDate.Size = new System.Drawing.Size(158, 20);
             this.bidsOpenDate.TabIndex = 20;
@@ -280,7 +280,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(406, 179);
+            this.label12.Location = new System.Drawing.Point(406, 161);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(158, 13);
             this.label12.TabIndex = 23;
@@ -291,7 +291,7 @@
             // 
             this.bidsFirstPartDate.CustomFormat = "\'\'";
             this.bidsFirstPartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.bidsFirstPartDate.Location = new System.Drawing.Point(570, 179);
+            this.bidsFirstPartDate.Location = new System.Drawing.Point(570, 161);
             this.bidsFirstPartDate.Name = "bidsFirstPartDate";
             this.bidsFirstPartDate.Size = new System.Drawing.Size(158, 20);
             this.bidsFirstPartDate.TabIndex = 22;
@@ -299,7 +299,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(406, 231);
+            this.label13.Location = new System.Drawing.Point(406, 213);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(157, 13);
             this.label13.TabIndex = 25;
@@ -310,7 +310,7 @@
             // 
             this.bidsSecondPartDate.CustomFormat = "\'\'";
             this.bidsSecondPartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.bidsSecondPartDate.Location = new System.Drawing.Point(570, 231);
+            this.bidsSecondPartDate.Location = new System.Drawing.Point(570, 213);
             this.bidsSecondPartDate.Name = "bidsSecondPartDate";
             this.bidsSecondPartDate.Size = new System.Drawing.Size(158, 20);
             this.bidsSecondPartDate.TabIndex = 24;
@@ -318,7 +318,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(418, 205);
+            this.label14.Location = new System.Drawing.Point(418, 187);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(146, 13);
             this.label14.TabIndex = 27;
@@ -329,7 +329,7 @@
             // 
             this.auctionDate.CustomFormat = "\'\'";
             this.auctionDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.auctionDate.Location = new System.Drawing.Point(570, 205);
+            this.auctionDate.Location = new System.Drawing.Point(570, 187);
             this.auctionDate.Name = "auctionDate";
             this.auctionDate.Size = new System.Drawing.Size(158, 20);
             this.auctionDate.TabIndex = 26;
@@ -337,7 +337,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(85, 257);
+            this.label15.Location = new System.Drawing.Point(85, 239);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(133, 13);
             this.label15.TabIndex = 29;
@@ -348,7 +348,7 @@
             // 
             this.bidsFinishDate.CustomFormat = "\'\'";
             this.bidsFinishDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.bidsFinishDate.Location = new System.Drawing.Point(224, 257);
+            this.bidsFinishDate.Location = new System.Drawing.Point(224, 239);
             this.bidsFinishDate.Name = "bidsFinishDate";
             this.bidsFinishDate.Size = new System.Drawing.Size(158, 20);
             this.bidsFinishDate.TabIndex = 28;
@@ -356,7 +356,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(33, 330);
+            this.label16.Location = new System.Drawing.Point(36, 281);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(220, 13);
             this.label16.TabIndex = 31;
@@ -367,7 +367,7 @@
             // 
             this.contractDatePlan.CustomFormat = "\'\'";
             this.contractDatePlan.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.contractDatePlan.Location = new System.Drawing.Point(259, 330);
+            this.contractDatePlan.Location = new System.Drawing.Point(262, 281);
             this.contractDatePlan.Name = "contractDatePlan";
             this.contractDatePlan.Size = new System.Drawing.Size(158, 20);
             this.contractDatePlan.TabIndex = 30;
@@ -375,7 +375,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(59, 356);
+            this.label17.Location = new System.Drawing.Point(62, 307);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(194, 13);
             this.label17.TabIndex = 33;
@@ -386,7 +386,7 @@
             // 
             this.contractDateLast.CustomFormat = "\'\'";
             this.contractDateLast.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.contractDateLast.Location = new System.Drawing.Point(259, 356);
+            this.contractDateLast.Location = new System.Drawing.Point(262, 307);
             this.contractDateLast.Name = "contractDateLast";
             this.contractDateLast.Size = new System.Drawing.Size(158, 20);
             this.contractDateLast.TabIndex = 32;
@@ -394,7 +394,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(372, 436);
+            this.label18.Location = new System.Drawing.Point(378, 364);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(151, 13);
             this.label18.TabIndex = 35;
@@ -405,7 +405,7 @@
             // 
             this.contractDateReal.CustomFormat = "\'\'";
             this.contractDateReal.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.contractDateReal.Location = new System.Drawing.Point(529, 436);
+            this.contractDateReal.Location = new System.Drawing.Point(535, 364);
             this.contractDateReal.Name = "contractDateReal";
             this.contractDateReal.Size = new System.Drawing.Size(158, 20);
             this.contractDateReal.TabIndex = 34;
@@ -413,7 +413,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(446, 330);
+            this.label19.Location = new System.Drawing.Point(449, 281);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(157, 26);
             this.label19.TabIndex = 37;
@@ -424,14 +424,14 @@
             // 
             this.reestrDateLast.CustomFormat = "\'\'";
             this.reestrDateLast.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.reestrDateLast.Location = new System.Drawing.Point(609, 330);
+            this.reestrDateLast.Location = new System.Drawing.Point(612, 281);
             this.reestrDateLast.Name = "reestrDateLast";
             this.reestrDateLast.Size = new System.Drawing.Size(158, 20);
             this.reestrDateLast.TabIndex = 36;
             // 
             // reestrNumber
             // 
-            this.reestrNumber.Location = new System.Drawing.Point(197, 436);
+            this.reestrNumber.Location = new System.Drawing.Point(203, 364);
             this.reestrNumber.Name = "reestrNumber";
             this.reestrNumber.Size = new System.Drawing.Size(158, 20);
             this.reestrNumber.TabIndex = 39;
@@ -439,7 +439,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(32, 439);
+            this.label20.Location = new System.Drawing.Point(38, 367);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(159, 13);
             this.label20.TabIndex = 38;
@@ -448,7 +448,7 @@
             // 
             // contractPrice
             // 
-            this.contractPrice.Location = new System.Drawing.Point(197, 462);
+            this.contractPrice.Location = new System.Drawing.Point(203, 390);
             this.contractPrice.Name = "contractPrice";
             this.contractPrice.Size = new System.Drawing.Size(158, 20);
             this.contractPrice.TabIndex = 41;
@@ -456,7 +456,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(20, 462);
+            this.label21.Location = new System.Drawing.Point(26, 390);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(171, 13);
             this.label21.TabIndex = 40;
@@ -467,16 +467,16 @@
             // 
             this.comments.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comments.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.comments.Location = new System.Drawing.Point(12, 556);
+            this.comments.Location = new System.Drawing.Point(9, 364);
             this.comments.Name = "comments";
-            this.comments.Size = new System.Drawing.Size(773, 172);
+            this.comments.Size = new System.Drawing.Size(773, 119);
             this.comments.TabIndex = 42;
             this.comments.Text = "";
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(9, 540);
+            this.label22.Location = new System.Drawing.Point(6, 348);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(80, 13);
             this.label22.TabIndex = 43;
@@ -487,7 +487,7 @@
             // 
             this.dateTimePicker14.CustomFormat = "\'\'";
             this.dateTimePicker14.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker14.Location = new System.Drawing.Point(224, 205);
+            this.dateTimePicker14.Location = new System.Drawing.Point(224, 187);
             this.dateTimePicker14.Name = "dateTimePicker14";
             this.dateTimePicker14.Size = new System.Drawing.Size(158, 20);
             this.dateTimePicker14.TabIndex = 16;
@@ -496,7 +496,7 @@
             // 
             this.dateTimePicker15.CustomFormat = "\'\'";
             this.dateTimePicker15.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker15.Location = new System.Drawing.Point(224, 231);
+            this.dateTimePicker15.Location = new System.Drawing.Point(224, 213);
             this.dateTimePicker15.Name = "dateTimePicker15";
             this.dateTimePicker15.Size = new System.Drawing.Size(158, 20);
             this.dateTimePicker15.TabIndex = 18;
@@ -505,7 +505,7 @@
             // 
             this.dateTimePicker16.CustomFormat = "\'\'";
             this.dateTimePicker16.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker16.Location = new System.Drawing.Point(224, 257);
+            this.dateTimePicker16.Location = new System.Drawing.Point(224, 239);
             this.dateTimePicker16.Name = "dateTimePicker16";
             this.dateTimePicker16.Size = new System.Drawing.Size(158, 20);
             this.dateTimePicker16.TabIndex = 20;
@@ -514,7 +514,7 @@
             // 
             this.dateTimePicker18.CustomFormat = "\'\'";
             this.dateTimePicker18.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker18.Location = new System.Drawing.Point(259, 356);
+            this.dateTimePicker18.Location = new System.Drawing.Point(262, 307);
             this.dateTimePicker18.Name = "dateTimePicker18";
             this.dateTimePicker18.Size = new System.Drawing.Size(158, 20);
             this.dateTimePicker18.TabIndex = 30;
@@ -523,7 +523,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(797, 791);
+            this.ClientSize = new System.Drawing.Size(797, 508);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.comments);
             this.Controls.Add(this.contractPrice);

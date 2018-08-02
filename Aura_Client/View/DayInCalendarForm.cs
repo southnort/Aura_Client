@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Aura.Model;
+using Aura_Client.Model;
 
 namespace Aura_Client.View
 {
     public partial class DayInCalendarForm : UserControl, IShowable
     {
-        public DayInCalendarForm(DayInCalendar dayInCalendar)
+        public DayInCalendarForm(Aura_Client.Model.DayInCalendar dayInCalendar)
         {
             InitializeComponent();
 
@@ -23,26 +24,26 @@ namespace Aura_Client.View
             //добавить кнопки закупок, если на этот день что-то назначено
             foreach (var pair in dayInCalendar.events)
             {
-                if (panel1.Controls.Count < 2)
+                Button btn;
+                if (panel1.Controls.Count == 0)
                 {
-                    Button btn = CreateButton(pair);
+                    btn = CreateButton(pair);
                     panel1.Controls.Add(btn);
-                    if (panel1.Controls.Count == 0)
-                    {
-                        btn.Location = new Point(7, 6);
-                    }
-                    else
-                    {
-                        btn.Location = new Point(7, 51);
-                    }
-
+                    btn.Location = new Point(0, 0);
                 }
-
+                else if (panel1.Controls.Count == 1)
+                {
+                    btn = CreateButton(pair);
+                    panel1.Controls.Add(btn);
+                    btn.Location = new Point(0, 50);
+                }
                 else
                 {
                     lowerLabel.Text = "...и еще " + (dayInCalendar.events.Count - 2);
                     break;
+
                 }
+
             }
 
             if (dayInCalendar.date.DayOfWeek == DayOfWeek.Sunday ||
@@ -60,11 +61,28 @@ namespace Aura_Client.View
                 TextAlign = ContentAlignment.MiddleLeft,
                 Text = pair.Key.purchaseName + "\n" +
                 pair.Value,
+                Size = new Size(167, 43),
+                Name = pair.Key.id.ToString(),
 
             };
 
+            button.Click += Button_Click;
+
             return button;
 
+        }
+
+        private void Button_Click(object sender, EventArgs e)
+        {
+            var id = ((Button)sender).Name;
+            Purchase pur = Program.dataManager.purchases[id];
+            OpenPurchase(pur);
+        }
+
+        private void OpenPurchase(Purchase pur)
+        {
+            PurchaseForm purchaseForm = new PurchaseForm(pur);
+            purchaseForm.ShowDialog();
         }
 
 
@@ -82,4 +100,6 @@ namespace Aura_Client.View
 
 
     }
+
+
 }
