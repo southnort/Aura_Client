@@ -17,6 +17,10 @@ namespace Aura_Client.View
             InitializeComponent();
 
             userNameLabel.Text = "Пользователь: " + Program.user.name;
+
+            //если пользователь не имеет полномочий администратора, убрать кнопку "Пользователи"
+            if (Program.user.roleID != 0)
+                usersButton.Hide();     
         }
 
         private void purchasesListButton_Click(object sender, EventArgs e)
@@ -41,6 +45,12 @@ namespace Aura_Client.View
         {
             var purchasesCalendarForm = new PurchasesCalendarForm();
             purchasesCalendarForm.Show();
+        }
+
+        private void usersButton_Click(object sender, EventArgs e)
+        {
+            UsersDataBaseForm usersDataBaseForm = new UsersDataBaseForm();
+            usersDataBaseForm.Show();
         }
     }
 }

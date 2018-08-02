@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PurchaseForm));
             this.label1 = new System.Windows.Forms.Label();
             this.employeID = new System.Windows.Forms.ComboBox();
             this.organizationID = new System.Windows.Forms.ComboBox();
@@ -572,6 +573,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.employeID);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PurchaseForm";
             this.Text = "PurchaseForm";
             this.ResumeLayout(false);

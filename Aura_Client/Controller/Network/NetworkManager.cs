@@ -44,7 +44,7 @@ namespace Aura_Client.Network
             }
         }
 
-        
+
         private string PrepareString(string original, string prefix)
         {
             /// <summary>
@@ -60,8 +60,7 @@ namespace Aura_Client.Network
             /// <param name="prefix"></param>
             /// <returns></returns>
 
-
-            return "<#" + prefix + "#" + original + "#>";
+            return "<#" + prefix + "#" + Program.user.ID + "#" + original + "#>";
         }
 
 

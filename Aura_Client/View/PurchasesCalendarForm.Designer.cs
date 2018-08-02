@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PurchasesCalendarForm));
             this.upperPanel = new System.Windows.Forms.Panel();
             this.yearComboBox = new System.Windows.Forms.ComboBox();
             this.nextMonthButton = new System.Windows.Forms.Button();
@@ -40,7 +41,7 @@
             // 
             // upperPanel
             // 
-            this.upperPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.upperPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.upperPanel.BackColor = System.Drawing.SystemColors.Control;
             this.upperPanel.Controls.Add(this.yearComboBox);
@@ -119,8 +120,8 @@
             // 
             // mainPanel
             // 
-            this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.mainPanel.AutoScroll = true;
             this.mainPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -131,7 +132,7 @@
             // 
             // lowerPanel
             // 
-            this.lowerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.lowerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lowerPanel.BackColor = System.Drawing.SystemColors.Control;
             this.lowerPanel.Location = new System.Drawing.Point(12, 449);
@@ -147,6 +148,7 @@
             this.Controls.Add(this.lowerPanel);
             this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.upperPanel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PurchasesCalendarForm";
             this.Text = "PurchasesCalendarForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

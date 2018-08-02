@@ -88,6 +88,12 @@
     <Compile Include="View\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\OpenUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\OpenUserForm.Designer.cs">
+      <DependentUpon>OpenUserForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\PurchaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +111,12 @@
     </Compile>
     <Compile Include="View\PurchasesDataBaseForm.Designer.cs">
       <DependentUpon>PurchasesDataBaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UsersDataBaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\UsersDataBaseForm.Designer.cs">
+      <DependentUpon>UsersDataBaseForm.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -126,11 +138,20 @@
     <EmbeddedResource Include="View\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\OpenUserForm.resx">
+      <DependentUpon>OpenUserForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\PurchaseForm.resx">
       <DependentUpon>PurchaseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\PurchasesCalendarForm.resx">
       <DependentUpon>PurchasesCalendarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PurchasesDataBaseForm.resx">
+      <DependentUpon>PurchasesDataBaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UsersDataBaseForm.resx">
+      <DependentUpon>UsersDataBaseForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

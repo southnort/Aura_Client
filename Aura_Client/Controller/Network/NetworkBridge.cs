@@ -25,6 +25,22 @@ namespace Aura_Client.Network
 
         }
 
+        public void SendUser(Aura.Model.User user)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("USER#");
+            sb.Append(user.ID);
+            sb.Append("#");
+            sb.Append(user.name);
+            sb.Append("#");
+            sb.Append(user.login);
+            sb.Append("#");
+            sb.Append(user.password);
+            sb.Append("#");
+            sb.Append(user.roleID);
 
+            SendMessage(sb.ToString());
+
+        }
     }
 }

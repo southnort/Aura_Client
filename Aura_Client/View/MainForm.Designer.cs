@@ -30,9 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.usersButton = new System.Windows.Forms.Button();
             this.userNameLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.calendarButton = new System.Windows.Forms.Button();
             this.purchasesListButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
@@ -43,11 +47,22 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.usersButton);
             this.panel1.Controls.Add(this.userNameLabel);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(795, 101);
             this.panel1.TabIndex = 1;
+            // 
+            // usersButton
+            // 
+            this.usersButton.Location = new System.Drawing.Point(3, 37);
+            this.usersButton.Name = "usersButton";
+            this.usersButton.Size = new System.Drawing.Size(140, 32);
+            this.usersButton.TabIndex = 2;
+            this.usersButton.Text = "Пользователи";
+            this.usersButton.UseVisualStyleBackColor = true;
+            this.usersButton.Click += new System.EventHandler(this.usersButton_Click);
             // 
             // userNameLabel
             // 
@@ -73,6 +88,9 @@
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.Controls.Add(this.button3);
+            this.panel3.Controls.Add(this.button2);
+            this.panel3.Controls.Add(this.button1);
             this.panel3.Controls.Add(this.calendarButton);
             this.panel3.Controls.Add(this.purchasesListButton);
             this.panel3.Location = new System.Drawing.Point(12, 119);
@@ -80,9 +98,36 @@
             this.panel3.Size = new System.Drawing.Size(795, 226);
             this.panel3.TabIndex = 3;
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(547, 104);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(140, 57);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "Отчеты заказчиков";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(547, 41);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(140, 57);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Реестр договоров";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(3, 29);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(140, 57);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Список организаций";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // calendarButton
             // 
-            this.calendarButton.Location = new System.Drawing.Point(449, 93);
+            this.calendarButton.Location = new System.Drawing.Point(401, 104);
             this.calendarButton.Name = "calendarButton";
             this.calendarButton.Size = new System.Drawing.Size(140, 57);
             this.calendarButton.TabIndex = 1;
@@ -92,7 +137,7 @@
             // 
             // purchasesListButton
             // 
-            this.purchasesListButton.Location = new System.Drawing.Point(156, 93);
+            this.purchasesListButton.Location = new System.Drawing.Point(401, 41);
             this.purchasesListButton.Name = "purchasesListButton";
             this.purchasesListButton.Size = new System.Drawing.Size(140, 57);
             this.purchasesListButton.TabIndex = 0;
@@ -127,5 +172,9 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button calendarButton;
         private System.Windows.Forms.Button purchasesListButton;
+        private System.Windows.Forms.Button usersButton;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }

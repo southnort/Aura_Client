@@ -1,6 +1,6 @@
 ﻿namespace Aura_Client.View
 {
-    partial class PurchasesDataBaseForm
+    partial class UsersDataBaseForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,15 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PurchasesDataBaseForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UsersDataBaseForm));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
@@ -53,13 +51,11 @@
             this.Column2,
             this.Column3,
             this.Column4,
-            this.Column5,
-            this.Column6,
-            this.Column7});
+            this.Column5});
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridView1.Location = new System.Drawing.Point(12, 67);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1162, 371);
+            this.dataGridView1.Size = new System.Drawing.Size(776, 371);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -68,47 +64,37 @@
             this.Column1.HeaderText = "ID";
             this.Column1.Name = "Column1";
             this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column1.Width = 50;
+            this.Column1.Width = 75;
             // 
             // Column2
             // 
-            this.Column2.HeaderText = "Способ";
+            this.Column2.HeaderText = "ФИО";
             this.Column2.Name = "Column2";
+            this.Column2.Width = 250;
             // 
             // Column3
             // 
-            this.Column3.HeaderText = "Наименование закупки";
+            this.Column3.HeaderText = "логин";
             this.Column3.Name = "Column3";
-            this.Column3.Width = 200;
+            this.Column3.Width = 150;
             // 
             // Column4
             // 
-            this.Column4.HeaderText = "Статус";
+            this.Column4.HeaderText = "пароль";
             this.Column4.Name = "Column4";
+            this.Column4.Width = 150;
             // 
             // Column5
             // 
-            this.Column5.HeaderText = "Дата публикации";
+            this.Column5.HeaderText = "роль";
             this.Column5.Name = "Column5";
-            this.Column5.Width = 150;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Ответственный";
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 125;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Комментарии";
-            this.Column7.Name = "Column7";
-            this.Column7.Width = 350;
+            this.Column5.Width = 50;
             // 
             // panel1
             // 
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1162, 49);
+            this.panel1.Size = new System.Drawing.Size(776, 49);
             this.panel1.TabIndex = 1;
             // 
             // panel2
@@ -116,7 +102,7 @@
             this.panel2.Controls.Add(this.button1);
             this.panel2.Location = new System.Drawing.Point(12, 444);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1162, 61);
+            this.panel2.Size = new System.Drawing.Size(776, 61);
             this.panel2.TabIndex = 2;
             // 
             // button1
@@ -125,21 +111,21 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(162, 55);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Добавить закупку";
+            this.button1.Text = "Создать пользователя";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // PurchasesDataBaseForm
+            // UsersDataBaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1186, 517);
+            this.ClientSize = new System.Drawing.Size(800, 517);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "PurchasesDataBaseForm";
-            this.Text = "Все закупки";
+            this.Name = "UsersDataBaseForm";
+            this.Text = "Пользователи системы";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -151,13 +137,11 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.Button button1;
     }
 }
