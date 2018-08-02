@@ -77,6 +77,8 @@
             this.dateTimePicker15 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker16 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker18 = new System.Windows.Forms.DateTimePicker();
+            this.buttonOK = new System.Windows.Forms.Button();
+            this.buttonCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -210,6 +212,7 @@
             this.purchaseEisDate.Name = "purchaseEisDate";
             this.purchaseEisDate.Size = new System.Drawing.Size(158, 20);
             this.purchaseEisDate.TabIndex = 14;
+            this.purchaseEisDate.ValueChanged += new System.EventHandler(this.dateTime_ValueChanged);
             // 
             // label8
             // 
@@ -239,6 +242,7 @@
             this.bidsStartDate.Name = "bidsStartDate";
             this.bidsStartDate.Size = new System.Drawing.Size(158, 20);
             this.bidsStartDate.TabIndex = 16;
+            this.bidsStartDate.CloseUp += new System.EventHandler(this.dateTime_ValueChanged);
             // 
             // label10
             // 
@@ -258,6 +262,7 @@
             this.bidsEndDate.Name = "bidsEndDate";
             this.bidsEndDate.Size = new System.Drawing.Size(158, 20);
             this.bidsEndDate.TabIndex = 18;
+            this.bidsEndDate.CloseUp += new System.EventHandler(this.dateTime_ValueChanged);
             // 
             // label11
             // 
@@ -277,6 +282,7 @@
             this.bidsOpenDate.Name = "bidsOpenDate";
             this.bidsOpenDate.Size = new System.Drawing.Size(158, 20);
             this.bidsOpenDate.TabIndex = 20;
+            this.bidsOpenDate.CloseUp += new System.EventHandler(this.dateTime_ValueChanged);
             // 
             // label12
             // 
@@ -296,6 +302,7 @@
             this.bidsFirstPartDate.Name = "bidsFirstPartDate";
             this.bidsFirstPartDate.Size = new System.Drawing.Size(158, 20);
             this.bidsFirstPartDate.TabIndex = 22;
+            this.bidsFirstPartDate.CloseUp += new System.EventHandler(this.dateTime_ValueChanged);
             // 
             // label13
             // 
@@ -315,6 +322,7 @@
             this.bidsSecondPartDate.Name = "bidsSecondPartDate";
             this.bidsSecondPartDate.Size = new System.Drawing.Size(158, 20);
             this.bidsSecondPartDate.TabIndex = 24;
+            this.bidsSecondPartDate.CloseUp += new System.EventHandler(this.dateTime_ValueChanged);
             // 
             // label14
             // 
@@ -334,6 +342,7 @@
             this.auctionDate.Name = "auctionDate";
             this.auctionDate.Size = new System.Drawing.Size(158, 20);
             this.auctionDate.TabIndex = 26;
+            this.auctionDate.CloseUp += new System.EventHandler(this.dateTime_ValueChanged);
             // 
             // label15
             // 
@@ -353,6 +362,7 @@
             this.bidsFinishDate.Name = "bidsFinishDate";
             this.bidsFinishDate.Size = new System.Drawing.Size(158, 20);
             this.bidsFinishDate.TabIndex = 28;
+            this.bidsFinishDate.CloseUp += new System.EventHandler(this.dateTime_ValueChanged);
             // 
             // label16
             // 
@@ -372,6 +382,7 @@
             this.contractDatePlan.Name = "contractDatePlan";
             this.contractDatePlan.Size = new System.Drawing.Size(158, 20);
             this.contractDatePlan.TabIndex = 30;
+            this.contractDatePlan.CloseUp += new System.EventHandler(this.dateTime_ValueChanged);
             // 
             // label17
             // 
@@ -391,6 +402,7 @@
             this.contractDateLast.Name = "contractDateLast";
             this.contractDateLast.Size = new System.Drawing.Size(158, 20);
             this.contractDateLast.TabIndex = 32;
+            this.contractDateLast.CloseUp += new System.EventHandler(this.dateTime_ValueChanged);
             // 
             // label18
             // 
@@ -429,6 +441,7 @@
             this.reestrDateLast.Name = "reestrDateLast";
             this.reestrDateLast.Size = new System.Drawing.Size(158, 20);
             this.reestrDateLast.TabIndex = 36;
+            this.reestrDateLast.CloseUp += new System.EventHandler(this.dateTime_ValueChanged);
             // 
             // reestrNumber
             // 
@@ -468,9 +481,9 @@
             // 
             this.comments.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comments.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.comments.Location = new System.Drawing.Point(9, 364);
+            this.comments.Location = new System.Drawing.Point(8, 416);
             this.comments.Name = "comments";
-            this.comments.Size = new System.Drawing.Size(773, 119);
+            this.comments.Size = new System.Drawing.Size(773, 91);
             this.comments.TabIndex = 42;
             this.comments.Text = "";
             // 
@@ -520,11 +533,33 @@
             this.dateTimePicker18.Size = new System.Drawing.Size(158, 20);
             this.dateTimePicker18.TabIndex = 30;
             // 
+            // buttonOK
+            // 
+            this.buttonOK.Location = new System.Drawing.Point(262, 513);
+            this.buttonOK.Name = "buttonOK";
+            this.buttonOK.Size = new System.Drawing.Size(100, 44);
+            this.buttonOK.TabIndex = 45;
+            this.buttonOK.Text = "ОК";
+            this.buttonOK.UseVisualStyleBackColor = true;
+            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
+            // 
+            // buttonCancel
+            // 
+            this.buttonCancel.Location = new System.Drawing.Point(438, 513);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(100, 44);
+            this.buttonCancel.TabIndex = 46;
+            this.buttonCancel.Text = "Отмена";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            // 
             // PurchaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(797, 508);
+            this.ClientSize = new System.Drawing.Size(797, 569);
+            this.Controls.Add(this.buttonCancel);
+            this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.comments);
             this.Controls.Add(this.contractPrice);
@@ -631,5 +666,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker15;
         private System.Windows.Forms.DateTimePicker dateTimePicker16;
         private System.Windows.Forms.DateTimePicker dateTimePicker18;
+        private System.Windows.Forms.Button buttonOK;
+        private System.Windows.Forms.Button buttonCancel;
     }
 }

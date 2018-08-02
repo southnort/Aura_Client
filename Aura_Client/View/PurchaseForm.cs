@@ -96,5 +96,108 @@ namespace Aura_Client.View
             }
         }
 
+        private void SetDate(DateTimePicker picker, DateTime date)
+        {
+            if (date == DateTime.MinValue)
+            {
+                picker.Format = DateTimePickerFormat.Custom;
+                picker.CustomFormat = "''";
+            }
+
+            else
+            {
+                picker.Format = DateTimePickerFormat.Short;
+                //  picker.Value = date;
+            }
+        }
+
+        private void dateTime_ValueChanged(object sender, EventArgs e)
+        {
+            var picker = (DateTimePicker)sender;
+            SetDate(picker, picker.Value);
+
+        }
+
+
+
+        private void buttonOK_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.OK;
+            SendToServer();
+            Close();
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+            Close();
+        }
+
+        private void SendToServer()
+        {
+            if (purchase.id < 1)
+            {
+                Program.bridge.SendMessage("NEWPURCHASE#" + GetCommandForCreatingNewPurchase());
+            }
+        }
+
+        private string GetCommandForCreatingNewPurchase()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("INSERT INTO Purchases ('employeID', 'organizationID', 'purchaseMethodID', 'purchaseName', ");
+            sb.Append("'statusID', 'purchacePrice', 'purchaseEisNum', 'purchaseEisDate', 'bidsStartDate', ");
+            sb.Append("'bidsEndDate', 'bidsOpenDate', 'bidsFirstPartDate', 'auctionDate', 'bidsSecondPartDate', ");
+            sb.Append("'bidsFinishDate', 'contractPrice', 'contractDatePlan', 'contractDateLast', ");
+            sb.Append("'contractDateReal', 'reestrDateLast', 'reestrNumber', 'comments') values ('");
+
+            sb.Append(purchase.employeID);
+            sb.Append("', '");
+            sb.Append(purchase.organizationID);
+            sb.Append("', '");
+            sb.Append(purchase.purchaseMethodID);
+            sb.Append("', '");
+            sb.Append(purchase.purchaseName);
+            sb.Append("', '");
+            sb.Append(purchase.statusID);
+            sb.Append("', '");
+            sb.Append(purchase.purchacePrice);
+            sb.Append("', '");
+            sb.Append(purchase.purchaseEisNum);
+            sb.Append("', '");
+            sb.Append(purchase.purchaseEisDate);
+            sb.Append("', '");
+            sb.Append(purchase.bidsStartDate);
+            sb.Append("', '");
+            sb.Append(purchase.bidsEndDate);
+            sb.Append("', '");
+            sb.Append(purchase.bidsOpenDate);
+            sb.Append("', '");
+            sb.Append(purchase.bidsFirstPartDate);
+            sb.Append("', '");
+            sb.Append(purchase.auctionDate);
+            sb.Append("', '");
+            sb.Append(purchase.bidsSecondPartDate);
+            sb.Append("', '");
+            sb.Append(purchase.bidsFinishDate);
+            sb.Append("', '");
+            sb.Append(purchase.contractPrice);
+            sb.Append("', '");
+            sb.Append(purchase.contractDatePlan);
+            sb.Append("', '");
+            sb.Append(purchase.contractDateLast);
+            sb.Append("', '");
+            sb.Append(purchase.contractDateReal);
+            sb.Append("', '");
+            sb.Append(purchase.reestrDateLast);
+            sb.Append("', '");
+            sb.Append(purchase.reestrNumber);
+            sb.Append("', '");
+            sb.Append(purchase.comments);
+            sb.Append("')");
+
+            return sb.ToString();
+        }
+
     }
+
 }

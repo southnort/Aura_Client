@@ -7,7 +7,7 @@ namespace Aura_Client.Model
 {
     static public class Catalog
     {
-        //класс-хранилище для списков
+        //класс-хранилище для списков в формах
         public static List<string> purchasesNames = new List<string>()
         {
             "<не указано>",
@@ -37,6 +37,26 @@ namespace Aura_Client.Model
             "Тестовый заказчик 1",
             "Тестовый заказчик 2",
             "Тестовый заказчик 3",
+
+        };
+
+
+        public static List<string> contractConditions = new List<string>
+        {
+            "<не указано>",
+            "действует",
+            "расторгнут",
+            "без договора",
+        
+        };
+
+        public static List<string> contractOriginalConditions = new List<string>
+        {
+            "<не указано>",
+            "оригинал",
+            "нет оригинала",
+            "подписан ЭЦП",
+            "без договора",
 
         };
     }

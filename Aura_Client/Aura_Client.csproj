@@ -94,6 +94,12 @@
     <Compile Include="View\OpenUserForm.Designer.cs">
       <DependentUpon>OpenUserForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\OrganisationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\OrganisationForm.Designer.cs">
+      <DependentUpon>OrganisationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\PurchaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\OpenUserForm.resx">
       <DependentUpon>OpenUserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\OrganisationForm.resx">
+      <DependentUpon>OrganisationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\PurchaseForm.resx">
       <DependentUpon>PurchaseForm.cs</DependentUpon>
