@@ -85,5 +85,11 @@ namespace Aura_Client.Controller
 
         }
 
+        public bool IsNotEmpty()
+        {
+            //Добавлялись ли значения для изменения
+            return changes.Count > 0;
+        }
+
     }
 }

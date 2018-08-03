@@ -14,7 +14,7 @@ namespace Aura_Client.View
 {
     public partial class PurchaseForm : AuraForm
     {
-        private Purchase purchase;      
+        private Purchase purchase;
 
         public PurchaseForm(Purchase purchase)
         {
@@ -22,7 +22,7 @@ namespace Aura_Client.View
             this.purchase = purchase;
             LoadCatalogs();
             creator = new CommandStringCreator("Purchases", purchase.id.ToString());
-            FillForm();            
+            FillForm();
         }
 
         private void LoadCatalogs()
@@ -84,6 +84,8 @@ namespace Aura_Client.View
             contractPrice.Text = purchase.contractPrice.ToString("### ### ### ### ###.##");
             SetDate(contractDateReal, purchase.contractDateReal);
 
+            comments.Text = purchase.comments;
+
         }
 
 
@@ -134,14 +136,21 @@ namespace Aura_Client.View
 
         private void SendToServer()
         {
-            if (purchase.id < 1)
+            if (creator.IsNotEmpty())
             {
-                Program.bridge.SendMessage("NEWPURCHASE#" + creator.ToNew());
+
+                if (purchase.id < 1)
+                {
+                    Program.bridge.SendMessage("NEWPURCHASE#" + creator.ToNew());
+                }
+                else
+                {
+                    Program.bridge.SendMessage("UPDATEPURCHASE#" + creator.ToUpdate());
+                }
             }
+
             else
-            {
-                Program.bridge.SendMessage("UPDATEPURCHASE#" + creator.ToUpdate());
-            }
+                Close();
 
         }
 
