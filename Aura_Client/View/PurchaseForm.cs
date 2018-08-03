@@ -8,12 +8,15 @@ using System.Text;
 using System.Windows.Forms;
 using Aura.Model;
 using Aura_Client.Model;
+using Aura_Client.Controller;
 
 namespace Aura_Client.View
 {
     public partial class PurchaseForm : AuraForm
     {
         private Purchase purchase;
+        private CommandStringCreator creator;
+
 
         public PurchaseForm(Purchase purchase)
         {
@@ -21,6 +24,8 @@ namespace Aura_Client.View
             this.purchase = purchase;
             LoadCatalogs();
             FillForm();
+
+            creator = new CommandStringCreator("Purchases", purchase.id.ToString());
         }
 
         private void LoadCatalogs()
@@ -111,12 +116,27 @@ namespace Aura_Client.View
             }
         }
 
+
         private void dateTime_ValueChanged(object sender, EventArgs e)
         {
             var picker = (DateTimePicker)sender;
             SetDate(picker, picker.Value);
 
+            creator.Add(picker.Name, picker.Value.ToShortDateString());
         }
+
+        private void textBox_ValueChanged(object sender, EventArgs e)
+        {
+            var textBox = (TextBox)sender;
+            creator.Add(textBox.Name, textBox.Text);
+        }
+
+        private void comboBox_ValueChanged(object sender, EventArgs e)
+        {
+            var box = (ComboBox)sender;
+            creator.Add(box.Name, box.Text);
+        }
+
 
 
 
@@ -137,67 +157,18 @@ namespace Aura_Client.View
         {
             if (purchase.id < 1)
             {
-                Program.bridge.SendMessage("NEWPURCHASE#" + GetCommandForCreatingNewPurchase());
+                Program.bridge.SendMessage("NEWPURCHASE#" + creator.ToNew());
+            }
+            else
+            {
+                Program.bridge.SendMessage("UPDATEPURCHASE#" + creator.ToUpdate());
             }
         }
 
-        private string GetCommandForCreatingNewPurchase()
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.Append("INSERT INTO Purchases ('employeID', 'organizationID', 'purchaseMethodID', 'purchaseName', ");
-            sb.Append("'statusID', 'purchacePrice', 'purchaseEisNum', 'purchaseEisDate', 'bidsStartDate', ");
-            sb.Append("'bidsEndDate', 'bidsOpenDate', 'bidsFirstPartDate', 'auctionDate', 'bidsSecondPartDate', ");
-            sb.Append("'bidsFinishDate', 'contractPrice', 'contractDatePlan', 'contractDateLast', ");
-            sb.Append("'contractDateReal', 'reestrDateLast', 'reestrNumber', 'comments') values ('");
 
-            sb.Append(purchase.employeID);
-            sb.Append("', '");
-            sb.Append(purchase.organizationID);
-            sb.Append("', '");
-            sb.Append(purchase.purchaseMethodID);
-            sb.Append("', '");
-            sb.Append(purchase.purchaseName);
-            sb.Append("', '");
-            sb.Append(purchase.statusID);
-            sb.Append("', '");
-            sb.Append(purchase.purchacePrice);
-            sb.Append("', '");
-            sb.Append(purchase.purchaseEisNum);
-            sb.Append("', '");
-            sb.Append(purchase.purchaseEisDate);
-            sb.Append("', '");
-            sb.Append(purchase.bidsStartDate);
-            sb.Append("', '");
-            sb.Append(purchase.bidsEndDate);
-            sb.Append("', '");
-            sb.Append(purchase.bidsOpenDate);
-            sb.Append("', '");
-            sb.Append(purchase.bidsFirstPartDate);
-            sb.Append("', '");
-            sb.Append(purchase.auctionDate);
-            sb.Append("', '");
-            sb.Append(purchase.bidsSecondPartDate);
-            sb.Append("', '");
-            sb.Append(purchase.bidsFinishDate);
-            sb.Append("', '");
-            sb.Append(purchase.contractPrice);
-            sb.Append("', '");
-            sb.Append(purchase.contractDatePlan);
-            sb.Append("', '");
-            sb.Append(purchase.contractDateLast);
-            sb.Append("', '");
-            sb.Append(purchase.contractDateReal);
-            sb.Append("', '");
-            sb.Append(purchase.reestrDateLast);
-            sb.Append("', '");
-            sb.Append(purchase.reestrNumber);
-            sb.Append("', '");
-            sb.Append(purchase.comments);
-            sb.Append("')");
 
-            return sb.ToString();
-        }
 
+       
     }
 
 }

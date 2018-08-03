@@ -14,7 +14,7 @@ namespace Aura_Client.Controller
         private string objectID;                //ID объекта в БД
         private Dictionary<string, string> changes;     //key - название поля, value - его новое значение
 
-        public CommandStringCreator(string nameOfTable, string id="-1")
+        public CommandStringCreator(string nameOfTable, string id)
         {
             tableName = nameOfTable;
             changes = new Dictionary<string, string>();

@@ -98,6 +98,7 @@
             this.employeID.Name = "employeID";
             this.employeID.Size = new System.Drawing.Size(176, 21);
             this.employeID.TabIndex = 1;
+            this.employeID.DropDownClosed += new System.EventHandler(this.comboBox_ValueChanged);
             // 
             // organizationID
             // 
@@ -106,6 +107,7 @@
             this.organizationID.Name = "organizationID";
             this.organizationID.Size = new System.Drawing.Size(248, 21);
             this.organizationID.TabIndex = 3;
+            this.organizationID.DropDownClosed += new System.EventHandler(this.comboBox_ValueChanged);
             // 
             // label2
             // 
@@ -124,6 +126,7 @@
             this.purchaseMethodID.Name = "purchaseMethodID";
             this.purchaseMethodID.Size = new System.Drawing.Size(248, 21);
             this.purchaseMethodID.TabIndex = 5;
+            this.purchaseMethodID.DropDownClosed += new System.EventHandler(this.comboBox_ValueChanged);
             // 
             // label3
             // 
@@ -151,6 +154,7 @@
             this.purchaseName.Name = "purchaseName";
             this.purchaseName.Size = new System.Drawing.Size(248, 20);
             this.purchaseName.TabIndex = 7;
+            this.purchaseName.TextChanged += new System.EventHandler(this.textBox_ValueChanged);
             // 
             // statusID
             // 
@@ -159,6 +163,7 @@
             this.statusID.Name = "statusID";
             this.statusID.Size = new System.Drawing.Size(176, 21);
             this.statusID.TabIndex = 9;
+            this.statusID.DropDownClosed += new System.EventHandler(this.comboBox_ValueChanged);
             // 
             // label5
             // 
@@ -176,6 +181,7 @@
             this.purchacePrice.Name = "purchacePrice";
             this.purchacePrice.Size = new System.Drawing.Size(248, 20);
             this.purchacePrice.TabIndex = 11;
+            this.purchacePrice.TextChanged += new System.EventHandler(this.textBox_ValueChanged);
             // 
             // label6
             // 
@@ -193,6 +199,7 @@
             this.purchaseEisNum.Name = "purchaseEisNum";
             this.purchaseEisNum.Size = new System.Drawing.Size(158, 20);
             this.purchaseEisNum.TabIndex = 13;
+            this.purchaseEisNum.TextChanged += new System.EventHandler(this.textBox_ValueChanged);
             // 
             // label7
             // 
@@ -422,6 +429,7 @@
             this.contractDateReal.Name = "contractDateReal";
             this.contractDateReal.Size = new System.Drawing.Size(158, 20);
             this.contractDateReal.TabIndex = 34;
+            this.contractDateReal.CloseUp += new System.EventHandler(this.dateTime_ValueChanged);
             // 
             // label19
             // 
@@ -449,6 +457,7 @@
             this.reestrNumber.Name = "reestrNumber";
             this.reestrNumber.Size = new System.Drawing.Size(158, 20);
             this.reestrNumber.TabIndex = 39;
+            this.reestrNumber.TextChanged += new System.EventHandler(this.textBox_ValueChanged);
             // 
             // label20
             // 
@@ -466,6 +475,7 @@
             this.contractPrice.Name = "contractPrice";
             this.contractPrice.Size = new System.Drawing.Size(158, 20);
             this.contractPrice.TabIndex = 41;
+            this.contractPrice.TextChanged += new System.EventHandler(this.textBox_ValueChanged);
             // 
             // label21
             // 
@@ -486,6 +496,7 @@
             this.comments.Size = new System.Drawing.Size(773, 91);
             this.comments.TabIndex = 42;
             this.comments.Text = "";
+            this.comments.TextChanged += new System.EventHandler(this.textBox_ValueChanged);
             // 
             // label22
             // 

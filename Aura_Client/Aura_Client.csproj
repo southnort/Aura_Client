@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\CommandStringCreator.cs" />
     <Compile Include="Controller\Network\MessageHandler.cs" />
     <Compile Include="Controller\Network\NetworkBridge.cs" />
     <Compile Include="Controller\Network\NetworkGate.cs" />
