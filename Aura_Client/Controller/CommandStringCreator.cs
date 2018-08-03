@@ -8,7 +8,7 @@ namespace Aura_Client.Controller
     /// <summary>
     /// Класс для создания строковых команд для БД
     /// </summary>
-    class CommandStringCreator
+    public class CommandStringCreator
     {
         private string tableName;               //название таблицы в БД, с которой нужно работать
         private string objectID;                //ID объекта в БД
@@ -73,7 +73,7 @@ namespace Aura_Client.Controller
                 sb.Append(pair.Key);
                 sb.Append(" = '");
                 sb.Append(pair.Value);
-                sb.Append("', ");                
+                sb.Append("', ");
             }
             sb.Length--;
             sb.Length--;

@@ -154,7 +154,7 @@
             this.purchaseName.Name = "purchaseName";
             this.purchaseName.Size = new System.Drawing.Size(248, 20);
             this.purchaseName.TabIndex = 7;
-            this.purchaseName.TextChanged += new System.EventHandler(this.textBox_ValueChanged);
+            this.purchaseName.Leave += new System.EventHandler(this.textBox_ValueChanged);
             // 
             // statusID
             // 
@@ -181,7 +181,7 @@
             this.purchacePrice.Name = "purchacePrice";
             this.purchacePrice.Size = new System.Drawing.Size(248, 20);
             this.purchacePrice.TabIndex = 11;
-            this.purchacePrice.TextChanged += new System.EventHandler(this.textBox_ValueChanged);
+            this.purchacePrice.Leave += new System.EventHandler(this.textBox_ValueChanged);
             // 
             // label6
             // 
@@ -199,7 +199,7 @@
             this.purchaseEisNum.Name = "purchaseEisNum";
             this.purchaseEisNum.Size = new System.Drawing.Size(158, 20);
             this.purchaseEisNum.TabIndex = 13;
-            this.purchaseEisNum.TextChanged += new System.EventHandler(this.textBox_ValueChanged);
+            this.purchaseEisNum.Leave += new System.EventHandler(this.textBox_ValueChanged);
             // 
             // label7
             // 
@@ -457,7 +457,7 @@
             this.reestrNumber.Name = "reestrNumber";
             this.reestrNumber.Size = new System.Drawing.Size(158, 20);
             this.reestrNumber.TabIndex = 39;
-            this.reestrNumber.TextChanged += new System.EventHandler(this.textBox_ValueChanged);
+            this.reestrNumber.Leave += new System.EventHandler(this.textBox_ValueChanged);
             // 
             // label20
             // 
@@ -475,7 +475,7 @@
             this.contractPrice.Name = "contractPrice";
             this.contractPrice.Size = new System.Drawing.Size(158, 20);
             this.contractPrice.TabIndex = 41;
-            this.contractPrice.TextChanged += new System.EventHandler(this.textBox_ValueChanged);
+            this.contractPrice.Leave += new System.EventHandler(this.textBox_ValueChanged);
             // 
             // label21
             // 
@@ -496,7 +496,7 @@
             this.comments.Size = new System.Drawing.Size(773, 91);
             this.comments.TabIndex = 42;
             this.comments.Text = "";
-            this.comments.TextChanged += new System.EventHandler(this.textBox_ValueChanged);
+            this.comments.Leave += new System.EventHandler(this.textBox_ValueChanged);
             // 
             // label22
             // 

@@ -61,6 +61,7 @@
             this.name.Name = "name";
             this.name.Size = new System.Drawing.Size(213, 15);
             this.name.TabIndex = 0;
+            this.name.Leave += new System.EventHandler(this.textBox_ValueChanged);
             // 
             // label1
             // 
@@ -90,6 +91,7 @@
             this.inn.Name = "inn";
             this.inn.Size = new System.Drawing.Size(213, 15);
             this.inn.TabIndex = 2;
+            this.inn.Leave += new System.EventHandler(this.textBox_ValueChanged);
             // 
             // contactName
             // 
@@ -100,6 +102,7 @@
             this.contactName.Size = new System.Drawing.Size(213, 52);
             this.contactName.TabIndex = 4;
             this.contactName.Text = "\n";
+            this.contactName.Leave += new System.EventHandler(this.textBox_ValueChanged);
             // 
             // label3
             // 
@@ -130,6 +133,7 @@
             this.phoneNumber.Size = new System.Drawing.Size(213, 52);
             this.phoneNumber.TabIndex = 6;
             this.phoneNumber.Text = "";
+            this.phoneNumber.Leave += new System.EventHandler(this.textBox_ValueChanged);
             // 
             // label5
             // 
@@ -150,6 +154,7 @@
             this.email.Size = new System.Drawing.Size(213, 52);
             this.email.TabIndex = 8;
             this.email.Text = "";
+            this.email.Leave += new System.EventHandler(this.textBox_ValueChanged);
             // 
             // comments
             // 
@@ -160,6 +165,7 @@
             this.comments.Size = new System.Drawing.Size(676, 86);
             this.comments.TabIndex = 10;
             this.comments.Text = "";
+            this.comments.Leave += new System.EventHandler(this.textBox_ValueChanged);
             // 
             // label6
             // 
@@ -189,6 +195,7 @@
             this.contractNumber.Name = "contractNumber";
             this.contractNumber.Size = new System.Drawing.Size(213, 15);
             this.contractNumber.TabIndex = 12;
+            this.contractNumber.Leave += new System.EventHandler(this.textBox_ValueChanged);
             // 
             // contractStart
             // 
@@ -198,6 +205,7 @@
             this.contractStart.Name = "contractStart";
             this.contractStart.Size = new System.Drawing.Size(88, 22);
             this.contractStart.TabIndex = 14;
+            this.contractStart.CloseUp += new System.EventHandler(this.dateTime_ValueChanged);
             // 
             // label7
             // 
@@ -227,6 +235,7 @@
             this.contractEnd.Name = "contractEnd";
             this.contractEnd.Size = new System.Drawing.Size(88, 22);
             this.contractEnd.TabIndex = 16;
+            this.contractEnd.CloseUp += new System.EventHandler(this.dateTime_ValueChanged);
             // 
             // originalID
             // 
@@ -236,6 +245,7 @@
             this.originalID.Name = "originalID";
             this.originalID.Size = new System.Drawing.Size(121, 24);
             this.originalID.TabIndex = 18;
+            this.originalID.Leave += new System.EventHandler(this.comboBox_ValueChanged);
             // 
             // label10
             // 
@@ -265,6 +275,7 @@
             this.contractCondition.Name = "contractCondition";
             this.contractCondition.Size = new System.Drawing.Size(121, 24);
             this.contractCondition.TabIndex = 20;
+            this.contractCondition.Leave += new System.EventHandler(this.comboBox_ValueChanged);
             // 
             // OrganisationForm
             // 

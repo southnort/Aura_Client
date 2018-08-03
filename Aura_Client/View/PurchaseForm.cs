@@ -14,18 +14,15 @@ namespace Aura_Client.View
 {
     public partial class PurchaseForm : AuraForm
     {
-        private Purchase purchase;
-        private CommandStringCreator creator;
-
+        private Purchase purchase;      
 
         public PurchaseForm(Purchase purchase)
         {
             InitializeComponent();
             this.purchase = purchase;
             LoadCatalogs();
-            FillForm();
-
             creator = new CommandStringCreator("Purchases", purchase.id.ToString());
+            FillForm();            
         }
 
         private void LoadCatalogs()
@@ -41,7 +38,6 @@ namespace Aura_Client.View
                 statusID.Items.Add(item);
             }
 
-            employeID.Items.Add("<не указано>");
             foreach (var item in Program.dataManager.userNames)
             {
                 employeID.Items.Add(item.Value);
@@ -51,6 +47,11 @@ namespace Aura_Client.View
             {
                 organizationID.Items.Add(item);
             }
+
+            purchaseMethodID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
+            statusID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
+            employeID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
+            organizationID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
 
         }
 
@@ -85,37 +86,6 @@ namespace Aura_Client.View
 
         }
 
-        private void SetDate(DateTimePicker picker, string date)
-        {
-            DateTime dateTime = Convert.ToDateTime(date);
-            if (dateTime == DateTime.MinValue)
-            {
-                picker.Format = DateTimePickerFormat.Custom;
-                picker.CustomFormat = "''";
-            }
-
-            else
-            {
-                picker.Format = DateTimePickerFormat.Short;
-                picker.Value = dateTime;
-            }
-        }
-
-        private void SetDate(DateTimePicker picker, DateTime date)
-        {
-            if (date == DateTime.MinValue)
-            {
-                picker.Format = DateTimePickerFormat.Custom;
-                picker.CustomFormat = "''";
-            }
-
-            else
-            {
-                picker.Format = DateTimePickerFormat.Short;
-                //  picker.Value = date;
-            }
-        }
-
 
         private void dateTime_ValueChanged(object sender, EventArgs e)
         {
@@ -127,16 +97,25 @@ namespace Aura_Client.View
 
         private void textBox_ValueChanged(object sender, EventArgs e)
         {
-            var textBox = (TextBox)sender;
-            creator.Add(textBox.Name, textBox.Text);
+            if (sender is TextBox)
+            {
+                var textBox = (TextBox)sender;
+                creator.Add(textBox.Name, textBox.Text);
+            }
+            if (sender is RichTextBox)
+            {
+                var textBox = (RichTextBox)sender;
+                creator.Add(textBox.Name, textBox.Text);
+            }
+
+
         }
 
         private void comboBox_ValueChanged(object sender, EventArgs e)
         {
             var box = (ComboBox)sender;
-            creator.Add(box.Name, box.Text);
+            creator.Add(box.Name, box.SelectedIndex.ToString());
         }
-
 
 
 
@@ -163,12 +142,9 @@ namespace Aura_Client.View
             {
                 Program.bridge.SendMessage("UPDATEPURCHASE#" + creator.ToUpdate());
             }
+
         }
 
-
-
-
-       
     }
 
 }
