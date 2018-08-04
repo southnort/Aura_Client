@@ -123,9 +123,9 @@ namespace Aura_Client.View
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.OK;
             SendToServer();
-            Close();
+            DialogResult = DialogResult.OK;            
+            
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)

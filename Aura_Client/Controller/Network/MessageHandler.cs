@@ -10,7 +10,7 @@ namespace Aura_Client.Network
     /// </summary>
     class MessageHandler
     {
-        protected internal string HandleMessage(string message)
+        protected internal string HandleMessage(string message, object ob)
         {
             //обработать полученное сообщение и ответить клиенту
             List<string> arr = SplitString(message);
@@ -21,7 +21,8 @@ namespace Aura_Client.Network
                 case "LOGINSUCCESS":
                     LoginSuccess(arr); break;
 
-
+                case "ADDNEWPURCHASE":
+                    NewPurchase(ob); break;
 
                 default: Console.WriteLine("ERROR string is incorrect:\n " + message); break;
             }
@@ -57,6 +58,11 @@ namespace Aura_Client.Network
 
         }
 
+        private void NewPurchase(object ob)
+        {
+            var pur = (Aura.Model.Purchase)ob;
+            Program.dataManager.purchases.Add(pur.id.ToString(), pur);
+        }
 
 
     }

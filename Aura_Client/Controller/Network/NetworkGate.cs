@@ -27,7 +27,7 @@ namespace Aura_Client.Network
         private int listenPort;                 //порт клиента, который нужно слушать  
         private NetworkStream listeningStream;
 
-        
+
 
 
         public NetworkGate(string serverIPaddress, int serverPort, int broadcastPort, MessageHandler handler)
@@ -55,7 +55,7 @@ namespace Aura_Client.Network
                 //receiveThread.Start(); //старт потока
 
 
-                
+
 
             }
 
@@ -107,7 +107,9 @@ namespace Aura_Client.Network
                 try
                 {
                     string message = ReceiveBroadcast();
-                    HandleMessage(message);
+                    Console.WriteLine(message);
+                    object ob = ReceiveObject();                    
+                    HandleMessage(message, ob);
 
                 }
 
@@ -286,9 +288,9 @@ namespace Aura_Client.Network
 
 
 
-        private void HandleMessage(string message)
+        private void HandleMessage(string message, object ob)
         {
-            messageHandler.HandleMessage(message);
+            messageHandler.HandleMessage(message, ob);
         }
 
 

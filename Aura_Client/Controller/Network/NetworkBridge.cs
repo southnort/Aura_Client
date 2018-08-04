@@ -21,7 +21,7 @@ namespace Aura_Client.Network
         {
             //запрос серверу на логин            
             var request = "LOGIN#" + login + "#" + password;
-            return messageHandler.HandleMessage(ReceiveMessage(request));
+            return messageHandler.HandleMessage(ReceiveMessage(request), null);
 
         }
 

@@ -93,12 +93,11 @@ namespace Aura_Client.View
 
             PurchaseForm form = new PurchaseForm(purchase);
             var result = form.ShowDialog();
-            //if (result == DialogResult.OK)
-            //{
-            //    adapter.AddUser(form.returnUser);
-            //    ReloadTable(adapter.GetUsersInTable());
+            if (result == DialogResult.OK)
+            {
+                ReloadTable(Program.dataManager.purchases);
 
-            //}
+            }
 
         }
 
