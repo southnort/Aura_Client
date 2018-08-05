@@ -101,6 +101,12 @@
     <Compile Include="View\OrganisationForm.Designer.cs">
       <DependentUpon>OrganisationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\OrganisationsDataBaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\OrganisationsDataBaseForm.Designer.cs">
+      <DependentUpon>OrganisationsDataBaseForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\PurchaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\OrganisationForm.resx">
       <DependentUpon>OrganisationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\OrganisationsDataBaseForm.resx">
+      <DependentUpon>OrganisationsDataBaseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\PurchaseForm.resx">
       <DependentUpon>PurchaseForm.cs</DependentUpon>

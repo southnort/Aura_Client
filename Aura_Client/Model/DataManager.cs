@@ -8,9 +8,9 @@ namespace Aura_Client.Model
 {
     class DataManager
     {
-        public Dictionary<string, string> userNames = new Dictionary<string, string>();
-        //  private Dictionary<string, Purchase> purchases = new Dictionary<string, Purchase>();
+        public Dictionary<string, string> userNames = new Dictionary<string, string>();        
         private List<Purchase> purchases = new List<Purchase>();
+        private List<Organisation> organisations = new List<Organisation>();
 
 
 
@@ -25,6 +25,12 @@ namespace Aura_Client.Model
             this.purchases = purchases;
 
         }
+
+        public void SetOrganisations(List<Organisation> organisations)
+        {
+            this.organisations = organisations;
+        }
+
 
         public Calendar GetCalendar()
         {
@@ -71,10 +77,7 @@ namespace Aura_Client.Model
         }
 
         public Purchase GetPurchase(string id)
-        {
-            //if (purchases.ContainsKey(id)) return purchases[id];
-
-            //else throw new Exception("Нет закупки с ID= " + id);
+        {           
             lock (purchases)
             {
                 foreach (var item in purchases)
@@ -84,6 +87,50 @@ namespace Aura_Client.Model
                 }
 
                 throw new Exception("Нет закупки с ID= " + id);
+            }
+        }
+
+
+
+        public void AddOrganisation(Organisation organisation)
+        {
+            lock (organisations)
+            {
+                organisations.Add(organisation);
+            }
+        }
+
+        public void UpdateOrganisation(Organisation organisation)
+        {
+            lock (organisations)
+            {
+                for (int i = organisations.Count - 1;i>= 0; i--)
+                {
+                    if (organisations[i].id == organisation.id)
+                    {
+                        organisations[i] = organisation;
+                        break;
+                    }
+                }
+            }
+        }
+
+        public List<Organisation> GetAllOrganisations()
+        {
+            return organisations;
+        }
+
+        public Organisation GetOrganisation(string id)
+        {
+            lock (organisations)
+            {
+                foreach (var item in organisations)
+                {
+                    if (item.id.ToString() == id)
+                        return item;
+                }
+
+                throw new Exception("Нет организации с ID= " + id);
             }
         }
 

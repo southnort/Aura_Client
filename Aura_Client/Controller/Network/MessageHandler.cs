@@ -22,7 +22,7 @@ namespace Aura_Client.Network
                 case "LOGINSUCCESS":
                     LoginSuccess(arr); break;
 
-                case "ADDNEWPURCHASE":
+                case "NEWPURCHASE":
                     NewPurchase(ob); break;
 
                 case "UPDATEPURCHASE":

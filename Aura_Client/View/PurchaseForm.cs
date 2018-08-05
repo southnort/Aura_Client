@@ -23,6 +23,7 @@ namespace Aura_Client.View
             LoadCatalogs();
             creator = new CommandStringCreator("Purchases", purchase.id.ToString());
             FillForm();
+
         }
 
         private void LoadCatalogs()
@@ -124,8 +125,8 @@ namespace Aura_Client.View
         private void buttonOK_Click(object sender, EventArgs e)
         {
             SendToServer();
-            timer1.Start();          
-            
+            timer1.Start();     //закрыть форму через время      
+
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -138,7 +139,6 @@ namespace Aura_Client.View
         {
             if (creator.IsNotEmpty())
             {
-
                 if (purchase.id < 1)
                 {
                     Program.bridge.SendMessage("NEWPURCHASE#" + creator.ToNew());

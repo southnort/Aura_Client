@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrganisationForm));
             this.name = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -51,6 +52,11 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.contractCondition = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.law = new System.Windows.Forms.ComboBox();
+            this.buttonOK = new System.Windows.Forms.Button();
+            this.buttonCancel = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // name
@@ -241,7 +247,7 @@
             // 
             this.originalID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.originalID.FormattingEnabled = true;
-            this.originalID.Location = new System.Drawing.Point(603, 127);
+            this.originalID.Location = new System.Drawing.Point(603, 180);
             this.originalID.Name = "originalID";
             this.originalID.Size = new System.Drawing.Size(121, 24);
             this.originalID.TabIndex = 18;
@@ -251,7 +257,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label10.Location = new System.Drawing.Point(525, 128);
+            this.label10.Location = new System.Drawing.Point(525, 181);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(72, 16);
             this.label10.TabIndex = 19;
@@ -261,7 +267,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label11.Location = new System.Drawing.Point(518, 98);
+            this.label11.Location = new System.Drawing.Point(518, 151);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(78, 16);
             this.label11.TabIndex = 21;
@@ -271,17 +277,66 @@
             // 
             this.contractCondition.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.contractCondition.FormattingEnabled = true;
-            this.contractCondition.Location = new System.Drawing.Point(603, 97);
+            this.contractCondition.Location = new System.Drawing.Point(603, 150);
             this.contractCondition.Name = "contractCondition";
             this.contractCondition.Size = new System.Drawing.Size(121, 24);
             this.contractCondition.TabIndex = 20;
             this.contractCondition.Leave += new System.EventHandler(this.comboBox_ValueChanged);
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label12.Location = new System.Drawing.Point(523, 118);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(73, 16);
+            this.label12.TabIndex = 23;
+            this.label12.Text = "44 или 223";
+            // 
+            // law
+            // 
+            this.law.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.law.FormattingEnabled = true;
+            this.law.Location = new System.Drawing.Point(603, 118);
+            this.law.Name = "law";
+            this.law.Size = new System.Drawing.Size(121, 24);
+            this.law.TabIndex = 22;
+            this.law.Leave += new System.EventHandler(this.comboBox_ValueChanged);
+            // 
+            // buttonOK
+            // 
+            this.buttonOK.Location = new System.Drawing.Point(204, 405);
+            this.buttonOK.Name = "buttonOK";
+            this.buttonOK.Size = new System.Drawing.Size(111, 49);
+            this.buttonOK.TabIndex = 24;
+            this.buttonOK.Text = "OK";
+            this.buttonOK.UseVisualStyleBackColor = true;
+            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
+            // 
+            // buttonCancel
+            // 
+            this.buttonCancel.Location = new System.Drawing.Point(555, 405);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(111, 49);
+            this.buttonCancel.TabIndex = 25;
+            this.buttonCancel.Text = "Отмена";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 200;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // OrganisationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(845, 433);
+            this.ClientSize = new System.Drawing.Size(845, 466);
+            this.Controls.Add(this.buttonCancel);
+            this.Controls.Add(this.buttonOK);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.law);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.contractCondition);
             this.Controls.Add(this.label10);
@@ -337,5 +392,10 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox contractCondition;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox law;
+        private System.Windows.Forms.Button buttonOK;
+        private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.Timer timer1;
     }
 }

@@ -18,14 +18,14 @@ namespace Aura_Client.View
         {
             InitializeComponent();
 
-            ReloadTable(Program.dataManager.GetAllPurchases());
+            ReloadTable();
 
         }
 
-        private void ReloadTable(List<Purchase> purchases)
+        private void ReloadTable()
         {            
             ClearTable();
-            FillTable(purchases);
+            FillTable(Program.dataManager.GetAllPurchases());
         }
 
         private void FillTable(List<Purchase> purchases)
@@ -46,24 +46,7 @@ namespace Aura_Client.View
                     newRow[5] = Program.dataManager.userNames[pur.employeID.ToString()];
                     newRow[6] = pur.comments;
 
-
-                    //object[] newRow = new object[]
-                    //    {
-                    //        pur.id,
-                    //        Catalog.purchasesNames[pur.purchaseMethodID],
-                    //        pur.purchaseName,
-                    //        Catalog.statusesNames[pur.statusID],
-                    //        HandleDate(pur.purchaseEisDate),
-                    //        Program.dataManager.userNames[pur.employeID.ToString()],
-                    //        pur.comments,
-
-                    //    };
-
-
                     dataGridView1.Rows.Add(newRow);
-
-
-
 
                 }
             }
@@ -94,7 +77,7 @@ namespace Aura_Client.View
             var result = form.ShowDialog();
             if (result == DialogResult.OK)
             {
-                ReloadTable(Program.dataManager.GetAllPurchases());
+                ReloadTable();
 
             }
 
@@ -115,6 +98,7 @@ namespace Aura_Client.View
             var purchaseID = dg.Rows[e.RowIndex].Cells[0].Value.ToString();
             Purchase purchase = Program.dataManager.GetPurchase(purchaseID);
             ShowPurchase(purchase);
+
         }
         
     }

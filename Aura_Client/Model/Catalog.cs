@@ -59,5 +59,14 @@ namespace Aura_Client.Model
             "без договора",
 
         };
+
+        public static List<string> laws = new List<string>()
+        {
+            "<не указано>",
+            "44-ФЗ",
+            "223-ФЗ",
+            "44-ФЗ и 223-ФЗ",
+
+        };
     }
 }

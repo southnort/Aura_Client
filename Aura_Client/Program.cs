@@ -33,6 +33,8 @@ namespace Aura_Client
                     dataManager.SetUserNames(users);
                     var purchases = bridge.GetObject<List<Purchase>>("ALLPURCHASES");
                     dataManager.SetPurchases(purchases);
+                    var organisations = bridge.GetObject<List<Organisation>>("ALLORGANISATIONS");
+                    dataManager.SetOrganisations(organisations);
 
                     MainForm mainForm = new MainForm();
                     mainForm.ShowDialog();

@@ -13,11 +13,19 @@ using Aura_Client.Controller;
 namespace Aura_Client.View
 {
     public partial class OrganisationForm : AuraForm
-    {        
+    {
+        private Organisation organisation;
+
+
 
         public OrganisationForm(Organisation organisation)
         {
             InitializeComponent();
+            this.organisation = organisation;
+            LoadCatalogs();
+            creator = new CommandStringCreator("Organisations", organisation.id.ToString());
+            Fill(organisation);
+
         }
 
         private void LoadCatalogs()
@@ -30,6 +38,11 @@ namespace Aura_Client.View
             foreach (var item in Catalog.contractOriginalConditions)
             {
                 originalID.Items.Add(item);
+            }
+
+            foreach (var item in Catalog.laws)
+            {
+                law.Items.Add(item);
             }
         }
 
@@ -45,6 +58,7 @@ namespace Aura_Client.View
             SetDate(contractEnd, org.contractEnd);
             contractCondition.SelectedIndex = org.contractCondition;
             originalID.SelectedIndex = org.originalID;
+            law.SelectedIndex = org.law;
 
         }
 
@@ -79,6 +93,41 @@ namespace Aura_Client.View
             creator.Add(box.Name, box.SelectedIndex.ToString());
         }
 
+        private void buttonOK_Click(object sender, EventArgs e)
+        {
+            SendToServer();
+            timer1.Start();     //закрыть форму через время
 
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+            
+        }
+
+        private void SendToServer()
+        {
+            if (creator.IsNotEmpty())
+            {
+                if (organisation.id < 1)
+                {
+                    Program.bridge.SendMessage("NEWORGANISATION#" + creator.ToNew());
+                }
+
+                else
+                {
+                    Program.bridge.SendMessage("UPDATEORGANISATION#" + creator.ToUpdate());
+                }
+            }
+
+            else
+                Close();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.OK;
+        }
     }
 }
