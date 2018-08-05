@@ -13,28 +13,27 @@ namespace Aura_Client.View
 {
     public partial class PurchasesDataBaseForm : AuraForm
     {
-        
+
         public PurchasesDataBaseForm()
         {
             InitializeComponent();
-           
-            ReloadTable(Program.dataManager.purchases);
+
+            ReloadTable(Program.dataManager.GetAllPurchases());
 
         }
 
-        private void ReloadTable(Dictionary<string, Purchase> purchases)
-        {
+        private void ReloadTable(List<Purchase> purchases)
+        {            
             ClearTable();
             FillTable(purchases);
         }
 
-        private void FillTable(Dictionary<string, Purchase> purchases)
+        private void FillTable(List<Purchase> purchases)
         {
             if (purchases.Count > 0)
             {
-                foreach (var item in purchases)
+                foreach (var pur in purchases)
                 {
-                    var pur = item.Value;
                     if (pur == null) return;
 
 
@@ -62,7 +61,7 @@ namespace Aura_Client.View
 
 
                     dataGridView1.Rows.Add(newRow);
-                    
+
 
 
 
@@ -95,7 +94,7 @@ namespace Aura_Client.View
             var result = form.ShowDialog();
             if (result == DialogResult.OK)
             {
-                ReloadTable(Program.dataManager.purchases);
+                ReloadTable(Program.dataManager.GetAllPurchases());
 
             }
 
@@ -114,9 +113,9 @@ namespace Aura_Client.View
         {
             DataGridView dg = (DataGridView)sender;
             var purchaseID = dg.Rows[e.RowIndex].Cells[0].Value.ToString();
-            Purchase purchase = Program.dataManager.purchases[purchaseID];
-
+            Purchase purchase = Program.dataManager.GetPurchase(purchaseID);
             ShowPurchase(purchase);
         }
+        
     }
 }

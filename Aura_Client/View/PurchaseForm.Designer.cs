@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PurchaseForm));
             this.label1 = new System.Windows.Forms.Label();
             this.employeID = new System.Windows.Forms.ComboBox();
@@ -79,6 +80,7 @@
             this.dateTimePicker18 = new System.Windows.Forms.DateTimePicker();
             this.buttonOK = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -564,6 +566,11 @@
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 200;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // PurchaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -679,5 +686,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker18;
         private System.Windows.Forms.Button buttonOK;
         private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.Timer timer1;
     }
 }

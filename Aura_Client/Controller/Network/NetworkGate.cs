@@ -107,8 +107,9 @@ namespace Aura_Client.Network
                 try
                 {
                     string message = ReceiveBroadcast();
-                    Console.WriteLine(message);
-                    object ob = ReceiveObject();                    
+                    Console.WriteLine("Receive broadsactMessage "+ message);
+                    object ob = ReceiveBroadcastedObject();
+                    Console.WriteLine("Receive broadsactObject " + ob.GetType());
                     HandleMessage(message, ob);
 
                 }
@@ -286,10 +287,52 @@ namespace Aura_Client.Network
 
         }
 
+        private object ReceiveBroadcastedObject()
+        {
+            //метод получения сериализованного объекта
+            byte[] data = new byte[64];
+            int bytes = 0;
+            BinaryFormatter bf = new BinaryFormatter();
+            MemoryStream ms = new MemoryStream();
+
+            //получаем
+            try
+            {
+                do
+                {
+                    bytes = listeningStream.Read(data, 0, data.Length);
+                    ms.Write(data, 0, bytes);
+                }
+                while (listeningStream.DataAvailable);
+
+                ms.Seek(0, SeekOrigin.Begin);
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine(ToString() + "ReceiveObject Exception: " + ex.Message);
+                return null;
+            }
+
+            //десериализуем
+            try
+            {
+                object ob = bf.Deserialize(ms);
+                return ob;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ToString() + "ReceiveObject.Deserialize Exception: " + ex.Message);
+                return null;
+            }
+
+
+        }
 
 
         private void HandleMessage(string message, object ob)
         {
+            Console.WriteLine("HandleMessage "+message +" "+ob.GetType());
             messageHandler.HandleMessage(message, ob);
         }
 

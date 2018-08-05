@@ -75,9 +75,11 @@ namespace Aura_Client.View
         private void Button_Click(object sender, EventArgs e)
         {
             var id = ((Button)sender).Name;
-            Purchase pur = Program.dataManager.purchases[id];
+            Purchase pur = Program.dataManager.GetPurchase(id);
             OpenPurchase(pur);
+
         }
+
 
         private void OpenPurchase(Purchase pur)
         {

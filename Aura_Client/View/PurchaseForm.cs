@@ -124,7 +124,7 @@ namespace Aura_Client.View
         private void buttonOK_Click(object sender, EventArgs e)
         {
             SendToServer();
-            DialogResult = DialogResult.OK;            
+            timer1.Start();          
             
         }
 
@@ -154,6 +154,10 @@ namespace Aura_Client.View
 
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.OK;
+        }
     }
 
 }

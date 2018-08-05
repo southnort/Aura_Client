@@ -9,8 +9,10 @@ namespace Aura_Client.Model
     class DataManager
     {
         public Dictionary<string, string> userNames = new Dictionary<string, string>();
-        public Dictionary<string, Purchase> purchases = new Dictionary<string, Purchase>();
-       
+        //  private Dictionary<string, Purchase> purchases = new Dictionary<string, Purchase>();
+        private List<Purchase> purchases = new List<Purchase>();
+
+
 
         public void SetUserNames(Dictionary<string, string> users)
         {
@@ -18,11 +20,10 @@ namespace Aura_Client.Model
             userNames.Add("0", "<не указано>");
         }
 
-        public void SetPurchases(Dictionary<string, Purchase> purchases)
+        public void SetPurchases(List<Purchase> purchases)
         {
             this.purchases = purchases;
-            purchases.Add("0", null);
-           
+
         }
 
         public Calendar GetCalendar()
@@ -31,7 +32,7 @@ namespace Aura_Client.Model
             Calendar calendar = new Calendar();
             foreach (var pair in purchases)
             {
-                calendar.Add(pair.Value);
+                calendar.Add(pair);
             }
 
             return calendar;
@@ -39,7 +40,40 @@ namespace Aura_Client.Model
         }
 
 
-       
+        public void AddPurchase(Purchase pur)
+        {
+            lock (purchases)
+            {
+                purchases.Add(pur);
+            }
+            foreach (var item in purchases)
+            {
+                Console.WriteLine(item.purchaseName);
+            }
+
+        }
+
+        public List<Purchase> GetAllPurchases()
+        {
+            return purchases;
+        }
+
+        public Purchase GetPurchase(string id)
+        {
+            //if (purchases.ContainsKey(id)) return purchases[id];
+
+            //else throw new Exception("Нет закупки с ID= " + id);
+            lock (purchases)
+            {
+                foreach (var item in purchases)
+                {
+                    if (item.id.ToString() == id)
+                        return item;
+                }
+
+                throw new Exception("Нет закупки с ID= " + id);
+            }
+        }
 
     }
 }

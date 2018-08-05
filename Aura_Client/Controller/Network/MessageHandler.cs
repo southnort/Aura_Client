@@ -12,6 +12,7 @@ namespace Aura_Client.Network
     {
         protected internal string HandleMessage(string message, object ob)
         {
+            Console.WriteLine("HandleMessage " + message);
             //обработать полученное сообщение и ответить клиенту
             List<string> arr = SplitString(message);
             switch (arr[0])
@@ -61,7 +62,8 @@ namespace Aura_Client.Network
         private void NewPurchase(object ob)
         {
             var pur = (Aura.Model.Purchase)ob;
-            Program.dataManager.purchases.Add(pur.id.ToString(), pur);
+            Program.dataManager.AddPurchase(pur);
+
         }
 
 
