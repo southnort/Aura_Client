@@ -36,20 +36,56 @@ namespace Aura_Client.View
                 {
                     if (pur == null) return;
 
+                    //проверяем закупку на необходимость добавления
+                    if (!VisiblePurchase(pur)) return;
 
-                    object[] newRow = new object[7];
-                    newRow[0] = pur.id;
-                    newRow[1] = Catalog.purchasesNames[pur.purchaseMethodID];
-                    newRow[2] = pur.purchaseName;
-                    newRow[3] = Catalog.statusesNames[pur.statusID];
-                    newRow[4] = HandleDate(pur.purchaseEisDate);
-                    newRow[5] = Program.dataManager.userNames[pur.employeID.ToString()];
-                    newRow[6] = pur.comments;
+                    DataGridViewRow newRow = new DataGridViewRow();     
+                    newRow.Cells[0].Value = pur.id;
+                    newRow.Cells[1].Value = Catalog.purchasesNames[pur.purchaseMethodID];
+                    newRow.Cells[2].Value = pur.purchaseName;
+                    newRow.Cells[3].Value = Catalog.statusesNames[pur.statusID];
+                    newRow.Cells[4].Value = HandleDate(pur.purchaseEisDate);
+                    newRow.Cells[5].Value = Program.dataManager.userNames[pur.employeID.ToString()];
+                    newRow.Cells[6].Value = pur.comments;
+
+                    RecolorRow(newRow, pur.statusID);
 
                     dataGridView1.Rows.Add(newRow);
 
                 }
             }
+        }
+
+        private bool VisiblePurchase(Purchase pur)
+        {
+            //проверка, должна ли закупка добавляться в список
+
+            //проверяем права юзера
+            //админы видят все закупки            
+            if (Program.user.roleID == 0)
+                return true;
+
+            else
+            {
+                //юзеры должны видеть только закупки по их законам
+                return Program.user.roleID == pur.law;
+            }
+            
+        }
+
+        private void RecolorRow(DataGridViewRow row, int statusID)
+        {
+            Color color = Color.White;
+            switch (statusID)
+            {
+                case 5: color = Color.Blue; break;
+                case 6: color = Color.Yellow; break;
+                case 7: color = Color.Orange; break;
+                case 8: color = Color.Red; break;
+            }
+
+          //  row.Cells[3].Style.BackColor = color;
+            row.DefaultCellStyle.BackColor = color;
         }
 
         private string HandleDate(string input)

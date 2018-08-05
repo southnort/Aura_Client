@@ -19,9 +19,19 @@ namespace Aura_Client.View
         public PurchaseForm(Purchase purchase)
         {
             InitializeComponent();
-            this.purchase = purchase;
+            this.purchase = purchase;           
             LoadCatalogs();
             creator = new CommandStringCreator("Purchases", purchase.id.ToString());
+
+            if (purchase.id < 1)
+            {
+                //если закупка новая, она должна автоматически создаваться
+                //для того закона, для которого создан пользователь
+                purchase.law = Program.user.roleID;
+                creator.Add("law", purchase.law.ToString());
+
+            }
+
             FillForm();
 
         }
@@ -49,10 +59,19 @@ namespace Aura_Client.View
                 organizationID.Items.Add(item);
             }
 
+            foreach (var item in Catalog.laws)
+            {
+                law.Items.Add(item);
+                law.Items.RemoveAt(3);
+            }
+
+
+
             purchaseMethodID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
             statusID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
             employeID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
             organizationID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
+            law.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
 
         }
 
@@ -86,6 +105,13 @@ namespace Aura_Client.View
             SetDate(contractDateReal, purchase.contractDateReal);
 
             comments.Text = purchase.comments;
+            law.SelectedIndex = purchase.law;
+
+            if (Program.user.roleID != 0)
+            {
+                //если пользователь не администратор - запретить редактирование закона
+                law.Enabled = false;
+            }
 
         }
 
@@ -120,14 +146,21 @@ namespace Aura_Client.View
             creator.Add(box.Name, box.SelectedIndex.ToString());
         }
 
+        private void numericUpDown_ValueChanges(object sender, EventArgs e)
+        {
+            var box = (NumericUpDown)sender;
+            creator.Add(box.Name, box.Value.ToString());
+        }
+
 
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
             SendToServer();
-            timer1.Start();     //закрыть форму через время      
+            timer1.Start();     //закрыть форму через время 
 
         }
+
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
@@ -158,6 +191,8 @@ namespace Aura_Client.View
         {
             DialogResult = DialogResult.OK;
         }
+
+       
     }
 
 }

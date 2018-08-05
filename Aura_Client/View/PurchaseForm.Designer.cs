@@ -40,7 +40,6 @@
             this.purchaseName = new System.Windows.Forms.TextBox();
             this.statusID = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.purchacePrice = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.purchaseEisNum = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -70,7 +69,6 @@
             this.reestrDateLast = new System.Windows.Forms.DateTimePicker();
             this.reestrNumber = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.contractPrice = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.comments = new System.Windows.Forms.RichTextBox();
             this.label22 = new System.Windows.Forms.Label();
@@ -81,6 +79,11 @@
             this.buttonOK = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.law = new System.Windows.Forms.ComboBox();
+            this.purchacePrice = new System.Windows.Forms.NumericUpDown();
+            this.contractPrice = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.purchacePrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contractPrice)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -176,14 +179,6 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Статус";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // purchacePrice
-            // 
-            this.purchacePrice.Location = new System.Drawing.Point(145, 70);
-            this.purchacePrice.Name = "purchacePrice";
-            this.purchacePrice.Size = new System.Drawing.Size(248, 20);
-            this.purchacePrice.TabIndex = 11;
-            this.purchacePrice.Leave += new System.EventHandler(this.textBox_ValueChanged);
             // 
             // label6
             // 
@@ -471,14 +466,6 @@
             this.label20.Text = "Реестровый номер контракта";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // contractPrice
-            // 
-            this.contractPrice.Location = new System.Drawing.Point(203, 390);
-            this.contractPrice.Name = "contractPrice";
-            this.contractPrice.Size = new System.Drawing.Size(158, 20);
-            this.contractPrice.TabIndex = 41;
-            this.contractPrice.Leave += new System.EventHandler(this.textBox_ValueChanged);
-            // 
             // label21
             // 
             this.label21.AutoSize = true;
@@ -571,16 +558,55 @@
             this.timer1.Interval = 200;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // law
+            // 
+            this.law.FormattingEnabled = true;
+            this.law.Location = new System.Drawing.Point(399, 16);
+            this.law.Name = "law";
+            this.law.Size = new System.Drawing.Size(95, 21);
+            this.law.TabIndex = 47;
+            this.law.Leave += new System.EventHandler(this.comboBox_ValueChanged);
+            // 
+            // purchacePrice
+            // 
+            this.purchacePrice.Location = new System.Drawing.Point(145, 69);
+            this.purchacePrice.Maximum = new decimal(new int[] {
+            -727379969,
+            232,
+            0,
+            0});
+            this.purchacePrice.Name = "purchacePrice";
+            this.purchacePrice.Size = new System.Drawing.Size(248, 20);
+            this.purchacePrice.TabIndex = 48;
+            this.purchacePrice.ThousandsSeparator = true;
+            this.purchacePrice.Leave += new System.EventHandler(this.numericUpDown_ValueChanges);
+            // 
+            // contractPrice
+            // 
+            this.contractPrice.Location = new System.Drawing.Point(203, 390);
+            this.contractPrice.Maximum = new decimal(new int[] {
+            -727379969,
+            232,
+            0,
+            0});
+            this.contractPrice.Name = "contractPrice";
+            this.contractPrice.Size = new System.Drawing.Size(158, 20);
+            this.contractPrice.TabIndex = 49;
+            this.contractPrice.ThousandsSeparator = true;
+            this.contractPrice.Leave += new System.EventHandler(this.numericUpDown_ValueChanges);
+            // 
             // PurchaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(797, 569);
+            this.Controls.Add(this.contractPrice);
+            this.Controls.Add(this.purchacePrice);
+            this.Controls.Add(this.law);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.comments);
-            this.Controls.Add(this.contractPrice);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.reestrNumber);
             this.Controls.Add(this.label20);
@@ -614,7 +640,6 @@
             this.Controls.Add(this.purchaseEisDate);
             this.Controls.Add(this.purchaseEisNum);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.purchacePrice);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.statusID);
             this.Controls.Add(this.label5);
@@ -629,6 +654,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PurchaseForm";
             this.Text = "PurchaseForm";
+            ((System.ComponentModel.ISupportInitialize)(this.purchacePrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contractPrice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -646,7 +673,6 @@
         private System.Windows.Forms.TextBox purchaseName;
         private System.Windows.Forms.ComboBox statusID;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox purchacePrice;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox purchaseEisNum;
         private System.Windows.Forms.Label label7;
@@ -676,7 +702,6 @@
         private System.Windows.Forms.DateTimePicker reestrDateLast;
         private System.Windows.Forms.TextBox reestrNumber;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox contractPrice;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.RichTextBox comments;
         private System.Windows.Forms.Label label22;
@@ -687,5 +712,8 @@
         private System.Windows.Forms.Button buttonOK;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ComboBox law;
+        private System.Windows.Forms.NumericUpDown purchacePrice;
+        private System.Windows.Forms.NumericUpDown contractPrice;
     }
 }

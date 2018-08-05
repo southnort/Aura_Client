@@ -53,6 +53,13 @@ namespace Aura_Client.View
             creator.Add(box.Name, box.SelectedIndex.ToString());
         }
 
+        private void numericUpDown_ValueChanges(object sender, EventArgs e)
+        {
+            var box = (NumericUpDown)sender;
+            creator.Add(box.Name, box.Value.ToString());
+        }
+
+
 
         protected void SetDate(DateTimePicker picker, string date)
         {
