@@ -34,55 +34,58 @@ namespace Aura_Client.View
             {
                 foreach (var pur in purchases)
                 {
+                    Console.WriteLine("adding or not");
                     if (pur == null) return;
 
                     //проверяем закупку на необходимость добавления
-                    if (!VisiblePurchase(pur)) return;
+                    if (VisiblePurchase(pur))
+                    {
 
-                    //object[] newRow = new object[7];
+                        //object[] newRow = new object[7];
 
-                    //newRow[0] = pur.id;
-                    //newRow[1] = Catalog.purchasesNames[pur.purchaseMethodID];
-                    //newRow[2] = pur.purchaseName;
-                    //newRow[3] = Catalog.statusesNames[pur.statusID];
-                    //newRow[4] = HandleDate(pur.purchaseEisDate);
-                    //newRow[5] =  Program.dataManager.userNames[pur.employeID.ToString()];
-                    //newRow[6] = pur.comments;
+                        //newRow[0] = pur.id;
+                        //newRow[1] = Catalog.purchasesNames[pur.purchaseMethodID];
+                        //newRow[2] = pur.purchaseName;
+                        //newRow[3] = Catalog.statusesNames[pur.statusID];
+                        //newRow[4] = HandleDate(pur.purchaseEisDate);
+                        //newRow[5] =  Program.dataManager.userNames[pur.employeID.ToString()];
+                        //newRow[6] = pur.comments;
 
-                    DataGridViewRow newRow = new DataGridViewRow();
-                    var cell0 = new DataGridViewTextBoxCell();
-                    cell0.Value = pur.id;
-                    newRow.Cells.Add(cell0);
+                        DataGridViewRow newRow = new DataGridViewRow();
+                        var cell0 = new DataGridViewTextBoxCell();
+                        cell0.Value = pur.id;
+                        newRow.Cells.Add(cell0);
 
-                    var cell1 = new DataGridViewTextBoxCell();
-                    cell1.Value = Catalog.purchasesNames[pur.purchaseMethodID];
-                    newRow.Cells.Add(cell1);
+                        var cell1 = new DataGridViewTextBoxCell();
+                        cell1.Value = Catalog.purchasesNames[pur.purchaseMethodID];
+                        newRow.Cells.Add(cell1);
 
-                    var cell2 = new DataGridViewTextBoxCell();
-                    cell2.Value = pur.purchaseName;
-                    newRow.Cells.Add(cell2);
+                        var cell2 = new DataGridViewTextBoxCell();
+                        cell2.Value = pur.purchaseName;
+                        newRow.Cells.Add(cell2);
 
-                    var cell3 = new DataGridViewTextBoxCell();
-                    cell3.Value = Catalog.statusesNames[pur.statusID];
-                    newRow.Cells.Add(cell3);
+                        var cell3 = new DataGridViewTextBoxCell();
+                        cell3.Value = Catalog.statusesNames[pur.statusID];
+                        newRow.Cells.Add(cell3);
 
-                    var cell4 = new DataGridViewTextBoxCell();
-                    cell4.Value = HandleDate(pur.purchaseEisDate);
-                    newRow.Cells.Add(cell4);
+                        var cell4 = new DataGridViewTextBoxCell();
+                        cell4.Value = HandleDate(pur.purchaseEisDate);
+                        newRow.Cells.Add(cell4);
 
-                    var cell5 = new DataGridViewTextBoxCell();
-                    cell5.Value = Program.dataManager.userNames[pur.employeID.ToString()];
-                    newRow.Cells.Add(cell5);
+                        var cell5 = new DataGridViewTextBoxCell();
+                        cell5.Value = Program.dataManager.userNames[pur.employeID.ToString()];
+                        newRow.Cells.Add(cell5);
 
-                    var cell6 = new DataGridViewTextBoxCell();
-                    cell6.Value = pur.comments;
-                    newRow.Cells.Add(cell6);
-                    
+                        var cell6 = new DataGridViewTextBoxCell();
+                        cell6.Value = pur.comments;
+                        newRow.Cells.Add(cell6);
 
-                    RecolorRow(newRow, pur.statusID);
 
-                    dataGridView1.Rows.Add(newRow);
+                        RecolorRow(newRow, pur.statusID);
 
+                        dataGridView1.Rows.Add(newRow);
+
+                    }
                 }
             }
         }

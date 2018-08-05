@@ -52,5 +52,12 @@ namespace Aura_Client.View
             UsersDataBaseForm usersDataBaseForm = new UsersDataBaseForm();
             usersDataBaseForm.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OrganisationsDataBaseForm form = new OrganisationsDataBaseForm();
+            form.Show();
+
+        }
     }
 }
