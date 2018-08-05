@@ -25,6 +25,10 @@ namespace Aura_Client.Network
                 case "ADDNEWPURCHASE":
                     NewPurchase(ob); break;
 
+                case "UPDATEPURCHASE":
+                    UpdatePurchase(ob); break;
+
+
                 default: Console.WriteLine("ERROR string is incorrect:\n " + message); break;
             }
 
@@ -52,10 +56,15 @@ namespace Aura_Client.Network
 
         private void LoginSuccess(List<string> str)
         {
-            string userName = str[1];
-            string userRoleID = str[2];
-            Program.user.name = userName;
-            Program.user.roleID = int.Parse(userRoleID);
+            lock (Program.user)
+            {
+                string userName = str[1];
+                string userRoleID = str[2];
+                string userID = str[3];
+                Program.user.name = userName;
+                Program.user.roleID = int.Parse(userRoleID);
+                Program.user.ID = int.Parse(userID);
+            }
 
         }
 
@@ -63,6 +72,13 @@ namespace Aura_Client.Network
         {
             var pur = (Aura.Model.Purchase)ob;
             Program.dataManager.AddPurchase(pur);
+
+        }
+
+        private void UpdatePurchase(object ob)
+        {
+            var pur = (Aura.Model.Purchase)ob;
+            Program.dataManager.UpdatePurchase(pur);
 
         }
 

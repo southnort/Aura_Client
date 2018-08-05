@@ -45,10 +45,22 @@ namespace Aura_Client.Model
             lock (purchases)
             {
                 purchases.Add(pur);
-            }
-            foreach (var item in purchases)
+            }           
+
+        }
+
+        public void UpdatePurchase(Purchase pur)
+        {
+            lock (purchases)
             {
-                Console.WriteLine(item.purchaseName);
+                for (int i = purchases.Count - 1; i >= 0; i--)
+                {
+                    if (purchases[i].id == pur.id)
+                    {
+                        purchases[i] = pur;
+                        break;
+                    }
+                }
             }
 
         }
