@@ -77,10 +77,13 @@ namespace Aura_Client.View
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridView dg = (DataGridView)sender;
-            var ID = dg.Rows[e.RowIndex].Cells[0].Value.ToString();
-            Organisation org = Program.dataManager.GetOrganisation(ID);
-            ShowOrganisation(org);
+            if (e.RowIndex >= 0)
+            {
+                DataGridView dg = (DataGridView)sender;
+                var ID = dg.Rows[e.RowIndex].Cells[0].Value.ToString();
+                Organisation org = Program.dataManager.GetOrganisation(ID);
+                ShowOrganisation(org);
+            }
 
         }
     }

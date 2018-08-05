@@ -35,17 +35,7 @@ namespace Aura_Client.Model
             "Договор заключен",
             "Договор внесен в реестр",            
 
-        };
-
-        public static List<string> organisationsNames = new List<string>()
-        {
-            "<не указано>",
-            "Тестовый заказчик 1",
-            "Тестовый заказчик 2",
-            "Тестовый заказчик 3",
-
-        };
-
+        };       
 
         public static List<string> contractConditions = new List<string>
         {

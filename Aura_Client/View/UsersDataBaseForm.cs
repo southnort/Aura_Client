@@ -84,11 +84,15 @@ namespace Aura_Client.View
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridView dg = (DataGridView)sender;
-            int userID = (int)dg.Rows[e.RowIndex].Cells[0].Value -1;
-            User user = users[userID];
+            if (e.RowIndex >= 0)
+            {
+                DataGridView dg = (DataGridView)sender;
+                int userID = (int)dg.Rows[e.RowIndex].Cells[0].Value - 1;
+                User user = users[userID];
 
-            ShowUser(user);
+                ShowUser(user);
+
+            }
         }
     }
 }

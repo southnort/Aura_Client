@@ -39,14 +39,45 @@ namespace Aura_Client.View
                     //проверяем закупку на необходимость добавления
                     if (!VisiblePurchase(pur)) return;
 
-                    DataGridViewRow newRow = new DataGridViewRow();     
-                    newRow.Cells[0].Value = pur.id;
-                    newRow.Cells[1].Value = Catalog.purchasesNames[pur.purchaseMethodID];
-                    newRow.Cells[2].Value = pur.purchaseName;
-                    newRow.Cells[3].Value = Catalog.statusesNames[pur.statusID];
-                    newRow.Cells[4].Value = HandleDate(pur.purchaseEisDate);
-                    newRow.Cells[5].Value = Program.dataManager.userNames[pur.employeID.ToString()];
-                    newRow.Cells[6].Value = pur.comments;
+                    //object[] newRow = new object[7];
+
+                    //newRow[0] = pur.id;
+                    //newRow[1] = Catalog.purchasesNames[pur.purchaseMethodID];
+                    //newRow[2] = pur.purchaseName;
+                    //newRow[3] = Catalog.statusesNames[pur.statusID];
+                    //newRow[4] = HandleDate(pur.purchaseEisDate);
+                    //newRow[5] =  Program.dataManager.userNames[pur.employeID.ToString()];
+                    //newRow[6] = pur.comments;
+
+                    DataGridViewRow newRow = new DataGridViewRow();
+                    var cell0 = new DataGridViewTextBoxCell();
+                    cell0.Value = pur.id;
+                    newRow.Cells.Add(cell0);
+
+                    var cell1 = new DataGridViewTextBoxCell();
+                    cell1.Value = Catalog.purchasesNames[pur.purchaseMethodID];
+                    newRow.Cells.Add(cell1);
+
+                    var cell2 = new DataGridViewTextBoxCell();
+                    cell2.Value = pur.purchaseName;
+                    newRow.Cells.Add(cell2);
+
+                    var cell3 = new DataGridViewTextBoxCell();
+                    cell3.Value = Catalog.statusesNames[pur.statusID];
+                    newRow.Cells.Add(cell3);
+
+                    var cell4 = new DataGridViewTextBoxCell();
+                    cell4.Value = HandleDate(pur.purchaseEisDate);
+                    newRow.Cells.Add(cell4);
+
+                    var cell5 = new DataGridViewTextBoxCell();
+                    cell5.Value = Program.dataManager.userNames[pur.employeID.ToString()];
+                    newRow.Cells.Add(cell5);
+
+                    var cell6 = new DataGridViewTextBoxCell();
+                    cell6.Value = pur.comments;
+                    newRow.Cells.Add(cell6);
+                    
 
                     RecolorRow(newRow, pur.statusID);
 
@@ -78,14 +109,16 @@ namespace Aura_Client.View
             Color color = Color.White;
             switch (statusID)
             {
-                case 5: color = Color.Blue; break;
+                case 5: color = Color.LightBlue; break;
                 case 6: color = Color.Yellow; break;
-                case 7: color = Color.Orange; break;
+                case 7: color = Color.LightPink; break;
                 case 8: color = Color.Red; break;
             }
 
-          //  row.Cells[3].Style.BackColor = color;
-            row.DefaultCellStyle.BackColor = color;
+              row.Cells[3].Style.BackColor = color;
+
+            DataGridViewRow tempRow = new DataGridViewRow();
+           // row.DefaultCellStyle.BackColor = color;
         }
 
         private string HandleDate(string input)
@@ -130,10 +163,13 @@ namespace Aura_Client.View
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridView dg = (DataGridView)sender;
-            var purchaseID = dg.Rows[e.RowIndex].Cells[0].Value.ToString();
-            Purchase purchase = Program.dataManager.GetPurchase(purchaseID);
-            ShowPurchase(purchase);
+            if (e.RowIndex >= 0)
+            {
+                DataGridView dg = (DataGridView)sender;
+                var purchaseID = dg.Rows[e.RowIndex].Cells[0].Value.ToString();
+                Purchase purchase = Program.dataManager.GetPurchase(purchaseID);
+                ShowPurchase(purchase);
+            }
 
         }
         

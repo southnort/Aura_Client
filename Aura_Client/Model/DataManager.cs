@@ -16,8 +16,12 @@ namespace Aura_Client.Model
 
         public void SetUserNames(Dictionary<string, string> users)
         {
-            userNames = users;
             userNames.Add("0", "<не указано>");
+            foreach (var us in users)
+            {
+                userNames.Add(us.Key, us.Value);
+            }
+            
         }
 
         public void SetPurchases(List<Purchase> purchases)

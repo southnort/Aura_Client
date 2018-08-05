@@ -569,6 +569,7 @@
             // 
             // purchacePrice
             // 
+            this.purchacePrice.DecimalPlaces = 2;
             this.purchacePrice.Location = new System.Drawing.Point(145, 69);
             this.purchacePrice.Maximum = new decimal(new int[] {
             -727379969,
@@ -583,6 +584,7 @@
             // 
             // contractPrice
             // 
+            this.contractPrice.DecimalPlaces = 2;
             this.contractPrice.Location = new System.Drawing.Point(203, 390);
             this.contractPrice.Maximum = new decimal(new int[] {
             -727379969,

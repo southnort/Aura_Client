@@ -19,7 +19,7 @@ namespace Aura_Client.View
         public PurchaseForm(Purchase purchase)
         {
             InitializeComponent();
-            this.purchase = purchase;           
+            this.purchase = purchase;
             LoadCatalogs();
             creator = new CommandStringCreator("Purchases", purchase.id.ToString());
 
@@ -54,18 +54,17 @@ namespace Aura_Client.View
                 employeID.Items.Add(item.Value);
             }
 
-            foreach (var item in Catalog.organisationsNames)
+            organizationID.Items.Add("<не указано>");
+            foreach (var item in Program.dataManager.GetAllOrganisations())
             {
-                organizationID.Items.Add(item);
-            }
-
-            foreach (var item in Catalog.laws)
-            {
-                law.Items.Add(item);
-                law.Items.RemoveAt(3);
+                organizationID.Items.Add(item.name);
             }
 
 
+            for (int i = 0; i < 3; i++)
+            {
+                law.Items.Add(Catalog.laws[i]);
+            }
 
             purchaseMethodID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
             statusID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
@@ -79,7 +78,7 @@ namespace Aura_Client.View
         {
             purchaseName.Text = purchase.purchaseName;
             purchaseMethodID.SelectedIndex = purchase.purchaseMethodID;
-            purchacePrice.Text = purchase.purchacePrice.ToString("### ### ### ### ###.##");
+            purchacePrice.Value = (decimal)purchase.purchacePrice;
             purchaseEisNum.Text = purchase.purchaseEisNum;
             SetDate(purchaseEisDate, purchase.purchaseEisDate);
 
@@ -101,7 +100,7 @@ namespace Aura_Client.View
             SetDate(reestrDateLast, purchase.reestrDateLast);
 
             reestrNumber.Text = purchase.reestrNumber;
-            contractPrice.Text = purchase.contractPrice.ToString("### ### ### ### ###.##");
+            contractPrice.Value = (decimal)purchase.contractPrice;
             SetDate(contractDateReal, purchase.contractDateReal);
 
             comments.Text = purchase.comments;
@@ -192,7 +191,7 @@ namespace Aura_Client.View
             DialogResult = DialogResult.OK;
         }
 
-       
+
     }
 
 }
