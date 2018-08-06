@@ -82,6 +82,7 @@
             this.law = new System.Windows.Forms.ComboBox();
             this.purchacePrice = new System.Windows.Forms.NumericUpDown();
             this.contractPrice = new System.Windows.Forms.NumericUpDown();
+            this.withAZK = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.purchacePrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contractPrice)).BeginInit();
             this.SuspendLayout();
@@ -597,11 +598,21 @@
             this.contractPrice.ThousandsSeparator = true;
             this.contractPrice.Leave += new System.EventHandler(this.numericUpDown_ValueChanges);
             // 
+            // withAZK
+            // 
+            this.withAZK.FormattingEnabled = true;
+            this.withAZK.Location = new System.Drawing.Point(399, 42);
+            this.withAZK.Name = "withAZK";
+            this.withAZK.Size = new System.Drawing.Size(95, 21);
+            this.withAZK.TabIndex = 50;
+            this.withAZK.Leave += new System.EventHandler(this.comboBox_ValueChanged);
+            // 
             // PurchaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(797, 569);
+            this.Controls.Add(this.withAZK);
             this.Controls.Add(this.contractPrice);
             this.Controls.Add(this.purchacePrice);
             this.Controls.Add(this.law);
@@ -717,5 +728,6 @@
         private System.Windows.Forms.ComboBox law;
         private System.Windows.Forms.NumericUpDown purchacePrice;
         private System.Windows.Forms.NumericUpDown contractPrice;
+        private System.Windows.Forms.ComboBox withAZK;
     }
 }

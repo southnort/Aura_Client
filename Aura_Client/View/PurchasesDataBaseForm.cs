@@ -60,9 +60,18 @@ namespace Aura_Client.View
                         cell1.Value = Catalog.purchasesNames[pur.purchaseMethodID];
                         newRow.Cells.Add(cell1);
 
+                        var cell7 = new DataGridViewTextBoxCell();
+                        cell7.Value = Catalog.laws[pur.law];
+                        newRow.Cells.Add(cell7);
+
+
                         var cell2 = new DataGridViewTextBoxCell();
                         cell2.Value = pur.purchaseName;
                         newRow.Cells.Add(cell2);
+
+                        var cell8 = new DataGridViewTextBoxCell();
+                        cell8.Value = pur.withAZK == 1 ? "Без АЦК" : "В АЦК";
+                        newRow.Cells.Add(cell8);
 
                         var cell3 = new DataGridViewTextBoxCell();
                         cell3.Value = Catalog.statusesNames[pur.statusID];
@@ -78,9 +87,8 @@ namespace Aura_Client.View
 
                         var cell6 = new DataGridViewTextBoxCell();
                         cell6.Value = pur.comments;
-                        newRow.Cells.Add(cell6);
-
-
+                        newRow.Cells.Add(cell6);                        
+                       
                         RecolorRow(newRow, pur.statusID);
 
                         dataGridView1.Rows.Add(newRow);
@@ -118,7 +126,7 @@ namespace Aura_Client.View
                 case 8: color = Color.Red; break;
             }
 
-              row.Cells[3].Style.BackColor = color;
+              row.Cells[5].Style.BackColor = color;
 
             DataGridViewRow tempRow = new DataGridViewRow();
            // row.DefaultCellStyle.BackColor = color;

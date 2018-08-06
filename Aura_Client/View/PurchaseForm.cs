@@ -66,11 +66,16 @@ namespace Aura_Client.View
                 law.Items.Add(Catalog.laws[i]);
             }
 
+            withAZK.Items.Add("В АЦК");
+            withAZK.Items.Add("БЕЗ АЦК");
+           
+
             purchaseMethodID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
             statusID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
             employeID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
             organizationID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
             law.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
+            withAZK.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
 
         }
 
@@ -111,6 +116,8 @@ namespace Aura_Client.View
                 //если пользователь не администратор - запретить редактирование закона
                 law.Enabled = false;
             }
+
+            withAZK.SelectedIndex = purchase.withAZK; 
 
         }
 

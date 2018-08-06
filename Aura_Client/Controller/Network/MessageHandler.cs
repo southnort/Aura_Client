@@ -28,6 +28,12 @@ namespace Aura_Client.Network
                 case "UPDATEPURCHASE":
                     UpdatePurchase(ob); break;
 
+                case "ADDNEWORGANISATION":
+                    NewOrganisation(ob);break;
+
+                case "UPDATEORGANISATION":
+                    UpdateOrganisation(ob);break;
+
 
                 default: Console.WriteLine("ERROR string is incorrect:\n " + message); break;
             }
@@ -83,6 +89,18 @@ namespace Aura_Client.Network
         }
 
 
+        private void NewOrganisation(object ob)
+        {
+            var org = (Aura.Model.Organisation)ob;
+            Program.dataManager.AddOrganisation(org);
+        }
+
+        private void UpdateOrganisation(object ob)
+        {
+            var org = (Aura.Model.Organisation)ob;
+            Program.dataManager.UpdateOrganisation(org);
+
+        }
     }
 
 }

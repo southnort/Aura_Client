@@ -68,7 +68,7 @@ namespace Aura_Client.View
             if (result == DialogResult.OK)
             {
                 Program.bridge.SendUser(form.returnUser);
-                ReloadTable();
+                timer1.Start();
             }
 
         }
@@ -93,6 +93,11 @@ namespace Aura_Client.View
                 ShowUser(user);
 
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            ReloadTable();
         }
     }
 }
