@@ -126,10 +126,10 @@ namespace Aura_Client.View
                 case 8: color = Color.Red; break;
             }
 
-              row.Cells[5].Style.BackColor = color;
+            //  row.Cells[5].Style.BackColor = color;
 
             DataGridViewRow tempRow = new DataGridViewRow();
-           // row.DefaultCellStyle.BackColor = color;
+            row.DefaultCellStyle.BackColor = color;
         }
 
         private string HandleDate(string input)
