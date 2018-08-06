@@ -26,7 +26,7 @@ namespace Aura_Client
                 LoginWindow loginWindow = new LoginWindow();
                 loginWindow.ShowDialog();
 
-                if (user.roleID > -1)
+                if (user.ID != -1)
                 {
                     Console.WriteLine("Autentification successful");
                     var users = bridge.GetObject<Dictionary<string, string>>("USERNAMES");
@@ -38,7 +38,7 @@ namespace Aura_Client
 
                     MainForm mainForm = new MainForm();
                     mainForm.ShowDialog();
-                }
+                }                
 
             }
 
@@ -48,7 +48,6 @@ namespace Aura_Client
                 Console.Read();
             }
 
-            Console.Read();
         }
 
 

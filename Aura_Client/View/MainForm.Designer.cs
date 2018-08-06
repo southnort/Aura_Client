@@ -100,6 +100,7 @@
             // 
             // button3
             // 
+            this.button3.Enabled = false;
             this.button3.Location = new System.Drawing.Point(547, 104);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(140, 57);
@@ -109,6 +110,7 @@
             // 
             // button2
             // 
+            this.button2.Enabled = false;
             this.button2.Location = new System.Drawing.Point(547, 41);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(140, 57);
