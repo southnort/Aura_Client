@@ -32,46 +32,86 @@ namespace Aura_Client.View
 
             }
 
-            FillForm();
+            FillForm();           
 
         }
 
         private void LoadCatalogs()
         {
             //заполнить справочники для выпадающих меню
-            foreach (var item in Catalog.purchasesNames)
+
+            //способы определения поставщика
+            for (int i = 0; i < Catalog.purchaseMethods.Count; i++)
             {
+                ComboBoxItem item = new ComboBoxItem();
+                item.Text = Catalog.purchaseMethods[i].name;
+                item.Value = i;
+
                 purchaseMethodID.Items.Add(item);
+
             }
 
-            foreach (var item in Catalog.statusesNames)
+            //статусы протоколов
+            for(int i = 0;i<Catalog.protocolStatuses.Count;i++)
             {
-                statusID.Items.Add(item);
+                ComboBoxItem item = new ComboBoxItem();
+                item.Text = Catalog.protocolStatuses[i];
+                item.Value = i;
+
+                protocolStatusID.Items.Add(item);
+
             }
 
-            foreach (var item in Program.dataManager.userNames)
+            //ответственный за разработку документации 
+            employeDocumentationID.Items.Add("<не указано>");
+            foreach (var user in Program.dataManager.userNames)
             {
-                employeID.Items.Add(item.Value);
+                ComboBoxItem item = new ComboBoxItem();
+                item.Text = user.Value;
+                item.Value = user.Key;
+
+                employeDocumentationID.Items.Add(item);
+
             }
 
+            //ответственный за размещение закупки
+            employeID.Items.Add("<не указано>");
+            foreach (var user in Program.dataManager.userNames)
+            {
+                ComboBoxItem item = new ComboBoxItem();
+                item.Text = user.Value;
+                item.Value = user.Key;
+
+                employeID.Items.Add(item);
+
+            }  
+           
+            //организации-заказчики  
             organizationID.Items.Add("<не указано>");
-            foreach (var item in Program.dataManager.GetAllOrganisations())
+            foreach (var org in Program.dataManager.GetAllOrganisations())
             {
-                organizationID.Items.Add(item.name);
+                ComboBoxItem item = new ComboBoxItem();
+                item.Text = org.name;
+                item.Value = org.id;
+
+                organizationID.Items.Add(item);
             }
-
-
+            
+            //закон, по которой проводится закупка
             for (int i = 0; i < 3; i++)
             {
                 law.Items.Add(Catalog.laws[i]);
             }
 
+            //с АЦК или без неё
             withAZK.Items.Add("В АЦК");
             withAZK.Items.Add("БЕЗ АЦК");
            
 
             purchaseMethodID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
             statusID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
+            protocolStatusID.MouseWheel+= new MouseEventHandler(comboBox_ValueChanged);
+            employeDocumentationID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
             employeID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
             organizationID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
             law.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
@@ -79,36 +119,69 @@ namespace Aura_Client.View
 
         }
 
+        private void ReloadStatuses()
+        {
+            //изменить статусы в зависимости от выбранного способа определения поставщика
+            statusID.Items.Clear();
+            PurchaseMethod method = Catalog.purchaseMethods[(int)purchaseMethodID.SelectedValue];
+            foreach (var st in method.purchaseStatuses)
+            {
+                ComboBoxItem item = new ComboBoxItem();
+                item.Text = st.Value;
+                item.Value = st.Key;
+
+                statusID.Items.Add(item);
+                statusID.SelectedIndex = 0;
+                creator.Add("statusID", "0");
+            }
+
+        }
+
+        private void SetControllButton()
+        {
+            if (purchase.controlStatus == 0)
+            {
+                controlStatus.BackColor = Color.LightCoral;
+                controlStatus.Text = "Проверить";
+            }
+
+            else
+            {
+                controlStatus.BackColor = Color.LightGreen;
+                controlStatus.Text = "Проверено";
+            }
+
+        }
+
         private void FillForm()
         {
             purchaseName.Text = purchase.purchaseName;
-            purchaseMethodID.SelectedIndex = purchase.purchaseMethodID;
+            SetCombobox(purchaseMethodID, purchase.purchaseMethodID);
             purchacePrice.Value = (decimal)purchase.purchacePrice;
             purchaseEisNum.Text = purchase.purchaseEisNum;
             SetDate(purchaseEisDate, purchase.purchaseEisDate);
-
-            statusID.SelectedIndex = purchase.statusID;
-            employeID.SelectedIndex = purchase.employeID;
-            organizationID.SelectedIndex = purchase.organizationID;
+        
+            SetCombobox(statusID, purchase.statusID);
+            SetCombobox(employeDocumentationID, purchase.employeDocumentationID);
+            SetCombobox(employeID, purchase.employeID);
+            SetCombobox(organizationID, purchase.organizationID);
 
             SetDate(bidsStartDate, purchase.bidsStartDate);
             SetDate(bidsEndDate, purchase.bidsEndDate);
+
             SetDate(bidsOpenDate, purchase.bidsOpenDate);
-            SetDate(bidsFinishDate, purchase.bidsFinishDate);
+            SetDate(bidsReviewDate, purchase.auctionDate);
+            SetDate(bidsRatingDate, purchase.bidsRatingDate);
 
             SetDate(bidsFirstPartDate, purchase.bidsFirstPartDate);
-            SetDate(auctionDate, purchase.auctionDate);
             SetDate(bidsSecondPartDate, purchase.bidsSecondPartDate);
+            SetDate(bidsFinishDate, purchase.bidsFinishDate);
 
-            SetDate(contractDatePlan, purchase.contractDatePlan);
-            SetDate(contractDateLast, purchase.contractDateLast);
-            SetDate(reestrDateLast, purchase.reestrDateLast);
-
-            reestrNumber.Text = purchase.reestrNumber;
-            contractPrice.Value = (decimal)purchase.contractPrice;
-            SetDate(contractDateReal, purchase.contractDateReal);
-
+                       
+            
+            
             comments.Text = purchase.comments;
+            resultOfControl.Text = purchase.resultOfControl;
             law.SelectedIndex = purchase.law;
 
             if (Program.user.roleID != 0)
@@ -117,9 +190,25 @@ namespace Aura_Client.View
                 law.Enabled = false;
             }
 
-            withAZK.SelectedIndex = purchase.withAZK; 
+            withAZK.SelectedIndex = purchase.withAZK;
+
+            SetControllButton();
 
         }
+
+        private void SwitchControlStatus()
+        {
+            if (purchase.controlStatus == 0)
+                purchase.controlStatus = 1;
+            else purchase.controlStatus = 0;
+
+            creator.Add("controlStatus", purchase.controlStatus.ToString());
+
+            SetControllButton();
+
+        }
+
+
 
 
         private void dateTime_ValueChanged(object sender, EventArgs e)
@@ -160,13 +249,13 @@ namespace Aura_Client.View
 
 
 
+
         private void buttonOK_Click(object sender, EventArgs e)
         {
             SendToServer();
             timer1.Start();     //закрыть форму через время 
 
         }
-
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
@@ -198,7 +287,15 @@ namespace Aura_Client.View
             DialogResult = DialogResult.OK;
         }
 
+        private void controlStatus_Click(object sender, EventArgs e)
+        {
+            SwitchControlStatus();
+        }
 
+        private void purchaseMethodID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ReloadStatuses();
+        }
     }
 
 }

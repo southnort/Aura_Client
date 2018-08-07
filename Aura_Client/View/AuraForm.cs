@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Aura_Client.Controller;
+using Aura_Client.Model;
 
 namespace Aura_Client.View
 {
@@ -89,6 +90,20 @@ namespace Aura_Client.View
             {
                 picker.Format = DateTimePickerFormat.Short;
                 //  picker.Value = date;
+            }
+        }
+
+        protected void SetCombobox(ComboBox box, int id)
+        {
+            //для случаев, когда в ComboBox элементы не по порядку, с разрывами
+            //id элемента, например статуса
+            for (int i = 0; i < box.Items.Count; i++)
+            {
+                if ((int)(box.Items[i] as ComboBoxItem).Value == id)
+                {
+                    box.SelectedIndex = i;
+                    break;
+                }
             }
         }
 

@@ -56,9 +56,9 @@ namespace Aura_Client.View
                         cell0.Value = pur.id;
                         newRow.Cells.Add(cell0);
 
-                        var cell1 = new DataGridViewTextBoxCell();
-                        cell1.Value = Catalog.purchasesNames[pur.purchaseMethodID];
-                        newRow.Cells.Add(cell1);
+                        //var cell1 = new DataGridViewTextBoxCell();
+                        //cell1.Value = Catalog.purchasesNames[pur.purchaseMethodID];
+                        //newRow.Cells.Add(cell1);
 
                         var cell7 = new DataGridViewTextBoxCell();
                         cell7.Value = Catalog.laws[pur.law];
@@ -73,9 +73,9 @@ namespace Aura_Client.View
                         cell8.Value = pur.withAZK == 1 ? "Без АЦК" : "В АЦК";
                         newRow.Cells.Add(cell8);
 
-                        var cell3 = new DataGridViewTextBoxCell();
-                        cell3.Value = Catalog.statusesNames[pur.statusID];
-                        newRow.Cells.Add(cell3);
+                        //var cell3 = new DataGridViewTextBoxCell();
+                        //cell3.Value = Catalog.statusesNames[pur.statusID];
+                        //newRow.Cells.Add(cell3);
 
                         var cell4 = new DataGridViewTextBoxCell();
                         cell4.Value = HandleDate(pur.purchaseEisDate);
