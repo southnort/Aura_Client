@@ -97,14 +97,18 @@ namespace Aura_Client.View
         {
             //для случаев, когда в ComboBox элементы не по порядку, с разрывами
             //id элемента, например статуса
+           // box.SelectedIndex = 0;
+
             for (int i = 0; i < box.Items.Count; i++)
             {
-                if ((int)(box.Items[i] as ComboBoxItem).Value == id)
+                ComboBoxItem cbItem = box.Items[i] as ComboBoxItem;
+                if (id.ToString() == cbItem.Value.ToString())
                 {
                     box.SelectedIndex = i;
                     break;
                 }
             }
+            
         }
 
 

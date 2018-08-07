@@ -52,7 +52,7 @@ namespace Aura_Client.View
             }
 
             //статусы протоколов
-            for(int i = 0;i<Catalog.protocolStatuses.Count;i++)
+            for (int i = 0; i < Catalog.protocolStatuses.Count; i++)
             {
                 ComboBoxItem item = new ComboBoxItem();
                 item.Text = Catalog.protocolStatuses[i];
@@ -63,7 +63,7 @@ namespace Aura_Client.View
             }
 
             //ответственный за разработку документации 
-            employeDocumentationID.Items.Add("<не указано>");
+            employeDocumentationID.Items.Add(new ComboBoxItem() { Text = "<не указано", Value = 0 });
             foreach (var user in Program.dataManager.userNames)
             {
                 ComboBoxItem item = new ComboBoxItem();
@@ -75,7 +75,7 @@ namespace Aura_Client.View
             }
 
             //ответственный за размещение закупки
-            employeID.Items.Add("<не указано>");
+            employeID.Items.Add(new ComboBoxItem() { Text = "<не указано", Value = 0 });
             foreach (var user in Program.dataManager.userNames)
             {
                 ComboBoxItem item = new ComboBoxItem();
@@ -84,10 +84,10 @@ namespace Aura_Client.View
 
                 employeID.Items.Add(item);
 
-            }  
-           
+            }
+
             //организации-заказчики  
-            organizationID.Items.Add("<не указано>");
+            organizationID.Items.Add(new ComboBoxItem() { Text = "<не указано", Value = 0 });
             foreach (var org in Program.dataManager.GetAllOrganisations())
             {
                 ComboBoxItem item = new ComboBoxItem();
@@ -96,21 +96,22 @@ namespace Aura_Client.View
 
                 organizationID.Items.Add(item);
             }
-            
+
             //закон, по которой проводится закупка
             for (int i = 0; i < 3; i++)
             {
-                law.Items.Add(Catalog.laws[i]);
+                law.Items.Add(new ComboBoxItem() { Text = Catalog.laws[i], Value = i });
             }
 
             //с АЦК или без неё
-            withAZK.Items.Add("В АЦК");
-            withAZK.Items.Add("БЕЗ АЦК");
-           
+
+            withAZK.Items.Add(new ComboBoxItem() { Text = "С АЦК", Value = 0, });
+            withAZK.Items.Add(new ComboBoxItem() { Text = "БЕЗ АЦК", Value = 1, });
+
 
             purchaseMethodID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
             statusID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
-            protocolStatusID.MouseWheel+= new MouseEventHandler(comboBox_ValueChanged);
+            protocolStatusID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
             employeDocumentationID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
             employeID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
             organizationID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
@@ -123,7 +124,9 @@ namespace Aura_Client.View
         {
             //изменить статусы в зависимости от выбранного способа определения поставщика
             statusID.Items.Clear();
-            PurchaseMethod method = Catalog.purchaseMethods[(int)purchaseMethodID.SelectedValue];
+
+            ComboBoxItem selectedItem = purchaseMethodID.SelectedItem as ComboBoxItem;
+            PurchaseMethod method = Catalog.purchaseMethods[(int)selectedItem.Value];
             foreach (var st in method.purchaseStatuses)
             {
                 ComboBoxItem item = new ComboBoxItem();
@@ -134,7 +137,7 @@ namespace Aura_Client.View
                 statusID.SelectedIndex = 0;
                 creator.Add("statusID", "0");
             }
-
+           
         }
 
         private void SetControllButton()
@@ -188,11 +191,13 @@ namespace Aura_Client.View
             {
                 //если пользователь не администратор - запретить редактирование закона
                 law.Enabled = false;
+                controlStatus.Enabled = false;
             }
 
             withAZK.SelectedIndex = purchase.withAZK;
 
             SetControllButton();
+            ReloadStatuses();
 
         }
 
@@ -238,7 +243,8 @@ namespace Aura_Client.View
         private void comboBox_ValueChanged(object sender, EventArgs e)
         {
             var box = (ComboBox)sender;
-            creator.Add(box.Name, box.SelectedIndex.ToString());
+            ComboBoxItem item = box.SelectedItem as ComboBoxItem;
+            creator.Add(box.Name, ((int)item.Value).ToString());
         }
 
         private void numericUpDown_ValueChanges(object sender, EventArgs e)

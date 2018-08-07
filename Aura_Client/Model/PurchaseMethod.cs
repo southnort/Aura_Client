@@ -25,21 +25,17 @@ namespace Aura_Client.Model
 
         };
 
-        protected List<int> statusIndexes;        //статусы, доступные для данной процедуры
 
         public string name { get; protected set; }
         public Dictionary<int, string> purchaseStatuses;
-       
-        protected void CreateDictionary()
+
+        protected void CreateDictionary(List<int> statusIndexes)
         {
             //добавляем в словарь все доступные статусы по указанным индексам
             purchaseStatuses = new Dictionary<int, string>();
             foreach (var item in statusIndexes)
             {
-                if (allStatuses.Count < item)
-                {
-                    purchaseStatuses.Add(item, allStatuses[item]);
-                }
+                purchaseStatuses.Add(item, allStatuses[item]);
 
             }
 
@@ -54,8 +50,8 @@ namespace Aura_Client.Model
         public EmptyPurchaseMethod()
         {
             name = "<не указано>";
-            statusIndexes = new List<int>() { 0, };
-            CreateDictionary();
+            var statusIndexes = new List<int>() { 0, };
+            CreateDictionary(statusIndexes);
         }
 
     }
@@ -66,11 +62,11 @@ namespace Aura_Client.Model
         public AloneProvider()
         {
             name = "Единственный поставщик";
-            statusIndexes = new List<int>()
+            var statusIndexes = new List<int>()
             {
                 0, 1, 8,
             };
-            CreateDictionary();
+            CreateDictionary(statusIndexes);
         }
     }
 
@@ -81,11 +77,11 @@ namespace Aura_Client.Model
         public DemandOfQuotation()
         {
             name = "Запрос котировок";
-            statusIndexes = new List<int>()
+            var statusIndexes = new List<int>()
             {
                 0, 1, 2, 3, 4, 8,
             };
-            CreateDictionary();
+            CreateDictionary(statusIndexes);
         }
     }
 
@@ -95,26 +91,26 @@ namespace Aura_Client.Model
         public DemandOfQuotationEF()
         {
             name = "Запрос котировок в ЭФ";
-            statusIndexes = new List<int>()
+            var statusIndexes = new List<int>()
             {
                 0, 1, 2, 3, 4, 8,
             };
-            CreateDictionary();
+            CreateDictionary(statusIndexes);
         }
     }
 
 
-    public class Auction:PurchaseMethod
+    public class Auction : PurchaseMethod
     {
         //Электронный аукцион
         public Auction()
         {
             name = "Электронный аукцион";
-            statusIndexes = new List<int>()
+            var statusIndexes = new List<int>()
             {
                 0, 1, 5, 6, 7, 8,
             };
-            CreateDictionary();
+            CreateDictionary(statusIndexes);
         }
     }
 
@@ -125,11 +121,11 @@ namespace Aura_Client.Model
         public Konkurs()
         {
             name = "Конкурс в ЭФ";
-            statusIndexes = new List<int>()
+            var statusIndexes = new List<int>()
             {
                 0, 1, 2, 3, 4, 8,
             };
-            CreateDictionary();
+            CreateDictionary(statusIndexes);
         }
     }
 
@@ -139,13 +135,14 @@ namespace Aura_Client.Model
         public KonkursEF()
         {
             name = "Конкурс в электронной форме";
-            statusIndexes = new List<int>()
+            var statusIndexes = new List<int>()
             {
                 0, 1, 2, 3, 4, 8,
             };
-            CreateDictionary();
+            CreateDictionary(statusIndexes);
         }
     }
 
 
 }
+
