@@ -23,6 +23,7 @@ namespace Aura_Client.Controller
 
         public void Add(string columnName, string value)
         {
+            Console.WriteLine("ADDing string "+columnName+" "+value);
             if (changes.ContainsKey(columnName))
                 changes[columnName] = value;
 

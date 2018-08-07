@@ -578,6 +578,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.employeDocumentationID);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PurchaseForm";
             this.Text = "PurchaseForm";

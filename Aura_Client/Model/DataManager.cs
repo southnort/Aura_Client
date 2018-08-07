@@ -32,7 +32,11 @@ namespace Aura_Client.Model
 
         public void SetOrganisations(List<Organisation> organisations)
         {
-            this.organisations = organisations;
+            this.organisations.Add(new Organisation() { id = 0, name = "<не указано>", });
+            foreach (var org in organisations)
+            {
+                this.organisations.Add(org);
+            }
         }
 
 

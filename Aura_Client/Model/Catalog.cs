@@ -8,6 +8,23 @@ namespace Aura_Client.Model
     static public class Catalog
     {
         //класс-хранилище для списков в формах
+        public static List<string> allStatuses = new List<string>()
+        {
+            "<не указано>",         //0
+            "Опубликована",         //1
+
+            "Вскрытие конвертов",   //2
+            "Рассмотрение",         //3
+            "Оценка",               //4
+
+            "Первые части",         //5
+            "Вторые части",         //6
+            "Подведение итогов",    //7
+
+            "Завершена",            //8       
+
+        };
+
 
         public static List<PurchaseMethod> purchaseMethods = new List<PurchaseMethod>()
         {
@@ -30,8 +47,8 @@ namespace Aura_Client.Model
             "0 заявок",
             "1 заявка",
             "2 и более заявок",
-            "жду скан",
-            "Протокол опубликован",
+            "Жду скан",
+            "Опубликовано",
 
         };
 

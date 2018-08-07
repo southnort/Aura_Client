@@ -62,32 +62,29 @@ namespace Aura_Client.View
 
             }
 
-            //ответственный за разработку документации 
-            employeDocumentationID.Items.Add(new ComboBoxItem() { Text = "<не указано", Value = 0 });
+            //ответственный за разработку документации            
             foreach (var user in Program.dataManager.userNames)
             {
                 ComboBoxItem item = new ComboBoxItem();
                 item.Text = user.Value;
-                item.Value = user.Key;
+                item.Value = int.Parse(user.Key);
 
                 employeDocumentationID.Items.Add(item);
 
             }
 
-            //ответственный за размещение закупки
-            employeID.Items.Add(new ComboBoxItem() { Text = "<не указано", Value = 0 });
+            //ответственный за размещение закупки            
             foreach (var user in Program.dataManager.userNames)
             {
                 ComboBoxItem item = new ComboBoxItem();
                 item.Text = user.Value;
-                item.Value = user.Key;
+                item.Value =int.Parse(user.Key);
 
                 employeID.Items.Add(item);
 
             }
 
             //организации-заказчики  
-            organizationID.Items.Add(new ComboBoxItem() { Text = "<не указано", Value = 0 });
             foreach (var org in Program.dataManager.GetAllOrganisations())
             {
                 ComboBoxItem item = new ComboBoxItem();
@@ -135,7 +132,7 @@ namespace Aura_Client.View
 
                 statusID.Items.Add(item);
                 statusID.SelectedIndex = 0;
-                creator.Add("statusID", "0");
+              
             }
            
         }
@@ -163,8 +160,7 @@ namespace Aura_Client.View
             purchacePrice.Value = (decimal)purchase.purchacePrice;
             purchaseEisNum.Text = purchase.purchaseEisNum;
             SetDate(purchaseEisDate, purchase.purchaseEisDate);
-        
-            SetCombobox(statusID, purchase.statusID);
+
             SetCombobox(employeDocumentationID, purchase.employeDocumentationID);
             SetCombobox(employeID, purchase.employeID);
             SetCombobox(organizationID, purchase.organizationID);
@@ -198,7 +194,7 @@ namespace Aura_Client.View
 
             SetControllButton();
             ReloadStatuses();
-
+            SetCombobox(statusID, purchase.statusID);
         }
 
         private void SwitchControlStatus()
@@ -242,9 +238,17 @@ namespace Aura_Client.View
 
         private void comboBox_ValueChanged(object sender, EventArgs e)
         {
-            var box = (ComboBox)sender;
-            ComboBoxItem item = box.SelectedItem as ComboBoxItem;
-            creator.Add(box.Name, ((int)item.Value).ToString());
+           
+                var box = (ComboBox)sender;
+                ComboBoxItem item = box.SelectedItem as ComboBoxItem;
+            try
+            {
+                creator.Add(box.Name, ((int)item.Value).ToString());
+            }
+            catch
+            {
+                MessageBox.Show(item.Value.GetType().ToString());
+            }
         }
 
         private void numericUpDown_ValueChanges(object sender, EventArgs e)

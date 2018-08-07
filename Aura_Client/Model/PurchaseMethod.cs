@@ -8,23 +8,7 @@ namespace Aura_Client.Model
     public abstract class PurchaseMethod
     {
         //класс, описывающий метод закупки
-        protected static List<string> allStatuses = new List<string>()
-        {
-            "<не указано>",         //0
-            "Опубликована",         //1
-
-            "Вскрытие конвертов",   //2
-            "Рассмотрение",         //3
-            "Оценка",               //4
-
-            "Первые части",         //5
-            "Вторые части",         //6
-            "Подведение итогов",    //7
-
-            "Завершена",            //8       
-
-        };
-
+       
 
         public string name { get; protected set; }
         public Dictionary<int, string> purchaseStatuses;
@@ -35,7 +19,7 @@ namespace Aura_Client.Model
             purchaseStatuses = new Dictionary<int, string>();
             foreach (var item in statusIndexes)
             {
-                purchaseStatuses.Add(item, allStatuses[item]);
+                purchaseStatuses.Add(item, Catalog.allStatuses[item]);
 
             }
 

@@ -18,7 +18,66 @@ namespace Aura_Client.View
         {
             InitializeComponent();
 
+            CreateTable();
             ReloadTable();
+
+        }
+
+        private void CreateTable()
+        {
+            //программно создаем колонки в таблице
+            dgv.Columns.Add("id", "id");
+            dgv.Columns["id"].Width = 50;
+
+            dgv.Columns.Add("organizationID", "Заказчик");
+            dgv.Columns["organizationID"].Width = 150;
+
+            dgv.Columns.Add("purchaseName", "Наименование закупки");
+            dgv.Columns["purchaseName"].Width = 200;
+
+            dgv.Columns.Add("purchaseMethodID", "Способ");
+            dgv.Columns["purchaseMethodID"].Width = 150;
+
+            dgv.Columns.Add("statusID", "Статус");
+            dgv.Columns["statusID"].Width = 150;
+
+            dgv.Columns.Add("protocolStatusID", "Статус протокола");
+            dgv.Columns["protocolStatusID"].Width = 100;
+
+            dgv.Columns.Add("purchacePrice", "Сумма закупки");
+            dgv.Columns["purchacePrice"].Width = 100;
+
+            dgv.Columns.Add("withAZK", "АЦК");
+            dgv.Columns["withAZK"].Width = 50;
+
+            dgv.Columns.Add("purchaseEisNum", "Реестровый №");
+            dgv.Columns["purchaseEisNum"].Width = 100;
+
+            dgv.Columns.Add("employeID", "Ответственный за размещение");
+            dgv.Columns["employeID"].Width = 200;
+
+            dgv.Columns.Add("employeDocumentationID", "Ответственный за подготовку");
+            dgv.Columns["employeDocumentationID"].Width = 200;
+
+            DataGridViewCheckBoxColumn checkColumn = new DataGridViewCheckBoxColumn();
+            checkColumn.Name = "controlStatus";
+            checkColumn.HeaderText = "Пров.";
+            dgv.Columns.Add(checkColumn);
+            dgv.Columns["controlStatus"].Width = 20;
+
+            dgv.Columns.Add("resultOfControl", "Результаты проверки");
+            dgv.Columns["resultOfControl"].Width = 200;
+
+
+
+            
+
+            //dgv.Columns.Add("comments", "Комментарии");
+            //dgv.Columns["comments"].Width = 200;
+
+            //dgv.Columns.Add("law", "Закон");
+            //dgv.Columns["law"].Width = 50;
+            
 
         }
 
@@ -34,66 +93,64 @@ namespace Aura_Client.View
             {
                 foreach (var pur in purchases)
                 {
-                    Console.WriteLine("adding or not");
-                    if (pur == null) return;
-
-                    //проверяем закупку на необходимость добавления
-                    if (VisiblePurchase(pur))
+                    if (pur != null)
                     {
-
-                        //object[] newRow = new object[7];
-
-                        //newRow[0] = pur.id;
-                        //newRow[1] = Catalog.purchasesNames[pur.purchaseMethodID];
-                        //newRow[2] = pur.purchaseName;
-                        //newRow[3] = Catalog.statusesNames[pur.statusID];
-                        //newRow[4] = HandleDate(pur.purchaseEisDate);
-                        //newRow[5] =  Program.dataManager.userNames[pur.employeID.ToString()];
-                        //newRow[6] = pur.comments;
-
-                        DataGridViewRow newRow = new DataGridViewRow();
-                        var cell0 = new DataGridViewTextBoxCell();
-                        cell0.Value = pur.id;
-                        newRow.Cells.Add(cell0);
-
-                        //var cell1 = new DataGridViewTextBoxCell();
-                        //cell1.Value = Catalog.purchasesNames[pur.purchaseMethodID];
-                        //newRow.Cells.Add(cell1);
-
-                        var cell7 = new DataGridViewTextBoxCell();
-                        cell7.Value = Catalog.laws[pur.law];
-                        newRow.Cells.Add(cell7);
+                        //проверяем закупку на необходимость добавления
+                        if (VisiblePurchase(pur))
+                        {
+                            int rowIndex = dgv.Rows.Add();
+                            var newRow = dgv.Rows[rowIndex];
 
 
-                        var cell2 = new DataGridViewTextBoxCell();
-                        cell2.Value = pur.purchaseName;
-                        newRow.Cells.Add(cell2);
+                            newRow.Cells["id"].Value = pur.id;
 
-                        var cell8 = new DataGridViewTextBoxCell();
-                        cell8.Value = pur.withAZK == 1 ? "Без АЦК" : "В АЦК";
-                        newRow.Cells.Add(cell8);
+                            newRow.Cells["employeID"].Value =
+                                Program.dataManager.userNames[pur.employeID.ToString()];
 
-                        //var cell3 = new DataGridViewTextBoxCell();
-                        //cell3.Value = Catalog.statusesNames[pur.statusID];
-                        //newRow.Cells.Add(cell3);
+                            newRow.Cells["organizationID"].Value =
+                                Program.dataManager.GetAllOrganisations()[pur.organizationID].name;
 
-                        var cell4 = new DataGridViewTextBoxCell();
-                        cell4.Value = HandleDate(pur.purchaseEisDate);
-                        newRow.Cells.Add(cell4);
+                            newRow.Cells["purchaseMethodID"].Value =
+                                Catalog.purchaseMethods[pur.purchaseMethodID].name;
 
-                        var cell5 = new DataGridViewTextBoxCell();
-                        cell5.Value = Program.dataManager.userNames[pur.employeID.ToString()];
-                        newRow.Cells.Add(cell5);
+                            newRow.Cells["purchaseName"].Value = pur.purchaseName;
 
-                        var cell6 = new DataGridViewTextBoxCell();
-                        cell6.Value = pur.comments;
-                        newRow.Cells.Add(cell6);                        
-                       
-                        RecolorRow(newRow, pur.statusID);
+                            newRow.Cells["statusID"].Value = Catalog.allStatuses[pur.statusID];
 
-                        dataGridView1.Rows.Add(newRow);
+                            newRow.Cells["purchacePrice"].Value = pur.purchacePrice.ToString("### ### ### ### ###.##");
+
+                            newRow.Cells["purchaseEisNum"].Value = pur.purchaseEisNum;
+
+                            newRow.Cells["withAZK"].Value = pur.withAZK == 0 ? "С АЦК" : "БЕЗ АЦК";
+
+                            newRow.Cells["employeDocumentationID"].Value =
+                                Program.dataManager.userNames[pur.employeDocumentationID.ToString()];
+
+                            newRow.Cells["resultOfControl"].Value = pur.resultOfControl;
+
+                            newRow.Cells["protocolStatusID"].Value =
+                                Catalog.protocolStatuses[pur.protocolStatusID];
+                            Color color = Color.White;
+                            switch (pur.protocolStatusID)
+                            {
+                                case 1: color = Color.DodgerBlue; break;
+                                case 2: color = Color.Yellow; break;
+                                case 3: color = Color.LightPink; break;
+                                case 4: color = Color.LightCoral; break;
+                                case 5: color = Color.LightGreen; break;
+                            }
+                           // newRow.Cells["protocolStatusID"].Style.BackColor = color;
+                              newRow.DefaultCellStyle.BackColor = color;
+
+                            newRow.Cells["controlStatus"].Value =
+                                  pur.controlStatus == 1;
+
+
+                        }
+
 
                     }
+
                 }
             }
         }
@@ -142,9 +199,9 @@ namespace Aura_Client.View
 
         private void ClearTable()
         {
-            if (dataGridView1.Rows.Count > 0)
+            if (dgv.Rows.Count > 0)
             {
-                dataGridView1.Rows.Clear();
+                dgv.Rows.Clear();
             }
         }
 
