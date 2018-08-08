@@ -15,7 +15,7 @@ namespace Aura_Client.View
     {
         public DayInCalendarForm(Aura_Client.Model.DayInCalendar dayInCalendar)
         {
-            InitializeComponent();
+            InitializeComponent();            
 
             dateLabel.Text = dayInCalendar.date.Day.ToString();
 
@@ -51,6 +51,12 @@ namespace Aura_Client.View
             {
                 BackColor = Color.MistyRose;
             }
+
+            if (dayInCalendar.date == DateTime.Today)
+            {
+                BackColor = Color.LightYellow;
+            }
+
 
         }
 

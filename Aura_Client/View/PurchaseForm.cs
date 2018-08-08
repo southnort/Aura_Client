@@ -105,7 +105,7 @@ namespace Aura_Client.View
             withAZK.Items.Add(new ComboBoxItem() { Text = "С АЦК", Value = 0, });
             withAZK.Items.Add(new ComboBoxItem() { Text = "БЕЗ АЦК", Value = 1, });
 
-
+           
             purchaseMethodID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
             statusID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
             protocolStatusID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);

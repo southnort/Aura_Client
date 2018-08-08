@@ -27,7 +27,7 @@ namespace Aura_Client.Model
             Add(purchase.contractDateLast, purchase);
             Add(purchase.contractDateReal, purchase);
             Add(purchase.reestrDateLast, purchase);
-
+            
         }
 
 
@@ -39,7 +39,7 @@ namespace Aura_Client.Model
             {
                 Add(date.ToDateTime(), new DayInCalendar(date.ToDateTime()));
             }
-
+            
             this[date.ToDateTime()].Add(purchase);
 
         }

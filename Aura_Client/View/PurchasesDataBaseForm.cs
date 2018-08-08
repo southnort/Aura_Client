@@ -139,8 +139,8 @@ namespace Aura_Client.View
                                 case 4: color = Color.LightCoral; break;
                                 case 5: color = Color.LightGreen; break;
                             }
-                           // newRow.Cells["protocolStatusID"].Style.BackColor = color;
-                              newRow.DefaultCellStyle.BackColor = color;
+                            newRow.Cells["protocolStatusID"].Style.BackColor = color;
+                            // newRow.DefaultCellStyle.BackColor = color;
 
                             newRow.Cells["controlStatus"].Value =
                                   pur.controlStatus == 1;

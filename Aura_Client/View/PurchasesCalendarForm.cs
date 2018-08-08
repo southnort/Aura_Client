@@ -126,7 +126,6 @@ namespace Aura_Client.View
                     days.Add(date);
                 }
             }
-                    
 
             return days;
         }
@@ -138,6 +137,7 @@ namespace Aura_Client.View
             for (int i = 0; i < days.Count; i++)
             {
                 Aura_Client.Model.DayInCalendar day = days[i];
+                Console.WriteLine(day.events.Count);
 
                 DayInCalendarForm form = new DayInCalendarForm(day);
                 mainPanel.Controls.Add(form);
