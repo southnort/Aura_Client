@@ -195,6 +195,7 @@ namespace Aura_Client.View
             SetControllButton();
             ReloadStatuses();
             SetCombobox(statusID, purchase.statusID);
+            SwitchColorMark();
         }
 
         private void SwitchControlStatus()
@@ -207,6 +208,11 @@ namespace Aura_Client.View
 
             SetControllButton();
 
+        }
+
+        private void SwitchColorMark()
+        {
+            colorMark.BackColor = Color.FromArgb(purchase.colorMark);
         }
 
 
@@ -305,6 +311,19 @@ namespace Aura_Client.View
         private void purchaseMethodID_SelectedIndexChanged(object sender, EventArgs e)
         {
             ReloadStatuses();
+        }
+
+        private void colorMark_Click(object sender, EventArgs e)
+        {
+            colorDialog1.AllowFullOpen = false;
+            colorDialog1.ShowHelp = true;
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                int argb = colorDialog1.Color.ToArgb();
+                purchase.colorMark = argb;
+                creator.Add("colorMark", argb.ToString());
+                SwitchColorMark();
+            }
         }
     }
 

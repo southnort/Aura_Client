@@ -75,8 +75,9 @@
             this.bidsFinishDate = new System.Windows.Forms.DateTimePicker();
             this.label18 = new System.Windows.Forms.Label();
             this.controlStatus = new System.Windows.Forms.Button();
-            this.colorMark = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.colorMark = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.purchacePrice)).BeginInit();
             this.SuspendLayout();
             // 
@@ -531,31 +532,32 @@
             this.controlStatus.UseVisualStyleBackColor = false;
             this.controlStatus.Click += new System.EventHandler(this.controlStatus_Click);
             // 
-            // colorMark
-            // 
-            this.colorMark.FormattingEnabled = true;
-            this.colorMark.Location = new System.Drawing.Point(714, 181);
-            this.colorMark.Name = "colorMark";
-            this.colorMark.Size = new System.Drawing.Size(71, 21);
-            this.colorMark.TabIndex = 76;
-            // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(669, 184);
+            this.label19.Location = new System.Drawing.Point(652, 195);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(39, 13);
             this.label19.TabIndex = 77;
             this.label19.Text = "Метка";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // colorMark
+            // 
+            this.colorMark.Location = new System.Drawing.Point(697, 188);
+            this.colorMark.Name = "colorMark";
+            this.colorMark.Size = new System.Drawing.Size(88, 40);
+            this.colorMark.TabIndex = 78;
+            this.colorMark.UseVisualStyleBackColor = true;
+            this.colorMark.Click += new System.EventHandler(this.colorMark_Click);
+            // 
             // PurchaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(797, 569);
-            this.Controls.Add(this.label19);
             this.Controls.Add(this.colorMark);
+            this.Controls.Add(this.label19);
             this.Controls.Add(this.controlStatus);
             this.Controls.Add(this.bidsFinishDate);
             this.Controls.Add(this.label18);
@@ -657,7 +659,8 @@
         private System.Windows.Forms.DateTimePicker bidsFinishDate;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button controlStatus;
-        private System.Windows.Forms.ComboBox colorMark;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.Button colorMark;
     }
 }

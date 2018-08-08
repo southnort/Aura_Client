@@ -52,6 +52,7 @@
             this.dgv.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dgv.Location = new System.Drawing.Point(12, 67);
             this.dgv.Name = "dgv";
+            this.dgv.ReadOnly = true;
             this.dgv.Size = new System.Drawing.Size(1342, 371);
             this.dgv.TabIndex = 0;
             this.dgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);

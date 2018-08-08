@@ -35,6 +35,9 @@ namespace Aura_Client.View
             dgv.Columns.Add("purchaseName", "Наименование закупки");
             dgv.Columns["purchaseName"].Width = 200;
 
+            dgv.Columns.Add("colorMark", "Метка");
+            dgv.Columns["colorMark"].Width = 45;
+
             dgv.Columns.Add("purchaseMethodID", "Способ");
             dgv.Columns["purchaseMethodID"].Width = 150;
 
@@ -145,6 +148,7 @@ namespace Aura_Client.View
                             newRow.Cells["controlStatus"].Value =
                                   pur.controlStatus == 1;
 
+                            newRow.Cells["colorMark"].Style.BackColor = Color.FromArgb(pur.colorMark);
 
                         }
 
