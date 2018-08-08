@@ -107,7 +107,7 @@ namespace Aura_Client.Network
                 try
                 {
                     string message = ReceiveBroadcast();
-                    Console.WriteLine("Receive broadsactMessage "+ message);
+                    Console.WriteLine("Receive broadsactMessage " + message);
                     object ob = ReceiveBroadcastedObject();
                     Console.WriteLine("Receive broadsactObject " + ob.GetType());
                     HandleMessage(message, ob);
@@ -215,6 +215,11 @@ namespace Aura_Client.Network
         {
             try
             {
+                int size = data.Length;
+                Console.WriteLine("Sending message size is - " + size);
+                byte[] preparedSize = BitConverter.GetBytes(size);
+                stream.Write(preparedSize, 0, preparedSize.Length);
+
                 stream.Write(data, 0, data.Length);
 
             }
@@ -232,13 +237,14 @@ namespace Aura_Client.Network
             //метод получения одного сообщения
             byte[] data = new byte[64]; // буфер для получаемых данных
             StringBuilder builder = new StringBuilder();
-            int bytes = 0;
+            int bytes = stream.Read(data, 0, 4);    //прочитать первые 6 байт - размер сообщения
+            int size = BitConverter.ToInt32(data, 0);
             do
             {
                 bytes = stream.Read(data, 0, data.Length);
                 builder.Append(Encoding.Unicode.GetString(data, 0, bytes));
             }
-            while (stream.DataAvailable);
+            while (bytes != size);
             string message = builder.ToString();
 
             Console.WriteLine("Recieving message: " + message);
@@ -249,19 +255,22 @@ namespace Aura_Client.Network
         {
             //метод получения сериализованного объекта
             byte[] data = new byte[64];
-            int bytes = 0;
             BinaryFormatter bf = new BinaryFormatter();
             MemoryStream ms = new MemoryStream();
 
             //получаем
             try
             {
+                int bytes = stream.Read(data, 0, 4);    //прочитать первые 6 байт - размер сообщения
+                int size = BitConverter.ToInt32(data, 0);
+                Console.WriteLine("ReceivingeMessage size - "+size);
                 do
                 {
-                    bytes = stream.Read(data, 0, data.Length);
+                    bytes = stream.Read(data, 0, data.Length < size ? data.Length : size);
                     ms.Write(data, 0, bytes);
+                    size -= bytes;
                 }
-                while (stream.DataAvailable);
+                while (bytes != size);
 
                 ms.Seek(0, SeekOrigin.Begin);
             }
@@ -291,19 +300,20 @@ namespace Aura_Client.Network
         {
             //метод получения сериализованного объекта
             byte[] data = new byte[64];
-            int bytes = 0;
             BinaryFormatter bf = new BinaryFormatter();
             MemoryStream ms = new MemoryStream();
 
             //получаем
             try
             {
+                int bytes = stream.Read(data, 0, 4);    //прочитать первые 6 байт - размер сообщения
+                int size = BitConverter.ToInt32(data, 0);
                 do
                 {
                     bytes = listeningStream.Read(data, 0, data.Length);
                     ms.Write(data, 0, bytes);
                 }
-                while (listeningStream.DataAvailable);
+                while (bytes != size);
 
                 ms.Seek(0, SeekOrigin.Begin);
             }
@@ -332,7 +342,7 @@ namespace Aura_Client.Network
 
         private void HandleMessage(string message, object ob)
         {
-            Console.WriteLine("HandleMessage "+message +" "+ob.GetType());
+            Console.WriteLine("HandleMessage " + message + " " + ob.GetType());
             messageHandler.HandleMessage(message, ob);
         }
 
