@@ -107,7 +107,7 @@ namespace Aura_Client.Network
                 try
                 {
                     string message = ReceiveBroadcast();
-                    Console.WriteLine("Receive broadsactMessage "+ message);
+                    Console.WriteLine("Receive broadsactMessage " + message);
                     object ob = ReceiveBroadcastedObject();
                     Console.WriteLine("Receive broadsactObject " + ob.GetType());
                     HandleMessage(message, ob);
@@ -126,23 +126,7 @@ namespace Aura_Client.Network
             }
         }
 
-        private string ReceiveBroadcast()
-        {
-            //метод получения одного оповещения
-            byte[] data = new byte[64]; // буфер для получаемых данных
-            StringBuilder builder = new StringBuilder();
-            int bytes = 0;
-            do
-            {
-                bytes = listeningStream.Read(data, 0, data.Length);
-                builder.Append(Encoding.Unicode.GetString(data, 0, bytes));
-            }
-            while (listeningStream.DataAvailable);
-            string message = builder.ToString();
-
-            return message;
-        }
-
+        
 
 
 
@@ -180,7 +164,7 @@ namespace Aura_Client.Network
             try
             {
                 SendMessage(request);
-                return ReceiveString();
+                return ReceiveString(stream);
             }
 
             catch (Exception ex)
@@ -197,7 +181,7 @@ namespace Aura_Client.Network
             try
             {
                 SendMessage(request);
-                return (T)ReceiveObject();
+                return (T)ReceiveObject(stream);
             }
 
             catch (Exception ex)
@@ -211,10 +195,112 @@ namespace Aura_Client.Network
 
 
 
+        private string ReceiveString(NetworkStream st)
+        {
+            //метод получения одного сообщения
+            try
+            {
+                StringBuilder sb = new StringBuilder();
+
+                var data = new byte[64];
+                var size = new byte[4];
+                int readCount;
+                int totalReadMessageBytes = 0;
+
+                st.Read(size, 0, 4);
+                int messageLenght = BitConverter.ToInt32(size, 0);
+
+                while ((readCount = st.Read(data, 0, data.Length)) != 0)
+                {
+                    sb.Append(Encoding.Unicode.GetString(data, 0, readCount));
+                    totalReadMessageBytes += readCount;
+                    if (totalReadMessageBytes >= messageLenght)
+                        break;
+                }
+
+                string message = sb.ToString();
+                Console.WriteLine("Receive string "+message);
+                return message;
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return "ERROR";
+            }
+        }
+
+        private object ReceiveObject(NetworkStream st)
+        {
+            //метод получения сериализованного объекта
+            try
+            {
+                var ms = new MemoryStream();
+                var binaryWriter = new BinaryWriter(ms);
+
+                var data = new byte[64];
+                var size = new byte[4];
+                int readCount;
+                int totalReadMessageBytes = 0;
+
+                st.Read(size, 0, 4);
+                int messageLenght = BitConverter.ToInt32(size, 0);
+                Console.WriteLine("Object size -:" + messageLenght);
+
+                while ((readCount = st.Read(data, 0, data.Length)) != 0)
+                {
+                    binaryWriter.Write(data, 0, readCount);
+                    totalReadMessageBytes += readCount;
+                    if (totalReadMessageBytes >= messageLenght)
+                        break;
+                }
+
+                if (ms.Length > 0)
+                {
+                    BinaryFormatter bf = new BinaryFormatter();
+                    Console.WriteLine(ms.Length);
+                    ms.Seek(0, SeekOrigin.Begin);
+                    object ob = bf.Deserialize(ms);
+                    Console.WriteLine("REceiving object "+ob.GetType());
+                    return ob;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return null;
+            }
+
+        }
+
+        private string ReceiveBroadcast()
+        {
+            //метод получения одного оповещения
+            return ReceiveString(listeningStream);
+
+        }
+
+
+        private object ReceiveBroadcastedObject()
+        {
+            return
+            ReceiveObject(listeningStream);
+
+        }
+
         private void Send(byte[] data)
         {
             try
             {
+                int size = data.Length;
+                byte[] preparedSize = BitConverter.GetBytes(size);
+
+                stream.Write(preparedSize, 0, preparedSize.Length);
                 stream.Write(data, 0, data.Length);
 
             }
@@ -227,116 +313,13 @@ namespace Aura_Client.Network
 
         }
 
-        private string ReceiveString()
-        {
-            //метод получения одного сообщения
-            byte[] data = new byte[64]; // буфер для получаемых данных
-            StringBuilder builder = new StringBuilder();
-            int bytes = 0;
-            do
-            {
-                bytes = stream.Read(data, 0, data.Length);
-                builder.Append(Encoding.Unicode.GetString(data, 0, bytes));
-            }
-            while (stream.DataAvailable);
-            string message = builder.ToString();
-
-            Console.WriteLine("Recieving message: " + message);
-            return message;
-        }
-
-        private object ReceiveObject()
-        {
-            //метод получения сериализованного объекта
-            byte[] data = new byte[64];
-            int bytes = 0;
-            BinaryFormatter bf = new BinaryFormatter();
-            MemoryStream ms = new MemoryStream();
-
-            //получаем
-            try
-            {
-                do
-                {
-                    bytes = stream.Read(data, 0, data.Length);
-                    ms.Write(data, 0, bytes);
-                }
-                while (stream.DataAvailable);
-
-                ms.Seek(0, SeekOrigin.Begin);
-            }
-
-            catch (Exception ex)
-            {
-                Console.WriteLine(ToString() + "ReceiveObject Exception: " + ex.Message);
-                return null;
-            }
-
-            //десериализуем
-            try
-            {
-                object ob = bf.Deserialize(ms);
-                return ob;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ToString() + "ReceiveObject.Deserialize Exception: " + ex.Message);
-                return null;
-            }
-
-
-        }
-
-        private object ReceiveBroadcastedObject()
-        {
-            //метод получения сериализованного объекта
-            byte[] data = new byte[64];
-            int bytes = 0;
-            BinaryFormatter bf = new BinaryFormatter();
-            MemoryStream ms = new MemoryStream();
-
-            //получаем
-            try
-            {
-                do
-                {
-                    bytes = listeningStream.Read(data, 0, data.Length);
-                    ms.Write(data, 0, bytes);
-                }
-                while (listeningStream.DataAvailable);
-
-                ms.Seek(0, SeekOrigin.Begin);
-            }
-
-            catch (Exception ex)
-            {
-                Console.WriteLine(ToString() + "ReceiveObject Exception: " + ex.Message);
-                return null;
-            }
-
-            //десериализуем
-            try
-            {
-                object ob = bf.Deserialize(ms);
-                return ob;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ToString() + "ReceiveObject.Deserialize Exception: " + ex.Message);
-                return null;
-            }
-
-
-        }
 
 
         private void HandleMessage(string message, object ob)
         {
-            Console.WriteLine("HandleMessage "+message +" "+ob.GetType());
+            Console.WriteLine("HandleMessage " + message + " " + ob.GetType());
             messageHandler.HandleMessage(message, ob);
-        }
-
-
+        }        
 
 
     }
