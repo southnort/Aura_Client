@@ -131,13 +131,14 @@ namespace Aura_Client.Network
             //метод получения одного оповещения
             byte[] data = new byte[64]; // буфер для получаемых данных
             StringBuilder builder = new StringBuilder();
-            int bytes = 0;
+            int bytes = stream.Read(data, 0, 4);    //прочитать первые 6 байт - размер сообщения
+            int size = BitConverter.ToInt32(data, 0);
             do
             {
                 bytes = listeningStream.Read(data, 0, data.Length);
                 builder.Append(Encoding.Unicode.GetString(data, 0, bytes));
             }
-            while (listeningStream.DataAvailable);
+            while (bytes!=size);
             string message = builder.ToString();
 
             return message;
@@ -218,6 +219,8 @@ namespace Aura_Client.Network
                 int size = data.Length;
                 Console.WriteLine("Sending message size is - " + size);
                 byte[] preparedSize = BitConverter.GetBytes(size);
+                foreach (var i in preparedSize)
+                    Console.Write(i + " ");
                 stream.Write(preparedSize, 0, preparedSize.Length);
 
                 stream.Write(data, 0, data.Length);
@@ -236,9 +239,19 @@ namespace Aura_Client.Network
         {
             //метод получения одного сообщения
             byte[] data = new byte[64]; // буфер для получаемых данных
+            byte[] sizeArr = new byte[4];
+            
             StringBuilder builder = new StringBuilder();
-            int bytes = stream.Read(data, 0, 4);    //прочитать первые 6 байт - размер сообщения
-            int size = BitConverter.ToInt32(data, 0);
+            int bytes = stream.Read(sizeArr, 0, 4);    //прочитать первые 4 байт - размер сообщения
+            
+           
+            int size = BitConverter.ToInt32(sizeArr, 0);
+            Console.Write("\n");
+            foreach (var i in sizeArr)
+            {
+                Console.Write(i + " ");
+            }
+            Console.WriteLine(size.ToString());
             do
             {
                 bytes = stream.Read(data, 0, data.Length);
