@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aura_Client", "Aura_Client\Aura_Client.csproj", "{776916EC-BBBA-408D-9812-C65B05A94C9F}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Aura", "Aura\Aura.vdproj", "{39760D09-1DFE-4B45-901D-93BD84104CFF}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Aura_Setup", "Aura_Setup\Aura_Setup.vdproj", "{230E1847-F11C-4808-9419-1AB7C4BEA2E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,9 +17,8 @@ Global
 		{776916EC-BBBA-408D-9812-C65B05A94C9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{776916EC-BBBA-408D-9812-C65B05A94C9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{776916EC-BBBA-408D-9812-C65B05A94C9F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{39760D09-1DFE-4B45-901D-93BD84104CFF}.Debug|Any CPU.ActiveCfg = Debug
-		{39760D09-1DFE-4B45-901D-93BD84104CFF}.Debug|Any CPU.Build.0 = Debug
-		{39760D09-1DFE-4B45-901D-93BD84104CFF}.Release|Any CPU.ActiveCfg = Release
+		{230E1847-F11C-4808-9419-1AB7C4BEA2E0}.Debug|Any CPU.ActiveCfg = Debug
+		{230E1847-F11C-4808-9419-1AB7C4BEA2E0}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

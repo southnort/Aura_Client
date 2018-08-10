@@ -36,6 +36,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.resultTextLabel = new System.Windows.Forms.Label();
             this.tryLoginButton = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // loginTextBox
@@ -105,11 +106,22 @@
             this.tryLoginButton.UseVisualStyleBackColor = true;
             this.tryLoginButton.Click += new System.EventHandler(this.tryLoginButton_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(680, 280);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(86, 20);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "ver. 0.0.0.0";
+            // 
             // LoginWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(778, 309);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.tryLoginButton);
             this.Controls.Add(this.resultTextLabel);
             this.Controls.Add(this.label3);
@@ -135,5 +147,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label resultTextLabel;
         private System.Windows.Forms.Button tryLoginButton;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -14,6 +14,8 @@ namespace Aura_Client.View
         public LoginWindow()
         {
             InitializeComponent();
+            label3.Text = "\"Аура-Клиент\" приветствует Вас";
+            label4.Text = "ver. " + Application.ProductVersion;
         }
 
         private void tryLoginButton_Click(object sender, EventArgs e)

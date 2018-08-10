@@ -196,6 +196,11 @@ namespace Aura_Client.View
             ReloadStatuses();
             SetCombobox(statusID, purchase.statusID);
             SwitchColorMark();
+
+            if (purchase.id > 0 && purchase.purchaseMethodID>0)
+            {
+                purchaseMethodID.Enabled = false;
+            }
         }
 
         private void SwitchControlStatus()
