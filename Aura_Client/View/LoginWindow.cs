@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Aura_Client.View
@@ -26,6 +21,8 @@ namespace Aura_Client.View
 
             }
         }
+
+       
 
         public void SetLoginResult(string result)
         {
@@ -71,6 +68,15 @@ namespace Aura_Client.View
                 resultTextLabel.ForeColor = color;
                 if(color == Color.Green) Close();
             }));
+        }
+
+        private void anyKey_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                tryLoginButton_Click(sender, e);
+            }
+
         }
     }
 }

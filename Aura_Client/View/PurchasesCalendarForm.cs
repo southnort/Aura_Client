@@ -14,7 +14,6 @@ namespace Aura_Client.View
     public partial class PurchasesCalendarForm : AuraForm
     {
         //визуальное представление календаря закупок
-        private DataManager dataBase = Program.dataManager;
         private int month;      //выбранный для отображание месяц
         private int year;       //выбранный для отображения год
 
@@ -83,7 +82,7 @@ namespace Aura_Client.View
         private void RefreshTable()
         {
             Clear();
-            Fill(GetDays(dataBase.GetCalendar()));
+          //  Fill(GetDays(dataBase.GetCalendar()));
         }
 
         private void Clear()

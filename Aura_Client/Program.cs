@@ -16,7 +16,7 @@ namespace Aura_Client
         public static User user = new User();
         public static NetworkBridge bridge = new NetworkBridge();
         public static List<IShowable> openedForms = new List<IShowable>();
-        public volatile static DataManager dataManager = new DataManager();
+        public static DataManager dataManager = new DataManager();
         
         static void Main()
         {
@@ -29,12 +29,9 @@ namespace Aura_Client
                 if (user.ID != -1)
                 {
                     Console.WriteLine("Autentification successful");
-                    var users = bridge.GetObject<Dictionary<string, string>>("USERNAMES");
-                    dataManager.SetUserNames(users);
+                    var users = bridge.GetObject<Dictionary<string, string>>("USERNAMES");                   
                     var purchases = bridge.GetObject<List<Purchase>>("ALLPURCHASES");
-                    dataManager.SetPurchases(purchases);
                     var organisations = bridge.GetObject<List<Organisation>>("ALLORGANISATIONS");
-                    dataManager.SetOrganisations(organisations);
 
                     MainForm mainForm = new MainForm();
                     mainForm.ShowDialog();

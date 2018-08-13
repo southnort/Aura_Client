@@ -32,7 +32,7 @@ namespace Aura_Client.View
 
             }
 
-            FillForm();           
+            FillForm();
 
         }
 
@@ -63,7 +63,7 @@ namespace Aura_Client.View
             }
 
             //ответственный за разработку документации            
-            foreach (var user in Program.dataManager.userNames)
+            foreach (var user in Program.bridge.GetObject<Dictionary<string, string>>("USERNAMES"))
             {
                 ComboBoxItem item = new ComboBoxItem();
                 item.Text = user.Value;
@@ -74,18 +74,18 @@ namespace Aura_Client.View
             }
 
             //ответственный за размещение закупки            
-            foreach (var user in Program.dataManager.userNames)
+            foreach (var user in Program.bridge.GetObject<Dictionary<string, string>>("USERNAMES"))
             {
                 ComboBoxItem item = new ComboBoxItem();
                 item.Text = user.Value;
-                item.Value =int.Parse(user.Key);
+                item.Value = int.Parse(user.Key);
 
                 employeID.Items.Add(item);
 
             }
 
             //организации-заказчики  
-            foreach (var org in Program.dataManager.GetAllOrganisations())
+            foreach (var org in Program.bridge.GetObject<List<Organisation>>("ALLORGANISATIONS"))
             {
                 ComboBoxItem item = new ComboBoxItem();
                 item.Text = org.name;
@@ -105,7 +105,7 @@ namespace Aura_Client.View
             withAZK.Items.Add(new ComboBoxItem() { Text = "С АЦК", Value = 0, });
             withAZK.Items.Add(new ComboBoxItem() { Text = "БЕЗ АЦК", Value = 1, });
 
-           
+
             purchaseMethodID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
             statusID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
             protocolStatusID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
@@ -132,9 +132,9 @@ namespace Aura_Client.View
 
                 statusID.Items.Add(item);
                 statusID.SelectedIndex = 0;
-              
+
             }
-           
+
         }
 
         private void SetControllButton()
@@ -176,9 +176,9 @@ namespace Aura_Client.View
             SetDate(bidsSecondPartDate, purchase.bidsSecondPartDate);
             SetDate(bidsFinishDate, purchase.bidsFinishDate);
 
-                       
-            
-            
+
+
+
             comments.Text = purchase.comments;
             resultOfControl.Text = purchase.resultOfControl;
             law.SelectedIndex = purchase.law;
@@ -197,7 +197,7 @@ namespace Aura_Client.View
             SetCombobox(statusID, purchase.statusID);
             SwitchColorMark();
 
-            if (purchase.id > 0 && purchase.purchaseMethodID>0)
+            if (purchase.id > 0 && purchase.purchaseMethodID > 0)
             {
                 purchaseMethodID.Enabled = false;
             }
@@ -249,9 +249,9 @@ namespace Aura_Client.View
 
         private void comboBox_ValueChanged(object sender, EventArgs e)
         {
-           
-                var box = (ComboBox)sender;
-                ComboBoxItem item = box.SelectedItem as ComboBoxItem;
+
+            var box = (ComboBox)sender;
+            ComboBoxItem item = box.SelectedItem as ComboBoxItem;
             try
             {
                 creator.Add(box.Name, ((int)item.Value).ToString());
@@ -281,7 +281,6 @@ namespace Aura_Client.View
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
-            Close();
         }
 
         private void SendToServer()
@@ -330,6 +329,16 @@ namespace Aura_Client.View
                 SwitchColorMark();
             }
         }
+
+        private void dateTimeClear_Click(object sender, EventArgs e)
+        {
+            string fieldName = ((Button)sender).Name.Replace("Clr", "");
+            DateTimePicker picker = Controls[fieldName] as DateTimePicker;
+            SetDate(picker, DateTime.MinValue);
+            creator.Add(fieldName, DateTime.MinValue.ToShortDateString());
+
+        }
+        
     }
 
 }

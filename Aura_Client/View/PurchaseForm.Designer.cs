@@ -78,13 +78,23 @@
             this.label19 = new System.Windows.Forms.Label();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.colorMark = new System.Windows.Forms.Button();
+            this.purchaseEisDateClr = new System.Windows.Forms.Button();
+            this.bidsStartDateClr = new System.Windows.Forms.Button();
+            this.bidsOpenDateClr = new System.Windows.Forms.Button();
+            this.bidsReviewDateClr = new System.Windows.Forms.Button();
+            this.bidsRatingDateClr = new System.Windows.Forms.Button();
+            this.bidsEndDateClr = new System.Windows.Forms.Button();
+            this.bidsFirstPartDateClr = new System.Windows.Forms.Button();
+            this.bidsSecondPartDateClr = new System.Windows.Forms.Button();
+            this.bidsFinishDateClr = new System.Windows.Forms.Button();
+            this.fontDialog1 = new System.Windows.Forms.FontDialog();
             ((System.ComponentModel.ISupportInitialize)(this.purchacePrice)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(426, 108);
+            this.label1.Location = new System.Drawing.Point(449, 107);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(89, 26);
             this.label1.TabIndex = 0;
@@ -94,9 +104,9 @@
             // employeDocumentationID
             // 
             this.employeDocumentationID.FormattingEnabled = true;
-            this.employeDocumentationID.Location = new System.Drawing.Point(521, 112);
+            this.employeDocumentationID.Location = new System.Drawing.Point(544, 112);
             this.employeDocumentationID.Name = "employeDocumentationID";
-            this.employeDocumentationID.Size = new System.Drawing.Size(264, 21);
+            this.employeDocumentationID.Size = new System.Drawing.Size(241, 21);
             this.employeDocumentationID.TabIndex = 1;
             this.employeDocumentationID.Text = "Иванов Петр";
             this.employeDocumentationID.DropDownClosed += new System.EventHandler(this.comboBox_ValueChanged);
@@ -126,7 +136,7 @@
             this.purchaseMethodID.FormattingEnabled = true;
             this.purchaseMethodID.Location = new System.Drawing.Point(145, 109);
             this.purchaseMethodID.Name = "purchaseMethodID";
-            this.purchaseMethodID.Size = new System.Drawing.Size(259, 21);
+            this.purchaseMethodID.Size = new System.Drawing.Size(272, 21);
             this.purchaseMethodID.TabIndex = 5;
             this.purchaseMethodID.Text = "Электронный аукцион";
             this.purchaseMethodID.SelectedIndexChanged += new System.EventHandler(this.purchaseMethodID_SelectedIndexChanged);
@@ -184,9 +194,9 @@
             // 
             // purchaseEisNum
             // 
-            this.purchaseEisNum.Location = new System.Drawing.Point(145, 169);
+            this.purchaseEisNum.Location = new System.Drawing.Point(145, 166);
             this.purchaseEisNum.Name = "purchaseEisNum";
-            this.purchaseEisNum.Size = new System.Drawing.Size(158, 20);
+            this.purchaseEisNum.Size = new System.Drawing.Size(148, 20);
             this.purchaseEisNum.TabIndex = 13;
             this.purchaseEisNum.Text = "0322300112718000150";
             this.purchaseEisNum.Leave += new System.EventHandler(this.textBox_ValueChanged);
@@ -205,7 +215,7 @@
             // 
             this.purchaseEisDate.CustomFormat = "";
             this.purchaseEisDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.purchaseEisDate.Location = new System.Drawing.Point(309, 169);
+            this.purchaseEisDate.Location = new System.Drawing.Point(299, 166);
             this.purchaseEisDate.Name = "purchaseEisDate";
             this.purchaseEisDate.Size = new System.Drawing.Size(95, 20);
             this.purchaseEisDate.TabIndex = 14;
@@ -277,7 +287,7 @@
             0,
             0});
             this.purchacePrice.Name = "purchacePrice";
-            this.purchacePrice.Size = new System.Drawing.Size(259, 20);
+            this.purchacePrice.Size = new System.Drawing.Size(272, 20);
             this.purchacePrice.TabIndex = 48;
             this.purchacePrice.ThousandsSeparator = true;
             this.purchacePrice.Value = new decimal(new int[] {
@@ -352,9 +362,9 @@
             // employeID
             // 
             this.employeID.FormattingEnabled = true;
-            this.employeID.Location = new System.Drawing.Point(521, 154);
+            this.employeID.Location = new System.Drawing.Point(544, 154);
             this.employeID.Name = "employeID";
-            this.employeID.Size = new System.Drawing.Size(264, 21);
+            this.employeID.Size = new System.Drawing.Size(241, 21);
             this.employeID.TabIndex = 57;
             this.employeID.Text = "Николаев Антон";
             this.employeID.DropDownClosed += new System.EventHandler(this.comboBox_ValueChanged);
@@ -362,7 +372,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(428, 150);
+            this.label10.Location = new System.Drawing.Point(451, 149);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(87, 26);
             this.label10.TabIndex = 56;
@@ -372,7 +382,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(135, 232);
+            this.label8.Location = new System.Drawing.Point(87, 232);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(121, 13);
             this.label8.TabIndex = 58;
@@ -382,7 +392,7 @@
             // 
             this.bidsStartDate.CustomFormat = "";
             this.bidsStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.bidsStartDate.Location = new System.Drawing.Point(262, 232);
+            this.bidsStartDate.Location = new System.Drawing.Point(214, 232);
             this.bidsStartDate.Name = "bidsStartDate";
             this.bidsStartDate.Size = new System.Drawing.Size(110, 20);
             this.bidsStartDate.TabIndex = 59;
@@ -411,7 +421,7 @@
             // 
             this.bidsOpenDate.CustomFormat = "";
             this.bidsOpenDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.bidsOpenDate.Location = new System.Drawing.Point(262, 280);
+            this.bidsOpenDate.Location = new System.Drawing.Point(214, 280);
             this.bidsOpenDate.Name = "bidsOpenDate";
             this.bidsOpenDate.Size = new System.Drawing.Size(110, 20);
             this.bidsOpenDate.TabIndex = 63;
@@ -420,7 +430,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(199, 280);
+            this.label12.Location = new System.Drawing.Point(151, 280);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(57, 13);
             this.label12.TabIndex = 62;
@@ -430,7 +440,7 @@
             // 
             this.bidsReviewDate.CustomFormat = "";
             this.bidsReviewDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.bidsReviewDate.Location = new System.Drawing.Point(262, 306);
+            this.bidsReviewDate.Location = new System.Drawing.Point(214, 306);
             this.bidsReviewDate.Name = "bidsReviewDate";
             this.bidsReviewDate.Size = new System.Drawing.Size(110, 20);
             this.bidsReviewDate.TabIndex = 65;
@@ -439,7 +449,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(175, 306);
+            this.label13.Location = new System.Drawing.Point(127, 306);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(81, 13);
             this.label13.TabIndex = 64;
@@ -449,7 +459,7 @@
             // 
             this.bidsRatingDate.CustomFormat = "";
             this.bidsRatingDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.bidsRatingDate.Location = new System.Drawing.Point(262, 332);
+            this.bidsRatingDate.Location = new System.Drawing.Point(214, 332);
             this.bidsRatingDate.Name = "bidsRatingDate";
             this.bidsRatingDate.Size = new System.Drawing.Size(110, 20);
             this.bidsRatingDate.TabIndex = 67;
@@ -458,7 +468,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(211, 332);
+            this.label14.Location = new System.Drawing.Point(163, 332);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(45, 13);
             this.label14.TabIndex = 66;
@@ -551,11 +561,128 @@
             this.colorMark.UseVisualStyleBackColor = true;
             this.colorMark.Click += new System.EventHandler(this.colorMark_Click);
             // 
+            // purchaseEisDateClr
+            // 
+            this.purchaseEisDateClr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.purchaseEisDateClr.Location = new System.Drawing.Point(397, 166);
+            this.purchaseEisDateClr.Margin = new System.Windows.Forms.Padding(0);
+            this.purchaseEisDateClr.Name = "purchaseEisDateClr";
+            this.purchaseEisDateClr.Size = new System.Drawing.Size(20, 20);
+            this.purchaseEisDateClr.TabIndex = 79;
+            this.purchaseEisDateClr.Text = "Х";
+            this.purchaseEisDateClr.UseVisualStyleBackColor = true;
+            this.purchaseEisDateClr.Click += new System.EventHandler(this.dateTimeClear_Click);
+            // 
+            // bidsStartDateClr
+            // 
+            this.bidsStartDateClr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bidsStartDateClr.Location = new System.Drawing.Point(325, 232);
+            this.bidsStartDateClr.Margin = new System.Windows.Forms.Padding(0);
+            this.bidsStartDateClr.Name = "bidsStartDateClr";
+            this.bidsStartDateClr.Size = new System.Drawing.Size(20, 20);
+            this.bidsStartDateClr.TabIndex = 80;
+            this.bidsStartDateClr.Text = "Х";
+            this.bidsStartDateClr.UseVisualStyleBackColor = true;
+            this.bidsStartDateClr.Click += new System.EventHandler(this.dateTimeClear_Click);
+            // 
+            // bidsOpenDateClr
+            // 
+            this.bidsOpenDateClr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bidsOpenDateClr.Location = new System.Drawing.Point(325, 280);
+            this.bidsOpenDateClr.Margin = new System.Windows.Forms.Padding(0);
+            this.bidsOpenDateClr.Name = "bidsOpenDateClr";
+            this.bidsOpenDateClr.Size = new System.Drawing.Size(20, 20);
+            this.bidsOpenDateClr.TabIndex = 81;
+            this.bidsOpenDateClr.Text = "Х";
+            this.bidsOpenDateClr.UseVisualStyleBackColor = true;
+            this.bidsOpenDateClr.Click += new System.EventHandler(this.dateTimeClear_Click);
+            // 
+            // bidsReviewDateClr
+            // 
+            this.bidsReviewDateClr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bidsReviewDateClr.Location = new System.Drawing.Point(325, 306);
+            this.bidsReviewDateClr.Margin = new System.Windows.Forms.Padding(0);
+            this.bidsReviewDateClr.Name = "bidsReviewDateClr";
+            this.bidsReviewDateClr.Size = new System.Drawing.Size(20, 20);
+            this.bidsReviewDateClr.TabIndex = 82;
+            this.bidsReviewDateClr.Text = "Х";
+            this.bidsReviewDateClr.UseVisualStyleBackColor = true;
+            this.bidsReviewDateClr.Click += new System.EventHandler(this.dateTimeClear_Click);
+            // 
+            // bidsRatingDateClr
+            // 
+            this.bidsRatingDateClr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bidsRatingDateClr.Location = new System.Drawing.Point(325, 332);
+            this.bidsRatingDateClr.Margin = new System.Windows.Forms.Padding(0);
+            this.bidsRatingDateClr.Name = "bidsRatingDateClr";
+            this.bidsRatingDateClr.Size = new System.Drawing.Size(20, 20);
+            this.bidsRatingDateClr.TabIndex = 83;
+            this.bidsRatingDateClr.Text = "Х";
+            this.bidsRatingDateClr.UseVisualStyleBackColor = true;
+            this.bidsRatingDateClr.Click += new System.EventHandler(this.dateTimeClear_Click);
+            // 
+            // bidsEndDateClr
+            // 
+            this.bidsEndDateClr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bidsEndDateClr.Location = new System.Drawing.Point(655, 232);
+            this.bidsEndDateClr.Margin = new System.Windows.Forms.Padding(0);
+            this.bidsEndDateClr.Name = "bidsEndDateClr";
+            this.bidsEndDateClr.Size = new System.Drawing.Size(20, 20);
+            this.bidsEndDateClr.TabIndex = 84;
+            this.bidsEndDateClr.Text = "Х";
+            this.bidsEndDateClr.UseVisualStyleBackColor = true;
+            this.bidsEndDateClr.Click += new System.EventHandler(this.dateTimeClear_Click);
+            // 
+            // bidsFirstPartDateClr
+            // 
+            this.bidsFirstPartDateClr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bidsFirstPartDateClr.Location = new System.Drawing.Point(655, 280);
+            this.bidsFirstPartDateClr.Margin = new System.Windows.Forms.Padding(0);
+            this.bidsFirstPartDateClr.Name = "bidsFirstPartDateClr";
+            this.bidsFirstPartDateClr.Size = new System.Drawing.Size(20, 20);
+            this.bidsFirstPartDateClr.TabIndex = 85;
+            this.bidsFirstPartDateClr.Text = "Х";
+            this.bidsFirstPartDateClr.UseVisualStyleBackColor = true;
+            this.bidsFirstPartDateClr.Click += new System.EventHandler(this.dateTimeClear_Click);
+            // 
+            // bidsSecondPartDateClr
+            // 
+            this.bidsSecondPartDateClr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bidsSecondPartDateClr.Location = new System.Drawing.Point(655, 306);
+            this.bidsSecondPartDateClr.Margin = new System.Windows.Forms.Padding(0);
+            this.bidsSecondPartDateClr.Name = "bidsSecondPartDateClr";
+            this.bidsSecondPartDateClr.Size = new System.Drawing.Size(20, 20);
+            this.bidsSecondPartDateClr.TabIndex = 86;
+            this.bidsSecondPartDateClr.Text = "Х";
+            this.bidsSecondPartDateClr.UseVisualStyleBackColor = true;
+            this.bidsSecondPartDateClr.Click += new System.EventHandler(this.dateTimeClear_Click);
+            // 
+            // bidsFinishDateClr
+            // 
+            this.bidsFinishDateClr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bidsFinishDateClr.Location = new System.Drawing.Point(655, 332);
+            this.bidsFinishDateClr.Margin = new System.Windows.Forms.Padding(0);
+            this.bidsFinishDateClr.Name = "bidsFinishDateClr";
+            this.bidsFinishDateClr.Size = new System.Drawing.Size(20, 20);
+            this.bidsFinishDateClr.TabIndex = 87;
+            this.bidsFinishDateClr.Text = "Х";
+            this.bidsFinishDateClr.UseVisualStyleBackColor = true;
+            this.bidsFinishDateClr.Click += new System.EventHandler(this.dateTimeClear_Click);
+            // 
             // PurchaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(797, 569);
+            this.Controls.Add(this.bidsFinishDateClr);
+            this.Controls.Add(this.bidsSecondPartDateClr);
+            this.Controls.Add(this.bidsFirstPartDateClr);
+            this.Controls.Add(this.bidsEndDateClr);
+            this.Controls.Add(this.bidsRatingDateClr);
+            this.Controls.Add(this.bidsReviewDateClr);
+            this.Controls.Add(this.bidsOpenDateClr);
+            this.Controls.Add(this.bidsStartDateClr);
+            this.Controls.Add(this.purchaseEisDateClr);
             this.Controls.Add(this.colorMark);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.controlStatus);
@@ -662,5 +789,15 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.Button colorMark;
+        private System.Windows.Forms.Button purchaseEisDateClr;
+        private System.Windows.Forms.Button bidsStartDateClr;
+        private System.Windows.Forms.Button bidsOpenDateClr;
+        private System.Windows.Forms.Button bidsReviewDateClr;
+        private System.Windows.Forms.Button bidsRatingDateClr;
+        private System.Windows.Forms.Button bidsEndDateClr;
+        private System.Windows.Forms.Button bidsFirstPartDateClr;
+        private System.Windows.Forms.Button bidsSecondPartDateClr;
+        private System.Windows.Forms.Button bidsFinishDateClr;
+        private System.Windows.Forms.FontDialog fontDialog1;
     }
 }

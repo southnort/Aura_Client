@@ -8,7 +8,7 @@ namespace Aura_Client.Model
 {
     class DataManager
     {
-        public Dictionary<string, string> userNames = new Dictionary<string, string>();        
+        public Dictionary<string, string> userNames = new Dictionary<string, string>();
         private List<Purchase> purchases = new List<Purchase>();
         private List<Organisation> organisations = new List<Organisation>();
 
@@ -21,7 +21,7 @@ namespace Aura_Client.Model
             {
                 userNames.Add(us.Key, us.Value);
             }
-            
+
         }
 
         public void SetPurchases(List<Purchase> purchases)
@@ -59,7 +59,7 @@ namespace Aura_Client.Model
             lock (purchases)
             {
                 purchases.Add(pur);
-            }           
+            }
 
         }
 
@@ -85,7 +85,7 @@ namespace Aura_Client.Model
         }
 
         public Purchase GetPurchase(string id)
-        {           
+        {
             lock (purchases)
             {
                 foreach (var item in purchases)
@@ -112,7 +112,7 @@ namespace Aura_Client.Model
         {
             lock (organisations)
             {
-                for (int i = organisations.Count - 1;i>= 0; i--)
+                for (int i = organisations.Count - 1; i >= 0; i--)
                 {
                     if (organisations[i].id == organisation.id)
                     {

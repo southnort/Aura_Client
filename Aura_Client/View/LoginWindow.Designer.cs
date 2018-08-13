@@ -46,6 +46,7 @@
             this.loginTextBox.Name = "loginTextBox";
             this.loginTextBox.Size = new System.Drawing.Size(348, 26);
             this.loginTextBox.TabIndex = 0;
+            this.loginTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.anyKey_KeyUp);
             // 
             // passwordTextBox
             // 
@@ -55,6 +56,7 @@
             this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.Size = new System.Drawing.Size(348, 26);
             this.passwordTextBox.TabIndex = 1;
+            this.passwordTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.anyKey_KeyUp);
             // 
             // label1
             // 
@@ -133,6 +135,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LoginWindow";
             this.Text = "Аутентификация";
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.anyKey_KeyUp);
             this.ResumeLayout(false);
             this.PerformLayout();
 
