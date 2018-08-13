@@ -133,6 +133,11 @@ namespace Aura_Client.View
                                 users[pur.employeDocumentationID.ToString()];
 
                             newRow.Cells["resultOfControl"].Value = pur.resultOfControl;
+                            if (pur.resultOfControlColor != 0)
+                            {
+                                newRow.Cells["resultOfControl"].Style.ForeColor =
+                                    Color.FromArgb(pur.resultOfControlColor);
+                            }
 
                             newRow.Cells["protocolStatusID"].Value =
                                 Catalog.protocolStatuses[pur.protocolStatusID];
@@ -194,6 +199,8 @@ namespace Aura_Client.View
 
             DataGridViewRow tempRow = new DataGridViewRow();
             row.DefaultCellStyle.BackColor = color;
+
+
         }
 
         private string HandleDate(string input)

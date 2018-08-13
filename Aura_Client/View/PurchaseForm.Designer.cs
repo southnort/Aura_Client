@@ -88,6 +88,8 @@
             this.bidsSecondPartDateClr = new System.Windows.Forms.Button();
             this.bidsFinishDateClr = new System.Windows.Forms.Button();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
+            this.commentsFontSetting = new System.Windows.Forms.Button();
+            this.resultOfControlFontColor = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.purchacePrice)).BeginInit();
             this.SuspendLayout();
             // 
@@ -669,11 +671,33 @@
             this.bidsFinishDateClr.UseVisualStyleBackColor = true;
             this.bidsFinishDateClr.Click += new System.EventHandler(this.dateTimeClear_Click);
             // 
+            // commentsFontSetting
+            // 
+            this.commentsFontSetting.Location = new System.Drawing.Point(91, 390);
+            this.commentsFontSetting.Name = "commentsFontSetting";
+            this.commentsFontSetting.Size = new System.Drawing.Size(100, 23);
+            this.commentsFontSetting.TabIndex = 88;
+            this.commentsFontSetting.Text = "Цвет шрифта";
+            this.commentsFontSetting.UseVisualStyleBackColor = true;
+            this.commentsFontSetting.Click += new System.EventHandler(this.commentsFontSetting_Click);
+            // 
+            // resultOfControlFontColor
+            // 
+            this.resultOfControlFontColor.Location = new System.Drawing.Point(516, 390);
+            this.resultOfControlFontColor.Name = "resultOfControlFontColor";
+            this.resultOfControlFontColor.Size = new System.Drawing.Size(100, 23);
+            this.resultOfControlFontColor.TabIndex = 89;
+            this.resultOfControlFontColor.Text = "Цвет шрифта";
+            this.resultOfControlFontColor.UseVisualStyleBackColor = true;
+            this.resultOfControlFontColor.Click += new System.EventHandler(this.resultOfControlFontColor_Click);
+            // 
             // PurchaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(797, 569);
+            this.Controls.Add(this.resultOfControlFontColor);
+            this.Controls.Add(this.commentsFontSetting);
             this.Controls.Add(this.bidsFinishDateClr);
             this.Controls.Add(this.bidsSecondPartDateClr);
             this.Controls.Add(this.bidsFirstPartDateClr);
@@ -799,5 +823,7 @@
         private System.Windows.Forms.Button bidsSecondPartDateClr;
         private System.Windows.Forms.Button bidsFinishDateClr;
         private System.Windows.Forms.FontDialog fontDialog1;
+        private System.Windows.Forms.Button commentsFontSetting;
+        private System.Windows.Forms.Button resultOfControlFontColor;
     }
 }

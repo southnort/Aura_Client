@@ -180,7 +180,19 @@ namespace Aura_Client.View
 
 
             comments.Text = purchase.comments;
+            if (purchase.commentsFontColor != 0)
+            {
+                comments.ForeColor = Color.FromArgb(purchase.commentsFontColor);
+
+            }
             resultOfControl.Text = purchase.resultOfControl;
+            if (purchase.resultOfControlColor != 0)
+            {
+                resultOfControl.ForeColor = Color.FromArgb(purchase.resultOfControlColor);
+
+            }
+
+
             law.SelectedIndex = purchase.law;
 
             if (Program.user.roleID != 0)
@@ -338,7 +350,26 @@ namespace Aura_Client.View
             creator.Add(fieldName, DateTime.MinValue.ToShortDateString());
 
         }
-        
+
+        private void commentsFontSetting_Click(object sender, EventArgs e)
+        {
+            var result = colorDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                comments.ForeColor = colorDialog1.Color;
+                creator.Add("commentsFontColor", colorDialog1.Color.ToArgb().ToString());
+            }
+        }
+
+        private void resultOfControlFontColor_Click(object sender, EventArgs e)
+        {
+            var result = colorDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                resultOfControl.ForeColor = colorDialog1.Color;
+                creator.Add("resultOfControlColor", colorDialog1.Color.ToArgb().ToString());
+            }
+        }
     }
 
 }
