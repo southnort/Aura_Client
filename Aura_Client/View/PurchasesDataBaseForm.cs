@@ -108,7 +108,7 @@ namespace Aura_Client.View
                             newRow.Cells["id"].Value = pur.id;
 
                             newRow.Cells["employeID"].Value =
-                                Program.dataManager.userNames[pur.employeID.ToString()];
+                                Program.dataManager.GetUserNames()[pur.employeID.ToString()];
 
                             newRow.Cells["organizationID"].Value =
                                 Program.dataManager.GetAllOrganisations()[pur.organizationID].name;
@@ -127,7 +127,7 @@ namespace Aura_Client.View
                             newRow.Cells["withAZK"].Value = pur.withAZK == 0 ? "С АЦК" : "БЕЗ АЦК";
 
                             newRow.Cells["employeDocumentationID"].Value =
-                                Program.dataManager.userNames[pur.employeDocumentationID.ToString()];
+                                Program.dataManager.GetUserNames()[pur.employeDocumentationID.ToString()];
 
                             newRow.Cells["resultOfControl"].Value = pur.resultOfControl;
 

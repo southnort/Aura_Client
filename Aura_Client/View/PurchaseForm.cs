@@ -63,7 +63,7 @@ namespace Aura_Client.View
             }
 
             //ответственный за разработку документации            
-            foreach (var user in Program.bridge.GetObject<Dictionary<string, string>>("USERNAMES"))
+            foreach (var user in Program.dataManager.GetUserNames())
             {
                 ComboBoxItem item = new ComboBoxItem();
                 item.Text = user.Value;
@@ -74,7 +74,7 @@ namespace Aura_Client.View
             }
 
             //ответственный за размещение закупки            
-            foreach (var user in Program.bridge.GetObject<Dictionary<string, string>>("USERNAMES"))
+            foreach (var user in Program.dataManager.GetUserNames())
             {
                 ComboBoxItem item = new ComboBoxItem();
                 item.Text = user.Value;
@@ -85,7 +85,7 @@ namespace Aura_Client.View
             }
 
             //организации-заказчики  
-            foreach (var org in Program.bridge.GetObject<List<Organisation>>("ALLORGANISATIONS"))
+            foreach (var org in Program.dataManager.GetAllOrganisations())
             {
                 ComboBoxItem item = new ComboBoxItem();
                 item.Text = org.name;
