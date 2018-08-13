@@ -92,6 +92,9 @@ namespace Aura_Client.View
 
         private void FillTable(List<Purchase> purchases)
         {
+            var users = Program.dataManager.GetUserNames();
+            var orgs = Program.dataManager.GetAllOrganisations();
+
             if (purchases.Count > 0)
             {
                 foreach (var pur in purchases)
@@ -108,10 +111,10 @@ namespace Aura_Client.View
                             newRow.Cells["id"].Value = pur.id;
 
                             newRow.Cells["employeID"].Value =
-                                Program.dataManager.GetUserNames()[pur.employeID.ToString()];
+                                users[pur.employeID.ToString()];
 
                             newRow.Cells["organizationID"].Value =
-                                Program.dataManager.GetAllOrganisations()[pur.organizationID].name;
+                                orgs[pur.organizationID].name;
 
                             newRow.Cells["purchaseMethodID"].Value =
                                 Catalog.purchaseMethods[pur.purchaseMethodID].name;
@@ -127,7 +130,7 @@ namespace Aura_Client.View
                             newRow.Cells["withAZK"].Value = pur.withAZK == 0 ? "С АЦК" : "БЕЗ АЦК";
 
                             newRow.Cells["employeDocumentationID"].Value =
-                                Program.dataManager.GetUserNames()[pur.employeDocumentationID.ToString()];
+                                users[pur.employeDocumentationID.ToString()];
 
                             newRow.Cells["resultOfControl"].Value = pur.resultOfControl;
 

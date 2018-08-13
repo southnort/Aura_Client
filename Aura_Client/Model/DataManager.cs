@@ -15,13 +15,16 @@ namespace Aura_Client.Model
 
         public Dictionary<string, string> GetUserNames()
         {
-            return Program.bridge.GetObject<Dictionary<string, string>>("USERNAMES");
+            var dictionary = Program.bridge.GetObject<Dictionary<string, string>>("USERNAMES");
+            dictionary.Add("0", "<не указано>");
+            return dictionary;
         }
 
         public User GetUser(string id)
         {
-
+            return Program.bridge.GetObject<User>("GETUSER#"+id);
         }
+
        
 
         public List<Purchase> GetAllPurchases()
@@ -32,7 +35,7 @@ namespace Aura_Client.Model
 
         public Purchase GetPurchase(string id)
         {
-           
+            return Program.bridge.GetObject<Purchase>("GETPURCHASE#" + id);
         }
 
         public Calendar GetCalendar()
@@ -49,14 +52,17 @@ namespace Aura_Client.Model
         }
 
 
+
         public List<Organisation> GetAllOrganisations()
         {
-            return Program.bridge.GetObject<List<Organisation>>("ALLORGANISATIONS");
+            var list = Program.bridge.GetObject<List<Organisation>>("ALLORGANISATIONS");
+            list.Insert(0, new Organisation { name = "<не указано>" });
+            return list;
         }       
         
         public Organisation GetOrganisation(string id)
         {
-           
+            return Program.bridge.GetObject<Organisation>("GETORGANISATION#" + id);
 
         }
 
