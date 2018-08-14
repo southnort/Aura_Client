@@ -46,7 +46,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_C3AD35DAC54BC08F3900EF953C1949B7"
+        "OwnerKey" = "8:_195A4366BAA84D378444EF5B1DAC4ECE"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -58,7 +58,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_195A4366BAA84D378444EF5B1DAC4ECE"
+        "OwnerKey" = "8:_C3AD35DAC54BC08F3900EF953C1949B7"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -79,6 +79,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -95,6 +111,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -128,7 +152,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Aura_Client, Version=0.8.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:Aura_Client, Version=0.8.2.2, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_195A4366BAA84D378444EF5B1DAC4ECE"
@@ -313,15 +337,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Aura"
-        "ProductCode" = "8:{2185061B-17A7-46F3-B3AD-B7A5EF4D93A7}"
-        "PackageCode" = "8:{3DF6A981-B582-46D5-8AD5-152FE2C55F93}"
+        "ProductCode" = "8:{F10A2301-6731-40BE-B3CC-557987F861A6}"
+        "PackageCode" = "8:{56671A2A-7A6D-44BF-A710-73F137C71582}"
         "UpgradeCode" = "8:{590F0497-CCDF-4B29-99BA-59F387E67CB2}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.1"
+        "ProductVersion" = "8:1.0.4"
         "Manufacturer" = "8:ASTIKS"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

@@ -254,6 +254,10 @@ namespace Aura_Client.View
             }
 
         }
-        
+
+        private void resreshButton_Click(object sender, EventArgs e)
+        {
+            ReloadTable();
+        }
     }
 }

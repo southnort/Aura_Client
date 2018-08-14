@@ -82,7 +82,7 @@ namespace Aura_Client.View
         private void RefreshTable()
         {
             Clear();
-          //  Fill(GetDays(dataBase.GetCalendar()));
+            Fill(GetDays(Program.dataManager.GetCalendar()));
         }
 
         private void Clear()

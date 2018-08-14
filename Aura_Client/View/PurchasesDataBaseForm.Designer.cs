@@ -32,10 +32,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PurchasesDataBaseForm));
             this.dgv = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.resreshButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
+            this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,10 +64,21 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.resreshButton);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1342, 49);
             this.panel1.TabIndex = 1;
+            // 
+            // resreshButton
+            // 
+            this.resreshButton.Location = new System.Drawing.Point(3, 23);
+            this.resreshButton.Name = "resreshButton";
+            this.resreshButton.Size = new System.Drawing.Size(75, 23);
+            this.resreshButton.TabIndex = 0;
+            this.resreshButton.Text = "Обновить";
+            this.resreshButton.UseVisualStyleBackColor = true;
+            this.resreshButton.Click += new System.EventHandler(this.resreshButton_Click);
             // 
             // panel2
             // 
@@ -105,6 +118,7 @@
             this.Name = "PurchasesDataBaseForm";
             this.Text = "Все закупки";
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -117,5 +131,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button resreshButton;
     }
 }

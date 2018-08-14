@@ -169,7 +169,7 @@ namespace Aura_Client.View
             SetDate(bidsEndDate, purchase.bidsEndDate);
 
             SetDate(bidsOpenDate, purchase.bidsOpenDate);
-            SetDate(bidsReviewDate, purchase.auctionDate);
+            SetDate(bidsReviewDate, purchase.bidsReviewDate);
             SetDate(bidsRatingDate, purchase.bidsRatingDate);
 
             SetDate(bidsFirstPartDate, purchase.bidsFirstPartDate);

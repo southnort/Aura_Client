@@ -48,7 +48,9 @@ namespace Aura_Client.Network
             try
             {
                 client.Connect(host, mainPort); //подключение клиента
-                stream = client.GetStream(); // получаем поток                
+                stream = client.GetStream(); // получаем поток  
+                stream.ReadTimeout = 5000;
+                
 
                 //// запускаем новый поток для получения данных
                 //Thread receiveThread = new Thread(new ThreadStart(ReceivingMessages));
@@ -61,9 +63,7 @@ namespace Aura_Client.Network
 
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                Console.Read();
-                Disconnect();
+                throw ex;
             }
 
         }
@@ -85,7 +85,8 @@ namespace Aura_Client.Network
 
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                throw ex;
+
             }
 
         }
@@ -93,10 +94,27 @@ namespace Aura_Client.Network
         private void Disconnect()
         {
             if (stream != null)
+            {
                 stream.Close();//отключение потока
+                stream = null;
+            }
             if (client != null)
+            {
                 client.Close();//отключение клиента
-            Environment.Exit(0); //завершение процесса
+                client = null;
+            }
+
+            if (tcpListener != null)
+            {
+                tcpListener.Stop();
+                tcpListener = null;
+            }
+            if (listeningStream != null)
+            {
+                listeningStream.Close();
+                listeningStream = null;
+            }
+          //  Environment.Exit(0); //завершение процесса
         }
 
         private void ReceivingBroadcasts()
@@ -117,9 +135,10 @@ namespace Aura_Client.Network
                 catch (Exception ex)
                 {
                     Console.WriteLine("Error " + ex.ToString());
-                    Console.WriteLine("Connection closed!"); //соединение было прервано
-                    Console.ReadLine();
+                    Console.WriteLine("Connection closed!"); //соединение было прервано             
                     Disconnect();
+                    break;
+                    
                     throw ex;
 
                 }
@@ -153,7 +172,7 @@ namespace Aura_Client.Network
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ToString() + ".SendObject Exception: " + ex.Message);
+                throw ex;
             }
 
         }
@@ -169,8 +188,7 @@ namespace Aura_Client.Network
 
             catch (Exception ex)
             {
-                Console.WriteLine(ToString() + ".GetMessage Exception: " + ex.Message);
-                return "ERROR";
+                throw ex;
             }
 
         }
@@ -186,8 +204,7 @@ namespace Aura_Client.Network
 
             catch (Exception ex)
             {
-                Console.WriteLine(ToString() + ".GetObject Exception: " + ex.Message);
-                return default(T);
+                throw ex;
             }
         }
 
@@ -225,8 +242,7 @@ namespace Aura_Client.Network
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
-                return "ERROR";
+                throw ex;
             }
         }
 
@@ -272,8 +288,7 @@ namespace Aura_Client.Network
 
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
-                return null;
+                throw ex;
             }
 
         }
@@ -307,8 +322,7 @@ namespace Aura_Client.Network
 
             catch (Exception ex)
             {
-                Console.WriteLine(ToString() + ".Send Exception: " + ex.Message);
-
+                throw ex;
             }
 
         }
