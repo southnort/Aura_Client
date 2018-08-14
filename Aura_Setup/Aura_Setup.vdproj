@@ -160,7 +160,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Aura_Client, Version=0.8.3.3, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:Aura_Client, Version=0.8.3.4, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_195A4366BAA84D378444EF5B1DAC4ECE"
@@ -345,15 +345,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Aura"
-        "ProductCode" = "8:{FA65051F-5F30-46A3-8963-0222AA97A883}"
-        "PackageCode" = "8:{64299039-0508-4F23-BC29-CB26590CD478}"
+        "ProductCode" = "8:{3B2A1B50-2FBF-43BA-A6BF-896571FEEC77}"
+        "PackageCode" = "8:{9CF039C8-325E-4C70-A691-3C9D36BB2850}"
         "UpgradeCode" = "8:{590F0497-CCDF-4B29-99BA-59F387E67CB2}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.5"
+        "ProductVersion" = "8:1.0.6"
         "Manufacturer" = "8:ASTIKS"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

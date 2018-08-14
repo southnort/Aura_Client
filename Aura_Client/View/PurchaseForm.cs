@@ -207,7 +207,9 @@ namespace Aura_Client.View
             SetControllButton();
             ReloadStatuses();
             SetCombobox(statusID, purchase.statusID);
+            SetCombobox(protocolStatusID, purchase.protocolStatusID);
             SwitchColorMark();
+            
 
             if (purchase.id > 0 && purchase.purchaseMethodID > 0)
             {

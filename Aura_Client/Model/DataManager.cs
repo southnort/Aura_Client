@@ -10,14 +10,29 @@ namespace Aura_Client.Model
     {
         public List<User> GetAllUsers()
         {
-            return Program.bridge.GetObject<List<User>>("ALLUSERS");
+            List<User> users = new List<User>();
+            users.Add(new User { name = "<не указано>", ID = 0 });
+            foreach (var user in Program.bridge.GetObject<List<User>>("ALLUSERS"))
+            {
+                users.Add(user);
+            }
+
+            return users;
+
         }
 
         public Dictionary<string, string> GetUserNames()
         {
-            var dictionary = Program.bridge.GetObject<Dictionary<string, string>>("USERNAMES");
-            dictionary.Add("0", "<не указано>");
-            return dictionary;
+            var userNames = new Dictionary<string, string>();
+            userNames.Add("0", "<не указано>");
+            
+            foreach (var pair in Program.bridge.GetObject<Dictionary<string, string>>("USERNAMES"))
+            {
+                userNames.Add(pair.Key, pair.Value);
+            }
+
+            return userNames;
+            
         }
 
         public User GetUser(string id)
@@ -29,12 +44,17 @@ namespace Aura_Client.Model
 
         public List<Purchase> GetAllPurchases()
         {
-            return Program.bridge.GetObject<List<Purchase>>("ALLPURCHASES");
+            var purchases = new List<Purchase>();
+            foreach (var pur in Program.bridge.GetObject<List<Purchase>>("ALLPURCHASES"))
+            {
+                purchases.Add(pur);
+            }
 
+            return purchases;
         }
 
         public Purchase GetPurchase(string id)
-        {
+        {           
             return Program.bridge.GetObject<Purchase>("GETPURCHASE#" + id);
         }
 
@@ -55,8 +75,12 @@ namespace Aura_Client.Model
 
         public List<Organisation> GetAllOrganisations()
         {
-            var list = Program.bridge.GetObject<List<Organisation>>("ALLORGANISATIONS");
-            list.Insert(0, new Organisation { name = "<не указано>" });
+            var list = new List<Organisation>();            
+            list.Add(new Organisation { name = "<не указано>" });
+            foreach (var org in Program.bridge.GetObject<List<Organisation>>("ALLORGANISATIONS"))
+            {
+                list.Add(org);
+            }
             return list;
         }       
         
