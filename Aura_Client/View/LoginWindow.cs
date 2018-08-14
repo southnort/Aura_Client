@@ -17,9 +17,10 @@ namespace Aura_Client.View
         {
             if (loginTextBox.Text != string.Empty && passwordTextBox.Text != string.Empty)
             {
-              SetLoginResult(Program.bridge.TryLogin(loginTextBox.Text, passwordTextBox.Text));
+                SetLoginResult(Program.bridge.TryLogin(loginTextBox.Text, passwordTextBox.Text));
 
             }
+
         }
 
        

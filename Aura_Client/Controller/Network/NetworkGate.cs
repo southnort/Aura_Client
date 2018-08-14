@@ -36,59 +36,50 @@ namespace Aura_Client.Network
             mainPort = serverPort;
             listenPort = broadcastPort;
             messageHandler = handler;
-            StartGate();
-            StartListen();
+
+            TryConnect();
             Console.WriteLine(ToString() + " starting successfuly");
 
+        }
+
+        private void TryConnect()
+        {
+            if (stream == null)
+            {
+                try
+                {
+                    StartGate();
+                    StartListen();
+                }
+                catch
+                {
+                }
+            }
         }
 
         private void StartGate()
         {
             client = new TcpClient();
-            try
-            {
-                client.Connect(host, mainPort); //подключение клиента
-                stream = client.GetStream(); // получаем поток  
-                stream.ReadTimeout = 5000;
-                
 
-                //// запускаем новый поток для получения данных
-                //Thread receiveThread = new Thread(new ThreadStart(ReceivingMessages));
-                //receiveThread.Start(); //старт потока
+            client.Connect(host, mainPort); //подключение клиента
+            stream = client.GetStream(); // получаем поток  
+            stream.ReadTimeout = 5000;
 
-
-
-
-            }
-
-            catch (Exception ex)
-            {
-                throw ex;
-            }
 
         }
 
         private void StartListen()
         {
-            // запускаем новый поток для получения оповещений от сервера
-            try
-            {
-                tcpListener = new TcpListener(IPAddress.Any, listenPort);
-                tcpListener.Start();
+            // запускаем новый поток для получения оповещений от сервера  
+
+            tcpListener = new TcpListener(IPAddress.Any, listenPort);
+            tcpListener.Start();
 
 
-                TcpClient tcpClient = tcpListener.AcceptTcpClient();
-                listeningStream = tcpClient.GetStream();
-                Thread listeningThread = new Thread(new ThreadStart(ReceivingBroadcasts));
-                listeningThread.Start();
-            }
-
-            catch (Exception ex)
-            {
-                throw ex;
-
-            }
-
+            TcpClient tcpClient = tcpListener.AcceptTcpClient();
+            listeningStream = tcpClient.GetStream();
+            Thread listeningThread = new Thread(new ThreadStart(ReceivingBroadcasts));
+            listeningThread.Start();
         }
 
         private void Disconnect()
@@ -137,9 +128,7 @@ namespace Aura_Client.Network
                     Console.WriteLine("Error " + ex.ToString());
                     Console.WriteLine("Connection closed!"); //соединение было прервано             
                     Disconnect();
-                    break;
-                    
-                    throw ex;
+                    break;  
 
                 }
             }
@@ -164,48 +153,29 @@ namespace Aura_Client.Network
             BinaryFormatter bf = new BinaryFormatter();
             MemoryStream ms = new MemoryStream();
 
-            try
-            {
-                bf.Serialize(ms, ob);
-                Send(ms.GetBuffer());
+            bf.Serialize(ms, ob);
+            Send(ms.GetBuffer());
 
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+
 
         }
 
         protected internal string GetMessage(string request)
         {
             //отправить запрос, требующий ответа
-            try
-            {
-                SendMessage(request);
-                return ReceiveString(stream);
-            }
+            SendMessage(request);
+            return ReceiveString(stream);
 
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+
 
         }
 
         protected internal T GetObject<T>(string request)
         {
             //отправить запрос, предполагающий возвращение сериализованного объекта
-            try
-            {
-                SendMessage(request);
-                return (T)ReceiveObject(stream);
-            }
+            SendMessage(request);
+            return (T)ReceiveObject(stream);
 
-            catch (Exception ex)
-            {
-                throw ex;
-            }
         }
 
 
@@ -242,7 +212,8 @@ namespace Aura_Client.Network
             }
             catch (Exception ex)
             {
-                throw ex;
+                Console.WriteLine(ex.ToString());
+                return "ERROR";
             }
         }
 
@@ -286,9 +257,9 @@ namespace Aura_Client.Network
                 }
             }
 
-            catch (Exception ex)
+            catch 
             {
-                throw ex;
+                return null;
             }
 
         }
@@ -310,20 +281,16 @@ namespace Aura_Client.Network
 
         private void Send(byte[] data)
         {
-            try
-            {
-                int size = data.Length;
-                byte[] preparedSize = BitConverter.GetBytes(size);
+            TryConnect();
 
+            int size = data.Length;
+            byte[] preparedSize = BitConverter.GetBytes(size);
+
+            if (stream != null)
+            {
                 stream.Write(preparedSize, 0, preparedSize.Length);
                 stream.Write(data, 0, data.Length);
-
-            }
-
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            }            
 
         }
 

@@ -17,31 +17,23 @@ namespace Aura_Client.Network
 
         public NetworkManager()
         {
-            try
+            //прочитать указанный файл и взять настройки для подключения к серверу  
+
+            List<string> connectionSettings = new List<string>();
+            using (StreamReader sr = new StreamReader("connect settings.txt"))
             {
-                //прочитать указанный файл и взять настройки для подключения к серверу   
-                List<string> connectionSettings = new List<string>();
-                using (StreamReader sr = new StreamReader("connect settings.txt"))
-                {
-                    while (!sr.EndOfStream)
-                        connectionSettings.Add(sr.ReadLine());
-                }
-
-                messageHandler = new MessageHandler();
-                gate = new NetworkGate(
-                    connectionSettings[0],
-                    int.Parse(connectionSettings[1]),
-                    int.Parse(connectionSettings[2]),
-                    messageHandler);
-
+                while (!sr.EndOfStream)
+                    connectionSettings.Add(sr.ReadLine());
             }
 
-            catch (Exception ex)
-            {
-                Console.WriteLine("Create NetworkBridge exception: " + ex.ToString());
 
-                throw ex;
-            }
+            messageHandler = new MessageHandler();
+            gate = new NetworkGate(
+                connectionSettings[0],
+                int.Parse(connectionSettings[1]),
+                int.Parse(connectionSettings[2]),
+                messageHandler);
+
         }
 
 

@@ -14,41 +14,36 @@ namespace Aura_Client
     class Program
     {
         public static User user = new User();
-        public static NetworkBridge bridge = new NetworkBridge();
+        public static NetworkBridge bridge;
         public static List<IShowable> openedForms = new List<IShowable>();
-        public static DataManager dataManager = new DataManager();
-        
+        public static DataManager dataManager;
+
         static void Main()
         {
             user.ID = -1;
-            try
+            StartProgram();
+
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.ShowDialog();
+
+            if (user.ID != -1)
             {
-                LoginWindow loginWindow = new LoginWindow();
-                loginWindow.ShowDialog();
+                var users = bridge.GetObject<Dictionary<string, string>>("USERNAMES");
+                var purchases = bridge.GetObject<List<Purchase>>("ALLPURCHASES");
+                var organisations = bridge.GetObject<List<Organisation>>("ALLORGANISATIONS");
 
-                if (user.ID != -1)
-                {
-                    Console.WriteLine("Autentification successful");
-                    var users = bridge.GetObject<Dictionary<string, string>>("USERNAMES");                   
-                    var purchases = bridge.GetObject<List<Purchase>>("ALLPURCHASES");
-                    var organisations = bridge.GetObject<List<Organisation>>("ALLORGANISATIONS");
-
-                    MainForm mainForm = new MainForm();
-                    mainForm.ShowDialog();
-                }                
-
-            }
-
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-                Console.Read();
+                MainForm mainForm = new MainForm();
+                mainForm.ShowDialog();
             }
 
         }
 
+        static void StartProgram()
+        {
+            bridge = new NetworkBridge();
+            dataManager = new DataManager();
 
-
+        }
 
 
     }
