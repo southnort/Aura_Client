@@ -17,6 +17,7 @@ namespace Aura_Client.View
         {
             if (loginTextBox.Text != string.Empty && passwordTextBox.Text != string.Empty)
             {
+                resultTextLabel.Text = "Соединяемся с сервером...";
                 SetLoginResult(Program.bridge.TryLogin(loginTextBox.Text, passwordTextBox.Text));
 
             }

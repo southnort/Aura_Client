@@ -253,12 +253,16 @@ namespace Aura_Client.Network
                 }
                 else
                 {
+                    Disconnect();
+                    TryConnect();
                     return null;
                 }
             }
 
             catch 
             {
+                Disconnect();
+                TryConnect();
                 return null;
             }
 
