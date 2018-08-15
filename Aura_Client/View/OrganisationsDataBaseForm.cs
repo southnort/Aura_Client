@@ -81,8 +81,11 @@ namespace Aura_Client.View
             {
                 DataGridView dg = (DataGridView)sender;
                 var ID = dg.Rows[e.RowIndex].Cells[0].Value.ToString();
-                Organisation org = Program.dataManager.GetOrganisation(ID);
-                ShowOrganisation(org);
+                if (ID != "0")
+                {
+                    Organisation org = Program.dataManager.GetOrganisation(ID);
+                    ShowOrganisation(org);
+                }
             }
 
         }
