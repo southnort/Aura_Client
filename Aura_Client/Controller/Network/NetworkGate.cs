@@ -173,8 +173,16 @@ namespace Aura_Client.Network
         protected internal T GetObject<T>(string request)
         {
             //отправить запрос, предполагающий возвращение сериализованного объекта
-            SendMessage(request);
-            return (T)ReceiveObject(stream);
+            try
+            {
+                SendMessage(request);
+                return (T)ReceiveObject(stream);
+            }
+
+            catch
+            {
+                return default(T);
+            }
 
         }
 

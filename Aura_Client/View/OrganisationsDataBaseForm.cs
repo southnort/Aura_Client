@@ -39,7 +39,7 @@ namespace Aura_Client.View
 
         private void FillTable(List<Organisation> organisations)
         {
-            if (organisations.Count > 0)
+            if (organisations != null && organisations.Count > 0)
             {
                 foreach (var org in organisations)
                 {
@@ -70,7 +70,25 @@ namespace Aura_Client.View
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+
+        private void textBox_ValueChanged(object sender, EventArgs e)
+        {
+            if (sender is TextBox)
+            {
+                var textBox = (TextBox)sender;
+                creator.Add("UPPER (" + textBox.Name + ") LIKE UPPER ('%VALUE%')", textBox.Text);
+            }
+            if (sender is RichTextBox)
+            {
+                var textBox = (RichTextBox)sender;
+                creator.Add("UPPER (" + textBox.Name + ") LIKE UPPER ('%VALUE%')", textBox.Text);
+            }
+
+
+        }
+
+
+        private void addNewOrgButton_Click(object sender, EventArgs e)
         {
             ShowOrganisation(new Organisation());
 
@@ -95,6 +113,15 @@ namespace Aura_Client.View
         {
             inn.Clear();
             name.Clear();
+            creator.Clear();
+            ReloadTable();
         }
+
+        private void refreshTableButton_Click(object sender, EventArgs e)
+        {
+            ReloadTable();
+        }
+
+
     }
 }

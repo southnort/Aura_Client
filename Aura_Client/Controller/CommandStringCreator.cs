@@ -10,8 +10,8 @@ namespace Aura_Client.Controller
     /// </summary>
     public class CommandStringCreator
     {
-        private string tableName;               //название таблицы в БД, с которой нужно работать
-        private string objectID;                //ID объекта в БД
+        private string tableName;                       //название таблицы в БД, с которой нужно работать
+        private string objectID;                        //ID объекта в БД
         private Dictionary<string, string> changes;     //key - название поля, value - его новое значение
 
         public CommandStringCreator(string nameOfTable, string id)
@@ -96,10 +96,9 @@ namespace Aura_Client.Controller
 
             foreach (var pair in changes)
             {
-                sb.Append(pair.Key);
-                sb.Append(" '");
-                sb.Append(pair.Value);
-                sb.Append("' AND ");
+                sb.Append(pair.Key.Replace("VALUE", pair.Value));
+                
+                sb.Append(" AND ");
             }
 
             sb.Length -= 5;
@@ -107,6 +106,10 @@ namespace Aura_Client.Controller
             
         }
 
+        public void Clear()
+        {
+            changes.Clear();
+        }
 
 
         public bool IsNotEmpty()

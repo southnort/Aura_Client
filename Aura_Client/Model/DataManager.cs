@@ -25,22 +25,22 @@ namespace Aura_Client.Model
         {
             var userNames = new Dictionary<string, string>();
             userNames.Add("0", "<не указано>");
-            
+
             foreach (var pair in Program.bridge.GetObject<Dictionary<string, string>>("USERNAMES"))
             {
                 userNames.Add(pair.Key, pair.Value);
             }
 
             return userNames;
-            
+
         }
 
         public User GetUser(string id)
         {
-            return Program.bridge.GetObject<User>("GETUSER#"+id);
+            return Program.bridge.GetObject<User>("GETUSER#" + id);
         }
 
-       
+
 
         public List<Purchase> GetAllPurchases()
         {
@@ -54,7 +54,7 @@ namespace Aura_Client.Model
         }
 
         public Purchase GetPurchase(string id)
-        {           
+        {
             return Program.bridge.GetObject<Purchase>("GETPURCHASE#" + id);
         }
 
@@ -75,14 +75,14 @@ namespace Aura_Client.Model
 
         public List<Organisation> GetAllOrganisations()
         {
-            var list = new List<Organisation>();   
+            var list = new List<Organisation>();
             foreach (var org in Program.bridge.GetObject<List<Organisation>>("ALLORGANISATIONS"))
             {
                 list.Add(org);
             }
             return list;
-        }       
-        
+        }
+
         public Organisation GetOrganisation(string id)
         {
             return Program.bridge.GetObject<Organisation>("GETORGANISATION#" + id);
@@ -92,7 +92,9 @@ namespace Aura_Client.Model
         public List<Organisation> GetFilteredOrganisations(string filterQuery)
         {
             //запросить с сервера список организаций, отфильтрованных по усоловиям
-            
+            return Program.bridge.GetObject<List<Organisation>>("GETFILTEREDORGANISATIONS#" + filterQuery);
+
+
 
         }
 

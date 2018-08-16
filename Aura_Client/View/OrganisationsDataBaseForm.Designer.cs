@@ -33,19 +33,19 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.name = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.inn = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.clearFilterButton = new System.Windows.Forms.Button();
+            this.refreshTableButton = new System.Windows.Forms.Button();
+            this.addNewOrgButton = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.refreshTableButton = new System.Windows.Forms.Button();
-            this.clearFilterButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.inn = new System.Windows.Forms.TextBox();
-            this.name = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -93,21 +93,77 @@
             this.panel3.Size = new System.Drawing.Size(588, 49);
             this.panel3.TabIndex = 5;
             // 
-            // button2
+            // name
             // 
-            this.button2.Location = new System.Drawing.Point(3, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(162, 55);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "Добавить организацию";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.name.Location = new System.Drawing.Point(171, 25);
+            this.name.Name = "name";
+            this.name.Size = new System.Drawing.Size(124, 20);
+            this.name.TabIndex = 10;
+            this.name.Leave += new System.EventHandler(this.textBox_ValueChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(82, 28);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(83, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Наименование";
+            // 
+            // inn
+            // 
+            this.inn.Location = new System.Drawing.Point(171, 2);
+            this.inn.Name = "inn";
+            this.inn.Size = new System.Drawing.Size(124, 20);
+            this.inn.TabIndex = 8;
+            this.inn.Leave += new System.EventHandler(this.textBox_ValueChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(134, 5);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(31, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "ИНН";
+            // 
+            // clearFilterButton
+            // 
+            this.clearFilterButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.clearFilterButton.Location = new System.Drawing.Point(41, 9);
+            this.clearFilterButton.Name = "clearFilterButton";
+            this.clearFilterButton.Size = new System.Drawing.Size(32, 32);
+            this.clearFilterButton.TabIndex = 6;
+            this.clearFilterButton.Text = "Х";
+            this.clearFilterButton.UseVisualStyleBackColor = true;
+            this.clearFilterButton.Click += new System.EventHandler(this.clearFilterButton_Click);
+            // 
+            // refreshTableButton
+            // 
+            this.refreshTableButton.BackgroundImage = global::Aura_Client.Properties.Resources.Без_названия;
+            this.refreshTableButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.refreshTableButton.Location = new System.Drawing.Point(3, 9);
+            this.refreshTableButton.Name = "refreshTableButton";
+            this.refreshTableButton.Size = new System.Drawing.Size(32, 32);
+            this.refreshTableButton.TabIndex = 5;
+            this.refreshTableButton.UseVisualStyleBackColor = true;
+            this.refreshTableButton.Click += new System.EventHandler(this.refreshTableButton_Click);
+            // 
+            // addNewOrgButton
+            // 
+            this.addNewOrgButton.Location = new System.Drawing.Point(3, 3);
+            this.addNewOrgButton.Name = "addNewOrgButton";
+            this.addNewOrgButton.Size = new System.Drawing.Size(162, 55);
+            this.addNewOrgButton.TabIndex = 0;
+            this.addNewOrgButton.Text = "Добавить организацию";
+            this.addNewOrgButton.UseVisualStyleBackColor = true;
+            this.addNewOrgButton.Click += new System.EventHandler(this.addNewOrgButton_Click);
             // 
             // panel4
             // 
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel4.Controls.Add(this.button2);
+            this.panel4.Controls.Add(this.addNewOrgButton);
             this.panel4.Location = new System.Drawing.Point(12, 458);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(588, 61);
@@ -155,59 +211,6 @@
             this.Column4.HeaderText = "Закон";
             this.Column4.Name = "Column4";
             // 
-            // refreshTableButton
-            // 
-            this.refreshTableButton.BackgroundImage = global::Aura_Client.Properties.Resources.Без_названия;
-            this.refreshTableButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.refreshTableButton.Location = new System.Drawing.Point(3, 9);
-            this.refreshTableButton.Name = "refreshTableButton";
-            this.refreshTableButton.Size = new System.Drawing.Size(32, 32);
-            this.refreshTableButton.TabIndex = 5;
-            this.refreshTableButton.UseVisualStyleBackColor = true;
-            // 
-            // clearFilterButton
-            // 
-            this.clearFilterButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.clearFilterButton.Location = new System.Drawing.Point(41, 9);
-            this.clearFilterButton.Name = "clearFilterButton";
-            this.clearFilterButton.Size = new System.Drawing.Size(32, 32);
-            this.clearFilterButton.TabIndex = 6;
-            this.clearFilterButton.Text = "Х";
-            this.clearFilterButton.UseVisualStyleBackColor = true;
-            this.clearFilterButton.Click += new System.EventHandler(this.clearFilterButton_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(134, 5);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 13);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "ИНН";
-            // 
-            // inn
-            // 
-            this.inn.Location = new System.Drawing.Point(171, 2);
-            this.inn.Name = "inn";
-            this.inn.Size = new System.Drawing.Size(124, 20);
-            this.inn.TabIndex = 8;
-            // 
-            // name
-            // 
-            this.name.Location = new System.Drawing.Point(171, 25);
-            this.name.Name = "name";
-            this.name.Size = new System.Drawing.Size(124, 20);
-            this.name.TabIndex = 10;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(82, 28);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 13);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Наименование";
-            // 
             // OrganisationsDataBaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -235,7 +238,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button addNewOrgButton;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
