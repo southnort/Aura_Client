@@ -16,6 +16,7 @@ namespace Aura_Client.View
         public OrganisationsDataBaseForm()
         {
             InitializeComponent();
+            creator = new Controller.CommandStringCreator("Organisations", "");
             ReloadTable();
 
         }
@@ -23,7 +24,7 @@ namespace Aura_Client.View
         private void ReloadTable()
         {
             ClearTable();
-            FillTable(Program.dataManager.GetAllOrganisations());
+            FillTable(Program.dataManager.GetFilteredOrganisations(creator.ToFilterCommand()));
 
         }
 
@@ -88,6 +89,12 @@ namespace Aura_Client.View
                 }
             }
 
+        }
+
+        private void clearFilterButton_Click(object sender, EventArgs e)
+        {
+            inn.Clear();
+            name.Clear();
         }
     }
 }

@@ -75,8 +75,7 @@ namespace Aura_Client.Model
 
         public List<Organisation> GetAllOrganisations()
         {
-            var list = new List<Organisation>();            
-            list.Add(new Organisation { name = "<не указано>" });
+            var list = new List<Organisation>();   
             foreach (var org in Program.bridge.GetObject<List<Organisation>>("ALLORGANISATIONS"))
             {
                 list.Add(org);
@@ -87,6 +86,13 @@ namespace Aura_Client.Model
         public Organisation GetOrganisation(string id)
         {
             return Program.bridge.GetObject<Organisation>("GETORGANISATION#" + id);
+
+        }
+
+        public List<Organisation> GetFilteredOrganisations(string filterQuery)
+        {
+            //запросить с сервера список организаций, отфильтрованных по усоловиям
+            
 
         }
 

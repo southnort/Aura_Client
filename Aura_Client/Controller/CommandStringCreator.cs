@@ -86,6 +86,29 @@ namespace Aura_Client.Controller
 
         }
 
+        public string ToFilterCommand()
+        {
+            //запрос на получение отфильтрованной информации
+            StringBuilder sb = new StringBuilder();
+            sb.Append("SELECT * FROM ");
+            sb.Append(tableName);
+            sb.Append(" WHERE ");
+
+            foreach (var pair in changes)
+            {
+                sb.Append(pair.Key);
+                sb.Append(" '");
+                sb.Append(pair.Value);
+                sb.Append("' AND ");
+            }
+
+            sb.Length -= 5;
+            return sb.ToString();
+            
+        }
+
+
+
         public bool IsNotEmpty()
         {
             //Добавлялись ли значения для изменения

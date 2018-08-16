@@ -40,6 +40,12 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.refreshTableButton = new System.Windows.Forms.Button();
+            this.clearFilterButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.inn = new System.Windows.Forms.TextBox();
+            this.name = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -74,6 +80,12 @@
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.Controls.Add(this.name);
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.inn);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.clearFilterButton);
+            this.panel3.Controls.Add(this.refreshTableButton);
             this.panel3.Controls.Add(this.panel1);
             this.panel3.Controls.Add(this.panel2);
             this.panel3.Location = new System.Drawing.Point(12, 12);
@@ -143,6 +155,59 @@
             this.Column4.HeaderText = "Закон";
             this.Column4.Name = "Column4";
             // 
+            // refreshTableButton
+            // 
+            this.refreshTableButton.BackgroundImage = global::Aura_Client.Properties.Resources.Без_названия;
+            this.refreshTableButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.refreshTableButton.Location = new System.Drawing.Point(3, 9);
+            this.refreshTableButton.Name = "refreshTableButton";
+            this.refreshTableButton.Size = new System.Drawing.Size(32, 32);
+            this.refreshTableButton.TabIndex = 5;
+            this.refreshTableButton.UseVisualStyleBackColor = true;
+            // 
+            // clearFilterButton
+            // 
+            this.clearFilterButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.clearFilterButton.Location = new System.Drawing.Point(41, 9);
+            this.clearFilterButton.Name = "clearFilterButton";
+            this.clearFilterButton.Size = new System.Drawing.Size(32, 32);
+            this.clearFilterButton.TabIndex = 6;
+            this.clearFilterButton.Text = "Х";
+            this.clearFilterButton.UseVisualStyleBackColor = true;
+            this.clearFilterButton.Click += new System.EventHandler(this.clearFilterButton_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(134, 5);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(31, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "ИНН";
+            // 
+            // inn
+            // 
+            this.inn.Location = new System.Drawing.Point(171, 2);
+            this.inn.Name = "inn";
+            this.inn.Size = new System.Drawing.Size(124, 20);
+            this.inn.TabIndex = 8;
+            // 
+            // name
+            // 
+            this.name.Location = new System.Drawing.Point(171, 25);
+            this.name.Name = "name";
+            this.name.Size = new System.Drawing.Size(124, 20);
+            this.name.TabIndex = 10;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(82, 28);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(83, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Наименование";
+            // 
             // OrganisationsDataBaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -157,6 +222,7 @@
             this.Text = "Список организаций";
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -176,5 +242,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.Button refreshTableButton;
+        private System.Windows.Forms.TextBox name;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox inn;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button clearFilterButton;
     }
 }
