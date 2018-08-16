@@ -84,16 +84,6 @@ namespace Aura_Client.View
 
             }
 
-            //организации-заказчики  
-            foreach (var org in Program.dataManager.GetAllOrganisations())
-            {
-                ComboBoxItem item = new ComboBoxItem();
-                item.Text = org.name;
-                item.Value = org.id;
-
-                organizationID.Items.Add(item);
-            }
-
             //закон, по которой проводится закупка
             for (int i = 0; i < 3; i++)
             {
@@ -110,8 +100,7 @@ namespace Aura_Client.View
             statusID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
             protocolStatusID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
             employeDocumentationID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
-            employeID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
-            organizationID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
+            employeID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);          
             law.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
             withAZK.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
 
@@ -163,7 +152,6 @@ namespace Aura_Client.View
 
             SetCombobox(employeDocumentationID, purchase.employeDocumentationID);
             SetCombobox(employeID, purchase.employeID);
-            SetCombobox(organizationID, purchase.organizationID);
 
             SetDate(bidsStartDate, purchase.bidsStartDate);
             SetDate(bidsEndDate, purchase.bidsEndDate);
@@ -215,6 +203,8 @@ namespace Aura_Client.View
             {
                 purchaseMethodID.Enabled = false;
             }
+
+            FillOrganisationName();
         }
 
         private void SwitchControlStatus()
@@ -234,7 +224,14 @@ namespace Aura_Client.View
             colorMark.BackColor = Color.FromArgb(purchase.colorMark);
         }
 
-
+        private void FillOrganisationName()
+        {
+            if (purchase.organizationID > 0)
+            {
+                Organisation org = Program.dataManager.GetOrganisation(purchase.organizationID.ToString());
+                organizationID.Text = org.name;
+            }
+        }
 
 
         private void dateTime_ValueChanged(object sender, EventArgs e)
@@ -268,7 +265,8 @@ namespace Aura_Client.View
             ComboBoxItem item = box.SelectedItem as ComboBoxItem;
             try
             {
-                creator.Add(box.Name, ((int)item.Value).ToString());
+                if (item != null)
+                    creator.Add(box.Name, ((int)item.Value).ToString());
             }
             catch
             {
@@ -371,6 +369,19 @@ namespace Aura_Client.View
                 resultOfControl.ForeColor = colorDialog1.Color;
                 creator.Add("resultOfControlColor", colorDialog1.Color.ToArgb().ToString());
             }
+        }
+
+        private void organisationSelectButton_Click(object sender, EventArgs e)
+        {
+            var form = new OrganisationsDataBaseForm(false);
+            var result = form.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                Organisation org = form.returnedOrganisation;
+                creator.Add("organizationID", org.id.ToString());
+                organizationID.Text = org.name;
+            }
+
         }
     }
 

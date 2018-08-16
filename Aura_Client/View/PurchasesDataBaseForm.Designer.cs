@@ -57,7 +57,7 @@
             this.dgv.ReadOnly = true;
             this.dgv.Size = new System.Drawing.Size(1342, 371);
             this.dgv.TabIndex = 0;
-            this.dgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dgv.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // panel1
             // 

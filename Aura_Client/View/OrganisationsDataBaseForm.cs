@@ -13,13 +13,22 @@ namespace Aura_Client.View
 {
     public partial class OrganisationsDataBaseForm : AuraForm
     {
-        public OrganisationsDataBaseForm()
+        public Organisation returnedOrganisation;
+        private bool onlyShowing;       //режим отображения таблицы. 
+                                        //Если true - клик по организации открывает её
+                                        //Если false - клик по организации возвращает её ИД
+
+
+        public OrganisationsDataBaseForm(bool onlyShow=true)
         {
             InitializeComponent();
             creator = new Controller.CommandStringCreator("Organisations", "");
             ReloadTable();
+            onlyShowing = onlyShow;
 
         }
+
+
 
         private void ReloadTable()
         {
@@ -98,13 +107,25 @@ namespace Aura_Client.View
         {
             if (e.RowIndex >= 0)
             {
+
                 DataGridView dg = (DataGridView)sender;
                 var ID = dg.Rows[e.RowIndex].Cells[0].Value.ToString();
                 if (ID != "0")
                 {
                     Organisation org = Program.dataManager.GetOrganisation(ID);
-                    ShowOrganisation(org);
+
+                    if (onlyShowing)
+                    {
+                        ShowOrganisation(org);
+                    }
+                    else
+                    {
+                        returnedOrganisation = org;
+                        DialogResult = DialogResult.OK;
+                    }
                 }
+
+
             }
 
         }

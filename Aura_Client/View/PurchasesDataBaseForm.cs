@@ -73,19 +73,19 @@ namespace Aura_Client.View
 
 
 
-            
+
 
             //dgv.Columns.Add("comments", "Комментарии");
             //dgv.Columns["comments"].Width = 200;
 
             //dgv.Columns.Add("law", "Закон");
             //dgv.Columns["law"].Width = 50;
-            
+
 
         }
 
         private void ReloadTable()
-        {            
+        {
             ClearTable();
             FillTable(Program.dataManager.GetAllPurchases());
         }
@@ -113,8 +113,10 @@ namespace Aura_Client.View
                             newRow.Cells["employeID"].Value =
                                 users[pur.employeID.ToString()];
 
+
                             newRow.Cells["organizationID"].Value =
-                                orgs[pur.organizationID].name;
+                                pur.organizationID == 0 ? "<не указано>" :
+                                orgs[pur.organizationID - 1].name;
 
                             newRow.Cells["purchaseMethodID"].Value =
                                 Catalog.purchaseMethods[pur.purchaseMethodID].name;
@@ -181,7 +183,7 @@ namespace Aura_Client.View
                 //юзеры должны видеть только закупки по их законам
                 return Program.user.roleID == pur.law;
             }
-            
+
         }
 
         private void RecolorRow(DataGridViewRow row, int statusID)

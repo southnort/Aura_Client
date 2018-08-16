@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PurchaseForm));
             this.label1 = new System.Windows.Forms.Label();
             this.employeDocumentationID = new System.Windows.Forms.ComboBox();
-            this.organizationID = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.purchaseMethodID = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -90,6 +89,8 @@
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.commentsFontSetting = new System.Windows.Forms.Button();
             this.resultOfControlFontColor = new System.Windows.Forms.Button();
+            this.organizationID = new System.Windows.Forms.TextBox();
+            this.organisationSelectButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.purchacePrice)).BeginInit();
             this.SuspendLayout();
             // 
@@ -112,16 +113,6 @@
             this.employeDocumentationID.TabIndex = 1;
             this.employeDocumentationID.Text = "Иванов Петр";
             this.employeDocumentationID.DropDownClosed += new System.EventHandler(this.comboBox_ValueChanged);
-            // 
-            // organizationID
-            // 
-            this.organizationID.FormattingEnabled = true;
-            this.organizationID.Location = new System.Drawing.Point(145, 67);
-            this.organizationID.Name = "organizationID";
-            this.organizationID.Size = new System.Drawing.Size(335, 21);
-            this.organizationID.TabIndex = 3;
-            this.organizationID.Text = "ОГБУЗ Больница № 1";
-            this.organizationID.DropDownClosed += new System.EventHandler(this.comboBox_ValueChanged);
             // 
             // label2
             // 
@@ -691,11 +682,33 @@
             this.resultOfControlFontColor.UseVisualStyleBackColor = true;
             this.resultOfControlFontColor.Click += new System.EventHandler(this.resultOfControlFontColor_Click);
             // 
+            // organizationID
+            // 
+            this.organizationID.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.organizationID.Location = new System.Drawing.Point(145, 67);
+            this.organizationID.Name = "organizationID";
+            this.organizationID.ReadOnly = true;
+            this.organizationID.Size = new System.Drawing.Size(206, 20);
+            this.organizationID.TabIndex = 90;
+            // 
+            // organisationSelectButton
+            // 
+            this.organisationSelectButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.organisationSelectButton.Location = new System.Drawing.Point(351, 67);
+            this.organisationSelectButton.Name = "organisationSelectButton";
+            this.organisationSelectButton.Size = new System.Drawing.Size(28, 20);
+            this.organisationSelectButton.TabIndex = 91;
+            this.organisationSelectButton.Text = "...";
+            this.organisationSelectButton.UseVisualStyleBackColor = true;
+            this.organisationSelectButton.Click += new System.EventHandler(this.organisationSelectButton_Click);
+            // 
             // PurchaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(797, 569);
+            this.Controls.Add(this.organisationSelectButton);
+            this.Controls.Add(this.organizationID);
             this.Controls.Add(this.resultOfControlFontColor);
             this.Controls.Add(this.commentsFontSetting);
             this.Controls.Add(this.bidsFinishDateClr);
@@ -749,7 +762,6 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.purchaseMethodID);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.organizationID);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.employeDocumentationID);
             this.Controls.Add(this.label1);
@@ -767,7 +779,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox employeDocumentationID;
-        private System.Windows.Forms.ComboBox organizationID;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox purchaseMethodID;
         private System.Windows.Forms.Label label3;
@@ -825,5 +836,7 @@
         private System.Windows.Forms.FontDialog fontDialog1;
         private System.Windows.Forms.Button commentsFontSetting;
         private System.Windows.Forms.Button resultOfControlFontColor;
+        private System.Windows.Forms.TextBox organizationID;
+        private System.Windows.Forms.Button organisationSelectButton;
     }
 }
