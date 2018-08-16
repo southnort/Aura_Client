@@ -71,6 +71,12 @@ namespace Aura_Client.Model
 
         }
 
+        public List<Purchase> GetReestr()
+        {
+            return Program.bridge.GetObject<List<Purchase>>("GETREESTR");
+
+        }
+
 
 
         public List<Organisation> GetAllOrganisations()

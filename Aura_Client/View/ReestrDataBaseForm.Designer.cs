@@ -1,6 +1,6 @@
 ﻿namespace Aura_Client.View
 {
-    partial class PurchasesDataBaseForm
+    partial class ReestrDataBaseForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,16 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PurchasesDataBaseForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReestrDataBaseForm));
             this.dgv = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.resreshButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgv
@@ -79,35 +77,23 @@
             this.resreshButton.Size = new System.Drawing.Size(32, 32);
             this.resreshButton.TabIndex = 0;
             this.resreshButton.UseVisualStyleBackColor = true;
-            this.resreshButton.Click += new System.EventHandler(this.resreshButton_Click);
             // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.SystemColors.Control;
-            this.panel2.Controls.Add(this.button1);
             this.panel2.Location = new System.Drawing.Point(12, 444);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1342, 61);
             this.panel2.TabIndex = 2;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(162, 55);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Добавить закупку";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // timer1
             // 
             this.timer1.Enabled = true;
             this.timer1.Interval = 200;
             // 
-            // PurchasesDataBaseForm
+            // ReestrDataBaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -116,11 +102,10 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgv);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "PurchasesDataBaseForm";
-            this.Text = "Все закупки";
+            this.Name = "ReestrDataBaseForm";
+            this.Text = "Реестр договоров";
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -130,7 +115,6 @@
         private System.Windows.Forms.DataGridView dgv;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button resreshButton;
     }

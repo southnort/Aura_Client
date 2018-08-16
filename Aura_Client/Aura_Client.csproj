@@ -139,6 +139,18 @@
     <Compile Include="View\PurchasesDataBaseForm.Designer.cs">
       <DependentUpon>PurchasesDataBaseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\ReestrDataBaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ReestrDataBaseForm.Designer.cs">
+      <DependentUpon>ReestrDataBaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ReestrForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ReestrForm.Designer.cs">
+      <DependentUpon>ReestrForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\UsersDataBaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,6 +200,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\PurchasesDataBaseForm.resx">
       <DependentUpon>PurchasesDataBaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ReestrDataBaseForm.resx">
+      <DependentUpon>ReestrDataBaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ReestrForm.resx">
+      <DependentUpon>ReestrForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UsersDataBaseForm.resx">
       <DependentUpon>UsersDataBaseForm.cs</DependentUpon>

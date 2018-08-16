@@ -43,3 +43,5 @@ C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.P
 C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\System.Data.SQLite.dll
 C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\System.Data.SQLite.xml
 C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\System.Data.SQLite.dll.config
+C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.View.ReestrDataBaseForm.resources
+C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.View.ReestrForm.resources

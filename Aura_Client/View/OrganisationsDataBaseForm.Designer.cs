@@ -99,6 +99,7 @@
             this.name.Name = "name";
             this.name.Size = new System.Drawing.Size(124, 20);
             this.name.TabIndex = 10;
+            this.name.KeyUp += new System.Windows.Forms.KeyEventHandler(this.anyKey_KeyUp);
             this.name.Leave += new System.EventHandler(this.textBox_ValueChanged);
             // 
             // label2
@@ -116,6 +117,7 @@
             this.inn.Name = "inn";
             this.inn.Size = new System.Drawing.Size(124, 20);
             this.inn.TabIndex = 8;
+            this.inn.KeyUp += new System.Windows.Forms.KeyEventHandler(this.anyKey_KeyUp);
             this.inn.Leave += new System.EventHandler(this.textBox_ValueChanged);
             // 
             // label1
@@ -188,6 +190,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(588, 385);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.anyKey_KeyUp);
             // 
             // Column1
             // 

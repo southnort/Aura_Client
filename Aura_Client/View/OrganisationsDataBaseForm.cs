@@ -143,6 +143,13 @@ namespace Aura_Client.View
             ReloadTable();
         }
 
+        private void anyKey_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                refreshTableButton_Click(sender, e);
+            }
 
+        }
     }
 }
