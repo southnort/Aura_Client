@@ -57,6 +57,8 @@
             this.buttonOK = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label13 = new System.Windows.Forms.Label();
+            this.contractType = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // name
@@ -328,11 +330,33 @@
             this.timer1.Interval = 250;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label13.Location = new System.Drawing.Point(499, 213);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(98, 16);
+            this.label13.TabIndex = 27;
+            this.label13.Text = "Тип договора";
+            // 
+            // contractType
+            // 
+            this.contractType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.contractType.FormattingEnabled = true;
+            this.contractType.Location = new System.Drawing.Point(603, 210);
+            this.contractType.Name = "contractType";
+            this.contractType.Size = new System.Drawing.Size(121, 24);
+            this.contractType.TabIndex = 26;
+            this.contractType.Leave += new System.EventHandler(this.comboBox_ValueChanged);
+            // 
             // OrganisationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(845, 466);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.contractType);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.label12);
@@ -397,5 +421,7 @@
         private System.Windows.Forms.Button buttonOK;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox contractType;
     }
 }

@@ -44,6 +44,11 @@ namespace Aura_Client.View
             {
                 law.Items.Add(item);
             }
+
+            foreach (var item in Catalog.contractTypes)
+            {
+                contractType.Items.Add(item);
+            }
         }
 
         private void Fill(Organisation org)
@@ -59,6 +64,7 @@ namespace Aura_Client.View
             contractCondition.SelectedIndex = org.contractCondition;
             originalID.SelectedIndex = org.originalID;
             law.SelectedIndex = org.law;
+            contractType.SelectedIndex = org.contractType;
 
         }
 

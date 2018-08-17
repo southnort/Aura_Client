@@ -37,7 +37,6 @@ C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Clie
 C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.View.UsersDataBaseForm.resources
 C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.View.OrganisationsDataBaseForm.resources
 C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.View.OrganisationsDataBaseForm.resources
-C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.csprojAssemblyReference.cache
 C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.Properties.Resources.resources
 C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.Properties.Resources.resources
 C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\System.Data.SQLite.dll
@@ -45,3 +44,9 @@ C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\System.Data.S
 C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\System.Data.SQLite.dll.config
 C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.View.ReestrDataBaseForm.resources
 C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.View.ReestrForm.resources
+C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\System.Data.SQLite.dll
+C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\System.Data.SQLite.xml
+C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\System.Data.SQLite.dll.config
+C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.View.ReestrDataBaseForm.resources
+C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.View.ReestrForm.resources
+C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.csprojAssemblyReference.cache

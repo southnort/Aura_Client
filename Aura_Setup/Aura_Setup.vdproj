@@ -21,8 +21,50 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_35BE235530EB44FAAF675558F4D0B5DA"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_3985658F2AB7445AB2CAEC5F98B18882"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_509B484E34334FA7B026DE4B25BBEB83"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_50B2F3125F8F45F58B3B7401D3E2B700"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_55B583DA1E4C48D3B6C564BA7B7B43C1"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7F01A2C136BC4EC7A2F867366B71C3F9"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_C3AD35DAC54BC08F3900EF953C1949B7"
         "OwnerKey" = "8:_195A4366BAA84D378444EF5B1DAC4ECE"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_C4A35E04C61D43AFA2C56FC7B42CA245"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -39,7 +81,25 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_C8AFA27B55FD47409864098C0130504F"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D7F4C5C3D14248B5A399155E4849CFC2"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_E58AEAF32B064E51BAB6B1ECB3019D10"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_FA5E4A5133C24596BA91A5AE55ED7990"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -47,6 +107,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_195A4366BAA84D378444EF5B1DAC4ECE"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_50B2F3125F8F45F58B3B7401D3E2B700"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -160,7 +226,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Aura_Client, Version=0.8.3.6, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:Aura_Client, Version=0.8.9.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_195A4366BAA84D378444EF5B1DAC4ECE"
@@ -187,11 +253,142 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_35BE235530EB44FAAF675558F4D0B5DA"
+            {
+            "SourcePath" = "8:..\\Aura_Client\\bin\\Debug\\icuin50.dll"
+            "TargetName" = "8:icuin50.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_890555B8744347D1AD3D72C64DF0D4F7"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3985658F2AB7445AB2CAEC5F98B18882"
+            {
+            "SourcePath" = "8:..\\Aura_Client\\bin\\Debug\\icuuc50.dll"
+            "TargetName" = "8:icuuc50.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_890555B8744347D1AD3D72C64DF0D4F7"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_509B484E34334FA7B026DE4B25BBEB83"
+            {
+            "SourcePath" = "8:..\\Aura_Client\\bin\\Debug\\System.Data.SQLite.Core.ICU.targets"
+            "TargetName" = "8:System.Data.SQLite.Core.ICU.targets"
+            "Tag" = "8:"
+            "Folder" = "8:_890555B8744347D1AD3D72C64DF0D4F7"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_50B2F3125F8F45F58B3B7401D3E2B700"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:System.Data.SQLite, Version=1.0.106.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_50B2F3125F8F45F58B3B7401D3E2B700"
+                    {
+                    "Name" = "8:System.Data.SQLite.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\Aura_Client\\bin\\Debug\\System.Data.SQLite.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_890555B8744347D1AD3D72C64DF0D4F7"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_55B583DA1E4C48D3B6C564BA7B7B43C1"
+            {
+            "SourcePath" = "8:..\\Aura_Client\\bin\\Debug\\icudt50.dll"
+            "TargetName" = "8:icudt50.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_890555B8744347D1AD3D72C64DF0D4F7"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7F01A2C136BC4EC7A2F867366B71C3F9"
+            {
+            "SourcePath" = "8:..\\Aura_Client\\bin\\Debug\\System.Data.SQLite.xml"
+            "TargetName" = "8:System.Data.SQLite.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_890555B8744347D1AD3D72C64DF0D4F7"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C3AD35DAC54BC08F3900EF953C1949B7"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Aura_DLL, Version=0.7.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:Aura_DLL, Version=0.9.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_C3AD35DAC54BC08F3900EF953C1949B7"
@@ -218,6 +415,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C4A35E04C61D43AFA2C56FC7B42CA245"
+            {
+            "SourcePath" = "8:..\\Aura_Client\\bin\\Debug\\icudt49.dll"
+            "TargetName" = "8:icudt49.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_890555B8744347D1AD3D72C64DF0D4F7"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C4AF5C8E736C4C448DA2C4001086956A"
             {
             "SourcePath" = "8:..\\Aura_Client\\Icon.ico"
@@ -242,7 +459,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Aura_DLL, Version=0.7.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:Aura_DLL, Version=0.9.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_C6921B7F21314AC9A676616F4F08CBA9"
@@ -269,10 +486,70 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C8AFA27B55FD47409864098C0130504F"
+            {
+            "SourcePath" = "8:..\\Aura_Client\\bin\\Debug\\icuuc49.dll"
+            "TargetName" = "8:icuuc49.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_890555B8744347D1AD3D72C64DF0D4F7"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D7F4C5C3D14248B5A399155E4849CFC2"
+            {
+            "SourcePath" = "8:..\\Aura_Client\\bin\\Debug\\icuin49.dll"
+            "TargetName" = "8:icuin49.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_890555B8744347D1AD3D72C64DF0D4F7"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E58AEAF32B064E51BAB6B1ECB3019D10"
             {
             "SourcePath" = "8:..\\Aura_Client\\bin\\Debug\\connect settings.txt"
             "TargetName" = "8:connect settings.txt"
+            "Tag" = "8:"
+            "Folder" = "8:_890555B8744347D1AD3D72C64DF0D4F7"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FA5E4A5133C24596BA91A5AE55ED7990"
+            {
+            "SourcePath" = "8:..\\Aura_Client\\bin\\Debug\\System.Data.SQLite.dll.config"
+            "TargetName" = "8:System.Data.SQLite.dll.config"
             "Tag" = "8:"
             "Folder" = "8:_890555B8744347D1AD3D72C64DF0D4F7"
             "Condition" = "8:"
@@ -345,15 +622,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Aura"
-        "ProductCode" = "8:{54C2F718-0C49-49CA-A613-285172217194}"
-        "PackageCode" = "8:{2605F248-899C-4CBD-AE8D-BB4C669A36FE}"
+        "ProductCode" = "8:{F2EC5B81-79AA-4AA4-A996-69E386EC4BA0}"
+        "PackageCode" = "8:{492DB7C1-2438-4F47-B2D2-FA35364EA8E7}"
         "UpgradeCode" = "8:{590F0497-CCDF-4B29-99BA-59F387E67CB2}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
-        "DetectNewerInstalledVersion" = "11:TRUE"
+        "DetectNewerInstalledVersion" = "11:FALSE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.8"
+        "ProductVersion" = "8:0.8.9"
         "Manufacturer" = "8:ASTIKS"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

@@ -82,6 +82,14 @@ namespace Aura_Client.Model
             "44-ФЗ и 223-ФЗ",
 
         };
+
+        public static List<string> contractTypes = new List<string>()
+        {
+            //типы договоров с заказчиками
+            "<не указано>",
+            "постоянный",
+            "разовый",
+        };
     }
 
 }
