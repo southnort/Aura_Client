@@ -104,5 +104,10 @@ namespace Aura_Client.Model
 
         }
 
+        public void DeleteOrganisation(string id)
+        {
+            Program.bridge.SendMessage("DELETEORGANISATION#" + id);
+        }
+
     }
 }

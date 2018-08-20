@@ -151,5 +151,27 @@ namespace Aura_Client.View
             }
 
         }
+
+        private void deleteOrganisationButton_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow != null)
+            {
+                string id = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                Organisation org = Program.dataManager.GetOrganisation(id);
+
+                string text = "Вы действительно хотите удалить организацию\n" + org.name + "?";
+
+                DialogResult dialogResult = MessageBox.Show(text,
+                    "Подтвердите удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Program.dataManager.DeleteOrganisation(id);
+                    ReloadTable();
+
+                }
+            }
+
+        }
     }
 }

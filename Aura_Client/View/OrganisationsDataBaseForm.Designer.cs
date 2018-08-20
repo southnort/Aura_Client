@@ -46,6 +46,7 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deleteOrganisationButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -165,6 +166,7 @@
             // 
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel4.Controls.Add(this.deleteOrganisationButton);
             this.panel4.Controls.Add(this.addNewOrgButton);
             this.panel4.Location = new System.Drawing.Point(12, 458);
             this.panel4.Name = "panel4";
@@ -214,6 +216,16 @@
             this.Column4.HeaderText = "Закон";
             this.Column4.Name = "Column4";
             // 
+            // deleteOrganisationButton
+            // 
+            this.deleteOrganisationButton.Location = new System.Drawing.Point(423, 6);
+            this.deleteOrganisationButton.Name = "deleteOrganisationButton";
+            this.deleteOrganisationButton.Size = new System.Drawing.Size(162, 55);
+            this.deleteOrganisationButton.TabIndex = 1;
+            this.deleteOrganisationButton.Text = "Удалить организацию";
+            this.deleteOrganisationButton.UseVisualStyleBackColor = true;
+            this.deleteOrganisationButton.Click += new System.EventHandler(this.deleteOrganisationButton_Click);
+            // 
             // OrganisationsDataBaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -254,5 +266,6 @@
         private System.Windows.Forms.TextBox inn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button clearFilterButton;
+        private System.Windows.Forms.Button deleteOrganisationButton;
     }
 }
