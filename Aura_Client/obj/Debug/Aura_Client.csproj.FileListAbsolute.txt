@@ -50,3 +50,4 @@ C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\System.Da
 C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.View.ReestrDataBaseForm.resources
 C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.View.ReestrForm.resources
 C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.csprojAssemblyReference.cache
+C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.View.ReportsDataBaseForm.resources

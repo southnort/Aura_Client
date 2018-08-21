@@ -65,5 +65,11 @@ namespace Aura_Client.View
             ReestrDataBaseForm form = new ReestrDataBaseForm();
             form.Show();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ReportsDataBaseForm form = new ReportsDataBaseForm();
+            form.Show();
+        }
     }
 }

@@ -151,6 +151,12 @@
     <Compile Include="View\ReestrForm.Designer.cs">
       <DependentUpon>ReestrForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\ReportsDataBaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ReportsDataBaseForm.Designer.cs">
+      <DependentUpon>ReportsDataBaseForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\UsersDataBaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -206,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\ReestrForm.resx">
       <DependentUpon>ReestrForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ReportsDataBaseForm.resx">
+      <DependentUpon>ReportsDataBaseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UsersDataBaseForm.resx">
       <DependentUpon>UsersDataBaseForm.cs</DependentUpon>

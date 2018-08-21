@@ -75,7 +75,7 @@
             // nextMonthButton
             // 
             this.nextMonthButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.nextMonthButton.Location = new System.Drawing.Point(762, 16);
+            this.nextMonthButton.Location = new System.Drawing.Point(762, 14);
             this.nextMonthButton.Name = "nextMonthButton";
             this.nextMonthButton.Size = new System.Drawing.Size(66, 39);
             this.nextMonthButton.TabIndex = 2;
@@ -88,7 +88,7 @@
             this.prevMonthButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.prevMonthButton.Location = new System.Drawing.Point(328, 14);
             this.prevMonthButton.Name = "prevMonthButton";
-            this.prevMonthButton.Size = new System.Drawing.Size(66, 39);
+            this.prevMonthButton.Size = new System.Drawing.Size(66, 41);
             this.prevMonthButton.TabIndex = 1;
             this.prevMonthButton.Text = "<";
             this.prevMonthButton.UseVisualStyleBackColor = true;

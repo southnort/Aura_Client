@@ -64,17 +64,28 @@ namespace Aura_Client.View
 
         protected void SetDate(DateTimePicker picker, string date)
         {
-            DateTime dateTime = Convert.ToDateTime(date);
-            if (dateTime == DateTime.MinValue)
+            try
+            {
+                DateTime dateTime = Convert.ToDateTime(date);
+                if (date == "" || dateTime == DateTime.MinValue)
+                {
+                    picker.Format = DateTimePickerFormat.Custom;
+                    picker.CustomFormat = "''";
+                }
+
+                else
+                {
+                    picker.Format = DateTimePickerFormat.Short;
+                    picker.Value = dateTime;
+                }
+            }
+
+            catch (Exception ex)
             {
                 picker.Format = DateTimePickerFormat.Custom;
                 picker.CustomFormat = "''";
-            }
 
-            else
-            {
-                picker.Format = DateTimePickerFormat.Short;
-                picker.Value = dateTime;
+                MessageBox.Show("Error. Value \"" + date + "\" is not date");
             }
         }
 
