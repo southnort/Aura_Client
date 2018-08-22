@@ -109,5 +109,12 @@ namespace Aura_Client.Model
             Program.bridge.SendMessage("DELETEORGANISATION#" + id);
         }
 
+
+        public List<Report> GetAllReports()
+        {
+            var list = Program.bridge.GetObject<List<Report>>("ALLREPORTS");
+            return list;
+        }
+
     }
 }

@@ -122,6 +122,19 @@ namespace Aura_Client.View
             
         }
 
+        protected void SetCombobox(ComboBox box, string id)
+        {
+            for (int i = 0; i < box.Items.Count; i++)
+            {
+                ComboBoxItem cbItem = box.Items[i] as ComboBoxItem;
+                if (id == cbItem.Value.ToString())
+                {
+                    box.SelectedIndex = i;
+                    break;
+                }
+            }
+        }
+
 
 
     }
