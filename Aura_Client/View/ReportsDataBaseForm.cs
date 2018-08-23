@@ -213,18 +213,23 @@ namespace Aura_Client.View
             switch (fieldName)
             {
                 case "commonPurchasesContractsReport":
-                    if (report.commonPurchasesContractsReport.Contains(fieldName))
-                        report.commonPurchasesContractsReport.Replace(fieldValue, "");
+                    if (report.commonPurchasesContractsReport.Contains(fieldValue))
+                        report.commonPurchasesContractsReport =
+                            report.commonPurchasesContractsReport.Replace(fieldValue, "");
                     break;
+
 
                 case "singleSupplierContractsReport":
-                    if (report.singleSupplierContractsReport.Contains(fieldName))
-                        report.singleSupplierContractsReport.Replace(fieldValue, "");
+                    if (report.singleSupplierContractsReport.Contains(fieldValue))
+                        report.singleSupplierContractsReport =
+                            report.singleSupplierContractsReport.Replace(fieldValue, "");
                     break;
 
+
                 case "failedPurchasesContractsReport":
-                    if (report.failedPurchasesContractsReport.Contains(fieldName))
-                        report.failedPurchasesContractsReport.Replace(fieldName, "");
+                    if (report.failedPurchasesContractsReport.Contains(fieldValue))
+                        report.failedPurchasesContractsReport =
+                            report.failedPurchasesContractsReport.Replace(fieldValue, "");
                     break;
 
 
