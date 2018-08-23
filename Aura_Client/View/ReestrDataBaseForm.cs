@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Aura.Model;
 
+
 namespace Aura_Client.View
 {
     public partial class ReestrDataBaseForm : AuraForm
@@ -30,6 +31,12 @@ namespace Aura_Client.View
 
             dgv.Columns.Add("purchaseName", "Наименование закупки");
             dgv.Columns["purchaseName"].Width = 200;
+
+            dgv.Columns.Add("contractDateReal", "Дата подписания");
+            dgv.Columns["contractDateReal"].Width = 100;
+
+            dgv.Columns.Add("withAZK", "АЦК");
+            dgv.Columns["withAZK"].Width = 50;
 
             dgv.Columns.Add("colorMark", "Метка");
             dgv.Columns["colorMark"].Width = 45;
@@ -90,10 +97,17 @@ namespace Aura_Client.View
                     newRow.Cells["reestrStatus"].Value =
                         pur.reestrStatus == 1;
 
+                    newRow.Cells["withAZK"].Value =
+                        pur.withAZK == 0 ? "С АЦК" : "БЕЗ АЦК";
+
+                    newRow.Cells["contractDateReal"].Value =
+                        pur.contractDateReal == DateTime.MinValue.ToShortDateString() ? "" :
+                        pur.contractDateReal;
+
                 }
 
             }
-        
+
 
         }
 

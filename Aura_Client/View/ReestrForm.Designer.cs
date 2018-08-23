@@ -478,6 +478,7 @@
             this.contractDateRealClr.TabIndex = 97;
             this.contractDateRealClr.Text = "Х";
             this.contractDateRealClr.UseVisualStyleBackColor = true;
+            this.contractDateRealClr.Click += new System.EventHandler(this.dateTimeClear_Click);
             // 
             // contractDateReal
             // 
@@ -517,6 +518,7 @@
             this.reestrDateLastClr.TabIndex = 100;
             this.reestrDateLastClr.Text = "Х";
             this.reestrDateLastClr.UseVisualStyleBackColor = true;
+            this.reestrDateLastClr.Click += new System.EventHandler(this.dateTimeClear_Click);
             // 
             // reestrDateLast
             // 
