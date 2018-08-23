@@ -105,7 +105,7 @@ namespace Aura_Client.Controller
             return sb.ToString();
             
         }
-
+       
         public void Clear()
         {
             changes.Clear();

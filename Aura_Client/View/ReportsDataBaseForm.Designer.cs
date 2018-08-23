@@ -93,7 +93,7 @@
             this.yearComboBox.Name = "yearComboBox";
             this.yearComboBox.Size = new System.Drawing.Size(87, 28);
             this.yearComboBox.TabIndex = 1;
-            this.yearComboBox.Leave += new System.EventHandler(this.yearComboBox_Leave);
+            this.yearComboBox.DropDownClosed += new System.EventHandler(this.yearComboBox_Leave);
             // 
             // monthComboBox
             // 
@@ -105,7 +105,7 @@
             this.monthComboBox.Name = "monthComboBox";
             this.monthComboBox.Size = new System.Drawing.Size(121, 28);
             this.monthComboBox.TabIndex = 0;
-            this.monthComboBox.Leave += new System.EventHandler(this.monthComboBox_Leave);
+            this.monthComboBox.DropDownClosed += new System.EventHandler(this.yearComboBox_Leave);
             // 
             // panel2
             // 
@@ -157,6 +157,7 @@
             this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.Size = new System.Drawing.Size(974, 226);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // organisationID
             // 

@@ -15,8 +15,6 @@ namespace Aura_Client.Network
     /// </summary>
     class NetworkBridge : NetworkManager
     {
-
-
         public string TryLogin(string login, string password)
         {
             //запрос серверу на логин            
@@ -42,5 +40,30 @@ namespace Aura_Client.Network
             SendMessage(sb.ToString());
 
         }
+
+        public void SendUpdateReport(Aura.Model.Report report)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("UPDATEREPORT#");            
+            sb.Append("REPLACE INTO Reports (organisationID, commonPurchasesContractsReport, ");
+            sb.Append("singleSupplierContractsReport, failedPurchasesContractsReport)");
+            sb.Append(" VALUES ('");
+            sb.Append(report.organisationID);
+            sb.Append("', '");
+            sb.Append(report.commonPurchasesContractsReport);
+            sb.Append("', '");
+            sb.Append(report.singleSupplierContractsReport);
+            sb.Append("', '");
+            sb.Append(report.failedPurchasesContractsReport);
+            sb.Append("')");
+
+            sb.Append("#");
+            sb.Append(report.organisationID);
+            sb.Append("#");
+
+            SendMessage(sb.ToString());
+
+        }
+
     }
 }

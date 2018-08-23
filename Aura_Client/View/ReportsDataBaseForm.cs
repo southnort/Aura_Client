@@ -15,7 +15,7 @@ namespace Aura_Client.View
     {
         private string month;   //выбранный месяц для отчета
         private string year;    //выбранный год для отчёта
-        private string monthYear { get { return month + "." + year + ","; } }
+        private string monthYear { get { return " " + month + "." + year + ","; } }
 
         private List<Organisation> organisations;
         private List<Report> reports;
@@ -27,6 +27,7 @@ namespace Aura_Client.View
         public ReportsDataBaseForm()
         {
             InitializeComponent();
+            creator = new Controller.CommandStringCreator("Reports", "");
 
             month = DateTime.Now.Month.ToString();
             year = DateTime.Now.Year.ToString();
@@ -104,7 +105,7 @@ namespace Aura_Client.View
                     newRow.Cells["organisationID"].Value = org.id;
                     newRow.Cells["inn"].Value = org.inn;
                     newRow.Cells["name"].Value = org.name;
-                   
+
 
                 }
 
@@ -116,15 +117,16 @@ namespace Aura_Client.View
 
         private void SwitchDate()
         {
-            month = monthComboBox.SelectedValue.ToString();
-            year = yearComboBox.SelectedValue.ToString();
+            month = (monthComboBox.SelectedIndex + 1).ToString();
+            year = yearComboBox.SelectedItem.ToString();
 
-            MessageBox.Show(monthYear);
+            RecolorTable();
+
         }
 
         private void RecolorTable()
         {
-            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            for (int i = 1; i < dataGridView1.Rows.Count; i++)
             {
                 var row = dataGridView1.Rows[i];
                 int orgID = (int)row.Cells["organisationID"].Value;
@@ -160,8 +162,89 @@ namespace Aura_Client.View
                 }
 
             }
+
+        }
+
+
+        private void AddValue(int orgID, string fieldName, string fieldValue)
+        {
+            //обработка действия "Отчет готов"
+            Report report = reports.SingleOrDefault(org => org.organisationID == orgID);
+
+            if (report == null)
+                report = new Report();
+
+            report.organisationID = orgID;
+            switch (fieldName)
+            {
+                case "commonPurchasesContractsReport":
+                    report.commonPurchasesContractsReport += fieldValue;
+                    break;
+                case "singleSupplierContractsReport":
+                    report.singleSupplierContractsReport += fieldValue;
+                    break;
+                case "failedPurchasesContractsReport":
+                    report.failedPurchasesContractsReport += fieldValue;
+                    break;
+
+                default:
+                    MessageBox.Show("Error with adding report: " + orgID + " " + fieldName + " " + fieldValue,
+                "Error",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error); break;
+
+            }
+
+            Program.bridge.SendUpdateReport(report);
+            if (!reports.Contains(report))
+                reports.Add(report);
+
             
         }
+
+        private void RemoveValue(int orgID, string fieldName, string fieldValue)
+        {
+            //обработка действия "Отчет не готов"
+            Report report = reports.SingleOrDefault(org => org.organisationID == orgID);
+            if (report == null)
+                return;
+
+            report.organisationID = orgID;
+            switch (fieldName)
+            {
+                case "commonPurchasesContractsReport":
+                    if (report.commonPurchasesContractsReport.Contains(fieldName))
+                        report.commonPurchasesContractsReport.Replace(fieldValue, "");
+                    break;
+
+                case "singleSupplierContractsReport":
+                    if (report.singleSupplierContractsReport.Contains(fieldName))
+                        report.singleSupplierContractsReport.Replace(fieldValue, "");
+                    break;
+
+                case "failedPurchasesContractsReport":
+                    if (report.failedPurchasesContractsReport.Contains(fieldName))
+                        report.failedPurchasesContractsReport.Replace(fieldName, "");
+                    break;
+
+
+                default:
+                    MessageBox.Show("Error with adding report: " + orgID + " " + fieldName + " " + fieldValue,
+                "Error",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error); break;
+
+            }
+
+            Program.bridge.SendUpdateReport(report);
+            if (!reports.Contains(report))
+                reports.Add(report);
+
+
+
+
+        }
+
 
 
         private void prevMonthButton_Click(object sender, EventArgs e)
@@ -213,5 +296,34 @@ namespace Aura_Client.View
         {
             SwitchDate();
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+
+            if (e.RowIndex >= 0 && senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
+            {
+                int orgID = (int) dataGridView1.CurrentRow.Cells[0].Value;
+                string fieldName = senderGrid.Columns[e.ColumnIndex].Name;
+                string fieldValue = monthYear;
+
+                var cell = dataGridView1.CurrentCell as DataGridViewButtonCell;
+                if (cell.Style.BackColor == readyColor)
+                {
+                    RemoveValue(orgID, fieldName, fieldValue);
+                    cell.Style.BackColor = notReadyColor;
+                }
+
+
+                else
+                {
+                    AddValue(orgID, fieldName, fieldValue);
+                    cell.Style.BackColor = readyColor;
+                }
+
+
+            }
+        }
     }
+
 }
