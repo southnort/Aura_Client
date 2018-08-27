@@ -157,6 +157,7 @@
     <Compile Include="View\ReportsDataBaseForm.Designer.cs">
       <DependentUpon>ReportsDataBaseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Settings.cs" />
     <Compile Include="View\UsersDataBaseForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -26,60 +26,107 @@ namespace Aura_Client.View
         private void CreateTable()
         {
             //программно создаем колонки в таблице
-            dgv.Columns.Add("id", "id");
-            dgv.Columns["id"].Width = 50;
+            purchasesDataGridView.Columns.Add("id", "id");
+            purchasesDataGridView.Columns["id"].Width = 50;
 
-            dgv.Columns.Add("organizationID", "Заказчик");
-            dgv.Columns["organizationID"].Width = 150;
+            purchasesDataGridView.Columns.Add("employeID", "Ответственный за размещение");
+            purchasesDataGridView.Columns["employeID"].Width = 200;
 
-            dgv.Columns.Add("purchaseName", "Наименование закупки");
-            dgv.Columns["purchaseName"].Width = 200;
+            purchasesDataGridView.Columns.Add("organizationID", "Заказчик");
+            purchasesDataGridView.Columns["organizationID"].Width = 150;
 
-            dgv.Columns.Add("colorMark", "Метка");
-            dgv.Columns["colorMark"].Width = 45;
+            purchasesDataGridView.Columns.Add("purchaseMethodID", "Способ");
+            purchasesDataGridView.Columns["purchaseMethodID"].Width = 150;
 
-            dgv.Columns.Add("purchaseMethodID", "Способ");
-            dgv.Columns["purchaseMethodID"].Width = 150;
+            purchasesDataGridView.Columns.Add("purchaseName", "Наименование закупки");
+            purchasesDataGridView.Columns["purchaseName"].Width = 200;
 
-            dgv.Columns.Add("statusID", "Статус");
-            dgv.Columns["statusID"].Width = 150;
+            purchasesDataGridView.Columns.Add("statusID", "Статус");
+            purchasesDataGridView.Columns["statusID"].Width = 150;
 
-            dgv.Columns.Add("protocolStatusID", "Статус протокола");
-            dgv.Columns["protocolStatusID"].Width = 100;
+            purchasesDataGridView.Columns.Add("purchacePrice", "Сумма закупки");
+            purchasesDataGridView.Columns["purchacePrice"].Width = 100;
 
-            dgv.Columns.Add("purchacePrice", "Сумма закупки");
-            dgv.Columns["purchacePrice"].Width = 100;
+            purchasesDataGridView.Columns.Add("purchaseEisNum", "Реестровый №");
+            purchasesDataGridView.Columns["purchaseEisNum"].Width = 100;
 
-            dgv.Columns.Add("withAZK", "АЦК");
-            dgv.Columns["withAZK"].Width = 50;
+            purchasesDataGridView.Columns.Add("purchaseEisDate", "Дата публикации извещения");
+            purchasesDataGridView.Columns["purchaseEisDate"].Width = 100;
 
-            dgv.Columns.Add("purchaseEisNum", "Реестровый №");
-            dgv.Columns["purchaseEisNum"].Width = 100;
+            purchasesDataGridView.Columns.Add("bidsStartDate", "Начало подачи заявок");
+            purchasesDataGridView.Columns["bidsStartDate"].Width = 100;
 
-            dgv.Columns.Add("employeID", "Ответственный за размещение");
-            dgv.Columns["employeID"].Width = 200;
+            purchasesDataGridView.Columns.Add("bidsEndDate", "Окончание подачи заявок");
+            purchasesDataGridView.Columns["bidsEndDate"].Width = 100;
 
-            dgv.Columns.Add("employeDocumentationID", "Ответственный за подготовку");
-            dgv.Columns["employeDocumentationID"].Width = 200;
+            purchasesDataGridView.Columns.Add("bidsOpenDate", "Дата вскрытия конвертов");
+            purchasesDataGridView.Columns["bidsOpenDate"].Width = 100;
+
+            purchasesDataGridView.Columns.Add("bidsFirstPartDate", "Рассмотрение первых частей");
+            purchasesDataGridView.Columns["bidsFirstPartDate"].Width = 100;
+
+            purchasesDataGridView.Columns.Add("auctionDate", "Дата аукциона");
+            purchasesDataGridView.Columns["auctionDate"].Width = 100;
+
+            purchasesDataGridView.Columns.Add("bidsSecondPartDate", "Рассмотрение вторых частей");
+            purchasesDataGridView.Columns["bidsSecondPartDate"].Width = 100;
+
+            purchasesDataGridView.Columns.Add("bidsFinishDate", "Дата подведения итогов");
+            purchasesDataGridView.Columns["bidsFinishDate"].Width = 100;
+
+            purchasesDataGridView.Columns.Add("contractPrice", "Сумма договора");
+            purchasesDataGridView.Columns["contractPrice"].Width = 100;
+
+            purchasesDataGridView.Columns.Add("contractDateReal", "Дата подписания");
+            purchasesDataGridView.Columns["contractDateReal"].Width = 100;
+
+            purchasesDataGridView.Columns.Add("reestrDateLast", "Дата внесения в реестр");
+            purchasesDataGridView.Columns["reestrDateLast"].Width = 100;
+
+            purchasesDataGridView.Columns.Add("reestrNumber", "Реестровый номер договора");
+            purchasesDataGridView.Columns["reestrNumber"].Width = 100;
+
+            purchasesDataGridView.Columns.Add("comments", "Комментарии");
+            purchasesDataGridView.Columns["comments"].Width = 100;
+
+            purchasesDataGridView.Columns.Add("law", "Закон");
+            purchasesDataGridView.Columns["law"].Width = 50;
+
+            purchasesDataGridView.Columns.Add("withAZK", "АЦК");
+            purchasesDataGridView.Columns["withAZK"].Width = 50;
+
+            purchasesDataGridView.Columns.Add("employeDocumentationID", "Ответственный за документацию");
+            purchasesDataGridView.Columns["employeDocumentationID"].Width = 200;
+
+            purchasesDataGridView.Columns.Add("resultOfControl", "Результаты проверки");
+            purchasesDataGridView.Columns["resultOfControl"].Width = 200;
+
+            purchasesDataGridView.Columns.Add("protocolStatusID", "Статус протокола");
+            purchasesDataGridView.Columns["protocolStatusID"].Width = 100;
+
+            purchasesDataGridView.Columns.Add("bidsReviewDate", "Дата рассмотрения заявок");
+            purchasesDataGridView.Columns["bidsReviewDate"].Width = 100;
+
+            purchasesDataGridView.Columns.Add("bidsRatingDate", "Дата оценки заявок");
+            purchasesDataGridView.Columns["bidsRatingDate"].Width = 100;
 
             DataGridViewCheckBoxColumn checkColumn = new DataGridViewCheckBoxColumn();
             checkColumn.Name = "controlStatus";
             checkColumn.HeaderText = "Пров.";
-            dgv.Columns.Add(checkColumn);
-            dgv.Columns["controlStatus"].Width = 20;
+            purchasesDataGridView.Columns.Add(checkColumn);
+            purchasesDataGridView.Columns["controlStatus"].Width = 20;
 
-            dgv.Columns.Add("resultOfControl", "Результаты проверки");
-            dgv.Columns["resultOfControl"].Width = 200;
+            purchasesDataGridView.Columns.Add("colorMark", "Метка");
+            purchasesDataGridView.Columns["colorMark"].Width = 45;
 
+            purchasesDataGridView.Columns.Add("employeReestID", "Ответственный за реестр");
+            purchasesDataGridView.Columns["employeReestID"].Width = 100;
 
-
-
-
-            //dgv.Columns.Add("comments", "Комментарии");
-            //dgv.Columns["comments"].Width = 200;
-
-            //dgv.Columns.Add("law", "Закон");
-            //dgv.Columns["law"].Width = 50;
+            checkColumn = new DataGridViewCheckBoxColumn();
+            checkColumn.Name = "reestrStatus";
+            checkColumn.HeaderText = "Внесено";
+            purchasesDataGridView.Columns.Add(checkColumn);
+            purchasesDataGridView.Columns["reestrStatus"].Width = 60;
 
 
         }
@@ -104,8 +151,8 @@ namespace Aura_Client.View
                         //проверяем закупку на необходимость добавления
                         if (VisiblePurchase(pur))
                         {
-                            int rowIndex = dgv.Rows.Add();
-                            var newRow = dgv.Rows[rowIndex];
+                            int rowIndex = purchasesDataGridView.Rows.Add();
+                            var newRow = purchasesDataGridView.Rows[rowIndex];
 
 
                             newRow.Cells["id"].Value = pur.id;
@@ -215,9 +262,9 @@ namespace Aura_Client.View
 
         private void ClearTable()
         {
-            if (dgv.Rows.Count > 0)
+            if (purchasesDataGridView.Rows.Count > 0)
             {
-                dgv.Rows.Clear();
+                purchasesDataGridView.Rows.Clear();
             }
         }
 
@@ -240,7 +287,7 @@ namespace Aura_Client.View
 
 
 
-        private void button1_Click(object sender, EventArgs e)
+        private void addNewPurchaseButton_Click(object sender, EventArgs e)
         {
             ShowPurchase(new Purchase());
         }
