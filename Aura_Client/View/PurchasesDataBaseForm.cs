@@ -19,6 +19,7 @@ namespace Aura_Client.View
             InitializeComponent();
 
             CreateTable();
+            InitContextMenuStrip();
             ReloadTable();
 
         }
@@ -129,8 +130,11 @@ namespace Aura_Client.View
             purchasesDataGridView.Columns["reestrStatus"].Width = 60;
 
 
-        }
 
+            SetColumnOrder(purchasesDataGridView);
+
+        }        
+        
         private void ReloadTable()
         {
             ClearTable();
@@ -160,7 +164,6 @@ namespace Aura_Client.View
                             newRow.Cells["employeID"].Value =
                                 users[pur.employeID.ToString()];
 
-
                             newRow.Cells["organizationID"].Value =
                                 pur.organizationID == 0 ? "<не указано>" :
                                 orgs[pur.organizationID - 1].name;
@@ -175,6 +178,39 @@ namespace Aura_Client.View
                             newRow.Cells["purchacePrice"].Value = pur.purchacePrice.ToString("### ### ### ### ###.##");
 
                             newRow.Cells["purchaseEisNum"].Value = pur.purchaseEisNum;
+
+                            newRow.Cells["purchaseEisDate"].Value = ConvertDateToText(pur.purchaseEisDate);
+
+                            newRow.Cells["bidsStartDate"].Value = ConvertDateToText(pur.bidsStartDate);
+
+                            newRow.Cells["bidsEndDate"].Value = ConvertDateToText(pur.bidsEndDate);
+
+                            newRow.Cells["bidsOpenDate"].Value = ConvertDateToText(pur.bidsOpenDate);
+
+                            newRow.Cells["bidsFirstPartDate"].Value = ConvertDateToText(pur.bidsFirstPartDate);
+
+                            newRow.Cells["auctionDate"].Value = ConvertDateToText(pur.auctionDate);
+
+                            newRow.Cells["bidsSecondPartDate"].Value = ConvertDateToText(pur.bidsSecondPartDate);
+
+                            newRow.Cells["bidsFinishDate"].Value = ConvertDateToText(pur.bidsFinishDate);
+
+                            newRow.Cells["contractPrice"].Value = pur.contractPrice.ToString("### ### ### ### ### ### ###.##");
+
+                            newRow.Cells["contractDateReal"].Value = ConvertDateToText(pur.contractDateReal);
+
+                            newRow.Cells["reestrDateLast"].Value = ConvertDateToText(pur.reestrDateLast);
+
+                            newRow.Cells["reestrNumber"].Value = pur.reestrNumber;
+
+                            newRow.Cells["comments"].Value = pur.comments;
+
+                            switch (pur.law)
+                            {
+                                case 1: newRow.Cells["law"].Value = "44 ФЗ"; break;
+                                case 2: newRow.Cells["law"].Value = "223 ФЗ"; break;
+                                default: newRow.Cells["law"].Value = ""; break;
+                            }
 
                             newRow.Cells["withAZK"].Value = pur.withAZK == 0 ? "С АЦК" : "БЕЗ АЦК";
 
@@ -202,10 +238,19 @@ namespace Aura_Client.View
                             newRow.Cells["protocolStatusID"].Style.BackColor = color;
                             // newRow.DefaultCellStyle.BackColor = color;
 
+                            newRow.Cells["bidsReviewDate"].Value = ConvertDateToText(pur.bidsReviewDate);
+
+                            newRow.Cells["bidsRatingDate"].Value = ConvertDateToText(pur.bidsRatingDate);
+
                             newRow.Cells["controlStatus"].Value =
                                   pur.controlStatus == 1;
 
                             newRow.Cells["colorMark"].Style.BackColor = Color.FromArgb(pur.colorMark);
+
+                            newRow.Cells["employeReestID"].Value = users[pur.employeReestID.ToString()];
+
+                            newRow.Cells["reestrStatus"].Value =
+                                pur.reestrStatus == 1;
 
                         }
 
@@ -269,6 +314,43 @@ namespace Aura_Client.View
         }
 
 
+        private void InitContextMenuStrip()
+        {
+            foreach (ToolStripMenuItem item in contextMenuStrip1.Items)
+            {
+                item.Click -= MenuItemOnClick;
+            }
+
+            contextMenuStrip1.Items.Clear();
+
+            foreach (DataGridViewColumn column in purchasesDataGridView.Columns)
+            {
+                var item = new ToolStripMenuItem()
+                {
+                    Checked = column.Visible,
+                    Text = column.HeaderText,
+                    Name = column.Name,
+                };
+
+                item.Click += MenuItemOnClick;
+                contextMenuStrip1.Items.Add(item);
+
+            }
+
+
+        }
+
+        private void MenuItemOnClick(object sender, EventArgs eventArgs)
+        {
+            var target = (ToolStripMenuItem)sender;
+
+            target.Checked = !target.Checked;
+
+            purchasesDataGridView.Columns[target.Name].Visible = target.Checked;
+        }
+
+
+
         private void ShowPurchase(Purchase purchase)
         {
             //открыть форму просмотра закупки
@@ -312,6 +394,14 @@ namespace Aura_Client.View
             ReloadTable();
         }
 
-        
+        private void PurchasesDataBaseForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SaveColumnOrder(purchasesDataGridView);
+        }
+
+        private void columnsOptionsButton_Click(object sender, EventArgs e)
+        {
+            contextMenuStrip1.Show();
+        }
     }
 }

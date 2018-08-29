@@ -135,6 +135,59 @@ namespace Aura_Client.View
             }
         }
 
+        protected string ConvertDateToText(string original)
+        {
+            if (original == DateTime.MinValue.ToShortDateString())
+                return "";
+            else return original;
+        }
+
+
+        protected void SetColumnOrder(DataGridView name)
+        {
+            if (!DataGridViewSetting.Default.ColumnOrder.ContainsKey(this.Name))
+                return;
+
+            List<ColumnOrderItem> columnOrders =
+                DataGridViewSetting.Default.ColumnOrder[this.Name];
+
+            if (columnOrders != null)
+            {
+                var sorted = columnOrders.OrderBy(i => i.DisplayIndex);
+                foreach (var item in sorted)
+                {
+                    name.Columns[item.ColumnIndex].DisplayIndex = item.DisplayIndex;
+                    name.Columns[item.ColumnIndex].Visible = item.Visible;
+                    name.Columns[item.ColumnIndex].Width = item.Width;
+                }
+            }
+
+        }
+
+        protected void SaveColumnOrder(DataGridView name)
+        {
+            if (name.AllowUserToOrderColumns)
+            {
+                List<ColumnOrderItem> columnOrders = new List<ColumnOrderItem>();
+                var columns = name.Columns;
+                for (int i = 0; i < columns.Count; i++)
+                {
+                    columnOrders.Add(new ColumnOrderItem
+                    {
+                        ColumnIndex = i,
+                        DisplayIndex = columns[i].DisplayIndex,
+                        Visible = columns[i].Visible,
+                        Width = columns[i].Width,
+
+                    });
+                }
+
+                DataGridViewSetting.Default.ColumnOrder[this.Name] = columnOrders;
+                DataGridViewSetting.Default.Save();
+
+            }
+        }
+
 
 
     }
