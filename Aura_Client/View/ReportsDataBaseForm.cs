@@ -126,7 +126,7 @@ namespace Aura_Client.View
 
         private void RecolorTable()
         {
-            for (int i = 1; i < dataGridView1.Rows.Count; i++)
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
                 var row = dataGridView1.Rows[i];
                 int orgID = (int)row.Cells["organisationID"].Value;

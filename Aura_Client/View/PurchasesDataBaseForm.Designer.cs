@@ -32,10 +32,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PurchasesDataBaseForm));
             this.purchasesDataGridView = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.resreshButton = new System.Windows.Forms.Button();
+            this.refreshButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.addNewPurchaseButton = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.purchasesDataGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -64,22 +65,22 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Controls.Add(this.resreshButton);
+            this.panel1.Controls.Add(this.refreshButton);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1064, 49);
             this.panel1.TabIndex = 1;
             // 
-            // resreshButton
+            // refreshButton
             // 
-            this.resreshButton.BackgroundImage = global::Aura_Client.Properties.Resources.Без_названия;
-            this.resreshButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.resreshButton.Location = new System.Drawing.Point(3, 3);
-            this.resreshButton.Name = "resreshButton";
-            this.resreshButton.Size = new System.Drawing.Size(32, 32);
-            this.resreshButton.TabIndex = 0;
-            this.resreshButton.UseVisualStyleBackColor = true;
-            this.resreshButton.Click += new System.EventHandler(this.resreshButton_Click);
+            this.refreshButton.BackgroundImage = global::Aura_Client.Properties.Resources.Без_названия;
+            this.refreshButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.refreshButton.Location = new System.Drawing.Point(3, 3);
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Size = new System.Drawing.Size(32, 32);
+            this.refreshButton.TabIndex = 0;
+            this.refreshButton.UseVisualStyleBackColor = true;
+            this.refreshButton.Click += new System.EventHandler(this.resreshButton_Click);
             // 
             // panel2
             // 
@@ -118,6 +119,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PurchasesDataBaseForm";
             this.Text = "Все закупки";
+            this.Load += new System.EventHandler(this.PurchasesDataBaseForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.purchasesDataGridView)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -132,6 +134,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button addNewPurchaseButton;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Button resreshButton;
+        private System.Windows.Forms.Button refreshButton;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
