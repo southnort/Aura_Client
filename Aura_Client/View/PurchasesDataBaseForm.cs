@@ -314,6 +314,13 @@ namespace Aura_Client.View
         }
 
 
+        private void InitToolTips()
+        {
+            toolTip1.SetToolTip(refreshButton, "Обновить");
+            toolTip1.SetToolTip(columnsOptionsButton, "Настроить список");
+
+        }
+
         private void InitContextMenuStrip()
         {
             foreach (ToolStripMenuItem item in contextMenuStrip1.Items)
@@ -369,7 +376,7 @@ namespace Aura_Client.View
 
         private void PurchasesDataBaseForm_Load(object sender, EventArgs e)
         {
-            toolTip1.SetToolTip(refreshButton, "Обновить");
+            InitToolTips();
         }
 
         private void addNewPurchaseButton_Click(object sender, EventArgs e)
