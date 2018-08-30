@@ -16,6 +16,11 @@ namespace Aura_Client.View
             InitializeComponent();
         }
 
+        private void ConfirmNewPassword()
+        {
+
+        }
+
         private void saveNewPasswordButton_Click(object sender, EventArgs e)
         {
             string control = string.Empty;
@@ -30,8 +35,20 @@ namespace Aura_Client.View
                 control += "Укажите новый пароль\n";
 
             if (newPasswordTextBox.Text != repeatNewpasswordTextBox.Text)
-                control += " Значения в полях \"Новый пароль\" и \"Повторите новый пароль\" должны совпадать\n";
+                control += "Значения в полях \"Новый пароль\" и \"Повторите новый пароль\" должны совпадать\n";
 
+
+
+            if (control == string.Empty)
+            {
+                ConfirmNewPassword();
+                DialogResult = DialogResult.OK;
+            }
+
+            else
+            {
+                MessageBox.Show(control, "Ошибка");
+            }
 
         }
 
