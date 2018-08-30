@@ -77,6 +77,11 @@ namespace Aura_Client.Model
 
         }
 
+        public void DeletePurchase(string id)
+        {
+            Program.bridge.SendMessage("DELETEPURCHASE#" + id);
+        }
+
 
 
         public List<Organisation> GetAllOrganisations()

@@ -403,5 +403,27 @@ namespace Aura_Client.View
         {
             contextMenuStrip1.Show();
         }
+
+        private void deletePurchaseButton_Click(object sender, EventArgs e)
+        {
+            if (purchasesDataGridView.CurrentRow != null)
+            {
+                string id = purchasesDataGridView.CurrentRow.Cells["id"].Value.ToString();
+                Purchase pur = Program.dataManager.GetPurchase(id);
+
+                string text = "Вы действительно хотите удалить закупку\n" + pur.purchaseName + "?";
+                DialogResult dialogResult = MessageBox.Show(text,
+                    "Подтвердите удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Program.dataManager.DeletePurchase(id);
+                    ReloadTable();
+
+                }
+            }
+
+
+        }
     }
 }

@@ -63,9 +63,29 @@ namespace Aura_Client.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap w450h4001385925286Settings {
+            get {
+                object obj = ResourceManager.GetObject("w450h4001385925286Settings", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Без_названия {
             get {
                 object obj = ResourceManager.GetObject("Без названия", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Без_названия__1_ {
+            get {
+                object obj = ResourceManager.GetObject("Без названия (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
