@@ -11,6 +11,14 @@ namespace Aura_Client.View
             InitializeComponent();
             label3.Text = "\"Аура-Клиент\" приветствует Вас";
             label4.Text = "ver. " + Application.ProductVersion;
+
+            savePasswordCheckBox.Checked = Properties.settings.Default.SavePassword;
+            if (savePasswordCheckBox.Checked)
+            {
+                loginTextBox.Text = Properties.settings.Default.Login;
+                passwordTextBox.Text = Properties.settings.Default.Password;
+            }
+            
         }
 
         private void tryLoginButton_Click(object sender, EventArgs e)
@@ -48,6 +56,12 @@ namespace Aura_Client.View
                 case "LOGINSUCCESS":
                     {
                         ChangeLoginResultText("Аутентификация пройдена. Загрузка данных...", Color.Green);
+                        Properties.settings.Default.Login = loginTextBox.Text;
+                        if(savePasswordCheckBox.Checked)
+                        Properties.settings.Default.Password = passwordTextBox.Text;
+                        Properties.settings.Default.SavePassword = savePasswordCheckBox.Checked;
+
+                        Properties.settings.Default.Save();
                         Close();
                     }
                     break;

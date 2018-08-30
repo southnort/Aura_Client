@@ -76,6 +76,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Properties\settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="View\AuraForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +176,10 @@
   <ItemGroup>
     <Content Include="Icon.ico" />
     <None Include="packages.config" />
+    <None Include="Properties\settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Resources\Без названия.png" />
   </ItemGroup>
   <ItemGroup>

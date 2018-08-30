@@ -37,6 +37,7 @@
             this.resultTextLabel = new System.Windows.Forms.Label();
             this.tryLoginButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.savePasswordCheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // loginTextBox
@@ -100,7 +101,7 @@
             // 
             // tryLoginButton
             // 
-            this.tryLoginButton.Location = new System.Drawing.Point(331, 190);
+            this.tryLoginButton.Location = new System.Drawing.Point(331, 223);
             this.tryLoginButton.Name = "tryLoginButton";
             this.tryLoginButton.Size = new System.Drawing.Size(146, 43);
             this.tryLoginButton.TabIndex = 8;
@@ -118,11 +119,22 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "ver. 0.0.0.0";
             // 
+            // savePasswordCheckBox
+            // 
+            this.savePasswordCheckBox.AutoSize = true;
+            this.savePasswordCheckBox.Location = new System.Drawing.Point(595, 135);
+            this.savePasswordCheckBox.Name = "savePasswordCheckBox";
+            this.savePasswordCheckBox.Size = new System.Drawing.Size(120, 17);
+            this.savePasswordCheckBox.TabIndex = 10;
+            this.savePasswordCheckBox.Text = "Сохранить данные";
+            this.savePasswordCheckBox.UseVisualStyleBackColor = true;
+            // 
             // LoginWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(778, 309);
+            this.Controls.Add(this.savePasswordCheckBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tryLoginButton);
             this.Controls.Add(this.resultTextLabel);
@@ -151,5 +163,6 @@
         private System.Windows.Forms.Label resultTextLabel;
         private System.Windows.Forms.Button tryLoginButton;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.CheckBox savePasswordCheckBox;
     }
 }
