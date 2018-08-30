@@ -62,7 +62,7 @@ namespace Aura_Client.View
                         Properties.settings.Default.SavePassword = savePasswordCheckBox.Checked;
 
                         Properties.settings.Default.Save();
-                        Close();
+                        DialogResult = DialogResult.OK;
                     }
                     break;
 

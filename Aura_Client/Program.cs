@@ -24,9 +24,9 @@ namespace Aura_Client
             StartProgram();
 
             LoginWindow loginWindow = new LoginWindow();
-            loginWindow.ShowDialog();
+           var result =  loginWindow.ShowDialog();
 
-            if (user.ID != -1)
+            if (result == System.Windows.Forms.DialogResult.OK)
             {
                 var users = bridge.GetObject<Dictionary<string, string>>("USERNAMES");
                 var purchases = bridge.GetObject<List<Purchase>>("ALLPURCHASES");

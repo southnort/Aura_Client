@@ -71,5 +71,28 @@ namespace Aura_Client.View
             ReportsDataBaseForm form = new ReportsDataBaseForm();
             form.Show();
         }
+
+        private void switchUserButton_Click(object sender, EventArgs e)
+        {
+            Program.user.ID = -1;
+            LoginWindow window = new LoginWindow();
+            if (window.ShowDialog() != DialogResult.OK)
+            {
+                Application.Exit();
+            }
+            else
+            {
+                userNameLabel.Text = "Пользователь: " + Program.user.name;
+                if (Program.user.roleID != 0)
+                    usersButton.Hide();
+            }
+        }
+
+        private void changePasswordButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }

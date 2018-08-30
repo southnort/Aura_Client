@@ -39,6 +39,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.calendarButton = new System.Windows.Forms.Button();
             this.purchasesListButton = new System.Windows.Forms.Button();
+            this.changePasswordButton = new System.Windows.Forms.Button();
+            this.switchUserButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -47,6 +49,8 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.switchUserButton);
+            this.panel1.Controls.Add(this.changePasswordButton);
             this.panel1.Controls.Add(this.usersButton);
             this.panel1.Controls.Add(this.userNameLabel);
             this.panel1.Location = new System.Drawing.Point(12, 12);
@@ -56,7 +60,8 @@
             // 
             // usersButton
             // 
-            this.usersButton.Location = new System.Drawing.Point(3, 37);
+            this.usersButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.usersButton.Location = new System.Drawing.Point(652, 66);
             this.usersButton.Name = "usersButton";
             this.usersButton.Size = new System.Drawing.Size(140, 32);
             this.usersButton.TabIndex = 2;
@@ -148,6 +153,28 @@
             this.purchasesListButton.UseVisualStyleBackColor = true;
             this.purchasesListButton.Click += new System.EventHandler(this.purchasesListButton_Click);
             // 
+            // changePasswordButton
+            // 
+            this.changePasswordButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.changePasswordButton.Location = new System.Drawing.Point(3, 28);
+            this.changePasswordButton.Name = "changePasswordButton";
+            this.changePasswordButton.Size = new System.Drawing.Size(140, 32);
+            this.changePasswordButton.TabIndex = 3;
+            this.changePasswordButton.Text = "Сменить пароль";
+            this.changePasswordButton.UseVisualStyleBackColor = true;
+            this.changePasswordButton.Click += new System.EventHandler(this.changePasswordButton_Click);
+            // 
+            // switchUserButton
+            // 
+            this.switchUserButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.switchUserButton.Location = new System.Drawing.Point(3, 66);
+            this.switchUserButton.Name = "switchUserButton";
+            this.switchUserButton.Size = new System.Drawing.Size(140, 32);
+            this.switchUserButton.TabIndex = 4;
+            this.switchUserButton.Text = "Сменить пользователя";
+            this.switchUserButton.UseVisualStyleBackColor = true;
+            this.switchUserButton.Click += new System.EventHandler(this.switchUserButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -179,5 +206,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button switchUserButton;
+        private System.Windows.Forms.Button changePasswordButton;
     }
 }
