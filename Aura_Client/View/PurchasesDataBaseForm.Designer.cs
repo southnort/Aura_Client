@@ -120,7 +120,6 @@
             // 
             // columnsOptionsButton
             // 
-            this.columnsOptionsButton.BackgroundImage = global::Aura_Client.Properties.Resources.Без_названия__1_1;
             this.columnsOptionsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.columnsOptionsButton.Location = new System.Drawing.Point(41, 3);
             this.columnsOptionsButton.Name = "columnsOptionsButton";
@@ -131,7 +130,6 @@
             // 
             // refreshButton
             // 
-            this.refreshButton.BackgroundImage = global::Aura_Client.Properties.Resources.Без_названия;
             this.refreshButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.refreshButton.Location = new System.Drawing.Point(3, 3);
             this.refreshButton.Name = "refreshButton";

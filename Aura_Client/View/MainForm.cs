@@ -20,7 +20,10 @@ namespace Aura_Client.View
 
             //если пользователь не имеет полномочий администратора, убрать кнопку "Пользователи"
             if (Program.user.roleID != 0)
-                usersButton.Hide();     
+                usersButton.Hide();
+
+            switchUserButton.Hide();
+            changePasswordButton.Hide();
         }
 
         private void purchasesListButton_Click(object sender, EventArgs e)

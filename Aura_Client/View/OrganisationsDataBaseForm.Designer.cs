@@ -143,7 +143,6 @@
             // 
             // refreshTableButton
             // 
-            this.refreshTableButton.BackgroundImage = global::Aura_Client.Properties.Resources.Без_названия;
             this.refreshTableButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.refreshTableButton.Location = new System.Drawing.Point(3, 9);
             this.refreshTableButton.Name = "refreshTableButton";
