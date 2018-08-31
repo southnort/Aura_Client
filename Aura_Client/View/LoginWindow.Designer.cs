@@ -94,14 +94,15 @@
             this.resultTextLabel.AutoSize = true;
             this.resultTextLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.resultTextLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.resultTextLabel.Location = new System.Drawing.Point(328, 236);
+            this.resultTextLabel.Location = new System.Drawing.Point(320, 249);
             this.resultTextLabel.Name = "resultTextLabel";
-            this.resultTextLabel.Size = new System.Drawing.Size(0, 17);
+            this.resultTextLabel.Size = new System.Drawing.Size(167, 17);
             this.resultTextLabel.TabIndex = 6;
+            this.resultTextLabel.Text = "Введите логин и пароль";
             // 
             // tryLoginButton
             // 
-            this.tryLoginButton.Location = new System.Drawing.Point(331, 223);
+            this.tryLoginButton.Location = new System.Drawing.Point(331, 181);
             this.tryLoginButton.Name = "tryLoginButton";
             this.tryLoginButton.Size = new System.Drawing.Size(146, 43);
             this.tryLoginButton.TabIndex = 8;

@@ -72,9 +72,9 @@ namespace Aura_Client.View
         private void dateTime_ValueChanged(object sender, EventArgs e)
         {
             var picker = (DateTimePicker)sender;
-            SetDate(picker, picker.Value);
+            SetDate(picker, picker.Value.ToString("yyyy-MM-dd"));
 
-            creator.Add(picker.Name, picker.Value.ToShortDateString());
+            creator.Add(picker.Name, picker.Value.ToString("yyyy-MM-dd"));
         }
 
         private void textBox_ValueChanged(object sender, EventArgs e)

@@ -27,9 +27,9 @@ namespace Aura_Client.View
         private void dateTime_ValueChanged(object sender, EventArgs e)
         {
             var picker = (DateTimePicker)sender;
-            SetDate(picker, picker.Value);
+            SetDate(picker, picker.Value.ToString("yyyy-MM-dd"));
 
-            creator.Add(picker.Name, picker.Value.ToShortDateString());
+            creator.Add(picker.Name, picker.Value.ToString("yyyy-MM-dd"));
         }
 
         private void textBox_ValueChanged(object sender, EventArgs e)
@@ -135,11 +135,11 @@ namespace Aura_Client.View
             }
         }
 
-        protected string ConvertDateToText(string original)
+        protected string ConvertDateToText(DateTime original)
         {
-            if (original == DateTime.MinValue.ToShortDateString())
+            if (original == DateTime.MinValue)
                 return "";
-            else return original;
+            else return original.ToShortDateString();
         }
 
 

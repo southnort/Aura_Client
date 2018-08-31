@@ -40,28 +40,28 @@ namespace Aura_Client.Model
             //метод проверяет, какое именно событие назначено на эту дату 
             // и добавляет соответствующее описание 
 
-            string dateStr = date.ToShortDateString();
+           
             string eventStr = "";
 
-            Console.WriteLine(dateStr+" "+pur.bidsStartDate);
+            Console.WriteLine(date+" "+pur.bidsStartDate);
 
-            if (dateStr == pur.bidsStartDate)
+            if (date == pur.bidsStartDate)
                 eventStr = "Начало подачи заявок";
-            else if (dateStr == pur.bidsEndDate)
+            else if (date == pur.bidsEndDate)
                 eventStr = "Окончание подачи заявок";
 
-            else if (dateStr == pur.bidsOpenDate)
+            else if (date == pur.bidsOpenDate)
                 eventStr = "Вскрытие конвертов";
-            else if (dateStr == pur.bidsReviewDate)
+            else if (date == pur.bidsReviewDate)
                 eventStr = "Рассмотрение";
-            else if (dateStr == pur.bidsRatingDate)
+            else if (date == pur.bidsRatingDate)
                 eventStr = "Оценка";
 
-            else if (dateStr == pur.bidsFirstPartDate)
+            else if (date == pur.bidsFirstPartDate)
                 eventStr = "Рассмотрение первых частей";
-            else if (dateStr == pur.bidsSecondPartDate)
+            else if (date == pur.bidsSecondPartDate)
                 eventStr = "Рассмотрение вторых частей";
-            else if (dateStr == pur.bidsFinishDate)
+            else if (date == pur.bidsFinishDate)
                 eventStr = "Дата подведения итогов";
 
             //else if (dateStr == pur.contractDateLast)
