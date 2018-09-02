@@ -61,7 +61,6 @@ namespace Aura_Client.View
         }
 
 
-
         protected void SetDate(DateTimePicker picker, string date)
         {
             try

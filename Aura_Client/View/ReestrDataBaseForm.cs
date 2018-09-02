@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using Aura.Model;
+﻿using Aura.Model;
 using Aura_Client.Model;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
 
 
 namespace Aura_Client.View
@@ -18,6 +14,8 @@ namespace Aura_Client.View
         {
             InitializeComponent();
 
+            LoadCatalogs();
+            creator = new Controller.CommandStringCreator("Purchases");
             CreateTable();
             InitContextMenuStrip();
             ReloadTable();
@@ -133,6 +131,79 @@ namespace Aura_Client.View
             SetColumnOrder(reestrDataGridView);
 
         }
+
+        private void LoadCatalogs()
+        {
+            //заполнить справочники для выпадающих меню
+
+            //способы определения поставщика
+            for (int i = 0; i < Catalog.purchaseMethods.Count; i++)
+            {
+                ComboBoxItem item = new ComboBoxItem();
+                item.Text = Catalog.purchaseMethods[i].name;
+                item.Value = i;
+
+                purchaseMethodID.Items.Add(item);
+
+            }
+
+            ////статусы протоколов
+            //for (int i = 0; i < Catalog.protocolStatuses.Count; i++)
+            //{
+            //    ComboBoxItem item = new ComboBoxItem();
+            //    item.Text = Catalog.protocolStatuses[i];
+            //    item.Value = i;
+
+            //    protocolStatusID.Items.Add(item);
+
+            //}
+
+            ////ответственный за разработку документации            
+            ////foreach (var user in Program.dataManager.GetUserNames())
+            //{
+            //    ComboBoxItem item = new ComboBoxItem();
+            //    item.Text = user.Value;
+            //    item.Value = int.Parse(user.Key);
+
+            //    employeDocumentationID.Items.Add(item);
+
+            //}
+
+            ////ответственный за размещение закупки            
+            //foreach (var user in Program.dataManager.GetUserNames())
+            //{
+            //    ComboBoxItem item = new ComboBoxItem();
+            //    item.Text = user.Value;
+            //    item.Value = int.Parse(user.Key);
+
+            //    employeID.Items.Add(item);
+
+            //}
+
+            ////закон, по которой проводится закупка
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    law.Items.Add(new ComboBoxItem() { Text = Catalog.laws[i], Value = i });
+            //}
+
+            ////с АЦК или без неё
+
+            //withAZK.Items.Add(new ComboBoxItem() { Text = "С АЦК", Value = 0, });
+            //withAZK.Items.Add(new ComboBoxItem() { Text = "БЕЗ АЦК", Value = 1, });
+
+
+            purchaseMethodID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
+            //statusID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
+            //protocolStatusID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
+            //employeDocumentationID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
+            //employeID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
+            //law.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
+            //withAZK.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
+
+        }
+
+
+
 
         private void InitToolTips()
         {
@@ -335,6 +406,37 @@ namespace Aura_Client.View
 
         }
 
+
+        private void textBox_ValueChanged(object sender, EventArgs e)
+        {
+            if (sender is TextBox)
+            {
+                var textBox = (TextBox)sender;
+                creator.AddFilter(textBox.Name, textBox.Text);
+            }
+
+            if (sender is RichTextBox)
+            {
+                var textBox = (RichTextBox)sender;
+                creator.Add(textBox.Name, textBox.Text);
+            }
+
+        }
+
+        private void comboBox_ValueChanged(object sender, EventArgs e)
+        {
+            var box = (ComboBox)sender;
+            creator.AddFilter(box.Name, box.SelectedIndex.ToString());
+        }
+
+        private void anyKey_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                ReloadTable();
+            }
+
+        }
 
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

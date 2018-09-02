@@ -1,10 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using Aura.Model;
 using Aura_Client.Model;
@@ -19,16 +14,30 @@ namespace Aura_Client.View
                                         //Если false - клик по организации возвращает её ИД
 
 
-        public OrganisationsDataBaseForm(bool onlyShow=true)
+        public OrganisationsDataBaseForm(bool onlyShow = true)
         {
             InitializeComponent();
-            creator = new Controller.CommandStringCreator("Organisations", "");
+
+            LoadCatalogs();
+            creator = new Controller.CommandStringCreator("Organisations");
             ReloadTable();
             onlyShowing = onlyShow;
 
         }
 
 
+        private void LoadCatalogs()
+        {
+            foreach (var item in Catalog.laws)
+            {
+                law.Items.Add(item);
+            }
+
+            foreach (var item in Catalog.contractTypes)
+            {
+                contractType.Items.Add(item);
+            }
+        }
 
         private void ReloadTable()
         {
@@ -80,21 +89,34 @@ namespace Aura_Client.View
         }
 
 
+
+
+
+
+
         private void textBox_ValueChanged(object sender, EventArgs e)
         {
             if (sender is TextBox)
             {
                 var textBox = (TextBox)sender;
-                creator.Add("UPPER (" + textBox.Name + ") LIKE UPPER ('%VALUE%')", textBox.Text);
+                creator.AddFilter(textBox.Name, textBox.Text);
             }
+
             if (sender is RichTextBox)
             {
                 var textBox = (RichTextBox)sender;
-                creator.Add("UPPER (" + textBox.Name + ") LIKE UPPER ('%VALUE%')", textBox.Text);
+                creator.Add(textBox.Name, textBox.Text);
             }
 
-
         }
+
+        private void comboBox_ValueChanged(object sender, EventArgs e)
+        {
+            var box = (ComboBox)sender;
+            creator.AddFilter(box.Name, box.SelectedIndex.ToString());
+        }
+
+
 
 
         private void addNewOrgButton_Click(object sender, EventArgs e)
@@ -132,9 +154,13 @@ namespace Aura_Client.View
 
         private void clearFilterButton_Click(object sender, EventArgs e)
         {
+            //сбросить фильтр
             inn.Clear();
             name.Clear();
-            creator.Clear();
+            law.SelectedIndex = 0;
+            contractType.SelectedIndex = 0;
+
+            creator.ClearFilters();
             ReloadTable();
         }
 
@@ -147,7 +173,7 @@ namespace Aura_Client.View
         {
             if (e.KeyCode == Keys.Enter)
             {
-                refreshTableButton_Click(sender, e);
+                ReloadTable();
             }
 
         }
