@@ -209,6 +209,7 @@ namespace Aura_Client.View
         {
             toolTip1.SetToolTip(refreshButton, "Обновить");
             toolTip1.SetToolTip(columnsOptionsButton, "Настроить список");
+            toolTip1.SetToolTip(clearFilterButton, "Очистить фильтра");
 
         }
 
@@ -464,6 +465,16 @@ namespace Aura_Client.View
         private void ReestrDataBaseForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             SaveColumnOrder(reestrDataGridView);
+        }
+
+        private void clearFilterButton_Click(object sender, EventArgs e)
+        {
+            purchaseName.Clear();
+            purchaseMethodID.SelectedIndex = 0;
+            reestrNumber.Clear();
+            purchaseEisNum.Clear();
+
+            creator.Clear();
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrganisationsDataBaseForm));
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -51,6 +52,7 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -178,17 +180,18 @@
             // 
             // clearFilterButton
             // 
+            this.clearFilterButton.BackgroundImage = global::Aura_Client.Properties.Resources.ClearFilter_Icon;
             this.clearFilterButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.clearFilterButton.Location = new System.Drawing.Point(41, 9);
             this.clearFilterButton.Name = "clearFilterButton";
             this.clearFilterButton.Size = new System.Drawing.Size(32, 32);
             this.clearFilterButton.TabIndex = 6;
-            this.clearFilterButton.Text = "Х";
             this.clearFilterButton.UseVisualStyleBackColor = true;
             this.clearFilterButton.Click += new System.EventHandler(this.clearFilterButton_Click);
             // 
             // refreshTableButton
             // 
+            this.refreshTableButton.BackgroundImage = global::Aura_Client.Properties.Resources.Refresh_Icon;
             this.refreshTableButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.refreshTableButton.Location = new System.Drawing.Point(3, 9);
             this.refreshTableButton.Name = "refreshTableButton";
@@ -317,5 +320,6 @@
         private System.Windows.Forms.ComboBox contractType;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox law;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

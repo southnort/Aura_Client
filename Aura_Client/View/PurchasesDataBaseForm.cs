@@ -388,6 +388,7 @@ namespace Aura_Client.View
         {
             toolTip1.SetToolTip(refreshButton, "Обновить");
             toolTip1.SetToolTip(columnsOptionsButton, "Настроить список");
+            toolTip1.SetToolTip(clearFilterButton, "Очистить фильтр");
 
         }
 

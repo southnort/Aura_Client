@@ -19,6 +19,7 @@ namespace Aura_Client.View
             InitializeComponent();
 
             LoadCatalogs();
+            InitToolTips();
             creator = new Controller.CommandStringCreator("Organisations");
             ReloadTable();
             onlyShowing = onlyShow;
@@ -38,6 +39,13 @@ namespace Aura_Client.View
                 contractType.Items.Add(item);
             }
         }
+
+        private void InitToolTips()
+        {
+            toolTip1.SetToolTip(refreshTableButton, "Обновить");
+            toolTip1.SetToolTip(clearFilterButton, "Очистить фильтр");
+        }
+
 
         private void ReloadTable()
         {

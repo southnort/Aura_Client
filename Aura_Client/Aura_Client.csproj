@@ -180,7 +180,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Settings_Icon.png" />
+    <None Include="ClearFilter_Icon.png" />
     <Content Include="Icon.ico" />
+    <None Include="Refresh_Icon.png" />
     <None Include="packages.config" />
     <None Include="Properties\settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
