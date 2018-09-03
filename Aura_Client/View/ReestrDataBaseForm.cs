@@ -476,5 +476,10 @@ namespace Aura_Client.View
 
             creator.Clear();
         }
+
+        private void addNewPurchaseButton_Click(object sender, EventArgs e)
+        {
+            ShowPurchase(new Purchase());
+        }
     }
 }

@@ -769,7 +769,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PurchaseForm";
-            this.Text = "PurchaseForm";
+            this.Text = "Закупка";
             ((System.ComponentModel.ISupportInitialize)(this.purchacePrice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

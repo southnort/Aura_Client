@@ -112,16 +112,20 @@ namespace Aura_Client.Controller
             //запрос на получение отфильтрованной информации
             StringBuilder sb = new StringBuilder();
             sb.Append("SELECT * FROM ");
-            sb.Append(tableName);
-            sb.Append(" WHERE ");
+            sb.Append(tableName);            
 
-            foreach (var pair in filters)
+            if (filters.Count > 0)
             {
-                sb.Append(ToFilterString(pair.Key, pair.Value));
-                sb.Append(" AND ");
+                sb.Append(" WHERE ");
+                foreach (var pair in filters)
+                {
+                    sb.Append(ToFilterString(pair.Key, pair.Value));
+                    sb.Append(" AND ");
+                }
+
+                sb.Length -= 5;
             }
 
-            sb.Length -= 5;
             return sb.ToString();
 
         }

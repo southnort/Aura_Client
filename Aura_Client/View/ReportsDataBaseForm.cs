@@ -31,9 +31,9 @@ namespace Aura_Client.View
 
             month = DateTime.Now.Month.ToString();
             year = DateTime.Now.Year.ToString();
-
-            //TODO запрашивать отфильтрованные организации, а не всё
-            organisations = Program.dataManager.GetAllOrganisations();
+           
+            organisations = Program.dataManager.GetFilteredOrganisations
+                ("SELECT * FROM Organisations WHERE law = 2 AND contractType = 1");
             reports = Program.dataManager.GetAllReports();
 
             LoadCatalogs();

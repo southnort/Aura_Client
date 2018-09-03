@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReestrDataBaseForm));
             this.reestrDataGridView = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.clearFilterButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.reestrNumber = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -46,9 +47,10 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.clearFilterButton = new System.Windows.Forms.Button();
+            this.addNewPurchaseButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.reestrDataGridView)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // reestrDataGridView
@@ -89,6 +91,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1342, 87);
             this.panel1.TabIndex = 1;
+            // 
+            // clearFilterButton
+            // 
+            this.clearFilterButton.BackgroundImage = global::Aura_Client.Properties.Resources.ClearFilter_Icon;
+            this.clearFilterButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.clearFilterButton.Location = new System.Drawing.Point(41, 3);
+            this.clearFilterButton.Name = "clearFilterButton";
+            this.clearFilterButton.Size = new System.Drawing.Size(32, 32);
+            this.clearFilterButton.TabIndex = 21;
+            this.clearFilterButton.UseVisualStyleBackColor = true;
+            this.clearFilterButton.Click += new System.EventHandler(this.clearFilterButton_Click);
             // 
             // label3
             // 
@@ -189,6 +202,7 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.SystemColors.Control;
+            this.panel2.Controls.Add(this.addNewPurchaseButton);
             this.panel2.Location = new System.Drawing.Point(12, 444);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1342, 61);
@@ -204,16 +218,15 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // clearFilterButton
+            // addNewPurchaseButton
             // 
-            this.clearFilterButton.BackgroundImage = global::Aura_Client.Properties.Resources.ClearFilter_Icon;
-            this.clearFilterButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.clearFilterButton.Location = new System.Drawing.Point(41, 3);
-            this.clearFilterButton.Name = "clearFilterButton";
-            this.clearFilterButton.Size = new System.Drawing.Size(32, 32);
-            this.clearFilterButton.TabIndex = 21;
-            this.clearFilterButton.UseVisualStyleBackColor = true;
-            this.clearFilterButton.Click += new System.EventHandler(this.clearFilterButton_Click);
+            this.addNewPurchaseButton.Location = new System.Drawing.Point(3, 3);
+            this.addNewPurchaseButton.Name = "addNewPurchaseButton";
+            this.addNewPurchaseButton.Size = new System.Drawing.Size(162, 55);
+            this.addNewPurchaseButton.TabIndex = 1;
+            this.addNewPurchaseButton.Text = "Добавить информацию о договоре";
+            this.addNewPurchaseButton.UseVisualStyleBackColor = true;
+            this.addNewPurchaseButton.Click += new System.EventHandler(this.addNewPurchaseButton_Click);
             // 
             // ReestrDataBaseForm
             // 
@@ -231,6 +244,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.reestrDataGridView)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -254,5 +268,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox purchaseName;
         private System.Windows.Forms.Button clearFilterButton;
+        private System.Windows.Forms.Button addNewPurchaseButton;
     }
 }
