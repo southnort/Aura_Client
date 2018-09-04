@@ -408,7 +408,7 @@ namespace Aura_Client.View
         }
 
 
-        private void textBox_ValueChanged(object sender, EventArgs e)
+        protected override void textBox_ValueChanged(object sender, EventArgs e)
         {
             if (sender is TextBox)
             {
@@ -424,7 +424,7 @@ namespace Aura_Client.View
 
         }
 
-        private void comboBox_ValueChanged(object sender, EventArgs e)
+        protected override void comboBox_ValueChanged(object sender, EventArgs e)
         {
             var box = (ComboBox)sender;
             creator.AddFilter(box.Name, box.SelectedIndex.ToString());

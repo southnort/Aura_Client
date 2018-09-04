@@ -100,7 +100,7 @@ namespace Aura_Client.View
             statusID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
             protocolStatusID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
             employeDocumentationID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
-            employeID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);          
+            employeID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
             law.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
             withAZK.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
 
@@ -197,7 +197,7 @@ namespace Aura_Client.View
             SetCombobox(statusID, purchase.statusID);
             SetCombobox(protocolStatusID, purchase.protocolStatusID);
             SwitchColorMark();
-            
+
 
             if (purchase.id > 0 && purchase.purchaseMethodID > 0)
             {
@@ -234,52 +234,63 @@ namespace Aura_Client.View
         }
 
 
-        private void dateTime_ValueChanged(object sender, EventArgs e)
+        protected override void dateTime_ValueChanged(object sender, EventArgs e)
         {
-            var picker = (DateTimePicker)sender;
-            SetDate(picker, picker.Value.ToString("yyyy-MM-dd"));
+            base.dateTime_ValueChanged(sender, e);
 
-            creator.Add(picker.Name, picker.Value.ToString("yyyy-MM-dd"));
+            //var picker = (DateTimePicker)sender;
+            //SetDate(picker, picker.Value.ToString("yyyy-MM-dd"));
+
+            //creator.Add(picker.Name, picker.Value.ToString("yyyy-MM-dd"));
         }
 
-        private void textBox_ValueChanged(object sender, EventArgs e)
+        protected override void textBox_ValueChanged(object sender, EventArgs e)
         {
-            if (sender is TextBox)
-            {
-                var textBox = (TextBox)sender;
-                creator.Add(textBox.Name, textBox.Text);
-            }
-            if (sender is RichTextBox)
-            {
-                var textBox = (RichTextBox)sender;
-                creator.Add(textBox.Name, textBox.Text);
-            }
+            base.textBox_ValueChanged(sender, e);
+
+            //if (sender is TextBox)
+            //{
+            //    var textBox = (TextBox)sender;
+            //    creator.Add(textBox.Name, textBox.Text);
+            //}
+            //if (sender is RichTextBox)
+            //{
+            //    var textBox = (RichTextBox)sender;
+            //    creator.Add(textBox.Name, textBox.Text);
+            //}
 
 
         }
 
-        private void comboBox_ValueChanged(object sender, EventArgs e)
+        protected override void comboBox_ValueChanged(object sender, EventArgs e)
         {
+            base.comboBox_ValueChanged(sender, e);
 
-            var box = (ComboBox)sender;
-            ComboBoxItem item = box.SelectedItem as ComboBoxItem;
-            try
-            {
-                if (item != null)
-                    creator.Add(box.Name, ((int)item.Value).ToString());
-            }
-            catch
-            {
-                MessageBox.Show(item.Value.GetType().ToString());
-            }
+            //var box = (ComboBox)sender;
+            //ComboBoxItem item = box.SelectedItem as ComboBoxItem;
+            //try
+            //{
+            //    if (item != null)
+            //        creator.Add(box.Name, ((int)item.Value).ToString());
+            //}
+            //catch
+            //{
+            //    MessageBox.Show(item.Value.GetType().ToString());
+            //}
         }
 
-        private void numericUpDown_ValueChanges(object sender, EventArgs e)
+        protected override void numericUpDown_ValueChanges(object sender, EventArgs e)
         {
-            var box = (NumericUpDown)sender;
-            creator.Add(box.Name, box.Value.ToString());
+            base.numericUpDown_ValueChanges(sender, e);
+
+            //var box = (NumericUpDown)sender;
+            //creator.Add(box.Name, box.Value.ToString());
         }
 
+        private void dateTimeField_KeyUp(object sender, KeyEventArgs e)
+        {
+            base.dateTime_ValueChanged(sender, e);
+        }
 
 
 
@@ -383,6 +394,8 @@ namespace Aura_Client.View
             }
 
         }
+
+        
     }
 
 }

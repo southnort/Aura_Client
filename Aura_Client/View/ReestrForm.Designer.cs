@@ -154,7 +154,7 @@
             // 
             this.purchaseEisNum.Location = new System.Drawing.Point(145, 166);
             this.purchaseEisNum.Name = "purchaseEisNum";
-            this.purchaseEisNum.Size = new System.Drawing.Size(148, 20);
+            this.purchaseEisNum.Size = new System.Drawing.Size(163, 20);
             this.purchaseEisNum.TabIndex = 13;
             this.purchaseEisNum.Text = "0322300112718000150";
             this.purchaseEisNum.Leave += new System.EventHandler(this.textBox_ValueChanged);
@@ -173,11 +173,13 @@
             // 
             this.purchaseEisDate.CustomFormat = "";
             this.purchaseEisDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.purchaseEisDate.Location = new System.Drawing.Point(299, 166);
+            this.purchaseEisDate.Location = new System.Drawing.Point(314, 166);
             this.purchaseEisDate.Name = "purchaseEisDate";
-            this.purchaseEisDate.Size = new System.Drawing.Size(95, 20);
+            this.purchaseEisDate.Size = new System.Drawing.Size(80, 20);
             this.purchaseEisDate.TabIndex = 14;
             this.purchaseEisDate.CloseUp += new System.EventHandler(this.dateTime_ValueChanged);
+            this.purchaseEisDate.ValueChanged += new System.EventHandler(this.dateTime_ValueChanged);
+            this.purchaseEisDate.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dateTimeField_KeyUp);
             // 
             // comments
             // 
@@ -490,6 +492,8 @@
             this.contractDateReal.Size = new System.Drawing.Size(95, 20);
             this.contractDateReal.TabIndex = 96;
             this.contractDateReal.CloseUp += new System.EventHandler(this.dateTime_ValueChanged);
+            this.contractDateReal.ValueChanged += new System.EventHandler(this.dateTime_ValueChanged);
+            this.contractDateReal.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dateTimeField_KeyUp);
             // 
             // label11
             // 
@@ -530,6 +534,8 @@
             this.reestrDateLast.Size = new System.Drawing.Size(95, 20);
             this.reestrDateLast.TabIndex = 99;
             this.reestrDateLast.CloseUp += new System.EventHandler(this.dateTime_ValueChanged);
+            this.reestrDateLast.ValueChanged += new System.EventHandler(this.dateTime_ValueChanged);
+            this.reestrDateLast.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dateTimeField_KeyUp);
             // 
             // ReestrForm
             // 

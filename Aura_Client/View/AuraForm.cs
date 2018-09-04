@@ -24,15 +24,15 @@ namespace Aura_Client.View
         }
 
 
-        private void dateTime_ValueChanged(object sender, EventArgs e)
+        protected virtual void dateTime_ValueChanged(object sender, EventArgs e)
         {
             var picker = (DateTimePicker)sender;
-            SetDate(picker, picker.Value.ToString("yyyy-MM-dd"));
+            SetDate(picker, picker.Value);
 
-            creator.Add(picker.Name, picker.Value.ToString("yyyy-MM-dd"));
+            creator.Add(picker.Name, picker.Value.ToString("yyyy-MM-dd-HH-mm"));
         }
 
-        private void textBox_ValueChanged(object sender, EventArgs e)
+        protected virtual void textBox_ValueChanged(object sender, EventArgs e)
         {
             if (sender is TextBox)
             {
@@ -48,13 +48,22 @@ namespace Aura_Client.View
 
         }
 
-        private void comboBox_ValueChanged(object sender, EventArgs e)
+        protected virtual void comboBox_ValueChanged(object sender, EventArgs e)
         {
             var box = (ComboBox)sender;
-            creator.Add(box.Name, box.SelectedIndex.ToString());
+            ComboBoxItem item = box.SelectedItem as ComboBoxItem;
+            try
+            {
+                if (item != null)
+                    creator.Add(box.Name, ((int)item.Value).ToString());
+            }
+            catch
+            {
+                MessageBox.Show(item.Value.GetType().ToString());
+            }
         }
 
-        private void numericUpDown_ValueChanges(object sender, EventArgs e)
+        protected virtual void numericUpDown_ValueChanges(object sender, EventArgs e)
         {
             var box = (NumericUpDown)sender;
             creator.Add(box.Name, box.Value.ToString());
@@ -66,20 +75,10 @@ namespace Aura_Client.View
             try
             {
                 DateTime dateTime = Convert.ToDateTime(date);
-                if (date == "" || dateTime == DateTime.MinValue)
-                {
-                    picker.Format = DateTimePickerFormat.Custom;
-                    picker.CustomFormat = "''";
-                }
-
-                else
-                {
-                    picker.Format = DateTimePickerFormat.Short;
-                    picker.Value = dateTime;
-                }
+                SetDate(picker, dateTime);
             }
 
-            catch (Exception ex)
+            catch
             {
                 picker.Format = DateTimePickerFormat.Custom;
                 picker.CustomFormat = "''";
@@ -98,8 +97,9 @@ namespace Aura_Client.View
 
             else
             {
-                picker.Format = DateTimePickerFormat.Short;
-                //  picker.Value = date;
+                picker.Format = DateTimePickerFormat.Custom;
+                picker.CustomFormat = "dd.MM.yyyy   HH : mm";
+                  picker.Value = date;
             }
         }
 
@@ -138,7 +138,8 @@ namespace Aura_Client.View
         {
             if (original == DateTime.MinValue)
                 return "";
-            else return original.ToShortDateString();
+            // else return original.ToShortDateString();
+            else return original.ToString("dd.MM.yyyy   HH:mm");
         }
 
 

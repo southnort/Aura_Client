@@ -119,7 +119,7 @@ namespace Aura_Client.Network
 
                 }
 
-                catch (Exception ex)
+                catch
                 {                    
                 //    Console.WriteLine("Error " + ex.ToString());
                 //    Console.WriteLine("Connection closed!"); //соединение было прервано             
@@ -212,7 +212,7 @@ namespace Aura_Client.Network
                 return message;
 
             }
-            catch (Exception ex)
+            catch
             {
                 return "ERROR";
             }

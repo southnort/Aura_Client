@@ -69,7 +69,8 @@ namespace Aura_Client.View
         }
 
 
-        private void dateTime_ValueChanged(object sender, EventArgs e)
+
+        protected override void dateTime_ValueChanged(object sender, EventArgs e)
         {
             var picker = (DateTimePicker)sender;
             SetDate(picker, picker.Value.ToString("yyyy-MM-dd"));
@@ -77,7 +78,7 @@ namespace Aura_Client.View
             creator.Add(picker.Name, picker.Value.ToString("yyyy-MM-dd"));
         }
 
-        private void textBox_ValueChanged(object sender, EventArgs e)
+        protected override void textBox_ValueChanged(object sender, EventArgs e)
         {
             if (sender is TextBox)
             {
@@ -93,11 +94,13 @@ namespace Aura_Client.View
 
         }
 
-        private void comboBox_ValueChanged(object sender, EventArgs e)
+        protected override void comboBox_ValueChanged(object sender, EventArgs e)
         {
             var box = (ComboBox)sender;
             creator.Add(box.Name, box.SelectedIndex.ToString());
         }
+
+
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
