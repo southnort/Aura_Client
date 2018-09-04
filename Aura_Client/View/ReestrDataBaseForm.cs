@@ -479,7 +479,14 @@ namespace Aura_Client.View
 
         private void addNewPurchaseButton_Click(object sender, EventArgs e)
         {
-            ShowPurchase(new Purchase());
+            ShowPurchase(
+                new Purchase
+                {
+                    purchaseMethodID = 1,
+                    statusID = 1,
+                }
+                );
+
         }
     }
 }

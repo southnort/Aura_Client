@@ -39,12 +39,9 @@ namespace Aura_Client.Model
         {
             //метод проверяет, какое именно событие назначено на эту дату 
             // и добавляет соответствующее описание 
-
            
             string eventStr = "";
-
-            Console.WriteLine(date+" "+pur.bidsStartDate);
-
+            
             if (date == pur.bidsStartDate)
                 eventStr = "Начало подачи заявок";
             else if (date == pur.bidsEndDate)
@@ -74,7 +71,6 @@ namespace Aura_Client.Model
 
             if (eventStr != "")
                 events.Add(pur, eventStr);
-            Console.WriteLine(events.Count);
            
         }
 

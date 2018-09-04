@@ -12,7 +12,6 @@ namespace Aura_Client.Network
     {
         protected internal string HandleMessage(string message, object ob)
         {
-            Console.WriteLine("HandleMessage " + message);
             //обработать полученное сообщение и ответить клиенту
             List<string> arr = SplitString(message);
             switch (arr[0])
@@ -20,10 +19,11 @@ namespace Aura_Client.Network
                 case "LOGINFAILED": break;
 
                 case "LOGINSUCCESS":
-                    LoginSuccess(arr); break;
-                
+                    LoginSuccess(arr); break;                
 
-                default: Console.WriteLine("ERROR string is incorrect:\n " + message); break;
+
+                default:
+                    throw new Exception("ERROR string is incorrect:\n " + message);
             }
 
             return arr[0];

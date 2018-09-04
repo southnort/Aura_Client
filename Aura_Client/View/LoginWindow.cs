@@ -94,5 +94,10 @@ namespace Aura_Client.View
             }
 
         }
+
+        private void LoginWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+        }
     }
 }

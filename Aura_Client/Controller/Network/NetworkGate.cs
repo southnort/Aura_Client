@@ -38,8 +38,6 @@ namespace Aura_Client.Network
             messageHandler = handler;
 
             TryConnect();
-            Console.WriteLine(ToString() + " starting successfuly");
-
         }
 
         private void TryConnect()
@@ -116,17 +114,15 @@ namespace Aura_Client.Network
                 try
                 {
                     string message = ReceiveBroadcast();
-                    Console.WriteLine("Receive broadsactMessage " + message);
                     object ob = ReceiveBroadcastedObject();
-                    Console.WriteLine("Receive broadsactObject " + ob.GetType());
                     HandleMessage(message, ob);
 
                 }
 
                 catch (Exception ex)
-                {
-                    Console.WriteLine("Error " + ex.ToString());
-                    Console.WriteLine("Connection closed!"); //соединение было прервано             
+                {                    
+                //    Console.WriteLine("Error " + ex.ToString());
+                //    Console.WriteLine("Connection closed!"); //соединение было прервано             
                     Disconnect();
                     break;  
 
@@ -141,7 +137,6 @@ namespace Aura_Client.Network
         protected internal void SendMessage(string message)
         {
             //отправить сообщение, не требующее ответа
-            Console.WriteLine("Sending message: " + message);
             byte[] data = Encoding.Unicode.GetBytes(message);
             Send(data);
 
@@ -214,13 +209,11 @@ namespace Aura_Client.Network
                 }
 
                 string message = sb.ToString();
-                Console.WriteLine("Receive string "+message);
                 return message;
 
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
                 return "ERROR";
             }
         }
@@ -240,7 +233,6 @@ namespace Aura_Client.Network
 
                 st.Read(size, 0, 4);
                 int messageLenght = BitConverter.ToInt32(size, 0);
-                Console.WriteLine("Object size -:" + messageLenght);
 
                 while ((readCount = st.Read(data, 0, data.Length)) != 0)
                 {
@@ -253,10 +245,8 @@ namespace Aura_Client.Network
                 if (ms.Length > 0)
                 {
                     BinaryFormatter bf = new BinaryFormatter();
-                    Console.WriteLine(ms.Length);
                     ms.Seek(0, SeekOrigin.Begin);
                     object ob = bf.Deserialize(ms);
-                    Console.WriteLine("REceiving object "+ob.GetType());
                     return ob;
                 }
                 else
@@ -310,7 +300,6 @@ namespace Aura_Client.Network
 
         private void HandleMessage(string message, object ob)
         {
-            Console.WriteLine("HandleMessage " + message + " " + ob.GetType());
             messageHandler.HandleMessage(message, ob);
         }        
 

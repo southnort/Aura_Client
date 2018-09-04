@@ -7,6 +7,7 @@ using Aura.Model;
 using Aura_Client.Model;
 using Aura_Client.View;
 using Aura_Client.Network;
+using System.Windows.Forms;
 
 
 namespace Aura_Client
@@ -22,19 +23,21 @@ namespace Aura_Client
         {
             user.ID = -1;
             StartProgram();
+            Application.Run(new MainForm());
+            Environment.Exit(0);
 
-            LoginWindow loginWindow = new LoginWindow();
-           var result =  loginWindow.ShowDialog();
+            // LoginWindow loginWindow = new LoginWindow();
+            //var result =  loginWindow.ShowDialog();
 
-            if (result == System.Windows.Forms.DialogResult.OK)
-            {
-                var users = bridge.GetObject<Dictionary<string, string>>("USERNAMES");
-                var purchases = bridge.GetObject<List<Purchase>>("ALLPURCHASES");
-                var organisations = bridge.GetObject<List<Organisation>>("ALLORGANISATIONS");
+            //if (result == System.Windows.Forms.DialogResult.OK)
+            //{
+            //    var users = bridge.GetObject<Dictionary<string, string>>("USERNAMES");
+            //    var purchases = bridge.GetObject<List<Purchase>>("ALLPURCHASES");
+            //    var organisations = bridge.GetObject<List<Organisation>>("ALLORGANISATIONS");
 
-                MainForm mainForm = new MainForm();
-                mainForm.ShowDialog();
-            }
+            //    MainForm mainForm = new MainForm();
+            //    mainForm.ShowDialog();
+            //}
 
         }
 

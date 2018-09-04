@@ -14,16 +14,7 @@ namespace Aura_Client.View
     {
         public MainForm()
         {
-            InitializeComponent();
-
-            userNameLabel.Text = "Пользователь: " + Program.user.name;
-
-            //если пользователь не имеет полномочий администратора, убрать кнопку "Пользователи"
-            if (Program.user.roleID != 0)
-                usersButton.Hide();
-
-            switchUserButton.Hide();
-            changePasswordButton.Hide();
+            InitializeComponent();            
         }
 
         private void purchasesListButton_Click(object sender, EventArgs e)
@@ -96,6 +87,25 @@ namespace Aura_Client.View
 
         }
 
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            if (Program.user.ID < 1)
+            {
+                DialogResult result = new LoginWindow().ShowDialog();
+                if (result != DialogResult.OK)
+                {
+                    Environment.Exit(0);
+                }
+            }
 
+
+            userNameLabel.Text = "Пользователь: " + Program.user.name;
+
+            //если пользователь не имеет полномочий администратора, убрать кнопку "Пользователи"
+            if (Program.user.roleID != 0)
+                usersButton.Hide();
+
+            changePasswordButton.Hide();
+        }
     }
 }
