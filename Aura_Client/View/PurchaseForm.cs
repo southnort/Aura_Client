@@ -161,6 +161,7 @@ namespace Aura_Client.View
             SetDate(bidsRatingDate, purchase.bidsRatingDate);
 
             SetDate(bidsFirstPartDate, purchase.bidsFirstPartDate);
+            SetDate(auctionDate, purchase.auctionDate);
             SetDate(bidsSecondPartDate, purchase.bidsSecondPartDate);
             SetDate(bidsFinishDate, purchase.bidsFinishDate);
 
