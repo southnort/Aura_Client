@@ -1,6 +1,7 @@
 ﻿using Aura.Model;
 using Aura_Client.Model;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
@@ -288,8 +289,8 @@ namespace Aura_Client.View
                             users[pur.employeID.ToString()];
 
                         newRow.Cells["organizationID"].Value =
-                            pur.organizationID == 0 ? "<не указано>" :
-                            orgs[pur.organizationID - 1].name;
+                                pur.organizationID == 0 ? "<не указано>" :
+                                orgs.SingleOrDefault(o => o.id == pur.organizationID).name;
 
                         newRow.Cells["purchaseMethodID"].Value =
                             Catalog.purchaseMethods[pur.purchaseMethodID].name;
