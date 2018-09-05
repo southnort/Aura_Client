@@ -474,7 +474,7 @@ namespace Aura_Client.View
             reestrNumber.Clear();
             purchaseEisNum.Clear();
 
-            creator.Clear();
+            creator.ClearFilters();
         }
 
         private void addNewPurchaseButton_Click(object sender, EventArgs e)

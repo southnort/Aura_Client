@@ -226,7 +226,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Aura_Client, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:Aura_Client, Version=1.0.1.1, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_195A4366BAA84D378444EF5B1DAC4ECE"
@@ -388,7 +388,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Aura_DLL, Version=0.9.3.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:Aura_DLL, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_C3AD35DAC54BC08F3900EF953C1949B7"
@@ -459,7 +459,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Aura_DLL, Version=0.9.3.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:Aura_DLL, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_C6921B7F21314AC9A676616F4F08CBA9"
@@ -622,15 +622,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Aura"
-        "ProductCode" = "8:{B4A9EE73-C3F6-4BFF-8E19-FBB221609C46}"
-        "PackageCode" = "8:{72AC5886-90F9-4979-AB98-DAD91FCA8385}"
+        "ProductCode" = "8:{4F5A942F-7751-4660-803A-B1B6EA49C0E9}"
+        "PackageCode" = "8:{756B0230-8532-47F9-8305-70A6BD2F5152}"
         "UpgradeCode" = "8:{590F0497-CCDF-4B29-99BA-59F387E67CB2}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:FALSE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.01"
+        "ProductVersion" = "8:1.0.12"
         "Manufacturer" = "8:ASTIKS"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

@@ -49,6 +49,17 @@ namespace Aura_Client.View
 
             }
 
+
+            //статусы закупки
+            for (int i = 0; i < Catalog.allStatuses.Count; i++)
+            {
+                ComboBoxItem item = new ComboBoxItem();
+                item.Text = Catalog.allStatuses[i];
+                item.Value = i;
+
+                statusID.Items.Add(item);
+            }
+
             ////ответственный за разработку документации            
             ////foreach (var user in Program.dataManager.GetUserNames())
             //{
@@ -533,6 +544,18 @@ namespace Aura_Client.View
             }
 
 
+        }
+
+        private void clearFilterButton_Click(object sender, EventArgs e)
+        {
+            purchaseName.Clear();
+            purchaseMethodID.SelectedIndex = 0;
+            purchaseEisNum.Clear();
+            statusID.SelectedIndex = 0;
+            protocolStatusID.SelectedIndex = 0;
+
+            creator.ClearFilters();
+            
         }
     }
 }

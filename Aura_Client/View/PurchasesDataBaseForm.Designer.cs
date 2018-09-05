@@ -43,14 +43,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.purchaseName = new System.Windows.Forms.TextBox();
+            this.columnsOptionsButton = new System.Windows.Forms.Button();
+            this.refreshButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.deletePurchaseButton = new System.Windows.Forms.Button();
             this.addNewPurchaseButton = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.columnsOptionsButton = new System.Windows.Forms.Button();
-            this.refreshButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.purchasesDataGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -106,6 +106,7 @@
             this.clearFilterButton.Size = new System.Drawing.Size(32, 32);
             this.clearFilterButton.TabIndex = 13;
             this.clearFilterButton.UseVisualStyleBackColor = true;
+            this.clearFilterButton.Click += new System.EventHandler(this.clearFilterButton_Click);
             // 
             // label5
             // 
@@ -200,6 +201,28 @@
             this.purchaseName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.anyKey_KeyUp);
             this.purchaseName.Leave += new System.EventHandler(this.textBox_ValueChanged);
             // 
+            // columnsOptionsButton
+            // 
+            this.columnsOptionsButton.BackgroundImage = global::Aura_Client.Properties.Resources.Settings_Icon;
+            this.columnsOptionsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.columnsOptionsButton.Location = new System.Drawing.Point(3, 40);
+            this.columnsOptionsButton.Name = "columnsOptionsButton";
+            this.columnsOptionsButton.Size = new System.Drawing.Size(32, 32);
+            this.columnsOptionsButton.TabIndex = 1;
+            this.columnsOptionsButton.UseVisualStyleBackColor = true;
+            this.columnsOptionsButton.Click += new System.EventHandler(this.columnsOptionsButton_Click);
+            // 
+            // refreshButton
+            // 
+            this.refreshButton.BackgroundImage = global::Aura_Client.Properties.Resources.Refresh_Icon;
+            this.refreshButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.refreshButton.Location = new System.Drawing.Point(3, 3);
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Size = new System.Drawing.Size(32, 32);
+            this.refreshButton.TabIndex = 0;
+            this.refreshButton.UseVisualStyleBackColor = true;
+            this.refreshButton.Click += new System.EventHandler(this.resreshButton_Click);
+            // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -242,28 +265,6 @@
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // columnsOptionsButton
-            // 
-            this.columnsOptionsButton.BackgroundImage = global::Aura_Client.Properties.Resources.Settings_Icon;
-            this.columnsOptionsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.columnsOptionsButton.Location = new System.Drawing.Point(3, 40);
-            this.columnsOptionsButton.Name = "columnsOptionsButton";
-            this.columnsOptionsButton.Size = new System.Drawing.Size(32, 32);
-            this.columnsOptionsButton.TabIndex = 1;
-            this.columnsOptionsButton.UseVisualStyleBackColor = true;
-            this.columnsOptionsButton.Click += new System.EventHandler(this.columnsOptionsButton_Click);
-            // 
-            // refreshButton
-            // 
-            this.refreshButton.BackgroundImage = global::Aura_Client.Properties.Resources.Refresh_Icon;
-            this.refreshButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.refreshButton.Location = new System.Drawing.Point(3, 3);
-            this.refreshButton.Name = "refreshButton";
-            this.refreshButton.Size = new System.Drawing.Size(32, 32);
-            this.refreshButton.TabIndex = 0;
-            this.refreshButton.UseVisualStyleBackColor = true;
-            this.refreshButton.Click += new System.EventHandler(this.resreshButton_Click);
             // 
             // PurchasesDataBaseForm
             // 
