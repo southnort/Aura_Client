@@ -107,5 +107,16 @@ namespace Aura_Client.View
 
             changePasswordButton.Hide();
         }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult dr;
+            dr = MessageBox.Show("Действительно выйти?", "Выход", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (dr == DialogResult.OK)
+            {
+                Environment.Exit(0);
+            }
+            else e.Cancel = true;
+        }
     }
 }

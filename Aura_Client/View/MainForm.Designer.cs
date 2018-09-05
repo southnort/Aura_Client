@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.switchUserButton = new System.Windows.Forms.Button();
             this.changePasswordButton = new System.Windows.Forms.Button();
             this.usersButton = new System.Windows.Forms.Button();
             this.userNameLabel = new System.Windows.Forms.Label();
@@ -40,7 +41,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.calendarButton = new System.Windows.Forms.Button();
             this.purchasesListButton = new System.Windows.Forms.Button();
-            this.switchUserButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -57,6 +57,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(795, 101);
             this.panel1.TabIndex = 1;
+            // 
+            // switchUserButton
+            // 
+            this.switchUserButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.switchUserButton.Location = new System.Drawing.Point(7, 31);
+            this.switchUserButton.Name = "switchUserButton";
+            this.switchUserButton.Size = new System.Drawing.Size(140, 32);
+            this.switchUserButton.TabIndex = 4;
+            this.switchUserButton.Text = "Другой пользователь";
+            this.switchUserButton.UseVisualStyleBackColor = true;
+            this.switchUserButton.Click += new System.EventHandler(this.switchUserButton_Click);
             // 
             // changePasswordButton
             // 
@@ -164,17 +175,6 @@
             this.purchasesListButton.UseVisualStyleBackColor = true;
             this.purchasesListButton.Click += new System.EventHandler(this.purchasesListButton_Click);
             // 
-            // switchUserButton
-            // 
-            this.switchUserButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.switchUserButton.Location = new System.Drawing.Point(7, 31);
-            this.switchUserButton.Name = "switchUserButton";
-            this.switchUserButton.Size = new System.Drawing.Size(140, 32);
-            this.switchUserButton.TabIndex = 4;
-            this.switchUserButton.Text = "Другой пользователь";
-            this.switchUserButton.UseVisualStyleBackColor = true;
-            this.switchUserButton.Click += new System.EventHandler(this.switchUserButton_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -187,6 +187,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "Aura";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
