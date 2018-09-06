@@ -25,7 +25,10 @@ namespace Aura_Client.View
             set { this["ColumnOrder"] = value; }
         }
 
-
+        public DataGridViewSetting()
+        {
+            Upgrade();
+        }
     }
 
     [Serializable]

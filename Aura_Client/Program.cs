@@ -8,6 +8,7 @@ using Aura_Client.Model;
 using Aura_Client.View;
 using Aura_Client.Network;
 using System.Windows.Forms;
+using System.Configuration;
 
 
 namespace Aura_Client
@@ -22,6 +23,7 @@ namespace Aura_Client
         static void Main()
         {
             user.ID = -1;
+            SetSettingsSetting();
             StartProgram();
             Application.Run(new MainForm());
             Environment.Exit(0);
@@ -46,6 +48,18 @@ namespace Aura_Client
             bridge = new NetworkBridge();
             dataManager = new DataManager();
 
+        }
+
+        static void SetSettingsSetting()
+        {
+            if (Properties.settings.Default.UpgradeRequired)
+            {
+                Properties.settings.Default.Upgrade();
+                Properties.settings.Default.UpgradeRequired = false;
+                Properties.settings.Default.Save();
+            }
+
+            
         }
 
 

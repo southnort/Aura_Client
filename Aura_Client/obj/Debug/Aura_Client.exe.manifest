@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>ly8zszD0Akj3javpJ+tpzgL+TU0=</dsig:DigestValue>
+        <dsig:DigestValue>oa5QTWod1jgb8HLFREeMtn/fSp4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -78,13 +78,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Aura_Client.exe.config" size="1147">
+  <file name="Aura_Client.exe.config" size="1273">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>cIgnTWaY9v67+EKscvAUdIZ9sj4=</dsig:DigestValue>
+      <dsig:DigestValue>rMj10KS6vMYbak/s49b4O6IALFw=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Icon.ico" size="270398">
