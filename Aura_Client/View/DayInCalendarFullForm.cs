@@ -1,12 +1,8 @@
-﻿using System;
+﻿using Aura.Model;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using Aura.Model;
 
 namespace Aura_Client.View
 {
@@ -17,17 +13,26 @@ namespace Aura_Client.View
         {
             InitializeComponent();
 
-            dateLabel.Text = day.date.ToString();
+            dateLabel.Text = day.date.ToShortDateString();
+            RefreshTable(day);
+
+
+        }
+
+        private void RefreshTable(DayInCalendar day)
+        {
+            mainPanel.Controls.Clear();
+
             foreach (var ev in day.events)
             {
                 Button button = CreateButton(ev);
-                int x = 0;
-                int y = mainPanel.Controls.Count + 5 * button.Height;
+                
+                int x = 15;
+                int y = (mainPanel.Controls.Count) * (button.Height + 5) + 5;
                 button.Location = new Point(x, y);
+
+                mainPanel.Controls.Add(button);
             }
-
-
-
         }
 
         private Button CreateButton(KeyValuePair<Purchase, string> eventOb)
@@ -37,10 +42,28 @@ namespace Aura_Client.View
                 TextAlign = ContentAlignment.MiddleLeft,
                 Size = new Size(284, 40),
                 Text = eventOb.Key.purchaseName + "\n" + eventOb.Value,
+                Name = eventOb.Key.id.ToString(),
 
             };
 
+            button.Click += Button_Click;
+
             return button;
+        }
+
+
+        private void Button_Click(object sender, EventArgs e)
+        {
+            var id = ((Button)sender).Name;
+            Purchase pur = Program.dataManager.GetPurchase(id);
+            OpenPurchase(pur);
+
+        }
+
+        private void OpenPurchase(Purchase pur)
+        {
+            PurchaseForm form = new PurchaseForm(pur);
+            form.ShowDialog();
         }
 
 

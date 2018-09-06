@@ -52,6 +52,7 @@
             this.lowerLabel.TabIndex = 5;
             this.lowerLabel.TabStop = true;
             this.lowerLabel.Text = "... и еще 1";
+            this.lowerLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lowerLabel_LinkClicked);
             // 
             // panel1
             // 

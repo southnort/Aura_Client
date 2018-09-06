@@ -1,7 +1,6 @@
 C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\Aura_Client.exe.config
 C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\Aura_Client.exe
 C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\Aura_Client.pdb
-C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.csprojAssemblyReference.cache
 C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.View.LoginWindow.resources
 C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.csproj.GenerateResource.cache
 C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.csproj.CoreCompileInputs.cache
@@ -58,3 +57,8 @@ C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\Aura_Clie
 C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.exe.manifest
 C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.application
 C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.csprojAssemblyReference.cache
+C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\Aura_Client.exe.manifest
+C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\Aura_Client.application
+C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.exe.manifest
+C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.application
+C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.csprojAssemblyReference.cache

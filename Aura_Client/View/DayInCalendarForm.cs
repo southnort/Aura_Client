@@ -13,16 +13,19 @@ namespace Aura_Client.View
 {
     public partial class DayInCalendarForm : UserControl, IShowable
     {
-        public DayInCalendarForm(Aura_Client.Model.DayInCalendar dayInCalendar)
+        private DayInCalendar dayInCalendar;
+
+
+        public DayInCalendarForm(DayInCalendar day)
         {
             InitializeComponent();            
 
-            dateLabel.Text = dayInCalendar.date.Day.ToString();
+            dateLabel.Text = day.date.Day.ToString();
 
-            lowerLabel.Text = "Добавить";
+            lowerLabel.Hide();
 
             //добавить кнопки закупок, если на этот день что-то назначено
-            foreach (var pair in dayInCalendar.events)
+            foreach (var pair in day.events)
             {
                 Button btn;
                 if (panel1.Controls.Count == 0)
@@ -39,20 +42,23 @@ namespace Aura_Client.View
                 }
                 else
                 {
-                    lowerLabel.Text = "...и еще " + (dayInCalendar.events.Count - 2);
+                    lowerLabel.Show();
+                    lowerLabel.Text = "...и еще " + (day.events.Count - 2);
                     break;
 
                 }
 
+                dayInCalendar = day;
+
             }
 
-            if (dayInCalendar.date.DayOfWeek == DayOfWeek.Sunday ||
-                dayInCalendar.date.DayOfWeek == DayOfWeek.Saturday)
+            if (day.date.DayOfWeek == DayOfWeek.Sunday ||
+                day.date.DayOfWeek == DayOfWeek.Saturday)
             {
                 BackColor = Color.MistyRose;
             }
 
-            if (dayInCalendar.date == DateTime.Today)
+            if (day.date == DateTime.Today)
             {
                 BackColor = Color.LightYellow;
             }
@@ -106,7 +112,12 @@ namespace Aura_Client.View
             Program.openedForms.Remove(this);
         }
 
+        private void lowerLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            DayInCalendarFullForm form = new DayInCalendarFullForm(dayInCalendar);
+            form.ShowDialog();
 
+        }
     }
 
 

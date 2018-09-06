@@ -62,9 +62,9 @@ namespace Aura_Client.Model
         {
             //возвращает все закупки из БД в виде календаря
             Calendar calendar = new Calendar();
-            foreach (var pair in GetAllPurchases())
+            foreach (var purchase in GetAllPurchases())
             {
-                calendar.Add(pair);
+                calendar.Add(purchase);
             }
 
             return calendar;

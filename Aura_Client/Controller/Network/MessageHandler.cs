@@ -19,7 +19,9 @@ namespace Aura_Client.Network
                 case "LOGINFAILED": break;
 
                 case "LOGINSUCCESS":
-                    LoginSuccess(arr); break;                
+                    LoginSuccess(arr); break;
+
+                case "ERROR": return arr[0];
 
 
                 default:

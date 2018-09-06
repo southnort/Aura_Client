@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace Aura_Client.View
 {
@@ -26,9 +27,17 @@ namespace Aura_Client.View
             if (loginTextBox.Text != string.Empty && passwordTextBox.Text != string.Empty)
             {
                 resultTextLabel.Text = "Соединяемся с сервером...";
-                SetLoginResult(Program.bridge.TryLogin(loginTextBox.Text, passwordTextBox.Text));
+               // Thread loginThread = new Thread(new ThreadStart(() =>
+               //{
+                   string result = Program.bridge.TryLogin(loginTextBox.Text, passwordTextBox.Text);
+                   SetLoginResult(result);
+               //}));
+
+               // loginThread.Start();
+
 
             }
+
 
         }
 

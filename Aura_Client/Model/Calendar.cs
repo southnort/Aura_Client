@@ -23,6 +23,10 @@ namespace Aura_Client.Model
             Add(purchase.auctionDate, purchase);
             Add(purchase.bidsSecondPartDate, purchase);
             Add(purchase.bidsFinishDate, purchase);
+
+            Add(purchase.bidsReviewDate, purchase);
+            Add(purchase.bidsRatingDate, purchase);
+
             Add(purchase.contractDatePlan, purchase);
             Add(purchase.contractDateLast, purchase);
             Add(purchase.contractDateReal, purchase);
@@ -35,12 +39,14 @@ namespace Aura_Client.Model
 
         private void Add(DateTime date, Purchase purchase)
         {
-            if (!ContainsKey(date))
+            DateTime tempDateTime = new DateTime(date.Year, date.Month, date.Day);
+
+            if (!ContainsKey(tempDateTime))
             {
-                Add(date, new DayInCalendar(date));
+                Add(tempDateTime, new DayInCalendar(tempDateTime));
             }
             
-            this[date].Add(purchase);
+            this[tempDateTime].Add(purchase);
 
         }
 
