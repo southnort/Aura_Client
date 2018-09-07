@@ -42,12 +42,6 @@
             this.email = new System.Windows.Forms.RichTextBox();
             this.comments = new System.Windows.Forms.RichTextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.contractNumber = new System.Windows.Forms.TextBox();
-            this.contractStart = new System.Windows.Forms.DateTimePicker();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.contractEnd = new System.Windows.Forms.DateTimePicker();
             this.originalID = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -59,6 +53,12 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label13 = new System.Windows.Forms.Label();
             this.contractType = new System.Windows.Forms.ComboBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label7 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // name
@@ -170,7 +170,7 @@
             this.comments.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comments.Location = new System.Drawing.Point(140, 313);
             this.comments.Name = "comments";
-            this.comments.Size = new System.Drawing.Size(676, 86);
+            this.comments.Size = new System.Drawing.Size(711, 86);
             this.comments.TabIndex = 10;
             this.comments.Text = "";
             this.comments.Leave += new System.EventHandler(this.textBox_ValueChanged);
@@ -185,71 +185,11 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "Комментарии";
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label8.Location = new System.Drawing.Point(481, 31);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(116, 16);
-            this.label8.TabIndex = 13;
-            this.label8.Text = "Номер договора";
-            // 
-            // contractNumber
-            // 
-            this.contractNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.contractNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.contractNumber.Location = new System.Drawing.Point(603, 31);
-            this.contractNumber.Name = "contractNumber";
-            this.contractNumber.Size = new System.Drawing.Size(213, 15);
-            this.contractNumber.TabIndex = 12;
-            this.contractNumber.Leave += new System.EventHandler(this.textBox_ValueChanged);
-            // 
-            // contractStart
-            // 
-            this.contractStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.contractStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.contractStart.Location = new System.Drawing.Point(603, 56);
-            this.contractStart.Name = "contractStart";
-            this.contractStart.Size = new System.Drawing.Size(88, 22);
-            this.contractStart.TabIndex = 14;
-            this.contractStart.CloseUp += new System.EventHandler(this.dateTime_ValueChanged);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.Location = new System.Drawing.Point(509, 59);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(88, 16);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "Действует с";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label9.Location = new System.Drawing.Point(698, 60);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(24, 16);
-            this.label9.TabIndex = 17;
-            this.label9.Text = "по";
-            // 
-            // contractEnd
-            // 
-            this.contractEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.contractEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.contractEnd.Location = new System.Drawing.Point(728, 56);
-            this.contractEnd.Name = "contractEnd";
-            this.contractEnd.Size = new System.Drawing.Size(88, 22);
-            this.contractEnd.TabIndex = 16;
-            this.contractEnd.CloseUp += new System.EventHandler(this.dateTime_ValueChanged);
-            // 
             // originalID
             // 
             this.originalID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.originalID.FormattingEnabled = true;
-            this.originalID.Location = new System.Drawing.Point(603, 180);
+            this.originalID.Location = new System.Drawing.Point(464, 166);
             this.originalID.Name = "originalID";
             this.originalID.Size = new System.Drawing.Size(121, 24);
             this.originalID.TabIndex = 18;
@@ -259,7 +199,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label10.Location = new System.Drawing.Point(525, 181);
+            this.label10.Location = new System.Drawing.Point(386, 167);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(72, 16);
             this.label10.TabIndex = 19;
@@ -269,7 +209,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label11.Location = new System.Drawing.Point(518, 151);
+            this.label11.Location = new System.Drawing.Point(379, 137);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(78, 16);
             this.label11.TabIndex = 21;
@@ -279,7 +219,7 @@
             // 
             this.contractCondition.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.contractCondition.FormattingEnabled = true;
-            this.contractCondition.Location = new System.Drawing.Point(603, 150);
+            this.contractCondition.Location = new System.Drawing.Point(464, 136);
             this.contractCondition.Name = "contractCondition";
             this.contractCondition.Size = new System.Drawing.Size(121, 24);
             this.contractCondition.TabIndex = 20;
@@ -289,7 +229,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label12.Location = new System.Drawing.Point(523, 118);
+            this.label12.Location = new System.Drawing.Point(384, 104);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(73, 16);
             this.label12.TabIndex = 23;
@@ -299,7 +239,7 @@
             // 
             this.law.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.law.FormattingEnabled = true;
-            this.law.Location = new System.Drawing.Point(603, 118);
+            this.law.Location = new System.Drawing.Point(464, 104);
             this.law.Name = "law";
             this.law.Size = new System.Drawing.Size(121, 24);
             this.law.TabIndex = 22;
@@ -334,7 +274,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label13.Location = new System.Drawing.Point(499, 213);
+            this.label13.Location = new System.Drawing.Point(360, 199);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(98, 16);
             this.label13.TabIndex = 27;
@@ -344,17 +284,66 @@
             // 
             this.contractType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.contractType.FormattingEnabled = true;
-            this.contractType.Location = new System.Drawing.Point(603, 210);
+            this.contractType.Location = new System.Drawing.Point(464, 196);
             this.contractType.Name = "contractType";
             this.contractType.Size = new System.Drawing.Size(121, 24);
             this.contractType.TabIndex = 26;
             this.contractType.Leave += new System.EventHandler(this.comboBox_ValueChanged);
             // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.Column2});
+            this.dataGridView2.Location = new System.Drawing.Point(591, 52);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.RowTemplate.Height = 35;
+            this.dataGridView2.Size = new System.Drawing.Size(260, 241);
+            this.dataGridView2.TabIndex = 29;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Номер";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 70;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Срок с";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 70;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Срок по";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 70;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(588, 32);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(129, 13);
+            this.label7.TabIndex = 30;
+            this.label7.Text = "Заключенные договоры";
+            // 
             // OrganisationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(845, 466);
+            this.ClientSize = new System.Drawing.Size(867, 466);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.contractType);
             this.Controls.Add(this.buttonCancel);
@@ -365,12 +354,6 @@
             this.Controls.Add(this.contractCondition);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.originalID);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.contractEnd);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.contractStart);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.contractNumber);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.comments);
             this.Controls.Add(this.label5);
@@ -387,6 +370,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "OrganisationForm";
             this.Text = "OrganisationForm";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -406,12 +390,6 @@
         private System.Windows.Forms.RichTextBox email;
         private System.Windows.Forms.RichTextBox comments;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox contractNumber;
-        private System.Windows.Forms.DateTimePicker contractStart;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DateTimePicker contractEnd;
         private System.Windows.Forms.ComboBox originalID;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
@@ -423,5 +401,10 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox contractType;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.Label label7;
     }
 }

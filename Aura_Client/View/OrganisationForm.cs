@@ -25,6 +25,7 @@ namespace Aura_Client.View
             LoadCatalogs();
             creator = new CommandStringCreator("Organisations", organisation.id.ToString());
             Fill(organisation);
+            FillTable(organisation);
 
         }
 
@@ -58,9 +59,9 @@ namespace Aura_Client.View
             contactName.Text = org.contactName;
             phoneNumber.Text = org.phoneNumber;
             email.Text = org.email;
-            contractNumber.Text = org.contractNumber;
-            SetDate(contractStart, org.contractStart);
-            SetDate(contractEnd, org.contractEnd);
+            //contractNumber.Text = org.contractNumber;
+            //SetDate(contractStart, org.contractStart);
+            //SetDate(contractEnd, org.contractEnd);
             contractCondition.SelectedIndex = org.contractCondition;
             originalID.SelectedIndex = org.originalID;
             law.SelectedIndex = org.law;
@@ -68,7 +69,21 @@ namespace Aura_Client.View
 
         }
 
+        private void FillTable(Organisation org)
+        {            
+            for (int i = 0; i < 3; i++)
+            {
+                int rowIndex = dataGridView2.Rows.Add();
+                var newRow = dataGridView2.Rows[rowIndex];
 
+                newRow.Cells[0].Value = "№ 123";
+                newRow.Cells[1].Value = "01.01.2018";
+                newRow.Cells[2].Value = "31.12.2018";
+
+            }
+
+            
+        }
 
         protected override void dateTime_ValueChanged(object sender, EventArgs e)
         {
