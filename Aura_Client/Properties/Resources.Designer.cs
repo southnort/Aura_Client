@@ -63,6 +63,16 @@ namespace Aura_Client.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AddNew_Icon {
+            get {
+                object obj = ResourceManager.GetObject("AddNew_Icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ClearFilter_Icon {
             get {
                 object obj = ResourceManager.GetObject("ClearFilter_Icon", resourceCulture);
@@ -76,6 +86,16 @@ namespace Aura_Client.Properties {
         internal static System.Drawing.Bitmap Refresh_Icon {
             get {
                 object obj = ResourceManager.GetObject("Refresh_Icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Remove_Icon {
+            get {
+                object obj = ResourceManager.GetObject("Remove_Icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -62,6 +62,11 @@ namespace Aura_Client.View
             law.SelectedIndex = org.law;
             contractType.SelectedIndex = org.contractType;
 
+            if (org.id < 1)
+            {
+                addNewContractButton.Enabled = false;
+                removeContractButton.Enabled = false;
+            }
         }
 
         private void FillTable(Organisation org)
@@ -85,6 +90,7 @@ namespace Aura_Client.View
 
             
         }
+
 
         protected override void dateTime_ValueChanged(object sender, EventArgs e)
         {
@@ -116,6 +122,19 @@ namespace Aura_Client.View
             creator.Add(box.Name, box.SelectedIndex.ToString());
         }
 
+
+
+        private void OpenContract(Contract contract)
+        {
+            ContractForm form = new ContractForm(contract);
+            var result = form.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+
+            }
+
+        }
 
 
         private void buttonOK_Click(object sender, EventArgs e)
@@ -153,6 +172,48 @@ namespace Aura_Client.View
         private void timer1_Tick(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
+        }
+
+        private void addNewContractButton_Click(object sender, EventArgs e)
+        {
+            Contract contract = new Contract { organisationID = organisation.id };
+            OpenContract(contract);
+        }
+
+        private void removeContractButton_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow row = contractsDataGridView.CurrentRow;
+
+            if (row != null)
+            {
+
+                string id = row.Cells["id"].Value.ToString();
+                string text = "Вы действительно хотите удалить данные договора № " +
+                  row.Cells["contractNumber"].Value.ToString() + "?" +
+                    "\nЗаказчик - " + organisation.name;
+                DialogResult dialogResult = MessageBox.Show(text,
+                    "Подтвердите удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Program.dataManager.DeleteContract(id);
+                    contractsDataGridView.Rows.Remove(row);
+                }
+
+            }
+
+        }
+
+        private void contractsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridView dg = (DataGridView)sender;
+                var contractID = dg.Rows[e.RowIndex].Cells["id"].Value.ToString();
+                Contract contract = Program.dataManager.GetContract(contractID);
+
+                OpenContract(contract);
+            }
+
         }
     }
 }

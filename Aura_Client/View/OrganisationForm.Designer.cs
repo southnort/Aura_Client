@@ -54,11 +54,14 @@
             this.label13 = new System.Windows.Forms.Label();
             this.contractType = new System.Windows.Forms.ComboBox();
             this.contractsDataGridView = new System.Windows.Forms.DataGridView();
-            this.label7 = new System.Windows.Forms.Label();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contractNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contractStart = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contractEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label7 = new System.Windows.Forms.Label();
+            this.removeContractButton = new System.Windows.Forms.Button();
+            this.addNewContractButton = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.contractsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -306,17 +309,9 @@
             this.contractsDataGridView.ReadOnly = true;
             this.contractsDataGridView.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.contractsDataGridView.RowTemplate.Height = 35;
-            this.contractsDataGridView.Size = new System.Drawing.Size(260, 241);
+            this.contractsDataGridView.Size = new System.Drawing.Size(260, 219);
             this.contractsDataGridView.TabIndex = 29;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(588, 32);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(129, 13);
-            this.label7.TabIndex = 30;
-            this.label7.Text = "Заключенные договоры";
+            this.contractsDataGridView.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.contractsDataGridView_CellContentClick);
             // 
             // id
             // 
@@ -346,11 +341,44 @@
             this.contractEnd.ReadOnly = true;
             this.contractEnd.Width = 70;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(588, 32);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(129, 13);
+            this.label7.TabIndex = 30;
+            this.label7.Text = "Заключенные договоры";
+            // 
+            // removeContractButton
+            // 
+            this.removeContractButton.BackgroundImage = global::Aura_Client.Properties.Resources.Remove_Icon;
+            this.removeContractButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.removeContractButton.Location = new System.Drawing.Point(622, 275);
+            this.removeContractButton.Name = "removeContractButton";
+            this.removeContractButton.Size = new System.Drawing.Size(25, 25);
+            this.removeContractButton.TabIndex = 32;
+            this.removeContractButton.UseVisualStyleBackColor = true;
+            this.removeContractButton.Click += new System.EventHandler(this.removeContractButton_Click);
+            // 
+            // addNewContractButton
+            // 
+            this.addNewContractButton.BackgroundImage = global::Aura_Client.Properties.Resources.AddNew_Icon;
+            this.addNewContractButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.addNewContractButton.Location = new System.Drawing.Point(591, 275);
+            this.addNewContractButton.Name = "addNewContractButton";
+            this.addNewContractButton.Size = new System.Drawing.Size(25, 25);
+            this.addNewContractButton.TabIndex = 31;
+            this.addNewContractButton.UseVisualStyleBackColor = true;
+            this.addNewContractButton.Click += new System.EventHandler(this.addNewContractButton_Click);
+            // 
             // OrganisationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(867, 466);
+            this.Controls.Add(this.removeContractButton);
+            this.Controls.Add(this.addNewContractButton);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.contractsDataGridView);
             this.Controls.Add(this.label13);
@@ -378,7 +406,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "OrganisationForm";
-            this.Text = "OrganisationForm";
+            this.Text = "Редактирование данных организации";
             ((System.ComponentModel.ISupportInitialize)(this.contractsDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -416,5 +444,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn contractNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn contractStart;
         private System.Windows.Forms.DataGridViewTextBoxColumn contractEnd;
+        private System.Windows.Forms.Button addNewContractButton;
+        private System.Windows.Forms.Button removeContractButton;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

@@ -503,7 +503,7 @@ namespace Aura_Client.View
             if (e.RowIndex >= 0)
             {
                 DataGridView dg = (DataGridView)sender;
-                var purchaseID = dg.Rows[e.RowIndex].Cells[0].Value.ToString();
+                var purchaseID = dg.Rows[e.RowIndex].Cells["id"].Value.ToString();
                 Purchase purchase = Program.dataManager.GetPurchase(purchaseID);
                 ShowPurchase(purchase);
             }

@@ -118,12 +118,29 @@ namespace Aura_Client.Model
             return list;
         }
 
+        public Contract GetContract(string id)
+        {
+            string query = "SELECT * FROM Contracts WHERE id = '" + id+"'";
 
+            var table = GetDataTable(query);
+            var row = table.Rows[0];
+
+            return new Contract(row);
+
+        }
+           
         public DataTable GetDataTable(string query)
         {
             //запрос от сервера любой информации
             return Program.bridge.GetObject<DataTable>("GETDATATABLE#" + query);
 
         }
+
+
+        public void DeleteContract(string id)
+        {
+            Program.bridge.SendMessage("EXECUTECOMMAND#
+        }
+
     }
 }

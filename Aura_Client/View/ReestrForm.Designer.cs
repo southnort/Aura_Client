@@ -82,7 +82,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 70);
+            this.label2.Location = new System.Drawing.Point(15, 86);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(124, 13);
             this.label2.TabIndex = 2;
@@ -230,7 +230,7 @@
             // law
             // 
             this.law.FormattingEnabled = true;
-            this.law.Location = new System.Drawing.Point(385, 11);
+            this.law.Location = new System.Drawing.Point(400, 11);
             this.law.Name = "law";
             this.law.Size = new System.Drawing.Size(95, 21);
             this.law.TabIndex = 47;
@@ -260,7 +260,7 @@
             // withAZK
             // 
             this.withAZK.FormattingEnabled = true;
-            this.withAZK.Location = new System.Drawing.Point(385, 40);
+            this.withAZK.Location = new System.Drawing.Point(400, 56);
             this.withAZK.Name = "withAZK";
             this.withAZK.Size = new System.Drawing.Size(95, 21);
             this.withAZK.TabIndex = 50;
@@ -294,7 +294,7 @@
             this.purchaseName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.purchaseName.Location = new System.Drawing.Point(145, 12);
             this.purchaseName.Name = "purchaseName";
-            this.purchaseName.Size = new System.Drawing.Size(234, 49);
+            this.purchaseName.Size = new System.Drawing.Size(249, 65);
             this.purchaseName.TabIndex = 53;
             this.purchaseName.Text = "Закупка меховых изделий";
             this.purchaseName.Leave += new System.EventHandler(this.textBox_ValueChanged);
@@ -404,7 +404,7 @@
             // organizationID
             // 
             this.organizationID.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.organizationID.Location = new System.Drawing.Point(145, 67);
+            this.organizationID.Location = new System.Drawing.Point(145, 83);
             this.organizationID.Name = "organizationID";
             this.organizationID.ReadOnly = true;
             this.organizationID.Size = new System.Drawing.Size(301, 20);
@@ -414,7 +414,7 @@
             // organisationSelectButton
             // 
             this.organisationSelectButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.organisationSelectButton.Location = new System.Drawing.Point(452, 67);
+            this.organisationSelectButton.Location = new System.Drawing.Point(452, 83);
             this.organisationSelectButton.Name = "organisationSelectButton";
             this.organisationSelectButton.Size = new System.Drawing.Size(28, 20);
             this.organisationSelectButton.TabIndex = 91;

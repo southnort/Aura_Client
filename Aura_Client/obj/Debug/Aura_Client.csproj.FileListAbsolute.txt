@@ -62,3 +62,4 @@ C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.e
 C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.application
 C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.csprojAssemblyReference.cache
 C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.csprojAssemblyReference.cache
+C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.View.ContractForm.resources
