@@ -142,6 +142,14 @@ namespace Aura_Client.View
             else return original.ToString("dd.MM.yyyy   HH:mm");
         }
 
+        protected string ConvertDateToShortText(DateTime original)
+        {
+            if (original == DateTime.MinValue)
+                return "";
+           
+            else return original.ToString("dd.MM.yyyy");
+        }
+
 
         protected void SetColumnOrder(DataGridView name)
         {

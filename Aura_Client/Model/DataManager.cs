@@ -1,8 +1,7 @@
-﻿using System;
+﻿using Aura.Model;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Aura.Model;
+using System.Data;
+
 
 namespace Aura_Client.Model
 {
@@ -105,8 +104,6 @@ namespace Aura_Client.Model
             //запросить с сервера список организаций, отфильтрованных по усоловиям
             return Program.bridge.GetObject<List<Organisation>>("GETFILTEREDORGANISATIONS#" + filterQuery);
 
-
-
         }
 
         public void DeleteOrganisation(string id)
@@ -121,5 +118,12 @@ namespace Aura_Client.Model
             return list;
         }
 
+
+        public DataTable GetDataTable(string query)
+        {
+            //запрос от сервера любой информации
+            return Program.bridge.GetObject<DataTable>("GETDATATABLE#" + query);
+
+        }
     }
 }

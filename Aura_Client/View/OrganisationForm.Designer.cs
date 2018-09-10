@@ -53,12 +53,13 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label13 = new System.Windows.Forms.Label();
             this.contractType = new System.Windows.Forms.ComboBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contractsDataGridView = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contractNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contractStart = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contractEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.contractsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // name
@@ -290,43 +291,23 @@
             this.contractType.TabIndex = 26;
             this.contractType.Leave += new System.EventHandler(this.comboBox_ValueChanged);
             // 
-            // dataGridView2
+            // contractsDataGridView
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.Column2});
-            this.dataGridView2.Location = new System.Drawing.Point(591, 52);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.RowTemplate.Height = 35;
-            this.dataGridView2.Size = new System.Drawing.Size(260, 241);
-            this.dataGridView2.TabIndex = 29;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Номер";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 70;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Срок с";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 70;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Срок по";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 70;
+            this.contractsDataGridView.AllowUserToAddRows = false;
+            this.contractsDataGridView.AllowUserToDeleteRows = false;
+            this.contractsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.contractsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.contractNumber,
+            this.contractStart,
+            this.contractEnd});
+            this.contractsDataGridView.Location = new System.Drawing.Point(591, 52);
+            this.contractsDataGridView.Name = "contractsDataGridView";
+            this.contractsDataGridView.ReadOnly = true;
+            this.contractsDataGridView.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.contractsDataGridView.RowTemplate.Height = 35;
+            this.contractsDataGridView.Size = new System.Drawing.Size(260, 241);
+            this.contractsDataGridView.TabIndex = 29;
             // 
             // label7
             // 
@@ -337,13 +318,41 @@
             this.label7.TabIndex = 30;
             this.label7.Text = "Заключенные договоры";
             // 
+            // id
+            // 
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // contractNumber
+            // 
+            this.contractNumber.HeaderText = "Номер";
+            this.contractNumber.Name = "contractNumber";
+            this.contractNumber.ReadOnly = true;
+            this.contractNumber.Width = 70;
+            // 
+            // contractStart
+            // 
+            this.contractStart.HeaderText = "Срок с";
+            this.contractStart.Name = "contractStart";
+            this.contractStart.ReadOnly = true;
+            this.contractStart.Width = 70;
+            // 
+            // contractEnd
+            // 
+            this.contractEnd.HeaderText = "Срок по";
+            this.contractEnd.Name = "contractEnd";
+            this.contractEnd.ReadOnly = true;
+            this.contractEnd.Width = 70;
+            // 
             // OrganisationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(867, 466);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.contractsDataGridView);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.contractType);
             this.Controls.Add(this.buttonCancel);
@@ -370,7 +379,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "OrganisationForm";
             this.Text = "OrganisationForm";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contractsDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -401,10 +410,11 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox contractType;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridView contractsDataGridView;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contractNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contractStart;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contractEnd;
     }
 }

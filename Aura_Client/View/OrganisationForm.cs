@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using Aura.Model;
-using Aura_Client.Model;
+﻿using Aura.Model;
 using Aura_Client.Controller;
+using Aura_Client.Model;
+using System;
+using System.Data;
+using System.Windows.Forms;
 
 namespace Aura_Client.View
 {
@@ -70,15 +65,21 @@ namespace Aura_Client.View
         }
 
         private void FillTable(Organisation org)
-        {            
-            for (int i = 0; i < 3; i++)
-            {
-                int rowIndex = dataGridView2.Rows.Add();
-                var newRow = dataGridView2.Rows[rowIndex];
+        {
+            contractsDataGridView.Rows.Clear();
+            string str = "SELECT * FROM Contracts WHERE organisationID = '" + org.id + "'";
+            DataTable table = Program.dataManager.GetDataTable(str);
 
-                newRow.Cells[0].Value = "№ 123";
-                newRow.Cells[1].Value = "01.01.2018";
-                newRow.Cells[2].Value = "31.12.2018";
+            foreach (DataRow tableRow in table.Rows)
+            {
+                Contract contract = new Contract(tableRow);
+                int index = contractsDataGridView.Rows.Add();
+                var row = contractsDataGridView.Rows[index];
+
+                row.Cells["id"].Value = contract.id;
+                row.Cells["contractNumber"].Value = contract.contractNumber;
+                row.Cells["contractStart"].Value = ConvertDateToShortText(contract.contractStart);
+                row.Cells["contractEnd"].Value = ConvertDateToShortText(contract.contractEnd);
 
             }
 
