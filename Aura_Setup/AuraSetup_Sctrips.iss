@@ -7,8 +7,8 @@
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
 AppId={{4F11F8E2-978C-46EB-B68F-34EF706331E7}
 AppName=Aura
-AppVersion=1.0.1.4
-;AppVerName=Aura 1.0.1.4
+AppVersion=1.0.1.5
+;AppVerName=Aura 1.0.1.5
 AppPublisher=ASTIKS
 DefaultDirName={pf}\Aura
 DefaultGroupName=Aura

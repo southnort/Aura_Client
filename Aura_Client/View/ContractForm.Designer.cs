@@ -52,7 +52,7 @@
             this.contractStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.contractStart.Location = new System.Drawing.Point(218, 85);
             this.contractStart.Name = "contractStart";
-            this.contractStart.Size = new System.Drawing.Size(79, 20);
+            this.contractStart.Size = new System.Drawing.Size(85, 20);
             this.contractStart.TabIndex = 1;
             this.contractStart.CloseUp += new System.EventHandler(this.dateTime_ValueChanged);
             this.contractStart.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dateTimeField_KeyUp);
@@ -80,7 +80,7 @@
             this.contractEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.contractEnd.Location = new System.Drawing.Point(218, 112);
             this.contractEnd.Name = "contractEnd";
-            this.contractEnd.Size = new System.Drawing.Size(79, 20);
+            this.contractEnd.Size = new System.Drawing.Size(85, 20);
             this.contractEnd.TabIndex = 4;
             this.contractEnd.CloseUp += new System.EventHandler(this.dateTime_ValueChanged);
             this.contractEnd.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dateTimeField_KeyUp);

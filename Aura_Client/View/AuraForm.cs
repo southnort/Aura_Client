@@ -99,9 +99,10 @@ namespace Aura_Client.View
             {
                 picker.Format = DateTimePickerFormat.Custom;
                 picker.CustomFormat = "dd.MM.yyyy   HH : mm";
-                  picker.Value = date;
+                picker.Value = date;
             }
-        }
+        }    
+
 
         protected void SetCombobox(ComboBox box, int id)
         {

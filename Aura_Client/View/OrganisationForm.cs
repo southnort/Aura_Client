@@ -83,12 +83,18 @@ namespace Aura_Client.View
 
                 row.Cells["id"].Value = contract.id;
                 row.Cells["contractNumber"].Value = contract.contractNumber;
+
                 row.Cells["contractStart"].Value = ConvertDateToShortText(contract.contractStart);
                 row.Cells["contractEnd"].Value = ConvertDateToShortText(contract.contractEnd);
 
+                //row.Cells["contractStart"].Value = contract.contractStart;
+                //row.Cells["contractEnd"].Value = contract.contractEnd;
+
+
+
             }
 
-            
+
         }
 
 
