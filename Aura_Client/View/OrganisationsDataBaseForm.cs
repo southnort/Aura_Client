@@ -19,13 +19,64 @@ namespace Aura_Client.View
             InitializeComponent();
 
             LoadCatalogs();
+            CreateTable();
             InitToolTips();
+            InitContextMenuStrip();
             creator = new Controller.CommandStringCreator("Organisations");
             ReloadTable();
             onlyShowing = onlyShow;
 
         }
 
+        private void CreateTable()
+        {
+            organisationsDataGridView.Columns.Add("id", "id");
+            organisationsDataGridView.Columns["id"].Width = 50;
+
+            organisationsDataGridView.Columns.Add("name", "Наименование");
+            organisationsDataGridView.Columns["name"].Width = 250;
+
+            organisationsDataGridView.Columns.Add("inn", "ИНН");
+            organisationsDataGridView.Columns["inn"].Width = 150;
+
+            organisationsDataGridView.Columns.Add("phoneNumber", "Телефон");
+            organisationsDataGridView.Columns["phoneNumber"].Width = 100;
+
+            organisationsDataGridView.Columns.Add("contactName", "Контактное лицо");
+            organisationsDataGridView.Columns["contactName"].Width = 150;
+
+            organisationsDataGridView.Columns.Add("email", "email");
+            organisationsDataGridView.Columns["email"].Width = 150;
+
+            organisationsDataGridView.Columns.Add("originalID", "Оригинал");
+            organisationsDataGridView.Columns["originalID"].Width = 100;
+
+            organisationsDataGridView.Columns.Add("contractNumber", "Номер договора");
+            organisationsDataGridView.Columns["contractNumber"].Width = 150;
+
+            organisationsDataGridView.Columns.Add("contractStart", "Срок с");
+            organisationsDataGridView.Columns["contractStart"].Width = 100;
+
+            organisationsDataGridView.Columns.Add("contractEnd", "Срок по");
+            organisationsDataGridView.Columns["contractEnd"].Width = 100;
+
+            organisationsDataGridView.Columns.Add("comments", "Комментарии");
+            organisationsDataGridView.Columns["comments"].Width = 200;
+
+            organisationsDataGridView.Columns.Add("contractCondition", "Состояние");
+            organisationsDataGridView.Columns["contractCondition"].Width = 100;
+
+            organisationsDataGridView.Columns.Add("law", "Закон");
+            organisationsDataGridView.Columns["law"].Width = 50;
+
+            organisationsDataGridView.Columns.Add("contractType", "Тип");
+            organisationsDataGridView.Columns["contractType"].Width = 100;
+
+
+
+            SetColumnOrder(organisationsDataGridView);
+
+        }
 
         private void LoadCatalogs()
         {
@@ -44,8 +95,44 @@ namespace Aura_Client.View
         {
             toolTip1.SetToolTip(refreshTableButton, "Обновить");
             toolTip1.SetToolTip(clearFilterButton, "Очистить фильтр");
+            toolTip1.SetToolTip(columnsOptionsButton, "Настроить список");
+
         }
 
+        private void InitContextMenuStrip()
+        {
+            foreach (ToolStripMenuItem item in contextMenuStrip1.Items)
+            {
+                item.Click -= MenuItemOnClick;
+            }
+
+            contextMenuStrip1.Items.Clear();
+
+            foreach (DataGridViewColumn column in organisationsDataGridView.Columns)
+            {
+                var item = new ToolStripMenuItem()
+                {
+                    Checked = column.Visible,
+                    Text = column.HeaderText,
+                    Name = column.Name,
+                };
+
+                item.Click += MenuItemOnClick;
+                contextMenuStrip1.Items.Add(item);
+
+            }
+
+
+        }
+
+        private void MenuItemOnClick(object sender, EventArgs eventArgs)
+        {
+            var target = (ToolStripMenuItem)sender;
+
+            target.Checked = !target.Checked;
+
+            organisationsDataGridView.Columns[target.Name].Visible = target.Checked;
+        }
 
         private void ReloadTable()
         {
@@ -56,9 +143,9 @@ namespace Aura_Client.View
 
         private void ClearTable()
         {
-            if (dataGridView1.Rows.Count > 0)
+            if (organisationsDataGridView.Rows.Count > 0)
             {
-                dataGridView1.Rows.Clear();
+                organisationsDataGridView.Rows.Clear();
             }
 
         }
@@ -69,16 +156,33 @@ namespace Aura_Client.View
             {
                 foreach (var org in organisations)
                 {
-                    if (org == null) return;
+                    if (org != null)
+                    {
+                        int rowIndex = organisationsDataGridView.Rows.Add();
+                        var newRow = organisationsDataGridView.Rows[rowIndex];
 
-                    object[] newRow = new object[4];
-                    newRow[0] = org.id;
-                    newRow[1] = org.name;
-                    newRow[2] = org.inn;
-                    newRow[3] = Catalog.laws[org.law];
+                        newRow.Cells["id"].Value = org.id;
+                        newRow.Cells["name"].Value = org.name;
+                        newRow.Cells["inn"].Value = org.inn;
+                        newRow.Cells["phoneNumber"].Value = org.phoneNumber;
+                        newRow.Cells["contactName"].Value = org.contactName;
+                        newRow.Cells["email"].Value = org.email;
 
-                    dataGridView1.Rows.Add(newRow);
+                        newRow.Cells["originalID"].Value =
+                            Catalog.contractOriginalConditions[org.originalID];
+                        newRow.Cells["contractNumber"].Value = org.contractNumber;
+                        newRow.Cells["contractStart"].Value =
+                            ConvertDateToShortText(org.contractStart);
+                        newRow.Cells["contractEnd"].Value =
+                            ConvertDateToShortText(org.contractEnd);
 
+                        newRow.Cells["comments"].Value = org.comments;
+                        newRow.Cells["contractCondition"].Value =
+                            Catalog.contractConditions[org.contractCondition];
+                        newRow.Cells["law"].Value = Catalog.laws[org.law];
+                        newRow.Cells["contractType"].Value =
+                            Catalog.contractTypes[org.contractType];
+                    }
                 }
             }
         }
@@ -188,9 +292,9 @@ namespace Aura_Client.View
 
         private void deleteOrganisationButton_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.CurrentRow != null)
+            if (organisationsDataGridView.CurrentRow != null)
             {
-                string id = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                string id = organisationsDataGridView.CurrentRow.Cells[0].Value.ToString();
                 Organisation org = Program.dataManager.GetOrganisation(id);
 
                 string text = "Вы действительно хотите удалить организацию\n" + org.name + "?";
@@ -206,6 +310,22 @@ namespace Aura_Client.View
                 }
             }
 
+        }
+
+        private void OrganisationsDataBaseForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SaveColumnOrder(organisationsDataGridView);
+        }
+
+        private void columnsOptionsButton_Click(object sender, EventArgs e)
+        {
+            contextMenuStrip1.Show();
+        }
+
+        private void contextMenuStrip1_Closing(object sender, ToolStripDropDownClosingEventArgs e)
+        {
+            if (e.CloseReason == ToolStripDropDownCloseReason.ItemClicked)
+                e.Cancel = true;
         }
     }
 }

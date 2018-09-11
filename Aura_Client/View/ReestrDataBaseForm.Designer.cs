@@ -44,10 +44,10 @@
             this.columnsOptionsButton = new System.Windows.Forms.Button();
             this.refreshButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.addNewPurchaseButton = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.addNewPurchaseButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.reestrDataGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -208,16 +208,6 @@
             this.panel2.Size = new System.Drawing.Size(1342, 61);
             this.panel2.TabIndex = 2;
             // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 200;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
             // addNewPurchaseButton
             // 
             this.addNewPurchaseButton.Location = new System.Drawing.Point(3, 3);
@@ -227,6 +217,17 @@
             this.addNewPurchaseButton.Text = "Добавить информацию о договоре";
             this.addNewPurchaseButton.UseVisualStyleBackColor = true;
             this.addNewPurchaseButton.Click += new System.EventHandler(this.addNewPurchaseButton_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 200;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 26);
+            this.contextMenuStrip1.Closing += new System.Windows.Forms.ToolStripDropDownClosingEventHandler(this.contextMenuStrip1_Closing);
             // 
             // ReestrDataBaseForm
             // 

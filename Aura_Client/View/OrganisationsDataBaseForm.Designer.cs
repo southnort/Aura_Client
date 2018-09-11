@@ -34,6 +34,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.columnsOptionsButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.contractType = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -47,16 +48,13 @@
             this.addNewOrgButton = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.deleteOrganisationButton = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.organisationsDataGridView = new System.Windows.Forms.DataGridView();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.organisationsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -87,6 +85,7 @@
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.Controls.Add(this.columnsOptionsButton);
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.contractType);
             this.panel3.Controls.Add(this.label3);
@@ -101,8 +100,19 @@
             this.panel3.Controls.Add(this.panel2);
             this.panel3.Location = new System.Drawing.Point(12, 12);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(588, 56);
+            this.panel3.Size = new System.Drawing.Size(588, 78);
             this.panel3.TabIndex = 5;
+            // 
+            // columnsOptionsButton
+            // 
+            this.columnsOptionsButton.BackgroundImage = global::Aura_Client.Properties.Resources.Settings_Icon;
+            this.columnsOptionsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.columnsOptionsButton.Location = new System.Drawing.Point(3, 41);
+            this.columnsOptionsButton.Name = "columnsOptionsButton";
+            this.columnsOptionsButton.Size = new System.Drawing.Size(32, 32);
+            this.columnsOptionsButton.TabIndex = 16;
+            this.columnsOptionsButton.UseVisualStyleBackColor = true;
+            this.columnsOptionsButton.Click += new System.EventHandler(this.columnsOptionsButton_Click);
             // 
             // label4
             // 
@@ -182,7 +192,7 @@
             // 
             this.clearFilterButton.BackgroundImage = global::Aura_Client.Properties.Resources.ClearFilter_Icon;
             this.clearFilterButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.clearFilterButton.Location = new System.Drawing.Point(41, 9);
+            this.clearFilterButton.Location = new System.Drawing.Point(41, 3);
             this.clearFilterButton.Name = "clearFilterButton";
             this.clearFilterButton.Size = new System.Drawing.Size(32, 32);
             this.clearFilterButton.TabIndex = 6;
@@ -193,7 +203,7 @@
             // 
             this.refreshTableButton.BackgroundImage = global::Aura_Client.Properties.Resources.Refresh_Icon;
             this.refreshTableButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.refreshTableButton.Location = new System.Drawing.Point(3, 9);
+            this.refreshTableButton.Location = new System.Drawing.Point(3, 3);
             this.refreshTableButton.Name = "refreshTableButton";
             this.refreshTableButton.Size = new System.Drawing.Size(32, 32);
             this.refreshTableButton.TabIndex = 5;
@@ -231,67 +241,47 @@
             this.deleteOrganisationButton.UseVisualStyleBackColor = true;
             this.deleteOrganisationButton.Click += new System.EventHandler(this.deleteOrganisationButton_Click);
             // 
-            // dataGridView1
+            // organisationsDataGridView
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.organisationsDataGridView.AllowUserToAddRows = false;
+            this.organisationsDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4});
-            this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 74);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(588, 378);
-            this.dataGridView1.TabIndex = 3;
-            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            this.dataGridView1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.anyKey_KeyUp);
+            this.organisationsDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.organisationsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.organisationsDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.organisationsDataGridView.Location = new System.Drawing.Point(12, 96);
+            this.organisationsDataGridView.Name = "organisationsDataGridView";
+            this.organisationsDataGridView.Size = new System.Drawing.Size(588, 356);
+            this.organisationsDataGridView.TabIndex = 3;
+            this.organisationsDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.organisationsDataGridView.KeyUp += new System.Windows.Forms.KeyEventHandler(this.anyKey_KeyUp);
             // 
-            // Column1
+            // contextMenuStrip1
             // 
-            this.Column1.HeaderText = "ID";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 35;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Наименование";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 300;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "ИНН";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Закон";
-            this.Column4.Name = "Column4";
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 26);
+            this.contextMenuStrip1.Closing += new System.Windows.Forms.ToolStripDropDownClosingEventHandler(this.contextMenuStrip1_Closing);
             // 
             // OrganisationsDataBaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(612, 531);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.organisationsDataGridView);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "OrganisationsDataBaseForm";
             this.Text = "Список организаций";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OrganisationsDataBaseForm_FormClosing);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.anyKey_KeyUp);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.organisationsDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -304,11 +294,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button addNewOrgButton;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridView organisationsDataGridView;
         private System.Windows.Forms.Button refreshTableButton;
         private System.Windows.Forms.TextBox name;
         private System.Windows.Forms.Label label2;
@@ -321,5 +307,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox law;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button columnsOptionsButton;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }
