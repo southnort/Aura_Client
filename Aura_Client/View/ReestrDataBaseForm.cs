@@ -17,6 +17,7 @@ namespace Aura_Client.View
 
             LoadCatalogs();
             creator = new Controller.CommandStringCreator("Purchases");
+            RefreshCreator();
             CreateTable();
             InitContextMenuStrip();
             ReloadTable();
@@ -203,6 +204,11 @@ namespace Aura_Client.View
 
         }
 
+        private void RefreshCreator()
+        {
+            //при открытии окна или при сбросе фильтрации нужно добавлять в фильтрацию статус закупки
+            creator.AddFilter("statusID_Min", "7");
+        }
 
 
 
@@ -255,7 +261,7 @@ namespace Aura_Client.View
         private void ReloadTable()
         {
             ClearTable();
-            FillTable(Program.dataManager.GetReestr());
+            FillTable(Program.dataManager.GetReestr(creator.ToFilterCommand()));
         }
 
         private void ClearTable()
@@ -476,6 +482,7 @@ namespace Aura_Client.View
             purchaseEisNum.Clear();
 
             creator.ClearFilters();
+            RefreshCreator();
         }
 
         private void addNewPurchaseButton_Click(object sender, EventArgs e)
@@ -494,6 +501,11 @@ namespace Aura_Client.View
         {
             if (e.CloseReason == ToolStripDropDownCloseReason.ItemClicked)
                 e.Cancel = true;
+        }
+
+        private void refreshButton_Click(object sender, EventArgs e)
+        {
+            ReloadTable();
         }
     }
 }

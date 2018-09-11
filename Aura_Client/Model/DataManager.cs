@@ -52,6 +52,21 @@ namespace Aura_Client.Model
             return purchases;
         }
 
+        public List<Purchase> GetFilteredPurchases(string filterQuery)
+        {
+            //Запросить с сервера список закупок, отфильтрованных по условиям
+
+            var dataTable = Program.bridge.GetObject<DataTable>("GETDATATABLE#" + filterQuery);
+            List<Purchase> purchases = new List<Purchase>();
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                purchases.Add(new Purchase(row));
+            }
+
+            return purchases;
+        }
+
         public Purchase GetPurchase(string id)
         {
             return Program.bridge.GetObject<Purchase>("GETPURCHASE#" + id);
@@ -70,9 +85,9 @@ namespace Aura_Client.Model
 
         }
 
-        public List<Purchase> GetReestr()
+        public List<Purchase> GetReestr(string filterQuery)
         {
-            return Program.bridge.GetObject<List<Purchase>>("GETREESTR");
+            return Program.bridge.GetObject<List<Purchase>>("GETREESTR#" + filterQuery);
 
         }
 

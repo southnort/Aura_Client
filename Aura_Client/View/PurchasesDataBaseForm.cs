@@ -220,7 +220,7 @@ namespace Aura_Client.View
         private void ReloadTable()
         {
             ClearTable();
-            FillTable(Program.dataManager.GetAllPurchases());
+            FillTable(Program.dataManager.GetFilteredPurchases(creator.ToFilterCommand()));
         }
 
         private void FillTable(List<Purchase> purchases)
@@ -510,7 +510,7 @@ namespace Aura_Client.View
 
         }
 
-        private void resreshButton_Click(object sender, EventArgs e)
+        private void refreshButton_Click(object sender, EventArgs e)
         {
             ReloadTable();
         }

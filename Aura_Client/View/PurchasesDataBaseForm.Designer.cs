@@ -221,7 +221,7 @@
             this.refreshButton.Size = new System.Drawing.Size(32, 32);
             this.refreshButton.TabIndex = 0;
             this.refreshButton.UseVisualStyleBackColor = true;
-            this.refreshButton.Click += new System.EventHandler(this.resreshButton_Click);
+            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
             // 
             // panel2
             // 

@@ -54,9 +54,11 @@ namespace Aura_Client
         {
             if (Properties.settings.Default.UpgradeRequired)
             {
+                DataGridViewSetting.Default.Upgrade();
                 Properties.settings.Default.Upgrade();
                 Properties.settings.Default.UpgradeRequired = false;
                 Properties.settings.Default.Save();
+
             }
 
             

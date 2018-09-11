@@ -24,11 +24,7 @@ namespace Aura_Client.View
             get { return this["ColumnOrder"] as Dictionary<string, List<ColumnOrderItem>>; }
             set { this["ColumnOrder"] = value; }
         }
-
-        public DataGridViewSetting()
-        {
-            Upgrade();
-        }
+       
     }
 
     [Serializable]
