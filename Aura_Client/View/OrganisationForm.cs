@@ -131,7 +131,7 @@ namespace Aura_Client.View
 
             if (result == DialogResult.OK)
             {
-
+                FillTable(organisation);
             }
 
         }

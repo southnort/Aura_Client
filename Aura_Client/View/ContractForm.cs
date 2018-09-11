@@ -12,6 +12,7 @@ namespace Aura_Client.View
         {
             InitializeComponent();
             creator = new Controller.CommandStringCreator("Contracts", contract.id.ToString());
+            creator.Add("organisationID", contract.organisationID.ToString());
             this.contract = contract;
             Fill(contract);
         }

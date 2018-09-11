@@ -139,7 +139,7 @@ namespace Aura_Client.Model
 
         public void DeleteContract(string id)
         {
-            Program.bridge.SendMessage("EXECUTECOMMAND#
+            Program.bridge.SendMessage("EXECUTECOMMAND#DELETE FROM Contracts WHERE id ='" + id + "'");
         }
 
     }
