@@ -43,26 +43,43 @@
     </dependentAssembly>
   </dependency>
   <dependency>
+<<<<<<< HEAD
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Aura_Client.exe" size="4501408">
+=======
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Aura_Client.exe" size="4500360">
+>>>>>>> 95d5f31a234df06f9d67dcba5574f5acdc8e8d4e
       <assemblyIdentity name="Aura_Client" version="1.0.1.5" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+<<<<<<< HEAD
         <dsig:DigestValue>AatS6T0CVrSpU+MI+7e03VFIURs=</dsig:DigestValue>
+=======
+        <dsig:DigestValue>GSsy+AXt/W5KnogloFTrzO1bDbs=</dsig:DigestValue>
+>>>>>>> 95d5f31a234df06f9d67dcba5574f5acdc8e8d4e
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
+<<<<<<< HEAD
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Aura_DLL.dll" size="10752">
       <assemblyIdentity name="Aura_DLL" version="1.0.2.0" language="neutral" processorArchitecture="msil" />
+=======
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Aura_DLL.dll" size="10240">
+      <assemblyIdentity name="Aura_DLL" version="1.0.1.5" language="neutral" processorArchitecture="msil" />
+>>>>>>> 95d5f31a234df06f9d67dcba5574f5acdc8e8d4e
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+<<<<<<< HEAD
         <dsig:DigestValue>/9LUQ5CSlLws+wo2IfrQgxlVZes=</dsig:DigestValue>
+=======
+        <dsig:DigestValue>Ukm010KR6TsQLA08tN2w4kt3hR8=</dsig:DigestValue>
+>>>>>>> 95d5f31a234df06f9d67dcba5574f5acdc8e8d4e
       </hash>
     </dependentAssembly>
   </dependency>
