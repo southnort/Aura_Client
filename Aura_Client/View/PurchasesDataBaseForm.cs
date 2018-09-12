@@ -11,7 +11,7 @@ namespace Aura_Client.View
     public partial class PurchasesDataBaseForm : AuraForm
     {
 
-        public PurchasesDataBaseForm()
+        public PurchasesDataBaseForm() : base()
         {
             InitializeComponent();
 

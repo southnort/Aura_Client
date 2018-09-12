@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Text;
 using Aura.Model;
 
 namespace Aura_Client.View
@@ -8,7 +9,7 @@ namespace Aura_Client.View
     {
         private Contract contract;
 
-        public ContractForm(Contract contract)
+        public ContractForm(Contract contract) : base()
         {
             InitializeComponent();
             creator = new Controller.CommandStringCreator("Contracts", contract.id.ToString());
@@ -27,8 +28,11 @@ namespace Aura_Client.View
 
         private void SendToServer()
         {
+            //отправить на сервер в БД новые данные
             if (creator.IsNotEmpty())
             {
+                UpdateOrganisation();
+
                 if (contract.id < 1)
                 {
                     Program.bridge.SendMessage("EXECUTECOMMAND#" + creator.ToNew());
@@ -39,6 +43,25 @@ namespace Aura_Client.View
                     Program.bridge.SendMessage("EXECUTECOMMAND#" + creator.ToUpdate());
                 }
             }
+        }
+
+        private void UpdateOrganisation()
+        {
+            //при редактировании данных договора - обновить эти данные в карточке оргнизации
+            StringBuilder sb = new StringBuilder();
+            sb.Append("UPDATE Organisations SET ");
+            sb.Append("contractNumber = '");
+            sb.Append(contractNumber.Text);
+            sb.Append("', contractStart = '");
+            sb.Append(contractStart.Value.ToString("yyyy-MM-dd"));
+            sb.Append("', contractEnd = '");
+            sb.Append(contractEnd.Value.ToString("yyyy-MM-dd"));
+            sb.Append("' WHERE id = '");
+            sb.Append(contract.organisationID);
+            sb.Append("'");
+
+            Program.bridge.SendMessage("EXECUTECOMMAND#" + sb.ToString());
+
         }
 
 
@@ -52,7 +75,7 @@ namespace Aura_Client.View
         {
             base.textBox_ValueChanged(sender, e);
         }
-       
+
         private void dateTimeField_KeyUp(object sender, KeyEventArgs e)
         {
             base.dateTime_ValueChanged(sender, e);
@@ -63,12 +86,19 @@ namespace Aura_Client.View
         private void okButton_Click(object sender, EventArgs e)
         {
             SendToServer();
-            DialogResult = DialogResult.OK;
+            okButton.Enabled = false;
+            cancelButton.Enabled = false;
+            timer1.Start();
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.OK;
         }
     }
 }

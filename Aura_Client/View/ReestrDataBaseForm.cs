@@ -11,7 +11,7 @@ namespace Aura_Client.View
 {
     public partial class ReestrDataBaseForm : AuraForm
     {
-        public ReestrDataBaseForm()
+        public ReestrDataBaseForm() : base()
         {
             InitializeComponent();
 

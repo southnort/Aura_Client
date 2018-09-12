@@ -1,13 +1,8 @@
-﻿using System;
+﻿using Aura.Model;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using Aura.Model;
-using Aura_Client.Model;
 
 namespace Aura_Client.View
 {

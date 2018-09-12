@@ -9,7 +9,7 @@ namespace Aura_Client.View
     public partial class DayInCalendarFullForm : AuraForm
     {
         //Максимально подробная форма дня из календаря
-        public DayInCalendarFullForm(DayInCalendar day)
+        public DayInCalendarFullForm(DayInCalendar day) : base()
         {
             InitializeComponent();
 
@@ -26,7 +26,7 @@ namespace Aura_Client.View
             foreach (var ev in day.events)
             {
                 Button button = CreateButton(ev);
-                
+
                 int x = 15;
                 int y = (mainPanel.Controls.Count) * (button.Height + 5) + 5;
                 button.Location = new Point(x, y);

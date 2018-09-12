@@ -24,14 +24,14 @@ namespace Aura_Client.View
         private Color notReadyColor = Color.LightGray;       //цвет кнопки для несделанного отчета
 
 
-        public ReportsDataBaseForm()
+        public ReportsDataBaseForm() : base()
         {
             InitializeComponent();
             creator = new Controller.CommandStringCreator("Reports", "");
 
             month = DateTime.Now.Month.ToString();
             year = DateTime.Now.Year.ToString();
-           
+
             organisations = Program.dataManager.GetFilteredOrganisations
                 ("SELECT * FROM Organisations WHERE law = 2 AND contractType = 1");
             reports = Program.dataManager.GetAllReports();

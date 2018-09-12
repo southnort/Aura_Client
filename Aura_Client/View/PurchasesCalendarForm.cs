@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using Aura.Model;
+﻿using Aura.Model;
 using Aura_Client.Model;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
 
 namespace Aura_Client.View
 {
@@ -18,7 +13,7 @@ namespace Aura_Client.View
         private int year;       //выбранный для отображения год
 
 
-        public PurchasesCalendarForm()
+        public PurchasesCalendarForm() : base()
         {
             InitializeComponent();
 

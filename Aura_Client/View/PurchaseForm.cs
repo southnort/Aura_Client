@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using Aura.Model;
-using Aura_Client.Model;
+﻿using Aura.Model;
 using Aura_Client.Controller;
+using Aura_Client.Model;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace Aura_Client.View
 {
@@ -16,7 +11,7 @@ namespace Aura_Client.View
     {
         private Purchase purchase;
 
-        public PurchaseForm(Purchase purchase)
+        public PurchaseForm(Purchase purchase) : base()
         {
             InitializeComponent();
             this.purchase = purchase;
@@ -396,7 +391,7 @@ namespace Aura_Client.View
 
         }
 
-        
+
     }
 
 }

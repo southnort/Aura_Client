@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Aura_Client")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("ASTIKS")]
 [assembly: AssemblyProduct("Aura_Client")]
 [assembly: AssemblyCopyright("Copyright ©  2018 Yaroslav Yanochkin")]
 [assembly: AssemblyTrademark("")]

@@ -11,6 +11,18 @@ namespace Aura_Client.View
     //базовый класс для форм
     public partial class AuraForm : Form, IShowable
     {
+        public AuraForm()
+        {
+           base.KeyUp += EscapeKeyPressed;
+        }
+
+        protected void EscapeKeyPressed(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+                DialogResult = DialogResult.Cancel;
+        }
+
+
         protected CommandStringCreator creator;
 
         public void OpenAuraForm()

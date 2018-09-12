@@ -13,7 +13,7 @@ namespace Aura_Client.View
 
 
 
-        public OrganisationForm(Organisation organisation)
+        public OrganisationForm(Organisation organisation) : base()
         {
             InitializeComponent();
             this.organisation = organisation;
@@ -61,11 +61,12 @@ namespace Aura_Client.View
             originalID.SelectedIndex = org.originalID;
             law.SelectedIndex = org.law;
             contractType.SelectedIndex = org.contractType;
+            comments.Text = org.comments;
 
             if (org.id < 1)
             {
-                addNewContractButton.Enabled = false;
-                removeContractButton.Enabled = false;
+                addNewContractButton.Hide();
+                removeContractButton.Hide();
             }
         }
 
@@ -88,7 +89,7 @@ namespace Aura_Client.View
 
             }
 
-            
+
         }
 
 
@@ -147,7 +148,7 @@ namespace Aura_Client.View
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
-            
+
         }
 
         private void SendToServer()
@@ -196,6 +197,10 @@ namespace Aura_Client.View
                 if (dialogResult == DialogResult.Yes)
                 {
                     Program.dataManager.DeleteContract(id);
+                    creator.Add("contractNumber", "");
+                    creator.Add("contractStart", DateTime.MinValue.ToString());
+                    creator.Add("contractEnd", DateTime.MinValue.ToString());
+                    SendToServer();
                     contractsDataGridView.Rows.Remove(row);
                 }
 

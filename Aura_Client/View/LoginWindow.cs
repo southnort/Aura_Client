@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Threading;
 
 namespace Aura_Client.View
 {
-    public partial class LoginWindow : Form
+    public partial class LoginWindow : AuraForm
     {
-        public LoginWindow()
+        public LoginWindow() : base()
         {
             InitializeComponent();
             label3.Text = "\"Аура-Клиент\" приветствует Вас";
@@ -19,7 +18,7 @@ namespace Aura_Client.View
                 loginTextBox.Text = Properties.settings.Default.Login;
                 passwordTextBox.Text = Properties.settings.Default.Password;
             }
-            
+
         }
 
         private void tryLoginButton_Click(object sender, EventArgs e)
@@ -27,13 +26,13 @@ namespace Aura_Client.View
             if (loginTextBox.Text != string.Empty && passwordTextBox.Text != string.Empty)
             {
                 resultTextLabel.Text = "Соединяемся с сервером...";
-               // Thread loginThread = new Thread(new ThreadStart(() =>
-               //{
-                   string result = Program.bridge.TryLogin(loginTextBox.Text, passwordTextBox.Text);
-                   SetLoginResult(result);
-               //}));
+                // Thread loginThread = new Thread(new ThreadStart(() =>
+                //{
+                string result = Program.bridge.TryLogin(loginTextBox.Text, passwordTextBox.Text);
+                SetLoginResult(result);
+                //}));
 
-               // loginThread.Start();
+                // loginThread.Start();
 
 
             }
@@ -41,7 +40,7 @@ namespace Aura_Client.View
 
         }
 
-       
+
 
         public void SetLoginResult(string result)
         {
@@ -66,8 +65,8 @@ namespace Aura_Client.View
                     {
                         ChangeLoginResultText("Аутентификация пройдена. Загрузка данных...", Color.Green);
                         Properties.settings.Default.Login = loginTextBox.Text;
-                        if(savePasswordCheckBox.Checked)
-                        Properties.settings.Default.Password = passwordTextBox.Text;
+                        if (savePasswordCheckBox.Checked)
+                            Properties.settings.Default.Password = passwordTextBox.Text;
                         Properties.settings.Default.SavePassword = savePasswordCheckBox.Checked;
 
                         Properties.settings.Default.Save();
@@ -91,7 +90,7 @@ namespace Aura_Client.View
             {
                 resultTextLabel.Text = text;
                 resultTextLabel.ForeColor = color;
-                if(color == Color.Green) Close();
+                if (color == Color.Green) Close();
             }));
         }
 

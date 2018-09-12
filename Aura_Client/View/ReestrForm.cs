@@ -15,7 +15,7 @@ namespace Aura_Client.View
     {
         private Purchase purchase;
 
-        public ReestrForm(Purchase purchase)
+        public ReestrForm(Purchase purchase) : base()
         {
             InitializeComponent();
             this.purchase = purchase;

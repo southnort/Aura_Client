@@ -1,23 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
+﻿using Aura.Model;
+using System;
 using System.Text;
 using System.Windows.Forms;
-using Aura.Model;
 
 namespace Aura_Client.View
 {
-    public partial class OpenUserForm : Form
+    public partial class OpenUserForm : AuraForm
     {
         //форма представляет конкретного одиночного юзера
         //через эту форму можно добавлять юзеров в БД и редактировать их
 
         public User returnUser;
 
-        public OpenUserForm(User user)
+        public OpenUserForm(User user) : base()
         {
             InitializeComponent();
 

@@ -311,7 +311,7 @@
             this.contractsDataGridView.RowTemplate.Height = 35;
             this.contractsDataGridView.Size = new System.Drawing.Size(260, 219);
             this.contractsDataGridView.TabIndex = 29;
-            this.contractsDataGridView.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.contractsDataGridView_CellContentClick);
+            this.contractsDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.contractsDataGridView_CellContentClick);
             // 
             // id
             // 

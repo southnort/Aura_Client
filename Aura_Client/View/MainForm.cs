@@ -23,7 +23,7 @@ namespace Aura_Client.View
 
         private void OpenPurchasesList()
         {
-            var purchasesDataBaseForm = 
+            var purchasesDataBaseForm =
                 new PurchasesDataBaseForm();
             purchasesDataBaseForm.Show();
 
