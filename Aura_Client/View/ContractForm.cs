@@ -31,7 +31,7 @@ namespace Aura_Client.View
             //отправить на сервер в БД новые данные
             if (creator.IsNotEmpty())
             {
-                UpdateOrganisation();
+               // UpdateOrganisation();
 
                 if (contract.id < 1)
                 {
@@ -99,6 +99,14 @@ namespace Aura_Client.View
         private void timer1_Tick(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
+        }
+
+        private void ContractForm_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                DialogResult = DialogResult.Cancel;
+            }
         }
     }
 }

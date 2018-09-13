@@ -152,6 +152,7 @@
             this.Name = "PurchasesCalendarForm";
             this.Text = "PurchasesCalendarForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.PurchasesCalendarForm_KeyUp);
             this.upperPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 

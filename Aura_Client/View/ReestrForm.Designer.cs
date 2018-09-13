@@ -588,6 +588,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ReestrForm";
             this.Text = "Договор в реестре";
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ReestrForm_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.purchacePrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contractPrice)).EndInit();
             this.ResumeLayout(false);

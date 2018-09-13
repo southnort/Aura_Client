@@ -348,14 +348,21 @@ namespace Aura_Client.View
             //проверка, должна ли закупка добавляться в список
 
             //проверяем права юзера
-            //админы видят все закупки            
-            if (Program.user.roleID == 0)
-                return true;
+            //админы видят все закупки  
+            //завершенные закупки не добавляются в список
+
+            if (pur.statusID == 8) return false;
 
             else
             {
-                //юзеры должны видеть только закупки по их законам
-                return Program.user.roleID == pur.law;
+                if (Program.user.roleID == 0)
+                    return true;
+
+                else
+                {
+                    //юзеры должны видеть только закупки по их законам
+                    return Program.user.roleID == pur.law;
+                }
             }
 
         }
@@ -563,6 +570,15 @@ namespace Aura_Client.View
         {
             if (e.CloseReason == ToolStripDropDownCloseReason.ItemClicked)
                 e.Cancel = true;
+        }
+
+        private void PurchasesDataBaseForm_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                DialogResult = DialogResult.Cancel;
+                Close();
+            }
         }
     }
 }

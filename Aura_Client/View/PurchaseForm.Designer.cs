@@ -817,6 +817,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PurchaseForm";
             this.Text = "Закупка";
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.PurchaseForm_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.purchacePrice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

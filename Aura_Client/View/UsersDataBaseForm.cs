@@ -94,5 +94,13 @@ namespace Aura_Client.View
         {
             ReloadTable();
         }
+
+        private void UsersDataBaseForm_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                DialogResult = DialogResult.Cancel;
+            }
+        }
     }
 }

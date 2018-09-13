@@ -243,6 +243,7 @@
             this.Text = "Реестр договоров";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ReestrDataBaseForm_FormClosing);
             this.Load += new System.EventHandler(this.ReestrDataBaseForm_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ReestrDataBaseForm_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.reestrDataGridView)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

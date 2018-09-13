@@ -206,6 +206,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ReportsDataBaseForm";
             this.Text = "Отчеты заказчиков";
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ReportsDataBaseForm_KeyUp);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

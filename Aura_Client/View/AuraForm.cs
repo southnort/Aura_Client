@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using Aura_Client.Controller;
 using Aura_Client.Model;
@@ -12,16 +11,9 @@ namespace Aura_Client.View
     public partial class AuraForm : Form, IShowable
     {
         public AuraForm()
-        {
-           base.KeyUp += EscapeKeyPressed;
+        {           
+           
         }
-
-        protected void EscapeKeyPressed(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Escape)
-                DialogResult = DialogResult.Cancel;
-        }
-
 
         protected CommandStringCreator creator;
 
@@ -80,6 +72,16 @@ namespace Aura_Client.View
             var box = (NumericUpDown)sender;
             creator.Add(box.Name, box.Value.ToString());
         }
+
+
+        protected virtual void EscapeKeyPressed(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                DialogResult = DialogResult.Cancel;
+            }
+        }
+
 
 
         protected void SetDate(DateTimePicker picker, string date)

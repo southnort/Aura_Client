@@ -66,6 +66,12 @@ namespace Aura_Client.View
             form.ShowDialog();
         }
 
-
+        private void DayInCalendarFullForm_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                DialogResult = DialogResult.Cancel;
+            }
+        }
     }
 }

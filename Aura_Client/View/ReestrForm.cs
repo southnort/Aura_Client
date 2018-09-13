@@ -366,5 +366,12 @@ namespace Aura_Client.View
 
         }
 
+        private void ReestrForm_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                DialogResult = DialogResult.Cancel;
+            }
+        }
     }
 }

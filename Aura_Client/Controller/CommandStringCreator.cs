@@ -209,7 +209,7 @@ namespace Aura_Client.Controller
                     return ToLessString(fieldValue);
 
                 case FilterTypes.Above:
-                    return ToAbveString(fieldValue);
+                    return ToAboveString(fieldValue);
 
                 case FilterTypes.Between:
                     return ToBetweenString();
@@ -249,7 +249,7 @@ namespace Aura_Client.Controller
 
         }
 
-        private string ToAbveString(string comparingField)
+        private string ToAboveString(string comparingField)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -268,7 +268,7 @@ namespace Aura_Client.Controller
             StringBuilder sb = new StringBuilder();
 
             sb.Append("(");
-            sb.Append(ToAbveString(fieldValue));
+            sb.Append(ToAboveString(fieldValue));
             sb.Append(" AND ");
             sb.Append(ToLessString(secondFieldValue));
             sb.Append(")");

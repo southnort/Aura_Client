@@ -407,6 +407,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "OrganisationForm";
             this.Text = "Редактирование данных организации";
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.OrganisationForm_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.contractsDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

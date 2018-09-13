@@ -50,5 +50,13 @@ namespace Aura_Client.View
         {
             DialogResult = DialogResult.Cancel;
         }
+
+        private void ChangePasswordForm_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                DialogResult = DialogResult.Cancel;
+            }
+        }
     }
 }

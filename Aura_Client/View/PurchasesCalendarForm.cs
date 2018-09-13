@@ -3,6 +3,7 @@ using Aura_Client.Model;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace Aura_Client.View
 {
@@ -139,6 +140,13 @@ namespace Aura_Client.View
             return new Point(x * (form.Width + 5), y * (form.Height + 5));
         }
 
+        private void PurchasesCalendarForm_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                DialogResult = DialogResult.Cancel;
+            }
+        }
     }
 
 }

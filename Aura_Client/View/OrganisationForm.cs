@@ -4,6 +4,7 @@ using Aura_Client.Model;
 using System;
 using System.Data;
 using System.Windows.Forms;
+using System.Text;
 
 namespace Aura_Client.View
 {
@@ -138,11 +139,39 @@ namespace Aura_Client.View
 
             if (result == DialogResult.OK)
             {
+               // UpdateContract();
                 FillTable(organisation);
             }
 
         }
 
+        private void UpdateContract()
+        {
+            //взять последние реквизиты договора из таблицы договоров
+            //и заменить эти данные в карточке организации
+
+            DataTable dataTable = Program.dataManager.GetDataTable
+                ("SELECT * FROM Contracts WHERE organisationID = '" + organisation.id + "'");
+            if (dataTable != null)
+            {
+                Contract contract = new Contract(dataTable.Rows[dataTable.Rows.Count-1]);
+
+                StringBuilder sb = new StringBuilder();
+                sb.Append("UPDATE Organisations SET ");
+                sb.Append("contractNumber = '");
+                sb.Append(contract.contractNumber);
+                sb.Append("', contractStart = '");
+                sb.Append(contract.contractStart.ToString("yyyy-MM-dd"));
+                sb.Append("', contractEnd = '");
+                sb.Append(contract.contractEnd.ToString("yyyy-MM-dd"));
+                sb.Append("' WHERE id = '");
+                sb.Append(contract.organisationID);
+                sb.Append("'");
+
+                Program.bridge.SendMessage("EXECUTECOMMAND#" + sb.ToString());
+            }
+
+        }
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
@@ -225,6 +254,14 @@ namespace Aura_Client.View
                 OpenContract(contract);
             }
 
+        }
+
+        private void OrganisationForm_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                DialogResult = DialogResult.Cancel;
+            }
         }
     }
 }

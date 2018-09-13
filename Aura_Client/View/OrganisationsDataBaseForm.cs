@@ -14,7 +14,7 @@ namespace Aura_Client.View
                                         //Если false - клик по организации возвращает её ИД
 
 
-        public OrganisationsDataBaseForm(bool onlyShow = true) : base()
+        public OrganisationsDataBaseForm(bool onlyShow = true)
         {
             InitializeComponent();
 
@@ -288,9 +288,14 @@ namespace Aura_Client.View
                 ReloadTable();
             }
 
+            if (e.KeyCode == Keys.Escape)
+            {
+                DialogResult = DialogResult.Cancel;
+            }
+
         }
 
-        private void deleteOrganisationButton_Click(object sender, EventArgs e)
+    private void deleteOrganisationButton_Click(object sender, EventArgs e)
         {
             if (organisationsDataGridView.CurrentRow != null)
             {

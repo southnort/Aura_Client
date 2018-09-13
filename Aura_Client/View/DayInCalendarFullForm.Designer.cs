@@ -130,6 +130,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "DayInCalendarFullForm";
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.DayInCalendarFullForm_KeyUp);
             this.mainPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

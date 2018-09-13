@@ -264,7 +264,7 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             this.contextMenuStrip1.Closing += new System.Windows.Forms.ToolStripDropDownClosingEventHandler(this.contextMenuStrip1_Closing);
             // 
             // PurchasesDataBaseForm
@@ -280,6 +280,7 @@
             this.Text = "Все закупки";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PurchasesDataBaseForm_FormClosing);
             this.Load += new System.EventHandler(this.PurchasesDataBaseForm_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.PurchasesDataBaseForm_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.purchasesDataGridView)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

@@ -126,6 +126,7 @@
             this.MinimizeBox = false;
             this.Name = "ChangePasswordForm";
             this.Text = "Сменить пароль";
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ChangePasswordForm_KeyUp);
             this.ResumeLayout(false);
             this.PerformLayout();
 

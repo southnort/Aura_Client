@@ -25,39 +25,39 @@ namespace Aura_Client.View
         {
             var purchasesDataBaseForm =
                 new PurchasesDataBaseForm();
-            purchasesDataBaseForm.Show();
+            purchasesDataBaseForm.ShowDialog();
 
         }
 
         private void OpenCalendar()
         {
             var purchasesCalendarForm = new PurchasesCalendarForm();
-            purchasesCalendarForm.Show();
+            purchasesCalendarForm.ShowDialog();
         }
 
         private void usersButton_Click(object sender, EventArgs e)
         {
             UsersDataBaseForm usersDataBaseForm = new UsersDataBaseForm();
-            usersDataBaseForm.Show();
+            usersDataBaseForm.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             OrganisationsDataBaseForm form = new OrganisationsDataBaseForm();
-            form.Show();
+            form.ShowDialog();
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             ReestrDataBaseForm form = new ReestrDataBaseForm();
-            form.Show();
+            form.ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             ReportsDataBaseForm form = new ReportsDataBaseForm();
-            form.Show();
+            form.ShowDialog();
         }
 
         private void switchUserButton_Click(object sender, EventArgs e)

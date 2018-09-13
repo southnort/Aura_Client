@@ -101,7 +101,6 @@ namespace Aura_Client.View
             if (e.KeyCode == Keys.Escape)
             {
                 DialogResult = DialogResult.Cancel;
-                Close();
             }
         }
     }

@@ -164,6 +164,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UsersDataBaseForm";
             this.Text = "Пользователи системы";
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.UsersDataBaseForm_KeyUp);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

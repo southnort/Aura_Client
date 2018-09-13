@@ -149,7 +149,6 @@
             this.Name = "LoginWindow";
             this.Text = "Аутентификация";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LoginWindow_FormClosing);
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.anyKey_KeyUp);
             this.ResumeLayout(false);
             this.PerformLayout();
 

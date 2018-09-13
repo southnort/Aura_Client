@@ -140,6 +140,7 @@
             this.MinimizeBox = false;
             this.Name = "ContractForm";
             this.Text = "Информация о договоре";
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ContractForm_KeyUp);
             this.ResumeLayout(false);
             this.PerformLayout();
 
