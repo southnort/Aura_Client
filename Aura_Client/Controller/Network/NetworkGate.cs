@@ -137,6 +137,7 @@ namespace Aura_Client.Network
         protected internal void SendMessage(string message)
         {
             //отправить сообщение, не требующее ответа
+            Console.WriteLine("\n###################\n"+message);
             byte[] data = Encoding.Unicode.GetBytes(message);
             Send(data);
 
@@ -145,6 +146,7 @@ namespace Aura_Client.Network
         protected internal void SendObject(object ob)
         {
             //сериализовать и отправить объект. Ответ не требуется
+            Console.WriteLine("\n################\n" + ob.ToString());
             BinaryFormatter bf = new BinaryFormatter();
             MemoryStream ms = new MemoryStream();
 
@@ -290,6 +292,7 @@ namespace Aura_Client.Network
 
             if (stream != null)
             {
+                Console.WriteLine("Size = " + size);
                 stream.Write(preparedSize, 0, preparedSize.Length);
                 stream.Write(data, 0, data.Length);
             }            

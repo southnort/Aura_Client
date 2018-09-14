@@ -70,7 +70,7 @@ namespace Aura_Client.View
         protected virtual void numericUpDown_ValueChanges(object sender, EventArgs e)
         {
             var box = (NumericUpDown)sender;
-            creator.Add(box.Name, box.Value.ToString());
+            creator.Add(box.Name, box.Value.ToString().Replace(",","."));
         }
 
 

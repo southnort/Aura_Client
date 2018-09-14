@@ -85,6 +85,7 @@ namespace Aura_Client.View
 
         private void okButton_Click(object sender, EventArgs e)
         {
+            UpdateOrganisation();
             SendToServer();
             okButton.Enabled = false;
             cancelButton.Enabled = false;

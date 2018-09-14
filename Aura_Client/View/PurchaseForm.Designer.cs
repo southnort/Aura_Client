@@ -287,11 +287,6 @@
             this.purchacePrice.Size = new System.Drawing.Size(272, 20);
             this.purchacePrice.TabIndex = 48;
             this.purchacePrice.ThousandsSeparator = true;
-            this.purchacePrice.Value = new decimal(new int[] {
-            25668821,
-            0,
-            0,
-            131072});
             this.purchacePrice.Leave += new System.EventHandler(this.numericUpDown_ValueChanges);
             // 
             // withAZK

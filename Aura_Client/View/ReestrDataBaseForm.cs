@@ -207,7 +207,7 @@ namespace Aura_Client.View
         private void RefreshCreator()
         {
             //при открытии окна или при сбросе фильтрации нужно добавлять в фильтрацию статус закупки
-            creator.AddFilter("statusID_Min", "7");
+            creator.AddFilter("statusID_Min", "8");
         }
 
 
