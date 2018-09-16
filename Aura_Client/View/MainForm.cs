@@ -66,7 +66,8 @@ namespace Aura_Client.View
             LoginWindow window = new LoginWindow();
             if (window.ShowDialog() != DialogResult.OK)
             {
-                Application.Exit();
+               // Application.Exit();
+                Environment.Exit(0);
             }
             else
             {
