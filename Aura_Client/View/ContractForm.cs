@@ -31,8 +31,6 @@ namespace Aura_Client.View
             //отправить на сервер в БД новые данные
             if (creator.IsNotEmpty())
             {
-               // UpdateOrganisation();
-
                 if (contract.id < 1)
                 {
                     Program.bridge.SendMessage("EXECUTECOMMAND#" + creator.ToNew());
@@ -42,6 +40,7 @@ namespace Aura_Client.View
                 {
                     Program.bridge.SendMessage("EXECUTECOMMAND#" + creator.ToUpdate());
                 }
+
             }
         }
 
@@ -84,8 +83,7 @@ namespace Aura_Client.View
 
 
         private void okButton_Click(object sender, EventArgs e)
-        {
-            UpdateOrganisation();
+        {            
             SendToServer();
             okButton.Enabled = false;
             cancelButton.Enabled = false;
@@ -99,7 +97,9 @@ namespace Aura_Client.View
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            UpdateOrganisation();
             DialogResult = DialogResult.OK;
+            Close();
         }
 
         private void ContractForm_KeyUp(object sender, KeyEventArgs e)
@@ -109,5 +109,8 @@ namespace Aura_Client.View
                 DialogResult = DialogResult.Cancel;
             }
         }
+
+       
     }
+
 }
