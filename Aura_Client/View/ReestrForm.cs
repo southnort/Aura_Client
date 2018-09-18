@@ -283,7 +283,8 @@ namespace Aura_Client.View
             {
                 if (purchase.id < 1)
                 {
-                    Program.bridge.SendMessage("NEWPURCHASE#" + creator.ToNew());
+                    creator.Add("colorMark", purchase.colorMark.ToString());
+                    Program.bridge.SendMessage("NEWPURCHASE#" + creator.ToNew());                    
                 }
                 else
                 {
