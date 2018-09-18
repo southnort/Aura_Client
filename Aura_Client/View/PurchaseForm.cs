@@ -24,6 +24,10 @@ namespace Aura_Client.View
                 //для того закона, для которого создан пользователь
                 purchase.law = Program.user.roleID;
                 creator.Add("law", purchase.law.ToString());
+                creator.Add("colorMark", purchase.colorMark.ToString());
+
+                UPDATE Purchases SET colorMark = '-1' where colorMark is null
+
 
             }
 
