@@ -26,9 +26,6 @@ namespace Aura_Client.View
                 creator.Add("law", purchase.law.ToString());
                 creator.Add("colorMark", purchase.colorMark.ToString());
 
-                UPDATE Purchases SET colorMark = '-1' where colorMark is null
-
-
             }
 
             FillForm();
