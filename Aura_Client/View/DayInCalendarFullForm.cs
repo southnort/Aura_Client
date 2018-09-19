@@ -37,11 +37,16 @@ namespace Aura_Client.View
 
         private Button CreateButton(KeyValuePair<Purchase, string> eventOb)
         {
+            int end = eventOb.Key.purchaseName.Length > 45 ? 45 
+                : eventOb.Key.purchaseName.Length;
+            string buttonText = eventOb.Key.purchaseName.Substring(0, end);
+
+
             Button button = new Button()
             {
                 TextAlign = ContentAlignment.MiddleLeft,
                 Size = new Size(284, 40),
-                Text = eventOb.Key.purchaseName + "\n" + eventOb.Value,
+                Text = buttonText + "\n" + eventOb.Value,
                 Name = eventOb.Key.id.ToString(),
 
             };

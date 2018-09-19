@@ -63,10 +63,13 @@ namespace Aura_Client.View
 
         private Button CreateButton(KeyValuePair<Purchase, string> pair)
         {
+            int end = pair.Key.purchaseName.Length > 25 ? 25 : pair.Key.purchaseName.Length;
+            string buttonText = pair.Key.purchaseName.Substring(0, end);
+
             Button button = new Button()
             {
                 TextAlign = ContentAlignment.MiddleLeft,
-                Text = pair.Key.purchaseName + "\n" +
+                Text = buttonText + "\n" +
                 pair.Value,
                 Size = new Size(167, 43),
                 Name = pair.Key.id.ToString(),

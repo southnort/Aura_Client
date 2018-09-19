@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
+﻿using Aura.Model;
 using Aura_Client.Model;
-using Aura.Model;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace Aura_Client.View
 {
@@ -21,6 +16,17 @@ namespace Aura_Client.View
             this.purchase = purchase;
             LoadCatalogs();
             creator = new Controller.CommandStringCreator("Purchases", purchase.id.ToString());
+
+            if (purchase.id < 1)
+            {
+                //если закупка новая, она должна автоматически создаваться
+                //для того закона, для которого создан пользователь
+                purchase.law = Program.user.roleID;
+                creator.Add("law", purchase.law.ToString());
+                creator.Add("statusID", purchase.statusID.ToString());
+                creator.Add("colorMark", purchase.colorMark.ToString());
+
+            }
 
             FillForm();
         }
@@ -75,13 +81,13 @@ namespace Aura_Client.View
             withAZK.Items.Add(new ComboBoxItem() { Text = "БЕЗ АЦК", Value = 1, });
 
 
-            purchaseMethodID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
-            statusID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
-            protocolStatusID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
-            employeReestID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
-            employeReestID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
-            law.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
-            withAZK.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
+            //purchaseMethodID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
+            //statusID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
+            //protocolStatusID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
+            //employeReestID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
+            //employeReestID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
+            //law.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
+            //withAZK.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
 
         }
 
@@ -284,7 +290,7 @@ namespace Aura_Client.View
                 if (purchase.id < 1)
                 {
                     creator.Add("colorMark", purchase.colorMark.ToString());
-                    Program.bridge.SendMessage("NEWPURCHASE#" + creator.ToNew());                    
+                    Program.bridge.SendMessage("NEWPURCHASE#" + creator.ToNew());
                 }
                 else
                 {

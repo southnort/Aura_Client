@@ -53,7 +53,6 @@ namespace Aura_Client.View
                 ComboBoxItem item = new ComboBoxItem();
                 item.Text = Catalog.protocolStatuses[i];
                 item.Value = i;
-
                 protocolStatusID.Items.Add(item);
 
             }
@@ -92,13 +91,13 @@ namespace Aura_Client.View
             withAZK.Items.Add(new ComboBoxItem() { Text = "БЕЗ АЦК", Value = 1, });
 
 
-            purchaseMethodID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
-            statusID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
-            protocolStatusID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
-            employeDocumentationID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
-            employeID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
-            law.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
-            withAZK.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
+            //purchaseMethodID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
+            //statusID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
+            //protocolStatusID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
+            //employeDocumentationID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
+            //employeID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
+            //law.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
+            //withAZK.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
 
         }
 
