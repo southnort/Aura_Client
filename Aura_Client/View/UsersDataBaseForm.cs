@@ -82,12 +82,12 @@ namespace Aura_Client.View
             if (e.RowIndex >= 0)
             {
                 DataGridView dg = (DataGridView)sender;
-                int userID = (int)dg.Rows[e.RowIndex].Cells[0].Value - 1;
-                User user = users[userID];
+                var userID = dg.Rows[e.RowIndex].Cells["id"].Value.ToString();
+                User user = Program.dataManager.GetUser(userID);
 
                 ShowUser(user);
-
             }
+           
         }
 
         private void timer1_Tick(object sender, EventArgs e)
