@@ -127,6 +127,20 @@ namespace Aura_Client.Model
         }
     }
 
+    public class AuctionEF : PurchaseMethod
+    {
+        //Электронный аукцион
+        public AuctionEF()
+        {
+            name = "Открытый аукцион в электронной форме";
+            var statusIndexes = new List<int>()
+            {
+                0, 1, 5, 6, 7, 8,
+            };
+            CreateDictionary(statusIndexes);
+        }
+    }
+
 
 }
 

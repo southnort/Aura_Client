@@ -27,6 +27,7 @@ namespace Aura_Client.View
         public ReportsDataBaseForm() : base()
         {
             InitializeComponent();
+            InitializeToolTips();
             creator = new Controller.CommandStringCreator("Reports", "");
 
             month = DateTime.Now.Month.ToString();
@@ -42,6 +43,13 @@ namespace Aura_Client.View
             SetCombobox(yearComboBox, year);
 
             ReloadTable();
+        }
+
+        private void InitializeToolTips()
+        {
+            toolTip1.SetToolTip(checkAllButton, "Все отчеты сделаны");
+            toolTip1.SetToolTip(uncheckAllButton, "Убрать со всех отчетов отметку");
+            
         }
 
         private void LoadCatalogs()
@@ -336,6 +344,16 @@ namespace Aura_Client.View
             {
                 DialogResult = DialogResult.Cancel;
             }
+        }
+
+        private void checkAllButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uncheckAllButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

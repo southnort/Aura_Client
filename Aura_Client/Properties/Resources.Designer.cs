@@ -73,6 +73,16 @@ namespace Aura_Client.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CheckAll_Icon {
+            get {
+                object obj = ResourceManager.GetObject("CheckAll_Icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ClearFilter_Icon {
             get {
                 object obj = ResourceManager.GetObject("ClearFilter_Icon", resourceCulture);
@@ -116,6 +126,16 @@ namespace Aura_Client.Properties {
         internal static System.Drawing.Bitmap sign_out {
             get {
                 object obj = ResourceManager.GetObject("sign-out", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UncheckAll_Icon {
+            get {
+                object obj = ResourceManager.GetObject("UncheckAll_Icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

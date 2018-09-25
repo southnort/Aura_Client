@@ -37,6 +37,7 @@ namespace Aura_Client.Model
             new Auction(),
             new Konkurs(),
             new KonkursEF(),
+            new AuctionEF(),
 
         };
 

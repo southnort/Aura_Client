@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportsDataBaseForm));
             this.panel1 = new System.Windows.Forms.Panel();
@@ -44,7 +45,11 @@
             this.commonPurchasesContractsReport = new System.Windows.Forms.DataGridViewButtonColumn();
             this.singleSupplierContractsReport = new System.Windows.Forms.DataGridViewButtonColumn();
             this.failedPurchasesContractsReport = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.uncheckAllButton = new System.Windows.Forms.Button();
+            this.checkAllButton = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -112,6 +117,8 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.SystemColors.Control;
+            this.panel2.Controls.Add(this.uncheckAllButton);
+            this.panel2.Controls.Add(this.checkAllButton);
             this.panel2.Location = new System.Drawing.Point(12, 356);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(980, 100);
@@ -194,6 +201,28 @@
             this.failedPurchasesContractsReport.Name = "failedPurchasesContractsReport";
             this.failedPurchasesContractsReport.Width = 150;
             // 
+            // uncheckAllButton
+            // 
+            this.uncheckAllButton.BackgroundImage = global::Aura_Client.Properties.Resources.UncheckAll_Icon;
+            this.uncheckAllButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.uncheckAllButton.Location = new System.Drawing.Point(877, 3);
+            this.uncheckAllButton.Name = "uncheckAllButton";
+            this.uncheckAllButton.Size = new System.Drawing.Size(40, 40);
+            this.uncheckAllButton.TabIndex = 1;
+            this.uncheckAllButton.UseVisualStyleBackColor = true;
+            this.uncheckAllButton.Click += new System.EventHandler(this.uncheckAllButton_Click);
+            // 
+            // checkAllButton
+            // 
+            this.checkAllButton.BackgroundImage = global::Aura_Client.Properties.Resources.CheckAll_Icon;
+            this.checkAllButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.checkAllButton.Location = new System.Drawing.Point(798, 3);
+            this.checkAllButton.Name = "checkAllButton";
+            this.checkAllButton.Size = new System.Drawing.Size(40, 40);
+            this.checkAllButton.TabIndex = 0;
+            this.checkAllButton.UseVisualStyleBackColor = true;
+            this.checkAllButton.Click += new System.EventHandler(this.checkAllButton_Click);
+            // 
             // ReportsDataBaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -208,6 +237,7 @@
             this.Text = "Отчеты заказчиков";
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ReportsDataBaseForm_KeyUp);
             this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -230,5 +260,8 @@
         private System.Windows.Forms.ComboBox monthComboBox;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button prevMonthButton;
+        private System.Windows.Forms.Button checkAllButton;
+        private System.Windows.Forms.Button uncheckAllButton;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
