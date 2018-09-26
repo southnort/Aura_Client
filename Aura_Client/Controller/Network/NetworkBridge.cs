@@ -65,5 +65,27 @@ namespace Aura_Client.Network
 
         }
 
+        public void SendCheckAllReports(string month)
+        {
+            //отправить на сервер команду "Все отчеты за месяц готовы"
+            //month - месяц, за который делается отчет в формате " M.year,";
+            StringBuilder sb = new StringBuilder();
+            sb.Append("CHECKALLREPORTS#");
+            sb.Append(month);
+            SendMessage(sb.ToString());
+
+        }
+
+        public void SendUncheckAllReports(string month)
+        {
+            //отправить на сервер команду "Все отчеты за месяц не готовы"
+            //month - месяц, за который делается отчет в формате " M.year,";
+            StringBuilder sb = new StringBuilder();
+            sb.Append("UNCHECKALLREPORTS#");
+            sb.Append(month);
+            SendMessage(sb.ToString());
+
+        }
+
     }
 }

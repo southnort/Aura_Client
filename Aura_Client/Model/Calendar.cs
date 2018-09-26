@@ -1,8 +1,6 @@
-﻿using System;
+﻿using Aura.Model;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Aura.Model;
 
 namespace Aura_Client.Model
 {
@@ -14,6 +12,7 @@ namespace Aura_Client.Model
         public void Add(Purchase purchase)
         {
             if (purchase == null) return;
+            if (purchase.statusID == 9) return;
 
             Add(purchase.purchaseEisDate, purchase);
             Add(purchase.bidsStartDate, purchase);

@@ -33,10 +33,6 @@ namespace Aura_Client.View
             month = DateTime.Now.Month.ToString();
             year = DateTime.Now.Year.ToString();
 
-            organisations = Program.dataManager.GetFilteredOrganisations
-                ("SELECT * FROM Organisations WHERE law = 2 AND contractType = 1");
-            reports = Program.dataManager.GetAllReports();
-
             LoadCatalogs();
 
             SetCombobox(monthComboBox, month);
@@ -101,6 +97,10 @@ namespace Aura_Client.View
 
         private void FillTable()
         {
+            organisations = Program.dataManager.GetFilteredOrganisations
+                ("SELECT * FROM Organisations WHERE law = 2 AND contractType = 1");
+            reports = Program.dataManager.GetAllReports();
+
             foreach (var org in organisations)
             {
                 if (org != null)
@@ -258,6 +258,28 @@ namespace Aura_Client.View
 
         }
 
+        private void CheckAllButtons()
+        {
+            //перекрасить все кнопки отчетов в режим "сделано"
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                row.Cells["commonPurchasesContractsReport"].Style.BackColor = readyColor;
+                row.Cells["singleSupplierContractsReport"].Style.BackColor = readyColor;
+                row.Cells["failedPurchasesContractsReport"].Style.BackColor = readyColor;
+            }
+        }
+
+        private void UncheckAllButtons()
+        {
+            //перекрасить все кнопки отчетов в режиим "не сделано"
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                row.Cells["commonPurchasesContractsReport"].Style.BackColor = notReadyColor;
+                row.Cells["singleSupplierContractsReport"].Style.BackColor = notReadyColor;
+                row.Cells["failedPurchasesContractsReport"].Style.BackColor = notReadyColor;
+            }
+        }
+
 
 
         private void prevMonthButton_Click(object sender, EventArgs e)
@@ -347,12 +369,16 @@ namespace Aura_Client.View
         }
 
         private void checkAllButton_Click(object sender, EventArgs e)
-        {
+        {            
+            Program.bridge.SendCheckAllReports(monthYear);
+            ReloadTable();
 
         }
 
         private void uncheckAllButton_Click(object sender, EventArgs e)
         {
+            Program.bridge.SendUncheckAllReports(monthYear);
+            ReloadTable();
 
         }
     }

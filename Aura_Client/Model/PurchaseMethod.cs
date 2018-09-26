@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Aura_Client.Model
 {
     public abstract class PurchaseMethod
     {
         //класс, описывающий метод закупки
-       
+
 
         public string name { get; protected set; }
         public Dictionary<int, string> purchaseStatuses;
@@ -48,7 +45,7 @@ namespace Aura_Client.Model
             name = "Единственный поставщик";
             var statusIndexes = new List<int>()
             {
-                0, 1, 8,
+                0, 1, 8, 9,
             };
             CreateDictionary(statusIndexes);
         }
@@ -63,7 +60,7 @@ namespace Aura_Client.Model
             name = "Запрос котировок";
             var statusIndexes = new List<int>()
             {
-                0, 1, 2, 3, 4, 8,
+                0, 1, 2, 3, 4, 8, 9,
             };
             CreateDictionary(statusIndexes);
         }
@@ -77,7 +74,7 @@ namespace Aura_Client.Model
             name = "Запрос котировок в ЭФ";
             var statusIndexes = new List<int>()
             {
-                0, 1, 2, 3, 4, 8,
+                0, 1, 2, 3, 4, 8, 9,
             };
             CreateDictionary(statusIndexes);
         }
@@ -92,7 +89,7 @@ namespace Aura_Client.Model
             name = "Электронный аукцион";
             var statusIndexes = new List<int>()
             {
-                0, 1, 5, 6, 7, 8,
+                0, 1, 5, 6, 7, 8, 9,
             };
             CreateDictionary(statusIndexes);
         }
@@ -104,10 +101,10 @@ namespace Aura_Client.Model
         //Обычный конкурс
         public Konkurs()
         {
-            name = "Конкурс в ЭФ";
+            name = "Конкурс";
             var statusIndexes = new List<int>()
             {
-                0, 1, 2, 3, 4, 8,
+                0, 1, 2, 3, 4, 8, 9,
             };
             CreateDictionary(statusIndexes);
         }
@@ -121,7 +118,7 @@ namespace Aura_Client.Model
             name = "Конкурс в электронной форме";
             var statusIndexes = new List<int>()
             {
-                0, 1, 2, 3, 4, 8,
+                0, 1, 2, 3, 4, 8, 9,
             };
             CreateDictionary(statusIndexes);
         }
@@ -135,7 +132,7 @@ namespace Aura_Client.Model
             name = "Открытый аукцион в электронной форме";
             var statusIndexes = new List<int>()
             {
-                0, 1, 5, 6, 7, 8,
+                0, 1, 5, 6, 7, 8, 9,
             };
             CreateDictionary(statusIndexes);
         }

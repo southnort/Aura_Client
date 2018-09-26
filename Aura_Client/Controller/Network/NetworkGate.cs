@@ -61,7 +61,7 @@ namespace Aura_Client.Network
 
             client.Connect(host, mainPort); //подключение клиента
             stream = client.GetStream(); // получаем поток  
-            stream.ReadTimeout = 5000;
+            stream.ReadTimeout = 10000;
 
 
         }
