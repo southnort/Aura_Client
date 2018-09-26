@@ -25,6 +25,7 @@ namespace Aura_Client.View
                 creator.Add("law", purchase.law.ToString());
                 creator.Add("statusID", purchase.statusID.ToString());
                 creator.Add("colorMark", purchase.colorMark.ToString());
+                creator.Add("withoutPurchase", purchase.withoutPurchase.ToString());
 
             }
 

@@ -492,6 +492,8 @@ namespace Aura_Client.View
                 {
                     purchaseMethodID = 1,
                     statusID = 8,
+                    withoutPurchase = 1,
+
                 }
                 );
 

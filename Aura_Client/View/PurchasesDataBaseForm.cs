@@ -351,7 +351,7 @@ namespace Aura_Client.View
             //админы видят все закупки  
             //завершенные закупки не добавляются в список
 
-            if (pur.statusID == 8) return false;
+            if (pur.withoutPurchase == 1) return false;
 
             else
             {
