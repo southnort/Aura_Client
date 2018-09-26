@@ -145,33 +145,33 @@ namespace Aura_Client.View
 
         }
 
-        private void UpdateContract()
-        {
-            //взять последние реквизиты договора из таблицы договоров
-            //и заменить эти данные в карточке организации
+        //private void UpdateContract()
+        //{
+        //    //взять последние реквизиты договора из таблицы договоров
+        //    //и заменить эти данные в карточке организации
 
-            DataTable dataTable = Program.dataManager.GetDataTable
-                ("SELECT * FROM Contracts WHERE organisationID = '" + organisation.id + "'");
-            if (dataTable != null)
-            {
-                Contract contract = new Contract(dataTable.Rows[dataTable.Rows.Count-1]);
+        //    DataTable dataTable = Program.dataManager.GetDataTable
+        //        ("SELECT * FROM Contracts WHERE organisationID = '" + organisation.id + "'");
+        //    if (dataTable != null)
+        //    {
+        //        Contract contract = new Contract(dataTable.Rows[dataTable.Rows.Count-1]);
 
-                StringBuilder sb = new StringBuilder();
-                sb.Append("UPDATE Organisations SET ");
-                sb.Append("contractNumber = '");
-                sb.Append(contract.contractNumber);
-                sb.Append("', contractStart = '");
-                sb.Append(contract.contractStart.ToString("yyyy-MM-dd"));
-                sb.Append("', contractEnd = '");
-                sb.Append(contract.contractEnd.ToString("yyyy-MM-dd"));
-                sb.Append("' WHERE id = '");
-                sb.Append(contract.organisationID);
-                sb.Append("'");
+        //        StringBuilder sb = new StringBuilder();
+        //        sb.Append("UPDATE Organisations SET ");
+        //        sb.Append("contractNumber = '");
+        //        sb.Append(contract.contractNumber);
+        //        sb.Append("', contractStart = '");
+        //        sb.Append(contract.contractStart.ToString("yyyy-MM-dd"));
+        //        sb.Append("', contractEnd = '");
+        //        sb.Append(contract.contractEnd.ToString("yyyy-MM-dd"));
+        //        sb.Append("' WHERE id = '");
+        //        sb.Append(contract.organisationID);
+        //        sb.Append("'");
 
-                Program.bridge.SendMessage("EXECUTECOMMAND#" + sb.ToString());
-            }
+        //        Program.bridge.SendMessage("EXECUTECOMMAND#" + sb.ToString());
+        //    }
 
-        }
+        //}
 
         private void buttonOK_Click(object sender, EventArgs e)
         {

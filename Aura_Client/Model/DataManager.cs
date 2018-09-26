@@ -151,6 +151,13 @@ namespace Aura_Client.Model
 
         }
 
+        public T GetValue<T>(string query)
+        {
+            //запрос с сервера одиночного значения
+            return Program.bridge.GetObject<T>("GETITEM#" + query);
+        }
+
+
 
         public void DeleteContract(string id)
         {

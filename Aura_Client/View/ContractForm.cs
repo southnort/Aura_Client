@@ -44,24 +44,24 @@ namespace Aura_Client.View
             }
         }
 
-        private void UpdateOrganisation()
-        {
-            //при редактировании данных договора - обновить эти данные в карточке оргнизации
-            StringBuilder sb = new StringBuilder();
-            sb.Append("UPDATE Organisations SET ");
-            sb.Append("contractNumber = '");
-            sb.Append(contractNumber.Text);
-            sb.Append("', contractStart = '");
-            sb.Append(contractStart.Value.ToString("yyyy-MM-dd"));
-            sb.Append("', contractEnd = '");
-            sb.Append(contractEnd.Value.ToString("yyyy-MM-dd"));
-            sb.Append("' WHERE id = '");
-            sb.Append(contract.organisationID);
-            sb.Append("'");
+        //private void UpdateOrganisation()
+        //{
+        //    //при редактировании данных договора - обновить эти данные в карточке оргнизации
+        //    StringBuilder sb = new StringBuilder();
+        //    sb.Append("UPDATE Organisations SET ");
+        //    sb.Append("contractNumber = '");
+        //    sb.Append(contractNumber.Text);
+        //    sb.Append("', contractStart = '");
+        //    sb.Append(contractStart.Value.ToString("yyyy-MM-dd"));
+        //    sb.Append("', contractEnd = '");
+        //    sb.Append(contractEnd.Value.ToString("yyyy-MM-dd"));
+        //    sb.Append("' WHERE id = '");
+        //    sb.Append(contract.organisationID);
+        //    sb.Append("'");
 
-            Program.bridge.SendMessage("EXECUTECOMMAND#" + sb.ToString());
+        //    Program.bridge.SendMessage("EXECUTECOMMAND#" + sb.ToString());
 
-        }
+        //}
 
 
 
@@ -85,9 +85,11 @@ namespace Aura_Client.View
         private void okButton_Click(object sender, EventArgs e)
         {            
             SendToServer();
-            okButton.Enabled = false;
-            cancelButton.Enabled = false;
-            timer1.Start();
+            //okButton.Enabled = false;
+            //cancelButton.Enabled = false;
+            //timer1.Start();
+            DialogResult = DialogResult.OK;
+            Close();
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
@@ -97,7 +99,7 @@ namespace Aura_Client.View
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            UpdateOrganisation();
+           // UpdateOrganisation();
             DialogResult = DialogResult.OK;
             Close();
         }

@@ -161,6 +161,26 @@ namespace Aura_Client.View
                         int rowIndex = organisationsDataGridView.Rows.Add();
                         var newRow = organisationsDataGridView.Rows[rowIndex];
 
+                        var table = Program.dataManager.GetDataTable
+                            ("SELECT * FROM contracts where organisationID = " +
+                            org.id + " ORDER BY id DESC LIMIT 1");
+
+                        if (table.Rows.Count > 0)
+                        {
+                            Contract contract = new Contract(table.Rows[table.Rows.Count - 1]);
+
+                            newRow.Cells["contractNumber"].Value = contract.contractNumber;
+                            newRow.Cells["contractStart"].Value =
+                                ConvertDateToShortText(contract.contractStart);
+                            newRow.Cells["contractEnd"].Value =
+                                ConvertDateToShortText(contract.contractEnd);
+                        }
+                        
+
+                        //Contract contract = Program.dataManager.GetValue<Contract>
+                        //    ("SELECT * FROM contracts where organisationID = " +
+                        //    org.id + " ORDER BY id DESC LIMIT 1");
+
                         newRow.Cells["id"].Value = org.id;
                         newRow.Cells["name"].Value = org.name;
                         newRow.Cells["inn"].Value = org.inn;
@@ -170,11 +190,7 @@ namespace Aura_Client.View
 
                         newRow.Cells["originalID"].Value =
                             Catalog.contractOriginalConditions[org.originalID];
-                        newRow.Cells["contractNumber"].Value = org.contractNumber;
-                        newRow.Cells["contractStart"].Value =
-                            ConvertDateToShortText(org.contractStart);
-                        newRow.Cells["contractEnd"].Value =
-                            ConvertDateToShortText(org.contractEnd);
+                        
 
                         newRow.Cells["comments"].Value = org.comments;
                         newRow.Cells["contractCondition"].Value =
@@ -295,7 +311,7 @@ namespace Aura_Client.View
 
         }
 
-    private void deleteOrganisationButton_Click(object sender, EventArgs e)
+        private void deleteOrganisationButton_Click(object sender, EventArgs e)
         {
             if (organisationsDataGridView.CurrentRow != null)
             {
