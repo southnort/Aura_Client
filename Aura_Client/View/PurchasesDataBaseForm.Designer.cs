@@ -54,6 +54,8 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.label7 = new System.Windows.Forms.Label();
+            this.organisationInn = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.purchasesDataGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -82,6 +84,8 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.organisationInn);
             this.panel1.Controls.Add(this.organisationSelectButton);
             this.panel1.Controls.Add(this.clearFilterButton);
             this.panel1.Controls.Add(this.organizationID_Equal);
@@ -303,6 +307,24 @@
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             this.contextMenuStrip1.Closing += new System.Windows.Forms.ToolStripDropDownClosingEventHandler(this.contextMenuStrip1_Closing);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(691, 33);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(87, 13);
+            this.label7.TabIndex = 96;
+            this.label7.Text = "ИНН заказчика";
+            // 
+            // organisationInn
+            // 
+            this.organisationInn.Location = new System.Drawing.Point(784, 31);
+            this.organisationInn.Name = "organisationInn";
+            this.organisationInn.Size = new System.Drawing.Size(154, 20);
+            this.organisationInn.TabIndex = 95;
+            this.organisationInn.KeyUp += new System.Windows.Forms.KeyEventHandler(this.anyKey_KeyUp);
+            this.organisationInn.Leave += new System.EventHandler(this.textBox_ValueChanged);
+            // 
             // PurchasesDataBaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -351,5 +373,7 @@
         private System.Windows.Forms.Button organisationSelectButton;
         private System.Windows.Forms.TextBox organizationID_Equal;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox organisationInn;
     }
 }

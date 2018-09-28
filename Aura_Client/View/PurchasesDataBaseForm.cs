@@ -562,6 +562,7 @@ namespace Aura_Client.View
             statusID.SelectedIndex = 0;
             protocolStatusID.SelectedIndex = 0;
             organizationID_Equal.Clear();
+            organisationInn.Clear();
 
             creator.ClearFilters();
             
@@ -589,7 +590,7 @@ namespace Aura_Client.View
             if (result == DialogResult.OK)
             {
                 Organisation org = form.returnedOrganisation;
-                creator.AddFilter("organizationID", org.id.ToString());
+                creator.AddFilter("organizationID_Equal", org.id.ToString());
                 organizationID_Equal.Text = org.name;
             }
         }

@@ -32,7 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReestrDataBaseForm));
             this.reestrDataGridView = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.organisationSelectButton = new System.Windows.Forms.Button();
             this.clearFilterButton = new System.Windows.Forms.Button();
+            this.organizationID_Equal = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.reestrNumber = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -48,6 +51,8 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.label7 = new System.Windows.Forms.Label();
+            this.organisationInn = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.reestrDataGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -76,7 +81,12 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.organisationSelectButton);
+            this.panel1.Controls.Add(this.organisationInn);
             this.panel1.Controls.Add(this.clearFilterButton);
+            this.panel1.Controls.Add(this.organizationID_Equal);
+            this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.reestrNumber);
             this.panel1.Controls.Add(this.label5);
@@ -92,6 +102,17 @@
             this.panel1.Size = new System.Drawing.Size(1342, 87);
             this.panel1.TabIndex = 1;
             // 
+            // organisationSelectButton
+            // 
+            this.organisationSelectButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.organisationSelectButton.Location = new System.Drawing.Point(734, 29);
+            this.organisationSelectButton.Name = "organisationSelectButton";
+            this.organisationSelectButton.Size = new System.Drawing.Size(28, 20);
+            this.organisationSelectButton.TabIndex = 97;
+            this.organisationSelectButton.Text = "...";
+            this.organisationSelectButton.UseVisualStyleBackColor = true;
+            this.organisationSelectButton.Click += new System.EventHandler(this.organisationSelectButton_Click);
+            // 
             // clearFilterButton
             // 
             this.clearFilterButton.BackgroundImage = global::Aura_Client.Properties.Resources.ClearFilter_Icon;
@@ -102,6 +123,25 @@
             this.clearFilterButton.TabIndex = 21;
             this.clearFilterButton.UseVisualStyleBackColor = true;
             this.clearFilterButton.Click += new System.EventHandler(this.clearFilterButton_Click);
+            // 
+            // organizationID_Equal
+            // 
+            this.organizationID_Equal.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.organizationID_Equal.Location = new System.Drawing.Point(576, 29);
+            this.organizationID_Equal.Name = "organizationID_Equal";
+            this.organizationID_Equal.ReadOnly = true;
+            this.organizationID_Equal.Size = new System.Drawing.Size(160, 20);
+            this.organizationID_Equal.TabIndex = 96;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(515, 30);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(55, 13);
+            this.label6.TabIndex = 95;
+            this.label6.Text = "Заказчик";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label3
             // 
@@ -116,7 +156,7 @@
             // 
             this.reestrNumber.Location = new System.Drawing.Point(576, 3);
             this.reestrNumber.Name = "reestrNumber";
-            this.reestrNumber.Size = new System.Drawing.Size(181, 20);
+            this.reestrNumber.Size = new System.Drawing.Size(186, 20);
             this.reestrNumber.TabIndex = 19;
             this.reestrNumber.KeyUp += new System.Windows.Forms.KeyEventHandler(this.anyKey_KeyUp);
             this.reestrNumber.Leave += new System.EventHandler(this.textBox_ValueChanged);
@@ -230,6 +270,24 @@
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             this.contextMenuStrip1.Closing += new System.Windows.Forms.ToolStripDropDownClosingEventHandler(this.contextMenuStrip1_Closing);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(515, 59);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(87, 13);
+            this.label7.TabIndex = 98;
+            this.label7.Text = "ИНН заказчика";
+            // 
+            // organisationInn
+            // 
+            this.organisationInn.Location = new System.Drawing.Point(608, 56);
+            this.organisationInn.Name = "organisationInn";
+            this.organisationInn.Size = new System.Drawing.Size(154, 20);
+            this.organisationInn.TabIndex = 97;
+            this.organisationInn.KeyUp += new System.Windows.Forms.KeyEventHandler(this.anyKey_KeyUp);
+            this.organisationInn.Leave += new System.EventHandler(this.textBox_ValueChanged);
+            // 
             // ReestrDataBaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -272,5 +330,10 @@
         private System.Windows.Forms.TextBox purchaseName;
         private System.Windows.Forms.Button clearFilterButton;
         private System.Windows.Forms.Button addNewPurchaseButton;
+        private System.Windows.Forms.Button organisationSelectButton;
+        private System.Windows.Forms.TextBox organizationID_Equal;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox organisationInn;
     }
 }

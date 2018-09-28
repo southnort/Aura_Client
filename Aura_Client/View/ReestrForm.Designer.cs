@@ -414,7 +414,7 @@
             // organisationSelectButton
             // 
             this.organisationSelectButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.organisationSelectButton.Location = new System.Drawing.Point(452, 83);
+            this.organisationSelectButton.Location = new System.Drawing.Point(444, 83);
             this.organisationSelectButton.Name = "organisationSelectButton";
             this.organisationSelectButton.Size = new System.Drawing.Size(28, 20);
             this.organisationSelectButton.TabIndex = 91;

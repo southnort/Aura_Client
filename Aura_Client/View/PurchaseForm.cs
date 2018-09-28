@@ -386,6 +386,7 @@ namespace Aura_Client.View
             {
                 Organisation org = form.returnedOrganisation;
                 creator.Add("organizationID", org.id.ToString());
+                creator.Add("organisationInn", org.inn.ToString());
                 organizationID.Text = org.name;
             }
 

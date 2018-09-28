@@ -129,7 +129,7 @@ namespace Aura_Client.Controller
 
         }
 
-        private string ToFilterString(string columnName,string value)
+        private string ToFilterString(string columnName, string value)
         {
             FilterTypes type;
             string nameOfField;
@@ -140,7 +140,7 @@ namespace Aura_Client.Controller
                 nameOfField = columnName.Replace("_Equal", "");
             }
 
-           else if (columnName.Contains("_Min"))
+            else if (columnName.Contains("_Min"))
             {
                 type = FilterTypes.Above;
                 nameOfField = columnName.Replace("_Min", "");

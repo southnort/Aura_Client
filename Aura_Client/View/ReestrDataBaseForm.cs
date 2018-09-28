@@ -480,6 +480,8 @@ namespace Aura_Client.View
             purchaseMethodID.SelectedIndex = 0;
             reestrNumber.Clear();
             purchaseEisNum.Clear();
+            organizationID_Equal.Clear();
+            organisationInn.Clear();
 
             creator.ClearFilters();
             RefreshCreator();
@@ -515,6 +517,18 @@ namespace Aura_Client.View
             if (e.KeyCode == Keys.Escape)
             {
                 DialogResult = DialogResult.Cancel;
+            }
+        }
+
+        private void organisationSelectButton_Click(object sender, EventArgs e)
+        {
+            var form = new OrganisationsDataBaseForm(false);
+            var result = form.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                Organisation org = form.returnedOrganisation;
+                creator.AddFilter("organizationID_Equal", org.id.ToString());
+                organizationID_Equal.Text = org.name;
             }
         }
     }
