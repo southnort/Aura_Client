@@ -101,16 +101,12 @@ namespace Aura_Client.View
                 tryLoginButton_Click(sender, e);
             }
 
-            if (e.KeyCode == Keys.Escape)
-            {
-                DialogResult = DialogResult.Cancel;
-            }
-
         }
 
         private void LoginWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult = DialogResult.Cancel;
-        }
+        }       
+       
     }
 }

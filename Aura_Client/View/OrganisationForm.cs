@@ -23,6 +23,8 @@ namespace Aura_Client.View
             Fill(organisation);
             FillTable(organisation);
 
+            this.Focus();
+
         }
 
         private void LoadCatalogs()
@@ -255,13 +257,6 @@ namespace Aura_Client.View
             }
 
         }
-
-        private void OrganisationForm_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Escape)
-            {
-                DialogResult = DialogResult.Cancel;
-            }
-        }
+       
     }
 }

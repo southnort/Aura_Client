@@ -11,8 +11,9 @@ namespace Aura_Client.View
     public partial class AuraForm : Form, IShowable
     {
         public AuraForm()
-        {           
-           
+        {
+            KeyPreview = true;
+            KeyUp += EscapeKeyPressed;
         }
 
         protected CommandStringCreator creator;
