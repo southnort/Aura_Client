@@ -561,6 +561,7 @@ namespace Aura_Client.View
             purchaseEisNum.Clear();
             statusID.SelectedIndex = 0;
             protocolStatusID.SelectedIndex = 0;
+            organizationID_Equal.Clear();
 
             creator.ClearFilters();
             
@@ -578,6 +579,18 @@ namespace Aura_Client.View
             {
                 DialogResult = DialogResult.Cancel;
                 Close();
+            }
+        }
+
+        private void organisationSelectButton_Click(object sender, EventArgs e)
+        {
+            var form = new OrganisationsDataBaseForm(false);
+            var result = form.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                Organisation org = form.returnedOrganisation;
+                creator.AddFilter("organizationID", org.id.ToString());
+                organizationID_Equal.Text = org.name;
             }
         }
     }

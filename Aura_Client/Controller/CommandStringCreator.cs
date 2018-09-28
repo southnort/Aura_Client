@@ -134,7 +134,13 @@ namespace Aura_Client.Controller
             FilterTypes type;
             string nameOfField;
 
-            if (columnName.Contains("_Min"))
+            if (columnName.Contains("_Equal"))
+            {
+                type = FilterTypes.Equally;
+                nameOfField = columnName.Replace("_Equal", "");
+            }
+
+           else if (columnName.Contains("_Min"))
             {
                 type = FilterTypes.Above;
                 nameOfField = columnName.Replace("_Min", "");

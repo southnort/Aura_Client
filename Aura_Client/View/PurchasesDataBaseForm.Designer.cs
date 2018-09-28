@@ -32,7 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PurchasesDataBaseForm));
             this.purchasesDataGridView = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.organisationSelectButton = new System.Windows.Forms.Button();
             this.clearFilterButton = new System.Windows.Forms.Button();
+            this.organizationID_Equal = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.purchaseEisNum = new System.Windows.Forms.TextBox();
             this.protocolStatusID = new System.Windows.Forms.ComboBox();
@@ -79,7 +82,10 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.organisationSelectButton);
             this.panel1.Controls.Add(this.clearFilterButton);
+            this.panel1.Controls.Add(this.organizationID_Equal);
+            this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.purchaseEisNum);
             this.panel1.Controls.Add(this.protocolStatusID);
@@ -97,6 +103,17 @@
             this.panel1.Size = new System.Drawing.Size(1064, 78);
             this.panel1.TabIndex = 1;
             // 
+            // organisationSelectButton
+            // 
+            this.organisationSelectButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.organisationSelectButton.Location = new System.Drawing.Point(910, 4);
+            this.organisationSelectButton.Name = "organisationSelectButton";
+            this.organisationSelectButton.Size = new System.Drawing.Size(28, 20);
+            this.organisationSelectButton.TabIndex = 94;
+            this.organisationSelectButton.Text = "...";
+            this.organisationSelectButton.UseVisualStyleBackColor = true;
+            this.organisationSelectButton.Click += new System.EventHandler(this.organisationSelectButton_Click);
+            // 
             // clearFilterButton
             // 
             this.clearFilterButton.BackgroundImage = global::Aura_Client.Properties.Resources.ClearFilter_Icon;
@@ -108,10 +125,29 @@
             this.clearFilterButton.UseVisualStyleBackColor = true;
             this.clearFilterButton.Click += new System.EventHandler(this.clearFilterButton_Click);
             // 
+            // organizationID_Equal
+            // 
+            this.organizationID_Equal.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.organizationID_Equal.Location = new System.Drawing.Point(752, 4);
+            this.organizationID_Equal.Name = "organizationID_Equal";
+            this.organizationID_Equal.ReadOnly = true;
+            this.organizationID_Equal.Size = new System.Drawing.Size(160, 20);
+            this.organizationID_Equal.TabIndex = 93;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(691, 5);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(55, 13);
+            this.label6.TabIndex = 92;
+            this.label6.Text = "Заказчик";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(128, 59);
+            this.label5.Location = new System.Drawing.Point(105, 58);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(101, 13);
             this.label5.TabIndex = 12;
@@ -119,7 +155,7 @@
             // 
             // purchaseEisNum
             // 
-            this.purchaseEisNum.Location = new System.Drawing.Point(235, 56);
+            this.purchaseEisNum.Location = new System.Drawing.Point(212, 55);
             this.purchaseEisNum.Name = "purchaseEisNum";
             this.purchaseEisNum.Size = new System.Drawing.Size(181, 20);
             this.purchaseEisNum.TabIndex = 11;
@@ -129,7 +165,7 @@
             // protocolStatusID
             // 
             this.protocolStatusID.FormattingEnabled = true;
-            this.protocolStatusID.Location = new System.Drawing.Point(544, 32);
+            this.protocolStatusID.Location = new System.Drawing.Point(504, 30);
             this.protocolStatusID.Name = "protocolStatusID";
             this.protocolStatusID.Size = new System.Drawing.Size(181, 21);
             this.protocolStatusID.TabIndex = 10;
@@ -139,7 +175,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(441, 35);
+            this.label4.Location = new System.Drawing.Point(401, 33);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(97, 13);
             this.label4.TabIndex = 9;
@@ -148,7 +184,7 @@
             // statusID
             // 
             this.statusID.FormattingEnabled = true;
-            this.statusID.Location = new System.Drawing.Point(544, 5);
+            this.statusID.Location = new System.Drawing.Point(504, 3);
             this.statusID.Name = "statusID";
             this.statusID.Size = new System.Drawing.Size(181, 21);
             this.statusID.TabIndex = 8;
@@ -158,7 +194,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(497, 8);
+            this.label3.Location = new System.Drawing.Point(457, 6);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 13);
             this.label3.TabIndex = 7;
@@ -167,7 +203,7 @@
             // purchaseMethodID
             // 
             this.purchaseMethodID.FormattingEnabled = true;
-            this.purchaseMethodID.Location = new System.Drawing.Point(235, 29);
+            this.purchaseMethodID.Location = new System.Drawing.Point(212, 28);
             this.purchaseMethodID.Name = "purchaseMethodID";
             this.purchaseMethodID.Size = new System.Drawing.Size(181, 21);
             this.purchaseMethodID.TabIndex = 6;
@@ -177,7 +213,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(116, 32);
+            this.label2.Location = new System.Drawing.Point(93, 31);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(113, 13);
             this.label2.TabIndex = 5;
@@ -186,7 +222,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(102, 6);
+            this.label1.Location = new System.Drawing.Point(79, 5);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(127, 13);
             this.label1.TabIndex = 3;
@@ -194,7 +230,7 @@
             // 
             // purchaseName
             // 
-            this.purchaseName.Location = new System.Drawing.Point(235, 3);
+            this.purchaseName.Location = new System.Drawing.Point(212, 2);
             this.purchaseName.Name = "purchaseName";
             this.purchaseName.Size = new System.Drawing.Size(181, 20);
             this.purchaseName.TabIndex = 2;
@@ -312,5 +348,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox purchaseName;
         private System.Windows.Forms.Button clearFilterButton;
+        private System.Windows.Forms.Button organisationSelectButton;
+        private System.Windows.Forms.TextBox organizationID_Equal;
+        private System.Windows.Forms.Label label6;
     }
 }
