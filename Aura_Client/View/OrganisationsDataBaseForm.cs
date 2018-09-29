@@ -33,6 +33,9 @@ namespace Aura_Client.View
             organisationsDataGridView.Columns.Add("id", "id");
             organisationsDataGridView.Columns["id"].Width = 50;
 
+            organisationsDataGridView.Columns.Add("number", "№");
+            organisationsDataGridView.Columns["number"].Width = 30;
+
             organisationsDataGridView.Columns.Add("name", "Наименование");
             organisationsDataGridView.Columns["name"].Width = 250;
 
@@ -182,6 +185,7 @@ namespace Aura_Client.View
                         //    org.id + " ORDER BY id DESC LIMIT 1");
 
                         newRow.Cells["id"].Value = org.id;
+                        newRow.Cells["number"].Value = org.number;
                         newRow.Cells["name"].Value = org.name;
                         newRow.Cells["inn"].Value = org.inn;
                         newRow.Cells["phoneNumber"].Value = org.phoneNumber;
@@ -287,6 +291,7 @@ namespace Aura_Client.View
             name.Clear();
             law.SelectedIndex = 0;
             contractType.SelectedIndex = 0;
+            number_Equal.Clear();
 
             creator.ClearFilters();
             ReloadTable();

@@ -65,6 +65,7 @@ namespace Aura_Client.View
             law.SelectedIndex = org.law;
             contractType.SelectedIndex = org.contractType;
             comments.Text = org.comments;
+            number.Text = org.number;
 
             if (org.id < 1)
             {

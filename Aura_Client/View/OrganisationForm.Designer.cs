@@ -62,16 +62,17 @@
             this.removeContractButton = new System.Windows.Forms.Button();
             this.addNewContractButton = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.label8 = new System.Windows.Forms.Label();
+            this.number = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.contractsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // name
             // 
-            this.name.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.name.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.name.Location = new System.Drawing.Point(140, 30);
+            this.name.Location = new System.Drawing.Point(140, 37);
             this.name.Name = "name";
-            this.name.Size = new System.Drawing.Size(213, 15);
+            this.name.Size = new System.Drawing.Size(213, 22);
             this.name.TabIndex = 0;
             this.name.Leave += new System.EventHandler(this.textBox_ValueChanged);
             // 
@@ -79,7 +80,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(62, 30);
+            this.label1.Location = new System.Drawing.Point(60, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 16);
             this.label1.TabIndex = 1;
@@ -89,7 +90,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(96, 55);
+            this.label2.Location = new System.Drawing.Point(96, 68);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 16);
             this.label2.TabIndex = 3;
@@ -97,17 +98,16 @@
             // 
             // inn
             // 
-            this.inn.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.inn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.inn.Location = new System.Drawing.Point(140, 52);
+            this.inn.Location = new System.Drawing.Point(140, 65);
             this.inn.Name = "inn";
-            this.inn.Size = new System.Drawing.Size(213, 15);
+            this.inn.Size = new System.Drawing.Size(213, 22);
             this.inn.TabIndex = 2;
             this.inn.Leave += new System.EventHandler(this.textBox_ValueChanged);
             // 
             // contactName
             // 
-            this.contactName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.contactName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.contactName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.contactName.Location = new System.Drawing.Point(140, 103);
             this.contactName.Name = "contactName";
@@ -138,7 +138,7 @@
             // 
             // phoneNumber
             // 
-            this.phoneNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.phoneNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.phoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.phoneNumber.Location = new System.Drawing.Point(140, 161);
             this.phoneNumber.Name = "phoneNumber";
@@ -159,7 +159,7 @@
             // 
             // email
             // 
-            this.email.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.email.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.email.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.email.Location = new System.Drawing.Point(140, 219);
             this.email.Name = "email";
@@ -170,7 +170,6 @@
             // 
             // comments
             // 
-            this.comments.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.comments.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comments.Location = new System.Drawing.Point(140, 313);
             this.comments.Name = "comments";
@@ -372,11 +371,32 @@
             this.addNewContractButton.UseVisualStyleBackColor = true;
             this.addNewContractButton.Click += new System.EventHandler(this.addNewContractButton_Click);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label8.Location = new System.Drawing.Point(112, 12);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(22, 16);
+            this.label8.TabIndex = 34;
+            this.label8.Text = "№";
+            // 
+            // number
+            // 
+            this.number.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.number.Location = new System.Drawing.Point(140, 9);
+            this.number.Name = "number";
+            this.number.Size = new System.Drawing.Size(74, 22);
+            this.number.TabIndex = 33;
+            this.number.Leave += new System.EventHandler(this.textBox_ValueChanged);
+            // 
             // OrganisationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(867, 466);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.number);
             this.Controls.Add(this.removeContractButton);
             this.Controls.Add(this.addNewContractButton);
             this.Controls.Add(this.label7);
@@ -449,5 +469,7 @@
         private System.Windows.Forms.Button addNewContractButton;
         private System.Windows.Forms.Button removeContractButton;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox number;
     }
 }

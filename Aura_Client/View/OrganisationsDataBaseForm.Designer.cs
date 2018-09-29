@@ -34,6 +34,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.number_Equal = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.columnsOptionsButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.contractType = new System.Windows.Forms.ComboBox();
@@ -85,6 +87,8 @@
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.Controls.Add(this.number_Equal);
+            this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.columnsOptionsButton);
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.contractType);
@@ -102,6 +106,24 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(588, 78);
             this.panel3.TabIndex = 5;
+            // 
+            // number_Equal
+            // 
+            this.number_Equal.Location = new System.Drawing.Point(172, 52);
+            this.number_Equal.Name = "number_Equal";
+            this.number_Equal.Size = new System.Drawing.Size(124, 20);
+            this.number_Equal.TabIndex = 18;
+            this.number_Equal.KeyUp += new System.Windows.Forms.KeyEventHandler(this.anyKey_KeyUp);
+            this.number_Equal.Leave += new System.EventHandler(this.textBox_ValueChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(148, 55);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(18, 13);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "№";
             // 
             // columnsOptionsButton
             // 
@@ -250,12 +272,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.organisationsDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.organisationsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.organisationsDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.organisationsDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.organisationsDataGridView.Location = new System.Drawing.Point(12, 96);
             this.organisationsDataGridView.Name = "organisationsDataGridView";
             this.organisationsDataGridView.Size = new System.Drawing.Size(588, 356);
             this.organisationsDataGridView.TabIndex = 3;
-            this.organisationsDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.organisationsDataGridView.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.organisationsDataGridView.KeyUp += new System.Windows.Forms.KeyEventHandler(this.anyKey_KeyUp);
             // 
             // contextMenuStrip1
@@ -310,5 +332,7 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button columnsOptionsButton;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.TextBox number_Equal;
+        private System.Windows.Forms.Label label5;
     }
 }

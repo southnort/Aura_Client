@@ -37,6 +37,8 @@
             this.yearComboBox = new System.Windows.Forms.ComboBox();
             this.monthComboBox = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.uncheckAllButton = new System.Windows.Forms.Button();
+            this.checkAllButton = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.organisationID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,8 +47,6 @@
             this.commonPurchasesContractsReport = new System.Windows.Forms.DataGridViewButtonColumn();
             this.singleSupplierContractsReport = new System.Windows.Forms.DataGridViewButtonColumn();
             this.failedPurchasesContractsReport = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.uncheckAllButton = new System.Windows.Forms.Button();
-            this.checkAllButton = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -124,6 +124,28 @@
             this.panel2.Size = new System.Drawing.Size(980, 100);
             this.panel2.TabIndex = 1;
             // 
+            // uncheckAllButton
+            // 
+            this.uncheckAllButton.BackgroundImage = global::Aura_Client.Properties.Resources.UncheckAll_Icon;
+            this.uncheckAllButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.uncheckAllButton.Location = new System.Drawing.Point(877, 3);
+            this.uncheckAllButton.Name = "uncheckAllButton";
+            this.uncheckAllButton.Size = new System.Drawing.Size(40, 40);
+            this.uncheckAllButton.TabIndex = 1;
+            this.uncheckAllButton.UseVisualStyleBackColor = true;
+            this.uncheckAllButton.Click += new System.EventHandler(this.uncheckAllButton_Click);
+            // 
+            // checkAllButton
+            // 
+            this.checkAllButton.BackgroundImage = global::Aura_Client.Properties.Resources.CheckAll_Icon;
+            this.checkAllButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.checkAllButton.Location = new System.Drawing.Point(798, 3);
+            this.checkAllButton.Name = "checkAllButton";
+            this.checkAllButton.Size = new System.Drawing.Size(40, 40);
+            this.checkAllButton.TabIndex = 0;
+            this.checkAllButton.UseVisualStyleBackColor = true;
+            this.checkAllButton.Click += new System.EventHandler(this.checkAllButton_Click);
+            // 
             // panel3
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -159,6 +181,7 @@
             this.commonPurchasesContractsReport,
             this.singleSupplierContractsReport,
             this.failedPurchasesContractsReport});
+            this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 30;
@@ -200,28 +223,6 @@
             this.failedPurchasesContractsReport.HeaderText = "Договоры с единственным по результатам несостоявшихся процедур";
             this.failedPurchasesContractsReport.Name = "failedPurchasesContractsReport";
             this.failedPurchasesContractsReport.Width = 150;
-            // 
-            // uncheckAllButton
-            // 
-            this.uncheckAllButton.BackgroundImage = global::Aura_Client.Properties.Resources.UncheckAll_Icon;
-            this.uncheckAllButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.uncheckAllButton.Location = new System.Drawing.Point(877, 3);
-            this.uncheckAllButton.Name = "uncheckAllButton";
-            this.uncheckAllButton.Size = new System.Drawing.Size(40, 40);
-            this.uncheckAllButton.TabIndex = 1;
-            this.uncheckAllButton.UseVisualStyleBackColor = true;
-            this.uncheckAllButton.Click += new System.EventHandler(this.uncheckAllButton_Click);
-            // 
-            // checkAllButton
-            // 
-            this.checkAllButton.BackgroundImage = global::Aura_Client.Properties.Resources.CheckAll_Icon;
-            this.checkAllButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.checkAllButton.Location = new System.Drawing.Point(798, 3);
-            this.checkAllButton.Name = "checkAllButton";
-            this.checkAllButton.Size = new System.Drawing.Size(40, 40);
-            this.checkAllButton.TabIndex = 0;
-            this.checkAllButton.UseVisualStyleBackColor = true;
-            this.checkAllButton.Click += new System.EventHandler(this.checkAllButton_Click);
             // 
             // ReportsDataBaseForm
             // 

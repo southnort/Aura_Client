@@ -19,6 +19,10 @@ namespace Aura_Client.View
 
         }
 
+        /*
+         UPDATE Organisations SET number = id
+         * */
+
         private void ReloadTable()
         {
             ClearTable();
