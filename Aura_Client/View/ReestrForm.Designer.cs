@@ -407,14 +407,14 @@
             this.organizationID.Location = new System.Drawing.Point(145, 83);
             this.organizationID.Name = "organizationID";
             this.organizationID.ReadOnly = true;
-            this.organizationID.Size = new System.Drawing.Size(301, 20);
+            this.organizationID.Size = new System.Drawing.Size(326, 20);
             this.organizationID.TabIndex = 90;
             this.organizationID.DoubleClick += new System.EventHandler(this.organisationSelectButton_Click);
             // 
             // organisationSelectButton
             // 
             this.organisationSelectButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.organisationSelectButton.Location = new System.Drawing.Point(444, 83);
+            this.organisationSelectButton.Location = new System.Drawing.Point(467, 82);
             this.organisationSelectButton.Name = "organisationSelectButton";
             this.organisationSelectButton.Size = new System.Drawing.Size(28, 20);
             this.organisationSelectButton.TabIndex = 91;

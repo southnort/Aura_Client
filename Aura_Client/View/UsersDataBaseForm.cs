@@ -18,11 +18,7 @@ namespace Aura_Client.View
             ReloadTable();
 
         }
-
-        /*
-         UPDATE Organisations SET number = id
-         * */
-
+        
         private void ReloadTable()
         {
             ClearTable();

@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.settingsButton = new System.Windows.Forms.Button();
             this.switchUserButton = new System.Windows.Forms.Button();
             this.changePasswordButton = new System.Windows.Forms.Button();
             this.usersButton = new System.Windows.Forms.Button();
@@ -49,6 +50,7 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.settingsButton);
             this.panel1.Controls.Add(this.switchUserButton);
             this.panel1.Controls.Add(this.changePasswordButton);
             this.panel1.Controls.Add(this.usersButton);
@@ -57,6 +59,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(795, 101);
             this.panel1.TabIndex = 1;
+            // 
+            // settingsButton
+            // 
+            this.settingsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.settingsButton.Location = new System.Drawing.Point(153, 31);
+            this.settingsButton.Name = "settingsButton";
+            this.settingsButton.Size = new System.Drawing.Size(140, 32);
+            this.settingsButton.TabIndex = 5;
+            this.settingsButton.Text = "Настройки";
+            this.settingsButton.UseVisualStyleBackColor = true;
+            this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
             // 
             // switchUserButton
             // 
@@ -210,5 +223,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button switchUserButton;
         private System.Windows.Forms.Button changePasswordButton;
+        private System.Windows.Forms.Button settingsButton;
     }
 }

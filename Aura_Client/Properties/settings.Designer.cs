@@ -70,5 +70,29 @@ namespace Aura_Client.Properties {
                 this["UpgradeRequired"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
+<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+  <string>-4144960</string>
+  <string>-1</string>
+  <string>-4671268</string>
+  <string>-8287516</string>
+  <string>-8355648</string>
+  <string>-7677441</string>
+  <string>-7799833</string>
+  <string>-10161995</string>
+  <string>-3171</string>
+  <string>-21846</string>
+</ArrayOfString>")]
+        public global::System.Collections.Specialized.StringCollection StatusColors {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["StatusColors"]));
+            }
+            set {
+                this["StatusColors"] = value;
+            }
+        }
     }
 }

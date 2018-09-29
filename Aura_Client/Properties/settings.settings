@@ -14,5 +14,20 @@
     <Setting Name="UpgradeRequired" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="StatusColors" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;-4144960&lt;/string&gt;
+  &lt;string&gt;-1&lt;/string&gt;
+  &lt;string&gt;-4671268&lt;/string&gt;
+  &lt;string&gt;-8287516&lt;/string&gt;
+  &lt;string&gt;-8355648&lt;/string&gt;
+  &lt;string&gt;-7677441&lt;/string&gt;
+  &lt;string&gt;-7799833&lt;/string&gt;
+  &lt;string&gt;-10161995&lt;/string&gt;
+  &lt;string&gt;-3171&lt;/string&gt;
+  &lt;string&gt;-21846&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

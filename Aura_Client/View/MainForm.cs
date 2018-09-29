@@ -113,5 +113,19 @@ namespace Aura_Client.View
             }
             else e.Cancel = true;
         }
+
+        private void settingsButton_Click(object sender, EventArgs e)
+        {
+            SettingsForm form = new SettingsForm();
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+
+            }
+
+            else
+            {
+
+            }
+        }
     }
 }

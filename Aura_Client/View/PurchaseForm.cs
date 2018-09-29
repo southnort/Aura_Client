@@ -338,7 +338,7 @@ namespace Aura_Client.View
 
         private void colorMark_Click(object sender, EventArgs e)
         {
-            colorDialog1.AllowFullOpen = false;
+            colorDialog1.AllowFullOpen = true;
             colorDialog1.ShowHelp = true;
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {

@@ -277,7 +277,7 @@
             this.organisationsDataGridView.Name = "organisationsDataGridView";
             this.organisationsDataGridView.Size = new System.Drawing.Size(588, 356);
             this.organisationsDataGridView.TabIndex = 3;
-            this.organisationsDataGridView.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.organisationsDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.organisationsDataGridView.KeyUp += new System.Windows.Forms.KeyEventHandler(this.anyKey_KeyUp);
             // 
             // contextMenuStrip1
