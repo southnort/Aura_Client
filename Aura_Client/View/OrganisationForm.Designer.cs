@@ -64,6 +64,7 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.label8 = new System.Windows.Forms.Label();
             this.number = new System.Windows.Forms.TextBox();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.contractsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -390,6 +391,11 @@
             this.number.TabIndex = 33;
             this.number.Leave += new System.EventHandler(this.textBox_ValueChanged);
             // 
+            // timer2
+            // 
+            this.timer2.Interval = 250;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
             // OrganisationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -471,5 +477,6 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox number;
+        private System.Windows.Forms.Timer timer2;
     }
 }

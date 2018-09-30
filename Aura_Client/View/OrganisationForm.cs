@@ -22,9 +22,7 @@ namespace Aura_Client.View
             creator = new CommandStringCreator("Organisations", organisation.id.ToString());
             Fill(organisation);
             FillTable(organisation);
-
-            this.Focus();
-
+            
         }
 
         private void LoadCatalogs()
@@ -83,22 +81,20 @@ namespace Aura_Client.View
             foreach (DataRow tableRow in table.Rows)
             {
                 Contract contract = new Contract(tableRow);
-                int index = contractsDataGridView.Rows.Add();
-                var row = contractsDataGridView.Rows[index];
-
-                row.Cells["id"].Value = contract.id;
-                row.Cells["contractNumber"].Value = contract.contractNumber;
-
-                row.Cells["contractStart"].Value = ConvertDateToShortText(contract.contractStart);
-                row.Cells["contractEnd"].Value = ConvertDateToShortText(contract.contractEnd);
-
-                //row.Cells["contractStart"].Value = contract.contractStart;
-                //row.Cells["contractEnd"].Value = contract.contractEnd;
-
-
-
+                AddContractToTable(contract);
             }
+        }
 
+        private void AddContractToTable(Contract contract)
+        {
+            int index = contractsDataGridView.Rows.Add();
+            var row = contractsDataGridView.Rows[index];
+
+            row.Cells["id"].Value = contract.id;
+            row.Cells["contractNumber"].Value = contract.contractNumber;
+
+            row.Cells["contractStart"].Value = ConvertDateToShortText(contract.contractStart);
+            row.Cells["contractEnd"].Value = ConvertDateToShortText(contract.contractEnd);
 
         }
 
@@ -143,38 +139,38 @@ namespace Aura_Client.View
             if (result == DialogResult.OK)
             {
                // UpdateContract();
-                FillTable(organisation);
+                AddContractToTable(form.contract);
             }
 
         }
 
-        //private void UpdateContract()
-        //{
-        //    //взять последние реквизиты договора из таблицы договоров
-        //    //и заменить эти данные в карточке организации
+        private void UpdateContract()
+        {
+            //взять последние реквизиты договора из таблицы договоров
+            //и заменить эти данные в карточке организации
 
-        //    DataTable dataTable = Program.dataManager.GetDataTable
-        //        ("SELECT * FROM Contracts WHERE organisationID = '" + organisation.id + "'");
-        //    if (dataTable != null)
-        //    {
-        //        Contract contract = new Contract(dataTable.Rows[dataTable.Rows.Count-1]);
+            DataTable dataTable = Program.dataManager.GetDataTable
+                ("SELECT * FROM Contracts WHERE organisationID = '" + organisation.id + "'");
+            if (dataTable != null)
+            {
+                Contract contract = new Contract(dataTable.Rows[dataTable.Rows.Count - 1]);
 
-        //        StringBuilder sb = new StringBuilder();
-        //        sb.Append("UPDATE Organisations SET ");
-        //        sb.Append("contractNumber = '");
-        //        sb.Append(contract.contractNumber);
-        //        sb.Append("', contractStart = '");
-        //        sb.Append(contract.contractStart.ToString("yyyy-MM-dd"));
-        //        sb.Append("', contractEnd = '");
-        //        sb.Append(contract.contractEnd.ToString("yyyy-MM-dd"));
-        //        sb.Append("' WHERE id = '");
-        //        sb.Append(contract.organisationID);
-        //        sb.Append("'");
+                StringBuilder sb = new StringBuilder();
+                sb.Append("UPDATE Organisations SET ");
+                sb.Append("contractNumber = '");
+                sb.Append(contract.contractNumber);
+                sb.Append("', contractStart = '");
+                sb.Append(contract.contractStart.ToString("yyyy-MM-dd"));
+                sb.Append("', contractEnd = '");
+                sb.Append(contract.contractEnd.ToString("yyyy-MM-dd"));
+                sb.Append("' WHERE id = '");
+                sb.Append(contract.organisationID);
+                sb.Append("'");
 
-        //        Program.bridge.SendMessage("EXECUTECOMMAND#" + sb.ToString());
-        //    }
+                Program.bridge.SendMessage("EXECUTECOMMAND#" + sb.ToString());
+            }
 
-        //}
+        }
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
@@ -213,6 +209,12 @@ namespace Aura_Client.View
             DialogResult = DialogResult.OK;
         }
 
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            SendToServer();
+            timer2.Stop();
+        }
+
         private void addNewContractButton_Click(object sender, EventArgs e)
         {
             Contract contract = new Contract { organisationID = organisation.id };
@@ -225,21 +227,23 @@ namespace Aura_Client.View
 
             if (row != null)
             {
-
                 string id = row.Cells["id"].Value.ToString();
                 string text = "Вы действительно хотите удалить данные договора № " +
                   row.Cells["contractNumber"].Value.ToString() + "?" +
                     "\nЗаказчик - " + organisation.name;
                 DialogResult dialogResult = MessageBox.Show(text,
                     "Подтвердите удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
                 if (dialogResult == DialogResult.Yes)
                 {
                     Program.dataManager.DeleteContract(id);
                     creator.Add("contractNumber", "");
                     creator.Add("contractStart", DateTime.MinValue.ToString());
                     creator.Add("contractEnd", DateTime.MinValue.ToString());
-                    SendToServer();
+                    timer2.Start();                    
+                    
                     contractsDataGridView.Rows.Remove(row);
+
                 }
 
             }
@@ -258,6 +262,7 @@ namespace Aura_Client.View
             }
 
         }
-       
+
+        
     }
 }

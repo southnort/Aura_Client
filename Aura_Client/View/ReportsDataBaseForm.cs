@@ -62,7 +62,7 @@ namespace Aura_Client.View
 
             monthComboBox.Items.Add(new ComboBoxItem { Text = "Июль", Value = "7" });
             monthComboBox.Items.Add(new ComboBoxItem { Text = "Август", Value = "8" });
-            monthComboBox.Items.Add(new ComboBoxItem { Text = "Сентярь", Value = "9" });
+            monthComboBox.Items.Add(new ComboBoxItem { Text = "Сентябрь", Value = "9" });
 
             monthComboBox.Items.Add(new ComboBoxItem { Text = "Октябрь", Value = "10" });
             monthComboBox.Items.Add(new ComboBoxItem { Text = "Ноябрь", Value = "11" });
@@ -119,7 +119,8 @@ namespace Aura_Client.View
 
             }
 
-            RecolorTable();
+            // RecolorTable();
+            RecheckTable();
 
         }
 
@@ -128,13 +129,55 @@ namespace Aura_Client.View
             month = (monthComboBox.SelectedIndex + 1).ToString();
             year = yearComboBox.SelectedItem.ToString();
 
-            RecolorTable();
+            //RecolorTable();
+            RecheckTable();
 
         }
 
-        private void RecolorTable()
+        //private void RecolorTable()
+        //{
+        //    for (int i = 0; i < dataGridView1.Rows.Count; i++)
+        //    {
+        //        var row = dataGridView1.Rows[i];
+        //        int orgID = (int)row.Cells["organisationID"].Value;
+        //        var report = reports.SingleOrDefault(rep => rep.organisationID == orgID);
+
+        //        if (report != null && report.commonPurchasesContractsReport.Contains(monthYear))
+        //        {
+        //            row.Cells["commonPurchasesContractsReport"].Style.BackColor = readyColor;
+        //        }
+        //        else
+        //        {
+        //            row.Cells["commonPurchasesContractsReport"].Style.BackColor = notReadyColor;
+        //        }
+
+
+        //        if (report != null && report.singleSupplierContractsReport.Contains(monthYear))
+        //        {
+        //            row.Cells["singleSupplierContractsReport"].Style.BackColor = readyColor;
+        //        }
+        //        else
+        //        {
+        //            row.Cells["singleSupplierContractsReport"].Style.BackColor = notReadyColor;
+        //        }
+
+
+        //        if (report != null && report.failedPurchasesContractsReport.Contains(monthYear))
+        //        {
+        //            row.Cells["failedPurchasesContractsReport"].Style.BackColor = readyColor;
+        //        }
+        //        else
+        //        {
+        //            row.Cells["failedPurchasesContractsReport"].Style.BackColor = notReadyColor;
+        //        }
+
+        //    }
+
+        //}
+
+        private void RecheckTable()
         {
-            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+           for(int i = 0;i<dataGridView1.Rows.Count;i++)
             {
                 var row = dataGridView1.Rows[i];
                 int orgID = (int)row.Cells["organisationID"].Value;
@@ -142,35 +185,34 @@ namespace Aura_Client.View
 
                 if (report != null && report.commonPurchasesContractsReport.Contains(monthYear))
                 {
-                    row.Cells["commonPurchasesContractsReport"].Style.BackColor = readyColor;
+                    row.Cells["commonPurchasesContractsReport"].Value = true;
                 }
                 else
                 {
-                    row.Cells["commonPurchasesContractsReport"].Style.BackColor = notReadyColor;
+                    row.Cells["commonPurchasesContractsReport"].Value = false;
                 }
 
 
                 if (report != null && report.singleSupplierContractsReport.Contains(monthYear))
                 {
-                    row.Cells["singleSupplierContractsReport"].Style.BackColor = readyColor;
+                    row.Cells["singleSupplierContractsReport"].Value = true;
                 }
                 else
                 {
-                    row.Cells["singleSupplierContractsReport"].Style.BackColor = notReadyColor;
+                    row.Cells["singleSupplierContractsReport"].Value = false;
                 }
 
 
                 if (report != null && report.failedPurchasesContractsReport.Contains(monthYear))
                 {
-                    row.Cells["failedPurchasesContractsReport"].Style.BackColor = readyColor;
+                    row.Cells["failedPurchasesContractsReport"].Value = true;
                 }
                 else
                 {
-                    row.Cells["failedPurchasesContractsReport"].Style.BackColor = notReadyColor;
+                    row.Cells["failedPurchasesContractsReport"].Value = false;
                 }
 
             }
-
         }
 
 
@@ -336,26 +378,42 @@ namespace Aura_Client.View
         {
             var senderGrid = (DataGridView)sender;
 
-            if (e.RowIndex >= 0 && senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
-            {
+            
+            if (e.RowIndex >= 0 && dataGridView1.CurrentCell is DataGridViewCheckBoxCell)
+            {                
                 int orgID = (int) dataGridView1.CurrentRow.Cells[0].Value;
                 string fieldName = senderGrid.Columns[e.ColumnIndex].Name;
                 string fieldValue = monthYear;
 
-                var cell = dataGridView1.CurrentCell as DataGridViewButtonCell;
-                if (cell.Style.BackColor == readyColor)
+                //var cell = dataGridView1.CurrentCell as DataGridViewButtonCell;
+                //if (cell.Style.BackColor == readyColor)
+                //{
+                //    RemoveValue(orgID, fieldName, fieldValue);
+                //    cell.Style.BackColor = notReadyColor;
+                //}
+
+
+                //else
+                //{
+                //    AddValue(orgID, fieldName, fieldValue);
+                //    cell.Style.BackColor = readyColor;
+                //}
+
+                var cell = dataGridView1.CurrentCell as DataGridViewCheckBoxCell;
+                if ((bool)cell.Value == true)
                 {
                     RemoveValue(orgID, fieldName, fieldValue);
-                    cell.Style.BackColor = notReadyColor;
+                    cell.Value = false;
+                    
                 }
-
 
                 else
                 {
                     AddValue(orgID, fieldName, fieldValue);
-                    cell.Style.BackColor = readyColor;
+                    cell.Value = true;
+                    
                 }
-
+                label2.Focus();
 
             }
         }

@@ -44,10 +44,12 @@
             this.organisationID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.commonPurchasesContractsReport = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.singleSupplierContractsReport = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.failedPurchasesContractsReport = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.commonPurchasesContractsReport = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.singleSupplierContractsReport = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.failedPurchasesContractsReport = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -59,6 +61,7 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.prevMonthButton);
             this.panel1.Controls.Add(this.yearComboBox);
@@ -152,6 +155,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.SystemColors.Control;
+            this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.dataGridView1);
             this.panel3.Location = new System.Drawing.Point(12, 118);
             this.panel3.Name = "panel3";
@@ -187,7 +191,7 @@
             this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.Size = new System.Drawing.Size(974, 226);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // organisationID
             // 
@@ -210,19 +214,41 @@
             // 
             this.commonPurchasesContractsReport.HeaderText = "Договоры, заключенные по результатам закупок";
             this.commonPurchasesContractsReport.Name = "commonPurchasesContractsReport";
+            this.commonPurchasesContractsReport.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.commonPurchasesContractsReport.Width = 150;
             // 
             // singleSupplierContractsReport
             // 
             this.singleSupplierContractsReport.HeaderText = "Договоры с единственным поставщиком";
             this.singleSupplierContractsReport.Name = "singleSupplierContractsReport";
+            this.singleSupplierContractsReport.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.singleSupplierContractsReport.Width = 150;
             // 
             // failedPurchasesContractsReport
             // 
             this.failedPurchasesContractsReport.HeaderText = "Договоры с единственным по результатам несостоявшихся процедур";
             this.failedPurchasesContractsReport.Name = "failedPurchasesContractsReport";
+            this.failedPurchasesContractsReport.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.failedPurchasesContractsReport.Width = 150;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(11, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "label1";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(231, 17);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Ежемесячные отчеты заказчиков";
             // 
             // ReportsDataBaseForm
             // 
@@ -238,8 +264,10 @@
             this.Text = "Отчеты заказчиков";
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ReportsDataBaseForm_KeyUp);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -251,12 +279,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn organisationID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn inn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name;
-        private System.Windows.Forms.DataGridViewButtonColumn commonPurchasesContractsReport;
-        private System.Windows.Forms.DataGridViewButtonColumn singleSupplierContractsReport;
-        private System.Windows.Forms.DataGridViewButtonColumn failedPurchasesContractsReport;
         private System.Windows.Forms.ComboBox yearComboBox;
         private System.Windows.Forms.ComboBox monthComboBox;
         private System.Windows.Forms.Button button1;
@@ -264,5 +286,13 @@
         private System.Windows.Forms.Button checkAllButton;
         private System.Windows.Forms.Button uncheckAllButton;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn organisationID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn inn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn commonPurchasesContractsReport;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn singleSupplierContractsReport;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn failedPurchasesContractsReport;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }

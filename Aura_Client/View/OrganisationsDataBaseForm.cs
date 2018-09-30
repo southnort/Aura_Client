@@ -164,25 +164,20 @@ namespace Aura_Client.View
                         int rowIndex = organisationsDataGridView.Rows.Add();
                         var newRow = organisationsDataGridView.Rows[rowIndex];
 
-                        var table = Program.dataManager.GetDataTable
-                            ("SELECT * FROM contracts where organisationID = " +
-                            org.id + " ORDER BY id DESC LIMIT 1");
-
-                        if (table.Rows.Count > 0)
-                        {
-                            Contract contract = new Contract(table.Rows[table.Rows.Count - 1]);
-
-                            newRow.Cells["contractNumber"].Value = contract.contractNumber;
-                            newRow.Cells["contractStart"].Value =
-                                ConvertDateToShortText(contract.contractStart);
-                            newRow.Cells["contractEnd"].Value =
-                                ConvertDateToShortText(contract.contractEnd);
-                        }
-                        
-
-                        //Contract contract = Program.dataManager.GetValue<Contract>
+                        //var table = Program.dataManager.GetDataTable
                         //    ("SELECT * FROM contracts where organisationID = " +
                         //    org.id + " ORDER BY id DESC LIMIT 1");
+
+                        //if (table.Rows.Count > 0)
+                        //{
+                        //    Contract contract = new Contract(table.Rows[table.Rows.Count - 1]);
+
+                        //    newRow.Cells["contractNumber"].Value = contract.contractNumber;
+                        //    newRow.Cells["contractStart"].Value =
+                        //        ConvertDateToShortText(contract.contractStart);
+                        //    newRow.Cells["contractEnd"].Value =
+                        //        ConvertDateToShortText(contract.contractEnd);
+                        //}
 
                         newRow.Cells["id"].Value = org.id;
                         newRow.Cells["number"].Value = org.number;
@@ -202,6 +197,12 @@ namespace Aura_Client.View
                         newRow.Cells["law"].Value = Catalog.laws[org.law];
                         newRow.Cells["contractType"].Value =
                             Catalog.contractTypes[org.contractType];
+
+                        newRow.Cells["contractNumber"].Value = org.contractNumber;
+                        newRow.Cells["contractStart"].Value =
+                            ConvertDateToShortText(org.contractStart);
+                        newRow.Cells["contractEnd"].Value =
+                            ConvertDateToShortText(org.contractEnd);
                     }
                 }
             }

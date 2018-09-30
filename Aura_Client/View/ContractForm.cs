@@ -7,7 +7,7 @@ namespace Aura_Client.View
 {
     public partial class ContractForm : AuraForm
     {
-        private Contract contract;
+        public Contract contract;
 
         public ContractForm(Contract contract) : base()
         {
@@ -44,24 +44,24 @@ namespace Aura_Client.View
             }
         }
 
-        //private void UpdateOrganisation()
-        //{
-        //    //при редактировании данных договора - обновить эти данные в карточке оргнизации
-        //    StringBuilder sb = new StringBuilder();
-        //    sb.Append("UPDATE Organisations SET ");
-        //    sb.Append("contractNumber = '");
-        //    sb.Append(contractNumber.Text);
-        //    sb.Append("', contractStart = '");
-        //    sb.Append(contractStart.Value.ToString("yyyy-MM-dd"));
-        //    sb.Append("', contractEnd = '");
-        //    sb.Append(contractEnd.Value.ToString("yyyy-MM-dd"));
-        //    sb.Append("' WHERE id = '");
-        //    sb.Append(contract.organisationID);
-        //    sb.Append("'");
+        private void UpdateOrganisation()
+        {
+            //при редактировании данных договора - обновить эти данные в карточке оргнизации
+            StringBuilder sb = new StringBuilder();
+            sb.Append("UPDATE Organisations SET ");
+            sb.Append("contractNumber = '");
+            sb.Append(contractNumber.Text);
+            sb.Append("', contractStart = '");
+            sb.Append(contractStart.Value.ToString("yyyy-MM-dd"));
+            sb.Append("', contractEnd = '");
+            sb.Append(contractEnd.Value.ToString("yyyy-MM-dd"));
+            sb.Append("' WHERE id = '");
+            sb.Append(contract.organisationID);
+            sb.Append("'");
 
-        //    Program.bridge.SendMessage("EXECUTECOMMAND#" + sb.ToString());
+            Program.bridge.SendMessage("EXECUTECOMMAND#" + sb.ToString());
 
-        //}
+        }
 
 
 
@@ -83,13 +83,18 @@ namespace Aura_Client.View
 
 
         private void okButton_Click(object sender, EventArgs e)
-        {            
+        {
+            contract.contractNumber = contractNumber.Text;
+            contract.contractStart = contractStart.Value;
+            contract.contractEnd = contractEnd.Value;
+
             SendToServer();
-            //okButton.Enabled = false;
-            //cancelButton.Enabled = false;
-            //timer1.Start();
-            DialogResult = DialogResult.OK;
-            Close();
+            okButton.Enabled = false;
+            cancelButton.Enabled = false;
+            timer1.Start();
+            
+            //DialogResult = DialogResult.OK;
+            //Close();
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
@@ -99,7 +104,7 @@ namespace Aura_Client.View
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-           // UpdateOrganisation();
+            UpdateOrganisation();
             DialogResult = DialogResult.OK;
             Close();
         }
