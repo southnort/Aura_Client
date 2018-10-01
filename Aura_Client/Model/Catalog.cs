@@ -28,14 +28,14 @@ namespace Aura_Client.Model
         {
             //методы осуществления закупок
             //статусы закупок тоже здесь
-            new EmptyPurchaseMethod(),
-            new AloneProvider(),
-            new DemandOfQuotation(),
-            new DemandOfQuotationEF(),
-            new Auction(),
-            new Konkurs(),
-            new KonkursEF(),
-            new AuctionEF(),
+            new EmptyPurchaseMethod(),  //0
+            new AloneProvider(),        //1
+            new DemandOfQuotation(),    //2
+            new DemandOfQuotationEF(),  //3
+            new Auction(),              //4
+            new Konkurs(),              //5
+            new KonkursEF(),            //6                
+            new AuctionEF(),            //7
 
         };
 
