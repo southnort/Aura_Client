@@ -67,3 +67,4 @@ C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.V
 C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.View.AuraForm.resources
 C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.csprojAssemblyReference.cache
 C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.View.SettingsForm.resources
+C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.View.SettingsForm.resources
