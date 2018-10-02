@@ -246,6 +246,8 @@ namespace Aura_Client.View
                             newRow.Cells["employeID"].Value =
                                 users[pur.employeID.ToString()];
 
+                            Organisation org = orgs.SingleOrDefault(o => o.id == pur.organizationID);
+
                             newRow.Cells["organizationID"].Value =
                                 pur.organizationID == 0 ? "<не указано>" :
                                 orgs.SingleOrDefault(o => o.id == pur.organizationID).name;
