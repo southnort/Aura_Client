@@ -225,7 +225,8 @@ namespace Aura_Client.View
             if (purchase.organizationID > 0)
             {
                 Organisation org = Program.dataManager.GetOrganisation(purchase.organizationID.ToString());
-                organizationID.Text = org.name;
+                if (org != null)
+                    organizationID.Text = org.name;
             }
         }
 

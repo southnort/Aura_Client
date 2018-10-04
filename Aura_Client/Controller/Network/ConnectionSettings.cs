@@ -10,9 +10,9 @@ namespace Aura_Client.Network
         // настройки соединения с сервером
 
 
-      //  internal static string serverAddress = "192.168.1.221";
+        internal static string serverAddress = "192.168.1.221";
 
-        internal static string serverAddress = "192.168.1.2";
+      //  internal static string serverAddress = "192.168.1.2";
 
 
 

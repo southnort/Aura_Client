@@ -247,10 +247,10 @@ namespace Aura_Client.View
                                 users[pur.employeID.ToString()];
 
                             Organisation org = orgs.SingleOrDefault(o => o.id == pur.organizationID);
-
-                            newRow.Cells["organizationID"].Value =
-                                pur.organizationID == 0 ? "<не указано>" :
-                                orgs.SingleOrDefault(o => o.id == pur.organizationID).name;
+                            if (org == null || org.id < 1)
+                                newRow.Cells["organizationID"].Value = "<не указано>";
+                            else
+                                newRow.Cells["organizationID"].Value = org.name;                            
 
                             newRow.Cells["purchaseMethodID"].Value =
                                 Catalog.purchaseMethods[pur.purchaseMethodID].name;
