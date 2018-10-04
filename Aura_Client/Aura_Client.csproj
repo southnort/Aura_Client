@@ -102,7 +102,6 @@
     <Compile Include="Controller\Network\NetworkBridge.cs" />
     <Compile Include="Controller\Network\NetworkGate.cs" />
     <Compile Include="Controller\Network\NetworkManager.cs" />
-    <Compile Include="Model\Calendar.cs" />
     <Compile Include="Model\Catalog.cs" />
     <Compile Include="Model\ComboBoxItem.cs" />
     <Compile Include="Model\DataManager.cs" />

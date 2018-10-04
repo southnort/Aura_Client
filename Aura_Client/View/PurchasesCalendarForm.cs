@@ -1,5 +1,4 @@
 ﻿using Aura.Model;
-using Aura_Client.Model;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -78,7 +77,8 @@ namespace Aura_Client.View
         private void RefreshTable()
         {
             Clear();
-            Fill(GetDays(Program.dataManager.GetCalendar()));
+            Calendar calendar = new Calendar(Program.dataManager.GetAllPurchases());
+            Fill(calendar.GetDays(month + 1, year + 2016));
         }
 
         private void Clear()
@@ -86,29 +86,29 @@ namespace Aura_Client.View
             mainPanel.Controls.Clear();
         }
 
-        private List<DayInCalendar> GetDays(Calendar calendar)
-        {
-            //создаем лист дней для выбранного месяца
-            List<DayInCalendar> days = new List<DayInCalendar>();            
+        //private List<DayInCalendar> GetDays(Calendar calendar)
+        //{
+        //    //создаем лист дней для выбранного месяца
+        //    List<DayInCalendar> days = new List<DayInCalendar>();            
 
-            //добавляем в нужные пустые дни события из календаря
-            foreach (var pair in calendar)
-            {
-                if (pair.Key.Month == month + 1)
-                    days.Add(pair.Value);
-            }
+        //    //добавляем в нужные пустые дни события из календаря
+        //    foreach (var pair in calendar)
+        //    {
+        //        if (pair.Key.Month == month + 1)
+        //            days.Add(pair.Value);
+        //    }
 
-            for (int i = 0; i < DateTime.DaysInMonth(year + 2016, month + 1); i++)
-            {
-                var date = new DayInCalendar(new DateTime(year + 2016, month + 1, i + 1));
-                if (!days.Contains(date))
-                {
-                    days.Add(date);
-                }
-            }
-            
-            return days;
-        }
+        //    for (int i = 0; i < DateTime.DaysInMonth(year + 2016, month + 1); i++)
+        //    {
+        //        var date = new DayInCalendar(new DateTime(year + 2016, month + 1, i + 1));
+        //        if (!days.Contains(date))
+        //        {
+        //            days.Add(date);
+        //        }
+        //    }
+
+        //    return days;
+        //}
 
         private void Fill(List<DayInCalendar> days)
         {

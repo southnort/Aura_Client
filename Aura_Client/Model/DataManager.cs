@@ -70,20 +70,7 @@ namespace Aura_Client.Model
         public Purchase GetPurchase(string id)
         {
             return Program.bridge.GetObject<Purchase>("GETPURCHASE#" + id);
-        }
-
-        public Calendar GetCalendar()
-        {
-            //возвращает все закупки из БД в виде календаря
-            Calendar calendar = new Calendar();
-            foreach (var purchase in GetAllPurchases())
-            {
-                calendar.Add(purchase);
-            }
-
-            return calendar;
-
-        }
+        }        
 
         public List<Purchase> GetReestr(string filterQuery)
         {
