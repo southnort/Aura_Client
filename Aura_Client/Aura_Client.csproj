@@ -151,6 +151,12 @@
     <Compile Include="View\LoginWindow.Designer.cs">
       <DependentUpon>LoginWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\LogsJournalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LogsJournalForm.Designer.cs">
+      <DependentUpon>LogsJournalForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -267,6 +273,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\LoginWindow.resx">
       <DependentUpon>LoginWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LogsJournalForm.resx">
+      <DependentUpon>LogsJournalForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

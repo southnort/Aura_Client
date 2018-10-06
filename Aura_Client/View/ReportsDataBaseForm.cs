@@ -18,7 +18,8 @@ namespace Aura_Client.View
         private string monthYear { get { return " " + month + "." + year + ","; } }
 
         private List<Organisation> organisations;
-        private List<Report> reports;
+        private ReportsList reportsList;
+        private List<Report> reports { get { return reportsList.reports; } }  
 
         private Color readyColor = Color.PaleGreen;     //цвет кнопки для сделанного отчета
         private Color notReadyColor = Color.LightGray;       //цвет кнопки для несделанного отчета
@@ -99,7 +100,7 @@ namespace Aura_Client.View
         {
             organisations = Program.dataManager.GetFilteredOrganisations
                 ("SELECT * FROM Organisations WHERE law = 2 AND contractType = 1");
-            reports = Program.dataManager.GetAllReports();
+            reportsList = Program.dataManager.GetReportsList();
 
             foreach (var org in organisations)
             {

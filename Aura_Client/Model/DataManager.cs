@@ -114,9 +114,10 @@ namespace Aura_Client.Model
         }
 
 
-        public List<Report> GetAllReports()
+        public ReportsList GetReportsList()
         {
-            var list = Program.bridge.GetObject<List<Report>>("ALLREPORTS");
+            var list = Program.bridge.GetObject<ReportsList>("ALLREPORTS");
+
             return list;
         }
 
@@ -142,6 +143,13 @@ namespace Aura_Client.Model
         {
             //запрос с сервера одиночного значения
             return Program.bridge.GetObject<T>("GETITEM#" + query);
+        }
+
+
+        public DataTable GetLogs(string query)
+        {
+            //запросить с сервера журнал обработки документа в виде таблицы
+            return Program.bridge.GetObject<DataTable>("GETLOGS#" + query);
         }
 
 
