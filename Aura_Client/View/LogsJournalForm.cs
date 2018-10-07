@@ -15,29 +15,49 @@ namespace Aura_Client.View
         public LogsJournalForm(ILoggable item)
         {
             InitializeComponent();
+
             headerTextBox.Text = item.LogObjectName;
+            DataTable table = Program.dataManager.GetLogs(item.GetSqlString());
 
-            DataTable table = Program.dataManager.GetLogs(CreateQueryString(item));
+            FillDataGrid(table);
         }
-
-        private string CreateQueryString(ILoggable item)
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.Append("SELECT * FROM Logs WHERE tableName = '");
-            if (item is Purchase) sb.Append("Purchases");
-            else if (item is Organisation) sb.Append("Organisations");
-            else if (item is ReportsList) sb.Append("Reports");
-            else throw new Exception(ToString() + " error. " + item.GetType() + " is unknown type");
-
-            sb.Append("' AND itemID = '");
-            sb.Append(item.i
-        }
+               
 
 
         private void FillDataGrid(DataTable table)
         {
+            var users = Program.dataManager.GetUserNames();
+
+            if (table != null & table.Rows.Count > 0)
+            {
+                foreach (var tableRow in table.Rows)
+                {
+                    LogNode node = new LogNode((DataRow)tableRow);
+
+                    int rowIndex = dataGridView1.Rows.Add();
+                    var newRow = dataGridView1.Rows[rowIndex];
+                                       
+                    newRow.Cells["userID"].Value =
+                        users[node.userID.ToString()];
+
+                    newRow.Cells["date"].Value =
+                        node.date;
+
+                    newRow.Cells["time"].Value =
+                        node.time;
+
+                    newRow.Cells["message"].Value =
+                        node.message;
+
+                    newRow.Cells["dataBaseQuery"].Value =
+                        node.dataBaseQuery;
+
+                }
+            }
 
         }
+
+        
    
     }
 }

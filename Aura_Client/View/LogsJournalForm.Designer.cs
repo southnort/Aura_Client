@@ -31,6 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogsJournalForm));
             this.headerTextBox = new System.Windows.Forms.RichTextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.userID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.message = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataBaseQuery = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -38,20 +43,57 @@
             // 
             this.headerTextBox.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.headerTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.headerTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.headerTextBox.Location = new System.Drawing.Point(12, 12);
             this.headerTextBox.Name = "headerTextBox";
             this.headerTextBox.ReadOnly = true;
-            this.headerTextBox.Size = new System.Drawing.Size(346, 77);
+            this.headerTextBox.Size = new System.Drawing.Size(549, 77);
             this.headerTextBox.TabIndex = 0;
             this.headerTextBox.Text = "";
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.userID,
+            this.date,
+            this.time,
+            this.message,
+            this.dataBaseQuery});
+            this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridView1.Location = new System.Drawing.Point(12, 95);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(346, 577);
+            this.dataGridView1.Size = new System.Drawing.Size(549, 577);
             this.dataGridView1.TabIndex = 1;
+            // 
+            // userID
+            // 
+            this.userID.HeaderText = "Пользователь";
+            this.userID.Name = "userID";
+            // 
+            // date
+            // 
+            this.date.HeaderText = "Дата";
+            this.date.Name = "date";
+            // 
+            // time
+            // 
+            this.time.HeaderText = "Время";
+            this.time.Name = "time";
+            // 
+            // message
+            // 
+            this.message.HeaderText = "Действие";
+            this.message.Name = "message";
+            // 
+            // dataBaseQuery
+            // 
+            this.dataBaseQuery.HeaderText = "Подробности";
+            this.dataBaseQuery.Name = "dataBaseQuery";
             // 
             // LogsJournalForm
             // 
@@ -75,5 +117,10 @@
 
         private System.Windows.Forms.RichTextBox headerTextBox;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn userID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn time;
+        private System.Windows.Forms.DataGridViewTextBoxColumn message;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataBaseQuery;
     }
 }
