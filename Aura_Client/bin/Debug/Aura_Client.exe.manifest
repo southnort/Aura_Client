@@ -4,7 +4,7 @@
   <description asmv2:iconFile="Icon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="Aura_Client" version="1.0.3.0" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="Aura_Client" version="1.0.3.1" language="neutral" processorArchitecture="msil" />
     <commandLine file="Aura_Client.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -43,26 +43,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Aura_Client.exe" size="4790152">
-      <assemblyIdentity name="Aura_Client" version="1.0.3.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Aura_Client.exe" size="4973960">
+      <assemblyIdentity name="Aura_Client" version="1.0.3.1" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>BIpMv8QH/FkSrws8FYEhj41yGeU=</dsig:DigestValue>
+        <dsig:DigestValue>BLJtF1mf2DFrXSAFpDhyb+ndE5A=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Aura_DLL.dll" size="11776">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Aura_DLL.dll" size="14336">
       <assemblyIdentity name="Aura_DLL" version="1.0.3.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>4i9o6l8sBjBZUyndPs/gegiw0b4=</dsig:DigestValue>
+        <dsig:DigestValue>AiqIO89p1Y0gAZ3Snhxm0pEzTzU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -87,13 +87,13 @@
       <dsig:DigestValue>x7u3Er3EZCtaykFoaY0+2nU08Ro=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Icon.ico" size="270398">
+  <file name="Icon.ico" size="179498">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>jvp/Md59UUH65CdqD9vW5Y1H4B8=</dsig:DigestValue>
+      <dsig:DigestValue>ZHhMYbd8w67jFKurwcl4MEo2oi8=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

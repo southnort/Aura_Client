@@ -32,7 +32,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReestrDataBaseForm));
             this.reestrDataGridView = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
             this.organisationSelectButton = new System.Windows.Forms.Button();
+            this.organisationInn = new System.Windows.Forms.TextBox();
             this.clearFilterButton = new System.Windows.Forms.Button();
             this.organizationID_Equal = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -51,8 +53,6 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.label7 = new System.Windows.Forms.Label();
-            this.organisationInn = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.reestrDataGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -102,6 +102,15 @@
             this.panel1.Size = new System.Drawing.Size(1342, 87);
             this.panel1.TabIndex = 1;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(515, 59);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(87, 13);
+            this.label7.TabIndex = 98;
+            this.label7.Text = "ИНН заказчика";
+            // 
             // organisationSelectButton
             // 
             this.organisationSelectButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -112,6 +121,15 @@
             this.organisationSelectButton.Text = "...";
             this.organisationSelectButton.UseVisualStyleBackColor = true;
             this.organisationSelectButton.Click += new System.EventHandler(this.organisationSelectButton_Click);
+            // 
+            // organisationInn
+            // 
+            this.organisationInn.Location = new System.Drawing.Point(608, 56);
+            this.organisationInn.Name = "organisationInn";
+            this.organisationInn.Size = new System.Drawing.Size(154, 20);
+            this.organisationInn.TabIndex = 97;
+            this.organisationInn.KeyUp += new System.Windows.Forms.KeyEventHandler(this.anyKey_KeyUp);
+            this.organisationInn.Leave += new System.EventHandler(this.textBox_ValueChanged);
             // 
             // clearFilterButton
             // 
@@ -269,24 +287,6 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             this.contextMenuStrip1.Closing += new System.Windows.Forms.ToolStripDropDownClosingEventHandler(this.contextMenuStrip1_Closing);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(515, 59);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(87, 13);
-            this.label7.TabIndex = 98;
-            this.label7.Text = "ИНН заказчика";
-            // 
-            // organisationInn
-            // 
-            this.organisationInn.Location = new System.Drawing.Point(608, 56);
-            this.organisationInn.Name = "organisationInn";
-            this.organisationInn.Size = new System.Drawing.Size(154, 20);
-            this.organisationInn.TabIndex = 97;
-            this.organisationInn.KeyUp += new System.Windows.Forms.KeyEventHandler(this.anyKey_KeyUp);
-            this.organisationInn.Leave += new System.EventHandler(this.textBox_ValueChanged);
             // 
             // ReestrDataBaseForm
             // 

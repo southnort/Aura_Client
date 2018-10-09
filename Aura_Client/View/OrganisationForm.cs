@@ -69,6 +69,7 @@ namespace Aura_Client.View
             {
                 addNewContractButton.Hide();
                 removeContractButton.Hide();
+                showLogsButton.Hide();
             }
         }
 
@@ -263,6 +264,10 @@ namespace Aura_Client.View
 
         }
 
-        
+        private void showLogsButton_Click(object sender, EventArgs e)
+        {
+            LogsJournalForm form = new LogsJournalForm(organisation);
+            form.ShowDialog();
+        }
     }
 }

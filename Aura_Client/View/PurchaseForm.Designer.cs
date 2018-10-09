@@ -94,6 +94,7 @@
             this.auctionDateClr = new System.Windows.Forms.Button();
             this.auctionDate = new System.Windows.Forms.DateTimePicker();
             this.label20 = new System.Windows.Forms.Label();
+            this.showLogsButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.purchacePrice)).BeginInit();
             this.SuspendLayout();
             // 
@@ -742,11 +743,22 @@
             this.label20.TabIndex = 92;
             this.label20.Text = "Дата аукциона";
             // 
+            // showLogsButton
+            // 
+            this.showLogsButton.Location = new System.Drawing.Point(8, 534);
+            this.showLogsButton.Name = "showLogsButton";
+            this.showLogsButton.Size = new System.Drawing.Size(122, 23);
+            this.showLogsButton.TabIndex = 95;
+            this.showLogsButton.Text = "Журнал обработки";
+            this.showLogsButton.UseVisualStyleBackColor = true;
+            this.showLogsButton.Click += new System.EventHandler(this.showLogsButton_Click);
+            // 
             // PurchaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(797, 569);
+            this.Controls.Add(this.showLogsButton);
             this.Controls.Add(this.auctionDateClr);
             this.Controls.Add(this.auctionDate);
             this.Controls.Add(this.label20);
@@ -887,5 +899,6 @@
         private System.Windows.Forms.Button auctionDateClr;
         private System.Windows.Forms.DateTimePicker auctionDate;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Button showLogsButton;
     }
 }

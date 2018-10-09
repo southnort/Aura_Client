@@ -65,6 +65,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.number = new System.Windows.Forms.TextBox();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.showLogsButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.contractsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -396,11 +397,22 @@
             this.timer2.Interval = 250;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
+            // showLogsButton
+            // 
+            this.showLogsButton.Location = new System.Drawing.Point(13, 431);
+            this.showLogsButton.Name = "showLogsButton";
+            this.showLogsButton.Size = new System.Drawing.Size(122, 23);
+            this.showLogsButton.TabIndex = 103;
+            this.showLogsButton.Text = "Журнал обработки";
+            this.showLogsButton.UseVisualStyleBackColor = true;
+            this.showLogsButton.Click += new System.EventHandler(this.showLogsButton_Click);
+            // 
             // OrganisationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(867, 466);
+            this.Controls.Add(this.showLogsButton);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.number);
             this.Controls.Add(this.removeContractButton);
@@ -478,5 +490,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox number;
         private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Button showLogsButton;
     }
 }

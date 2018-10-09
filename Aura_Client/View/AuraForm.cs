@@ -14,6 +14,7 @@ namespace Aura_Client.View
         {
             KeyPreview = true;
             KeyUp += EscapeKeyPressed;
+            
         }
 
         protected CommandStringCreator creator;

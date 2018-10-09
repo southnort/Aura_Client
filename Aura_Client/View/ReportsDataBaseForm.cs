@@ -440,6 +440,12 @@ namespace Aura_Client.View
             ReloadTable();
 
         }
+
+        private void showLogsButton_Click(object sender, EventArgs e)
+        {
+            LogsJournalForm form = new LogsJournalForm(reportsList);
+            form.ShowDialog();
+        }
     }
 
 }

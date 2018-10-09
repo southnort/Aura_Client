@@ -26,6 +26,7 @@ namespace Aura_Client.View
                 creator.Add("statusID", purchase.statusID.ToString());
                 creator.Add("colorMark", purchase.colorMark.ToString());
                 creator.Add("withoutPurchase", purchase.withoutPurchase.ToString());
+                showLogsButton.Hide();
 
             }
 
@@ -381,6 +382,12 @@ namespace Aura_Client.View
             {
                 DialogResult = DialogResult.Cancel;
             }
+        }
+
+        private void showLogsButton_Click(object sender, EventArgs e)
+        {
+            LogsJournalForm form = new LogsJournalForm(purchase);
+            form.ShowDialog();
         }
     }
 }

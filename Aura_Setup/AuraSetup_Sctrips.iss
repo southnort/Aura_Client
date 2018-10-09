@@ -7,8 +7,8 @@
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
 AppId={{4F11F8E2-978C-46EB-B68F-34EF706331E7}
 AppName=Aura
-AppVersion=1.0.3.0
-;AppVerName=Aura 1.0.3.0
+AppVersion=1.0.3.1
+;AppVerName=Aura 1.0.3.1
 AppPublisher=ASTIKS
 DefaultDirName={pf}\Aura
 DefaultGroupName=Aura
@@ -28,7 +28,6 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 [Files]
 Source: "C:\Users\ярик\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\Aura_Client.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\ярик\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\Aura_DLL.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\ярик\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\connect settings.txt"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\ярик\Documents\Projects\Aura_Client\Aura_Client\Icon.ico"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 

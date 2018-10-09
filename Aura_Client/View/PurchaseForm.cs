@@ -25,6 +25,7 @@ namespace Aura_Client.View
                 purchase.law = Program.user.roleID;
                 creator.Add("law", purchase.law.ToString());
                 creator.Add("colorMark", purchase.colorMark.ToString());
+                showLogsButton.Hide();
 
             }
 
@@ -399,6 +400,12 @@ namespace Aura_Client.View
             {
                 DialogResult = DialogResult.Cancel;
             }
+        }
+
+        private void showLogsButton_Click(object sender, EventArgs e)
+        {
+            LogsJournalForm form = new LogsJournalForm(purchase);
+            form.ShowDialog();
         }
     }
 

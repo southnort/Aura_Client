@@ -75,6 +75,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.reestrDateLastClr = new System.Windows.Forms.Button();
             this.reestrDateLast = new System.Windows.Forms.DateTimePicker();
+            this.showLogsButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.purchacePrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contractPrice)).BeginInit();
             this.SuspendLayout();
@@ -537,11 +538,22 @@
             this.reestrDateLast.ValueChanged += new System.EventHandler(this.dateTime_ValueChanged);
             this.reestrDateLast.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dateTimeField_KeyUp);
             // 
+            // showLogsButton
+            // 
+            this.showLogsButton.Location = new System.Drawing.Point(8, 542);
+            this.showLogsButton.Name = "showLogsButton";
+            this.showLogsButton.Size = new System.Drawing.Size(122, 23);
+            this.showLogsButton.TabIndex = 102;
+            this.showLogsButton.Text = "Журнал обработки";
+            this.showLogsButton.UseVisualStyleBackColor = true;
+            this.showLogsButton.Click += new System.EventHandler(this.showLogsButton_Click);
+            // 
             // ReestrForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(797, 569);
+            this.Controls.Add(this.showLogsButton);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.reestrDateLastClr);
             this.Controls.Add(this.reestrDateLast);
@@ -644,5 +656,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button reestrDateLastClr;
         private System.Windows.Forms.DateTimePicker reestrDateLast;
+        private System.Windows.Forms.Button showLogsButton;
     }
 }
