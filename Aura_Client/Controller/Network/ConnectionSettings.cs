@@ -12,12 +12,12 @@ namespace Aura_Client.Network
 
 
 
-        internal static int serverPort = 40501;
-        internal static int broadcastPort = 40502;
+        //internal static int serverPort = 40501;
+        //internal static int broadcastPort = 40502;
 
 
-        //internal static int serverPort = 40503;
-        //internal static int broadcastPort = 40504;
+        internal static int serverPort = 40503;
+        internal static int broadcastPort = 40504;
 
 
 
