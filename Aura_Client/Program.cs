@@ -20,6 +20,7 @@ namespace Aura_Client
         public static List<IShowable> openedForms = new List<IShowable>();
         public static DataManager dataManager;
 
+        [STAThread]
         static void Main()
         {
             user.ID = -1;
