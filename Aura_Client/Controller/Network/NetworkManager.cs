@@ -16,18 +16,7 @@ namespace Aura_Client.Network
         protected MessageHandler messageHandler;
 
         public NetworkManager()
-        {
-            //прочитать указанный файл и взять настройки для подключения к серверу  
-
-            //List<string> connectionSettings = new List<string>();
-            //using (StreamReader sr = new StreamReader("connect settings.txt"))
-            //{
-            //    while (!sr.EndOfStream)
-            //        connectionSettings.Add(sr.ReadLine());
-            //}
-
-
-
+        {           
             messageHandler = new MessageHandler();
 
             gate = new NetworkGate(

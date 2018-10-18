@@ -28,20 +28,7 @@ namespace Aura_Client
             StartProgram();
             Application.Run(new MainForm());
             Environment.Exit(0);
-
-            // LoginWindow loginWindow = new LoginWindow();
-            //var result =  loginWindow.ShowDialog();
-
-            //if (result == System.Windows.Forms.DialogResult.OK)
-            //{
-            //    var users = bridge.GetObject<Dictionary<string, string>>("USERNAMES");
-            //    var purchases = bridge.GetObject<List<Purchase>>("ALLPURCHASES");
-            //    var organisations = bridge.GetObject<List<Organisation>>("ALLORGANISATIONS");
-
-            //    MainForm mainForm = new MainForm();
-            //    mainForm.ShowDialog();
-            //}
-
+           
         }
 
         static void StartProgram()
