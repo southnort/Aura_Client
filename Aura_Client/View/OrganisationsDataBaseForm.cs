@@ -17,6 +17,7 @@ namespace Aura_Client.View
         public OrganisationsDataBaseForm(bool onlyShow = true)
         {
             InitializeComponent();
+            InitializeRightMenuButtonMenu();           
 
             LoadCatalogs();
             CreateTable();
@@ -127,7 +128,7 @@ namespace Aura_Client.View
 
 
         }
-
+        
         private void MenuItemOnClick(object sender, EventArgs eventArgs)
         {
             var target = (ToolStripMenuItem)sender;
@@ -307,6 +308,7 @@ namespace Aura_Client.View
         {
             if (e.KeyCode == Keys.Enter)
             {
+                label1.Focus();
                 ReloadTable();
             }
 
@@ -354,5 +356,8 @@ namespace Aura_Client.View
             if (e.CloseReason == ToolStripDropDownCloseReason.ItemClicked)
                 e.Cancel = true;
         }
+
+              
+
     }
 }

@@ -14,10 +14,11 @@ namespace Aura_Client.View
         {
             KeyPreview = true;
             KeyUp += EscapeKeyPressed;
-            
+            InitializeRightMenuButtonMenu();
         }
 
         protected CommandStringCreator creator;
+        protected ContextMenuStrip rightMouseButtonMenu;
 
         public void OpenAuraForm()
         {
@@ -214,6 +215,65 @@ namespace Aura_Client.View
         }
 
 
+
+        protected void InitializeRightMenuButtonMenu()
+        {
+            rightMouseButtonMenu = new ContextMenuStrip();
+            ToolStripMenuItem copyMenuItem = new ToolStripMenuItem("Копировать");
+            ToolStripMenuItem pasteMenuItem = new ToolStripMenuItem("Вставить");
+            rightMouseButtonMenu.Items.AddRange(new[] { copyMenuItem, pasteMenuItem, });
+
+            copyMenuItem.Click += copyMenuItem_Click;
+            pasteMenuItem.Click += pasteMenuItem_Click;
+
+
+            foreach (var item in Controls)
+            {
+                if (item is Panel)
+                {                    
+                    foreach (Control control in ((Panel)item).Controls)
+                    {
+                        control.ContextMenuStrip = rightMouseButtonMenu;
+                    }
+                }
+
+                else 
+                {
+                    ((Control)item).ContextMenuStrip = rightMouseButtonMenu;
+                }
+            }
+
+
+
+            foreach (Control control in Controls)
+            {
+                control.ContextMenuStrip = rightMouseButtonMenu;
+            }
+
+        }
+
+        private void copyMenuItem_Click(object sender, EventArgs e)
+        {
+            if (ActiveControl is TextBox)
+            {
+                Clipboard.SetText(((TextBox)ActiveControl).SelectedText);
+            }
+            
+
+
+
+            Clipboard.SetText(ActiveControl.Text);
+
+            MessageBox.Show("Yes");
+        }
+
+
+        private void pasteMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Copy");
+        }
+
+       
 
     }
 

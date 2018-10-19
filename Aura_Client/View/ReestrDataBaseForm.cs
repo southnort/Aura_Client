@@ -514,6 +514,12 @@ namespace Aura_Client.View
 
         private void ReestrDataBaseForm_KeyUp(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Enter)
+            {
+                label1.Focus();
+                ReloadTable();
+            }
+
             if (e.KeyCode == Keys.Escape)
             {
                 DialogResult = DialogResult.Cancel;
