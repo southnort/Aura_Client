@@ -8,23 +8,27 @@ namespace Aura_Client.View
         public ChangePasswordForm() : base()
         {
             InitializeComponent();
+
+            userName.Text = Program.user.name;
         }
 
         private void ConfirmNewPassword()
         {
-
+            Program.bridge.ChangePassword(Program.user.ID,
+                newPasswordTextBox.Text);
         }
 
         private void saveNewPasswordButton_Click(object sender, EventArgs e)
         {
             string control = string.Empty;
 
+            if (Program.bridge.TryLogin(Program.user.login,
+                    currentPasswordTextBox.Text) != "LOGINSUCCESS")
+                control += "Аутентификация не пройдена\n";
+
             if (currentPasswordTextBox.Text == string.Empty)
                 control += "Заполните текущий пароль\n";
-
-            if (Program.user.password != currentPasswordTextBox.Text)
-                control += "Текущий пароль указан неверно\n";
-
+           
             if (newPasswordTextBox.Text == string.Empty)
                 control += "Укажите новый пароль\n";
 
@@ -36,6 +40,7 @@ namespace Aura_Client.View
             if (control == string.Empty)
             {
                 ConfirmNewPassword();
+                MessageBox.Show("Пароль успешно изменён");
                 DialogResult = DialogResult.OK;
             }
 

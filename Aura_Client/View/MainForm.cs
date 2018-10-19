@@ -65,8 +65,7 @@ namespace Aura_Client.View
             Program.user.ID = -1;
             LoginWindow window = new LoginWindow();
             if (window.ShowDialog() != DialogResult.OK)
-            {
-               // Application.Exit();
+            {              
                 Environment.Exit(0);
             }
             else
@@ -79,7 +78,8 @@ namespace Aura_Client.View
 
         private void changePasswordButton_Click(object sender, EventArgs e)
         {
-
+            ChangePasswordForm form = new ChangePasswordForm();
+            form.ShowDialog();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -98,9 +98,7 @@ namespace Aura_Client.View
 
             //если пользователь не имеет полномочий администратора, убрать кнопку "Пользователи"
             if (Program.user.roleID != 0)
-                usersButton.Hide();
-
-            changePasswordButton.Hide();
+                usersButton.Hide();            
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -120,12 +118,7 @@ namespace Aura_Client.View
             if (form.ShowDialog() == DialogResult.OK)
             {
 
-            }
-
-            else
-            {
-
-            }
+            }            
         }
     }
 }

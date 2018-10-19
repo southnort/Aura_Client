@@ -57,9 +57,11 @@ namespace Aura_Client.Network
                 string userName = str[1];
                 string userRoleID = str[2];
                 string userID = str[3];
+                string userLogin = str[4];
                 Program.user.name = userName;
                 Program.user.roleID = int.Parse(userRoleID);
                 Program.user.ID = int.Parse(userID);
+                Program.user.login = userLogin;
             }
 
         }

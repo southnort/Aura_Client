@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
-using Aura_Client.Network;
+﻿using System.Text;
 
 
 namespace Aura_Client.Network
@@ -21,6 +15,12 @@ namespace Aura_Client.Network
             var request = "LOGIN#" + login + "#" + password;
             return messageHandler.HandleMessage(ReceiveMessage(request), null);
 
+        }
+
+        public void ChangePassword(int userID, string newPassword)
+        {
+            var request = "CHANGEPASSWORD#" + userID + "#" + newPassword;
+            SendMessage(request);
         }
 
         public void SendUser(Aura.Model.User user)

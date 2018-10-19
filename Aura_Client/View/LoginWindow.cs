@@ -26,14 +26,10 @@ namespace Aura_Client.View
             if (loginTextBox.Text != string.Empty && passwordTextBox.Text != string.Empty)
             {
                 resultTextLabel.Text = "Соединяемся с сервером...";
-                // Thread loginThread = new Thread(new ThreadStart(() =>
-                //{
+                
                 string result = Program.bridge.TryLogin(loginTextBox.Text, passwordTextBox.Text);
                 SetLoginResult(result);
-                //}));
-
-                // loginThread.Start();
-
+                
 
             }
 
