@@ -15,6 +15,7 @@ namespace Aura_Client.View
         public LogsJournalForm(ILoggable item)
         {
             InitializeComponent();
+            InitializeAuraForm();
 
             headerTextBox.Text = item.LogObjectName;
             DataTable table = Program.dataManager.GetLogs(item.GetSqlString());

@@ -9,6 +9,8 @@ namespace Aura_Client.View
         public LoginWindow() : base()
         {
             InitializeComponent();
+            InitializeAuraForm();
+
             label3.Text = "\"Аура-Клиент\" приветствует Вас";
             label4.Text = "ver. " + Application.ProductVersion;
 

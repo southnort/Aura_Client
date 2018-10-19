@@ -8,6 +8,7 @@ namespace Aura_Client.View
         public ChangePasswordForm() : base()
         {
             InitializeComponent();
+            InitializeAuraForm();
 
             userName.Text = Program.user.name;
         }

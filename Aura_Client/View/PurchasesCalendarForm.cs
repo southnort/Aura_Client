@@ -16,6 +16,7 @@ namespace Aura_Client.View
         public PurchasesCalendarForm() : base()
         {
             InitializeComponent();
+            InitializeAuraForm();
 
             month = DateTime.Today.Month - 1;
             year = DateTime.Today.Year - 2016;

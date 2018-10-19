@@ -13,6 +13,7 @@ namespace Aura_Client.View
         public UsersDataBaseForm() : base()
         {
             InitializeComponent();
+            InitializeAuraForm();
 
             users = (List<User>)Program.bridge.GetObject<List<User>>("ALLUSERS");
             ReloadTable();

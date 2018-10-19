@@ -28,6 +28,7 @@ namespace Aura_Client.View
         public ReportsDataBaseForm() : base()
         {
             InitializeComponent();
+            InitializeAuraForm();
             InitializeToolTips();
             creator = new Controller.CommandStringCreator("Reports", "");
 

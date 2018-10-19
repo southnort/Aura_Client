@@ -13,7 +13,7 @@ namespace Aura_Client.View
 
         public DayInCalendarForm(DayInCalendar day)
         {
-            InitializeComponent();            
+            InitializeComponent();                
 
             dateLabel.Text = day.date.Day.ToString();
 

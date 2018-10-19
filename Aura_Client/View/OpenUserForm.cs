@@ -15,6 +15,7 @@ namespace Aura_Client.View
         public OpenUserForm(User user) : base()
         {
             InitializeComponent();
+            InitializeAuraForm();
 
             CheckUserBeforeFill(user);
 

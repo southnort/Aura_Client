@@ -14,6 +14,7 @@ namespace Aura_Client.View
         public PurchaseForm(Purchase purchase) : base()
         {
             InitializeComponent();
+            InitializeAuraForm();
             this.purchase = purchase;
             LoadCatalogs();
             creator = new CommandStringCreator("Purchases", purchase.id.ToString());

@@ -13,6 +13,7 @@ namespace Aura_Client.View
         public ReestrForm(Purchase purchase) : base()
         {
             InitializeComponent();
+            InitializeAuraForm();
             this.purchase = purchase;
             LoadCatalogs();
             creator = new Controller.CommandStringCreator("Purchases", purchase.id.ToString());

@@ -8,7 +8,9 @@ namespace Aura_Client.View
         public MainForm()
         {
             InitializeComponent();
+            InitializeAuraForm();
             Text = "Aura " + Application.ProductVersion;
+
         }
 
         private void purchasesListButton_Click(object sender, EventArgs e)

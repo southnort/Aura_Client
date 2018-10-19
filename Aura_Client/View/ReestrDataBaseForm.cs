@@ -14,6 +14,7 @@ namespace Aura_Client.View
         public ReestrDataBaseForm() : base()
         {
             InitializeComponent();
+            InitializeAuraForm();
 
             LoadCatalogs();
             creator = new Controller.CommandStringCreator("Purchases");

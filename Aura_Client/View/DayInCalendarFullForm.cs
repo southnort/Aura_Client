@@ -12,6 +12,7 @@ namespace Aura_Client.View
         public DayInCalendarFullForm(DayInCalendar day) : base()
         {
             InitializeComponent();
+            InitializeAuraForm();
 
             dateLabel.Text = day.date.ToShortDateString();
             RefreshTable(day);

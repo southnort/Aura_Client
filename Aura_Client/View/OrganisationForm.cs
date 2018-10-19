@@ -17,6 +17,8 @@ namespace Aura_Client.View
         public OrganisationForm(Organisation organisation) : base()
         {
             InitializeComponent();
+            InitializeAuraForm();
+
             this.organisation = organisation;
             LoadCatalogs();
             creator = new CommandStringCreator("Organisations", organisation.id.ToString());

@@ -15,6 +15,13 @@ namespace Aura_Client.View
             KeyPreview = true;
             KeyUp += EscapeKeyPressed;
             InitializeRightMenuButtonMenu();
+
+        }
+
+        protected void InitializeAuraForm()
+        {
+            //вызов методов, общих для всех наследников AuraForm
+            InitializeRightMenuButtonMenu();
         }
 
         protected CommandStringCreator creator;
@@ -73,7 +80,7 @@ namespace Aura_Client.View
         protected virtual void numericUpDown_ValueChanges(object sender, EventArgs e)
         {
             var box = (NumericUpDown)sender;
-            creator.Add(box.Name, box.Value.ToString().Replace(",","."));
+            creator.Add(box.Name, box.Value.ToString().Replace(",", "."));
         }
 
 
@@ -118,14 +125,14 @@ namespace Aura_Client.View
                 picker.CustomFormat = "dd.MM.yyyy   HH : mm";
                 picker.Value = date;
             }
-        }    
+        }
 
 
         protected void SetCombobox(ComboBox box, int id)
         {
             //для случаев, когда в ComboBox элементы не по порядку, с разрывами
             //id элемента, например статуса
-           // box.SelectedIndex = 0;
+            // box.SelectedIndex = 0;
 
             for (int i = 0; i < box.Items.Count; i++)
             {
@@ -136,7 +143,7 @@ namespace Aura_Client.View
                     break;
                 }
             }
-            
+
         }
 
         protected void SetCombobox(ComboBox box, string id)
@@ -164,7 +171,7 @@ namespace Aura_Client.View
         {
             if (original == DateTime.MinValue)
                 return "";
-           
+
             else return original.ToString("dd.MM.yyyy");
         }
 
@@ -230,14 +237,14 @@ namespace Aura_Client.View
             foreach (var item in Controls)
             {
                 if (item is Panel)
-                {                    
+                {
                     foreach (Control control in ((Panel)item).Controls)
                     {
                         control.ContextMenuStrip = rightMouseButtonMenu;
                     }
                 }
 
-                else 
+                else
                 {
                     ((Control)item).ContextMenuStrip = rightMouseButtonMenu;
                 }
@@ -254,26 +261,56 @@ namespace Aura_Client.View
 
         private void copyMenuItem_Click(object sender, EventArgs e)
         {
-            if (ActiveControl is TextBox)
+            if (ActiveControl is TextBoxBase)
             {
-                Clipboard.SetText(((TextBox)ActiveControl).SelectedText);
+                if (((TextBoxBase)ActiveControl).SelectedText != "")
+                    Clipboard.SetText(((TextBoxBase)ActiveControl).SelectedText);
+                else
+                    Clipboard.Clear();
             }
-            
+
+            else if (ActiveControl is NumericUpDown)
+            {
+                Clipboard.SetText(((NumericUpDown)ActiveControl).Value.ToString());
+
+            }
+
+            else
+            {
+                if (ActiveControl.Text != "")
+                    Clipboard.SetText(ActiveControl.Text);
+                else
+                    Clipboard.Clear();
+            }
 
 
-
-            Clipboard.SetText(ActiveControl.Text);
-
-            MessageBox.Show("Yes");
         }
 
 
         private void pasteMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Copy");
+            if (ActiveControl is TextBoxBase)
+            {
+                ((TextBoxBase)ActiveControl).Text = Clipboard.GetText();
+            }
+
+            else if (ActiveControl is NumericUpDown)
+            {
+                decimal value;
+                string text = Clipboard.GetText();
+
+                if (decimal.TryParse(text, out value))
+                    ((NumericUpDown)ActiveControl).Value = value;
+            }
+
+            else if (ActiveControl is DateTimePicker)
+            {
+                ActiveControl.Text = Clipboard.GetText();
+            }
+
         }
 
-       
+
 
     }
 
