@@ -29,6 +29,7 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Source: "C:\Users\ярик\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\Aura_Client.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\ярик\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\Aura_DLL.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\ярик\Documents\Projects\Aura_Client\Aura_Client\Icon.ico"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\ярик\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\connect settings.txt"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
