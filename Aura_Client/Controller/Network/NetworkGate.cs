@@ -6,6 +6,8 @@ using System.Threading;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 
+using System.IO.Ports;
+
 namespace Aura_Client.Network
 {
     /// <summary>
@@ -26,6 +28,8 @@ namespace Aura_Client.Network
         private TcpListener tcpListener;
         private int listenPort;                 //порт клиента, который нужно слушать  
         private NetworkStream listeningStream;
+
+        private SerialPort serialPort;
 
 
 
@@ -73,6 +77,10 @@ namespace Aura_Client.Network
             tcpListener = new TcpListener(IPAddress.Any, listenPort);
             tcpListener.Start();
 
+            serialPort = new SerialPort();
+            serialPort.PortName = listenPort.ToString();
+            serialPort.Open();
+
 
             TcpClient tcpClient = tcpListener.AcceptTcpClient();
             listeningStream = tcpClient.GetStream();
@@ -103,6 +111,9 @@ namespace Aura_Client.Network
                 listeningStream.Close();
                 listeningStream = null;
             }
+
+            if (serialPort.IsOpen)
+                serialPort.Close();
           //  Environment.Exit(0); //завершение процесса
         }
 
