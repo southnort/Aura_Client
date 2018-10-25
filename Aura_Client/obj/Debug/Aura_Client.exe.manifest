@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Aura_Client.exe" size="3431304">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Aura_Client.exe" size="3431840">
       <assemblyIdentity name="Aura_Client" version="1.0.3.2" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>W2aBQl9hyfq24fcjQnEcY5jQRCo=</dsig:DigestValue>
+        <dsig:DigestValue>s6jUr5jgRYOfuluqJ6ZxMwD0IyU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -63,6 +63,18 @@
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
         <dsig:DigestValue>VWnHx5eVf+jEEeEDUY42YASyEkY=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LumiSoft.Net.dll" size="1114112">
+      <assemblyIdentity name="LumiSoft.Net" version="2.0.4492.11923" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>k70rPjaCSJAcKjqFcdDvGXKy6iA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -94,6 +106,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>ZHhMYbd8w67jFKurwcl4MEo2oi8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="license.txt" size="904">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>U8QqLU0raC2n+LcD6UlFCDEXFKY=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

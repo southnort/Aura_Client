@@ -70,3 +70,7 @@ C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.V
 C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.View.SettingsForm.resources
 C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.View.LogsJournalForm.resources
 C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.View.LogsJournalForm.resources
+C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\Interop.NATUPNPLib.dll
+C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Interop.NATUPNPLib.dll
+C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.csproj.ResolveComReference.cache
+C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\LumiSoft.Net.dll

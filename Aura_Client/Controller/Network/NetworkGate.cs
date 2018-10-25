@@ -6,7 +6,8 @@ using System.Threading;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 
-using System.IO.Ports;
+using NATUPNPLib;
+using LumiSoft.Net.STUN.Client;
 
 namespace Aura_Client.Network
 {
@@ -29,8 +30,11 @@ namespace Aura_Client.Network
         private int listenPort;                 //порт клиента, который нужно слушать  
         private NetworkStream listeningStream;
 
-        private SerialPort serialPort;
-
+        private UPnPNATClass upnpnat;
+        private string StunServer = "stun.sipnet.ru";
+        private int stunServerPort = 3478;
+        private static STUN_Result STUN;
+        
 
 
 
@@ -77,10 +81,7 @@ namespace Aura_Client.Network
             tcpListener = new TcpListener(IPAddress.Any, listenPort);
             tcpListener.Start();
 
-            serialPort = new SerialPort();
-            serialPort.PortName = listenPort.ToString();
-            serialPort.Open();
-
+            OpenPorts();
 
             TcpClient tcpClient = tcpListener.AcceptTcpClient();
             listeningStream = tcpClient.GetStream();
@@ -111,9 +112,7 @@ namespace Aura_Client.Network
                 listeningStream.Close();
                 listeningStream = null;
             }
-
-            if (serialPort.IsOpen)
-                serialPort.Close();
+            
           //  Environment.Exit(0); //завершение процесса
         }
 
@@ -141,7 +140,25 @@ namespace Aura_Client.Network
             }
         }
 
-        
+
+        private void OpenPorts()
+        {
+            //upnpnat = new UPnPNATClass();
+            //IStaticPortMappingCollection mapping = upnpnat.StaticPortMappingCollection;
+            //mapping.Add(40501, "TCP", 40501, "192.168.0.102", true, "internalPort");
+            //mapping.Add(40502, "TCP", 40502, "192.168.0.102", true, "internalPort");
+
+            STUN = STUN_Client.Query(StunServer, stunServerPort, new IPEndPoint(IPAddress.Parse(host), mainPort));
+           
+
+        }
+
+        private void ClosePorts()
+        {
+            IStaticPortMappingCollection mapping = upnpnat.StaticPortMappingCollection;
+            mapping.Remove(40501, "TCP");
+            mapping.Remove(40502, "TCP");
+        }
 
 
 

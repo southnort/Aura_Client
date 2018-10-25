@@ -83,6 +83,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\Aura_DLL.dll</HintPath>
     </Reference>
+    <Reference Include="LumiSoft.Net, Version=2.0.4492.11923, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LumiSoft.Net.2.0.4492.11923\lib\LumiSoft.Net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SQLite, Version=1.0.106.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
@@ -235,6 +238,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="license.txt" />
     <None Include="UncheckAll_Icon.png" />
     <None Include="Remove_Icon.png" />
     <None Include="Aura_Client_TemporaryKey.pfx" />
@@ -323,6 +327,17 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="NATUPNPLib">
+      <Guid>{1C565858-F302-471E-B409-F180AA4ABEC6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.ICU.1.0.0.2\build\net20\System.Data.SQLite.Core.ICU.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.ICU.1.0.0.2\build\net20\System.Data.SQLite.Core.ICU.targets')" />
