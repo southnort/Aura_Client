@@ -6,8 +6,7 @@ using System.Threading;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 
-using NATUPNPLib;
-using LumiSoft.Net.STUN.Client;
+using LumiSoft.Net.UPnP.NAT; 
 
 namespace Aura_Client.Network
 {
@@ -30,10 +29,7 @@ namespace Aura_Client.Network
         private int listenPort;                 //порт клиента, который нужно слушать  
         private NetworkStream listeningStream;
 
-        private UPnPNATClass upnpnat;
-        private string StunServer = "stun.sipnet.ru";
-        private int stunServerPort = 3478;
-        private static STUN_Result STUN;
+       
         
 
 
@@ -148,16 +144,20 @@ namespace Aura_Client.Network
             //mapping.Add(40501, "TCP", 40501, "192.168.0.102", true, "internalPort");
             //mapping.Add(40502, "TCP", 40502, "192.168.0.102", true, "internalPort");
 
-            STUN = STUN_Client.Query(StunServer, stunServerPort, new IPEndPoint(IPAddress.Parse(host), mainPort));
-           
+            var map = new UPnP_NAT_Map(true, "TCP", "95.80.77.105", "40504",
+                "192.168.1.221", 40504, "test", 15);
+
+            var client = new UPnP_NAT_Client();
+
+            client.AddPortMapping(true, "test", "TCP", "95.80.77.105", 40504,
+               new IPEndPoint(IPAddress.Parse("192.168.1.221"), 40504), 15);
+
 
         }
 
         private void ClosePorts()
         {
-            IStaticPortMappingCollection mapping = upnpnat.StaticPortMappingCollection;
-            mapping.Remove(40501, "TCP");
-            mapping.Remove(40502, "TCP");
+           
         }
 
 
