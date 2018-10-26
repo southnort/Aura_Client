@@ -22,14 +22,14 @@ namespace Aura_Client.Network
 
         private string host;        //IP-адрес сервера
         private int mainPort;       //порт клиента, направляющий запросы серверу         
-        private TcpClient client;
+        private TcpClient tcpClient;
         private NetworkStream stream;
 
         private TcpListener tcpListener;
-        private int listenPort;                 //порт клиента, который нужно слушать  
+      //  private int listenPort;                 //порт клиента, который нужно слушать  
         private NetworkStream listeningStream;
 
-       
+        private UPnP_NAT_Client client = new UPnP_NAT_Client();
         
 
 
@@ -38,7 +38,7 @@ namespace Aura_Client.Network
         {
             host = serverIPaddress;
             mainPort = serverPort;
-            listenPort = broadcastPort;
+          //  listenPort = broadcastPort;
             messageHandler = handler;
 
             TryConnect();
@@ -51,7 +51,7 @@ namespace Aura_Client.Network
                 try
                 {
                     StartGate();
-                    StartListen();
+                  //  StartListen();
                 }
                 catch
                 {
@@ -61,29 +61,33 @@ namespace Aura_Client.Network
 
         private void StartGate()
         {
-            client = new TcpClient();
+            tcpClient = new TcpClient();
 
-            client.Connect(host, mainPort); //подключение клиента
-            stream = client.GetStream(); // получаем поток  
+            tcpClient.Connect(host, mainPort); //подключение клиента
+            stream = tcpClient.GetStream(); // получаем поток  
             stream.ReadTimeout = 20000;
 
 
         }
 
-        private void StartListen()
-        {
-            // запускаем новый поток для получения оповещений от сервера  
+        //private void StartListen()
+        //{
+        //    // запускаем новый поток для получения оповещений от сервера  
 
-            tcpListener = new TcpListener(IPAddress.Any, listenPort);
-            tcpListener.Start();
+        //  //  tcpListener = new TcpListener(IPAddress.Any, listenPort);
+        //    tcpListener.Start();
 
-            OpenPorts();
+        //  //  OpenPorts();
 
-            TcpClient tcpClient = tcpListener.AcceptTcpClient();
-            listeningStream = tcpClient.GetStream();
-            Thread listeningThread = new Thread(new ThreadStart(ReceivingBroadcasts));
-            listeningThread.Start();
-        }
+
+        //    TcpClient tcpClient = tcpListener.AcceptTcpClient();
+        //    listeningStream = tcpClient.GetStream();
+        //    Thread listeningThread = new Thread(new ThreadStart(ReceivingBroadcasts));
+        //    listeningThread.Start();
+
+            
+        //}
+
 
         private void Disconnect()
         {
@@ -92,10 +96,10 @@ namespace Aura_Client.Network
                 stream.Close();//отключение потока
                 stream = null;
             }
-            if (client != null)
+            if (tcpClient != null)
             {
-                client.Close();//отключение клиента
-                client = null;
+                tcpClient.Close();//отключение клиента
+                tcpClient = null;
             }
 
             if (tcpListener != null)
@@ -139,25 +143,35 @@ namespace Aura_Client.Network
 
         private void OpenPorts()
         {
-            //upnpnat = new UPnPNATClass();
-            //IStaticPortMappingCollection mapping = upnpnat.StaticPortMappingCollection;
-            //mapping.Add(40501, "TCP", 40501, "192.168.0.102", true, "internalPort");
-            //mapping.Add(40502, "TCP", 40502, "192.168.0.102", true, "internalPort");
+            try
+            {
+                client.AddPortMapping(true, "test", "TCP",
+                    ConnectionSettings.Instance.serverExternalAddress,
+                    ConnectionSettings.Instance.clientListenPort,
+                    new IPEndPoint(
+                        IPAddress.Parse(ConnectionSettings.Instance.serverInternalAddress),
+                        ConnectionSettings.Instance.clientListenPort),
+                   0);
+            }
 
-            var map = new UPnP_NAT_Map(true, "TCP", "95.80.77.105", "40504",
-                "192.168.1.221", 40504, "test", 15);
-
-            var client = new UPnP_NAT_Client();
-
-            client.AddPortMapping(true, "test", "TCP", "95.80.77.105", 40504,
-               new IPEndPoint(IPAddress.Parse("192.168.1.221"), 40504), 15);
-
-
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                Console.Read();
+            }
         }
 
         private void ClosePorts()
         {
-           
+            client.DeletePortMapping("TCP", ConnectionSettings.Instance.serverExternalAddress,
+                ConnectionSettings.Instance.serverListenPort);
+
+            foreach (var map in client.GetPortMappings())
+            {
+                client.DeletePortMapping(map);
+            }
+            client = null;
+
         }
 
 
