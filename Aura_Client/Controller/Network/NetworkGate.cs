@@ -26,7 +26,6 @@ namespace Aura_Client.Network
         private NetworkStream stream;
 
         private TcpListener tcpListener;
-      //  private int listenPort;                 //порт клиента, который нужно слушать  
         private NetworkStream listeningStream;
 
         private UPnP_NAT_Client client = new UPnP_NAT_Client();
@@ -34,11 +33,10 @@ namespace Aura_Client.Network
 
 
 
-        public NetworkGate(string serverIPaddress, int serverPort, int broadcastPort, MessageHandler handler)
+        public NetworkGate(string serverIPaddress, int serverPort, MessageHandler handler)
         {
             host = serverIPaddress;
-            mainPort = serverPort;
-          //  listenPort = broadcastPort;
+            mainPort = serverPort;         
             messageHandler = handler;
 
             TryConnect();
@@ -50,8 +48,7 @@ namespace Aura_Client.Network
             {
                 try
                 {
-                    StartGate();
-                  //  StartListen();
+                    StartGate();                 
                 }
                 catch
                 {
@@ -69,26 +66,7 @@ namespace Aura_Client.Network
 
 
         }
-
-        //private void StartListen()
-        //{
-        //    // запускаем новый поток для получения оповещений от сервера  
-
-        //  //  tcpListener = new TcpListener(IPAddress.Any, listenPort);
-        //    tcpListener.Start();
-
-        //  //  OpenPorts();
-
-
-        //    TcpClient tcpClient = tcpListener.AcceptTcpClient();
-        //    listeningStream = tcpClient.GetStream();
-        //    Thread listeningThread = new Thread(new ThreadStart(ReceivingBroadcasts));
-        //    listeningThread.Start();
-
-            
-        //}
-
-
+              
         private void Disconnect()
         {
             if (stream != null)
@@ -139,42 +117,6 @@ namespace Aura_Client.Network
                 }
             }
         }
-
-
-        private void OpenPorts()
-        {
-            try
-            {
-                client.AddPortMapping(true, "test", "TCP",
-                    ConnectionSettings.Instance.serverExternalAddress,
-                    ConnectionSettings.Instance.clientListenPort,
-                    new IPEndPoint(
-                        IPAddress.Parse(ConnectionSettings.Instance.serverInternalAddress),
-                        ConnectionSettings.Instance.clientListenPort),
-                   0);
-            }
-
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-                Console.Read();
-            }
-        }
-
-        private void ClosePorts()
-        {
-            client.DeletePortMapping("TCP", ConnectionSettings.Instance.serverExternalAddress,
-                ConnectionSettings.Instance.serverListenPort);
-
-            foreach (var map in client.GetPortMappings())
-            {
-                client.DeletePortMapping(map);
-            }
-            client = null;
-
-        }
-
-
 
         protected internal void SendMessage(string message)
         {

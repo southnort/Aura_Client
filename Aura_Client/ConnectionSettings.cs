@@ -1,62 +1,56 @@
-﻿using System;
-using System.IO;
-using System.Xml.Serialization;
+﻿using System.IO;
+using System.Collections.Generic;
 
 
-
-[Serializable]
 public class ConnectionSettings
 {
-    public ConnectionSettings()
-    {
+    // настройки соединения с сервером
 
-    }
-
-    public static ConnectionSettings Instance
+    private static string _serverAddress;
+    internal static string serverAddress
     {
         get
         {
-            if (_instance == null)
-                _instance = LoadFromXml();
+            if (_serverAddress == null || _serverAddress == string.Empty)
+                ReadConnectSettingsFile();
 
-            return _instance;
+            return _serverAddress;
         }
     }
-    private static ConnectionSettings _instance;
-
-    public string serverExternalAddress { get; set; }
-    public string serverInternalAddress { get; set; }
-    public string clientExternalAddress { get; set; }
-    public string clientInternalAddress { get; set; }
-
-    public int serverListenPort { get; set; }
-    public int clientListenPort { get; set; }
-
-    private const string fileName = "connection settings.xml";
 
 
-    private void SaveToXml()
+    private static int _serverPort;
+    internal static int serverPort
     {
-        using (FileStream fs = new FileStream(fileName, FileMode.OpenOrCreate))
+        get
         {
-            XmlSerializer formatter = new XmlSerializer(typeof(ConnectionSettings));
-            formatter.Serialize(fs, this);
-        }
+            if (_serverPort == 0)
+                ReadConnectSettingsFile();
+
+            return _serverPort;
+       }
 
     }
 
-    private static ConnectionSettings LoadFromXml()
+    
+
+
+    //прочитать указанный файл и взять настройки для подключения к серверу  
+    private static void ReadConnectSettingsFile()
     {
-        using (FileStream fs = new FileStream(fileName, FileMode.OpenOrCreate))
+        List<string> connectionSettings = new List<string>();
+        using (StreamReader sr = new StreamReader("connect settings.txt"))
         {
-            XmlSerializer formatter = new XmlSerializer(typeof(ConnectionSettings));
-            ConnectionSettings result = (ConnectionSettings)formatter.Deserialize(fs);
-
-            return result;
-
+            while (!sr.EndOfStream)
+                connectionSettings.Add(sr.ReadLine());
         }
 
+        _serverAddress = connectionSettings[0];
+        _serverPort = int.Parse(connectionSettings[1]);
+
     }
+
+
 
 
 }

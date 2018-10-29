@@ -78,7 +78,7 @@
             this.switchUserButton.Name = "switchUserButton";
             this.switchUserButton.Size = new System.Drawing.Size(140, 32);
             this.switchUserButton.TabIndex = 4;
-            this.switchUserButton.Text = "Другой пользователь";
+            this.switchUserButton.Text = "Выйти";
             this.switchUserButton.UseVisualStyleBackColor = true;
             this.switchUserButton.Click += new System.EventHandler(this.switchUserButton_Click);
             // 
@@ -110,9 +110,9 @@
             this.userNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.userNameLabel.Location = new System.Drawing.Point(3, 0);
             this.userNameLabel.Name = "userNameLabel";
-            this.userNameLabel.Size = new System.Drawing.Size(51, 20);
+            this.userNameLabel.Size = new System.Drawing.Size(268, 20);
             this.userNameLabel.TabIndex = 0;
-            this.userNameLabel.Text = "label1";
+            this.userNameLabel.Text = "Ошибка. Необходимо перезайти...";
             // 
             // panel2
             // 

@@ -23,11 +23,19 @@ namespace Aura_Client
         [STAThread]
         static void Main()
         {
-            user.ID = -1;
-            SetSettingsSetting();
-            StartProgram();
-            Application.Run(new MainForm());
-            Environment.Exit(0);
+            try
+            {
+                user.ID = -1;
+                SetSettingsSetting();
+                StartProgram();
+                Application.Run(new MainForm());
+                Environment.Exit(0);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                Console.Read();
+            }
            
         }
 

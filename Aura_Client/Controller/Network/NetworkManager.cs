@@ -20,9 +20,8 @@ namespace Aura_Client.Network
             messageHandler = new MessageHandler();
 
             gate = new NetworkGate(
-                ConnectionSettings.Instance.serverExternalAddress,
-                ConnectionSettings.Instance.serverListenPort,
-                ConnectionSettings.Instance.clientListenPort,
+                ConnectionSettings.serverAddress,
+                ConnectionSettings.serverPort,
                 messageHandler);
 
         }
