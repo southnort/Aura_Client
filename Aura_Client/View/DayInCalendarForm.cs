@@ -76,10 +76,26 @@ namespace Aura_Client.View
 
             };
 
+            button.BackColor = GetProtocolStatusColor(pair.Key.protocolStatusID);
+
             button.Click += Button_Click;
 
             return button;
 
+        }
+
+        protected Color GetProtocolStatusColor(int indexOfStatus)
+        {
+            if (Properties.settings.Default.ProtocolStatus.Count < indexOfStatus)
+                return Color.White;
+
+            else
+            {
+                var item = Properties.settings.Default.ProtocolStatus[indexOfStatus];
+                int argb = int.Parse(item);
+                return Color.FromArgb(argb);
+
+            }
         }
 
         private void Button_Click(object sender, EventArgs e)

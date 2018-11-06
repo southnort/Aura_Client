@@ -7,13 +7,13 @@
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
 AppId={{4F11F8E2-978C-46EB-B68F-34EF706331E7}
 AppName=Aura
-AppVersion=1.0.4.0
-;AppVerName=Aura 1.0.4.0
+AppVersion=1.0.4.1
+;AppVerName=Aura 1.0.4.1
 AppPublisher=ASTIKS
 DefaultDirName={pf}\Aura
 DefaultGroupName=Aura
 AllowNoIcons=yes
-OutputBaseFilename=Setup_External
+OutputBaseFilename=Setup
 SetupIconFile=C:\Users\ярик\Documents\Projects\Aura_Client\Aura_Client\Icon.ico
 Compression=lzma
 SolidCompression=yes
@@ -26,11 +26,11 @@ Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "C:\Users\ярик\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\Aura_Client.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\ярик\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\Aura_DLL.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\ярик\Documents\Projects\Aura_Client\Aura_Client\bin\Release\Aura_Client.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\ярик\Documents\Projects\Aura_Client\Aura_Client\bin\Release\Aura_DLL.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\ярик\Documents\Projects\Aura_Client\Aura_Client\Icon.ico"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\ярик\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\connect settings.txt"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\ярик\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\LumiSoft.Net.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\ярик\Documents\Projects\Aura_Client\Aura_Client\bin\Release\connect settings.txt"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\ярик\Documents\Projects\Aura_Client\Aura_Client\bin\Release\LumiSoft.Net.dll"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]

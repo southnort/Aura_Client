@@ -4,7 +4,7 @@
   <description asmv2:iconFile="Icon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="Aura_Client" version="1.0.4.0" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="Aura_Client" version="1.0.4.1" language="neutral" processorArchitecture="msil" />
     <commandLine file="Aura_Client.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -43,26 +43,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Aura_Client.exe" size="3431304">
-      <assemblyIdentity name="Aura_Client" version="1.0.4.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Aura_Client.exe" size="3433352">
+      <assemblyIdentity name="Aura_Client" version="1.0.4.1" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>UZp9Gv+0OBjUogkSzgk44AW7HVU=</dsig:DigestValue>
+        <dsig:DigestValue>EvdKbDX3hZqF3vmUwQpYgcceyGE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Aura_DLL.dll" size="14848">
-      <assemblyIdentity name="Aura_DLL" version="1.0.3.0" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="Aura_DLL" version="1.0.4.1" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>VWnHx5eVf+jEEeEDUY42YASyEkY=</dsig:DigestValue>
+        <dsig:DigestValue>yjB9zlUUpOHik/M5EaV8x7ec9gM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -90,13 +90,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Aura_Client.exe.config" size="2108">
+  <file name="Aura_Client.exe.config" size="2740">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>x7u3Er3EZCtaykFoaY0+2nU08Ro=</dsig:DigestValue>
+      <dsig:DigestValue>ey2UncROS8rgSjRrZ+85Pt9oTqc=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Icon.ico" size="179498">

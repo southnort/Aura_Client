@@ -252,7 +252,7 @@
     <None Include="packages.config" />
     <None Include="Properties\settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>settings.Designer.cs</LastGenOutput>
+      <LastGenOutput>settings1.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>

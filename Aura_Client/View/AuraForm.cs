@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Aura_Client.Controller;
+using Aura_Client.Model;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using Aura_Client.Controller;
-using Aura_Client.Model;
 
 namespace Aura_Client.View
 {
@@ -217,6 +218,21 @@ namespace Aura_Client.View
 
                 DataGridViewSetting.Default.ColumnOrder[this.Name] = columnOrders;
                 DataGridViewSetting.Default.Save();
+
+            }
+        }
+
+
+        protected Color GetProtocolStatusColor(int indexOfStatus)
+        {
+            if (Properties.settings.Default.ProtocolStatus.Count < indexOfStatus)
+                return Color.White;
+
+            else
+            {
+                var item = Properties.settings.Default.ProtocolStatus[indexOfStatus];
+                int argb = int.Parse(item);
+                return Color.FromArgb(argb);
 
             }
         }

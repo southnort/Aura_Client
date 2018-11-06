@@ -32,6 +32,8 @@ namespace Aura_Client.View
                 int y = (mainPanel.Controls.Count) * (button.Height + 5) + 5;
                 button.Location = new Point(x, y);
 
+                button.BackColor = GetProtocolStatusColor(ev.Key.protocolStatusID);
+
                 mainPanel.Controls.Add(button);
             }
         }

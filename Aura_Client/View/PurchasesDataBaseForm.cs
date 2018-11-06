@@ -309,20 +309,12 @@ namespace Aura_Client.View
                                     Color.FromArgb(pur.resultOfControlColor);
                             }
 
-                            newRow.Cells["protocolStatusID"].Value =
-                                Catalog.protocolStatuses[pur.protocolStatusID];
-                            Color color = Color.White;
-                            switch (pur.protocolStatusID)
-                            {
-                                case 1: color = Color.DodgerBlue; break;
-                                case 2: color = Color.Yellow; break;
-                                case 3: color = Color.LightPink; break;
-                                case 4: color = Color.LightCoral; break;
-                                case 5: color = Color.LightGreen; break;
-                            }
-                            newRow.Cells["protocolStatusID"].Style.BackColor = color;
-                            // newRow.DefaultCellStyle.BackColor = color;
+                            newRow.Cells["protocolStatusID"].Value =                               
+                                Catalog.protocolStatuses[pur.protocolStatusID];                          
 
+                            newRow.Cells["protocolStatusID"].Style.BackColor =
+                                GetProtocolStatusColor(pur.protocolStatusID);
+                          
                             newRow.Cells["bidsReviewDate"].Value = ConvertDateToText(pur.bidsReviewDate);
 
                             newRow.Cells["bidsRatingDate"].Value = ConvertDateToText(pur.bidsRatingDate);
@@ -395,7 +387,7 @@ namespace Aura_Client.View
 
             }
         }
-
+        
         private string HandleDate(string input)
         {
             DateTime date = Convert.ToDateTime(input);

@@ -7,7 +7,6 @@ C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\bin\Release\Aura_DL
 C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\bin\Release\System.Data.SQLite.dll
 C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\bin\Release\System.Data.SQLite.xml
 C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\bin\Release\System.Data.SQLite.dll.config
-C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Release\Aura_Client.csprojAssemblyReference.cache
 C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Release\Aura_Client.Properties.Resources.resources
 C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Release\Aura_Client.View.ChangePasswordForm.resources
 C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Release\Aura_Client.View.DayInCalendarForm.resources
@@ -31,3 +30,11 @@ C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Release\Aura_Cl
 C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Release\Aura_Client.csproj.CopyComplete
 C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Release\Aura_Client.exe
 C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Release\Aura_Client.pdb
+C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\bin\Release\LumiSoft.Net.dll
+C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\bin\Release\Interop.NATUPNPLib.dll
+C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Release\Interop.NATUPNPLib.dll
+C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Release\Aura_Client.csproj.ResolveComReference.cache
+C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Release\Aura_Client.View.AuraForm.resources
+C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Release\Aura_Client.View.ContractForm.resources
+C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Release\Aura_Client.View.LogsJournalForm.resources
+C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Release\Aura_Client.View.SettingsForm.resources

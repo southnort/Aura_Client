@@ -29,5 +29,16 @@
   &lt;string&gt;-21846&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
+    <Setting Name="ProtocolStatus" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;-1&lt;/string&gt;
+  &lt;string&gt;-14774017&lt;/string&gt;
+  &lt;string&gt;-256&lt;/string&gt;
+  &lt;string&gt;-18751&lt;/string&gt;
+  &lt;string&gt;-1015680&lt;/string&gt;
+  &lt;string&gt;-7278960&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

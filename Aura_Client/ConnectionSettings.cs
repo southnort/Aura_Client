@@ -28,11 +28,11 @@ public class ConnectionSettings
                 ReadConnectSettingsFile();
 
             return _serverPort;
-       }
+        }
 
     }
 
-    
+
 
 
     //прочитать указанный файл и взять настройки для подключения к серверу  
@@ -45,8 +45,13 @@ public class ConnectionSettings
                 connectionSettings.Add(sr.ReadLine());
         }
 
-        _serverAddress = connectionSettings[0];
-        _serverPort = int.Parse(connectionSettings[1]);
+#if DEBUG
+        _serverAddress = connectionSettings[1];
+        _serverPort = int.Parse(connectionSettings[3]);
+#else
+         _serverAddress = connectionSettings[0];
+        _serverPort = int.Parse(connectionSettings[2]);
+#endif
 
     }
 
