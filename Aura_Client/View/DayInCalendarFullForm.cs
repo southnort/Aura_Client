@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Text;
 
 namespace Aura_Client.View
 {
@@ -23,10 +24,19 @@ namespace Aura_Client.View
         private void RefreshTable(DayInCalendar day)
         {
             mainPanel.Controls.Clear();
+            proceduresCountTextBox.Clear();
+
+            //для подсчёта и отображения количества событий на дату
+            Dictionary<string, int> countsOfProcedures  
+                = new Dictionary<string, int>();
 
             foreach (var ev in day.events)
             {
                 Button button = CreateButton(ev);
+                if (countsOfProcedures.ContainsKey(ev.Value))
+                    countsOfProcedures[ev.Value]++;
+                else
+                    countsOfProcedures.Add(ev.Value, 1);
 
                 int x = 15;
                 int y = (mainPanel.Controls.Count) * (button.Height + 5) + 5;
@@ -36,6 +46,23 @@ namespace Aura_Client.View
 
                 mainPanel.Controls.Add(button);
             }
+
+            RefreshCountText(countsOfProcedures);
+        }
+
+        private void RefreshCountText(Dictionary<string, int> countsOfProcedures)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var pair in countsOfProcedures)
+            {
+                sb.Append(pair.Key);
+                sb.Append(" - ");
+                sb.Append(pair.Value);
+                sb.Append("\n");
+            }           
+
+            proceduresCountTextBox.Text = sb.ToString();
         }
 
         private Button CreateButton(KeyValuePair<Purchase, string> eventOb)

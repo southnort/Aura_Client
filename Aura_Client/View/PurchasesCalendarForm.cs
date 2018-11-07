@@ -20,12 +20,18 @@ namespace Aura_Client.View
 
             month = DateTime.Today.Month - 1;
             year = DateTime.Today.Year - 2016;
-            ShowDate();
-
-            mainPanel.Focus();
+            ShowDate();          
 
             RefreshTable();
 
+            monthComboBox.MouseWheel += MonthComboBox_MouseWheel;
+            yearComboBox.MouseWheel += MonthComboBox_MouseWheel;
+
+        }
+
+        private void MonthComboBox_MouseWheel(object sender, MouseEventArgs e)
+        {
+            ((HandledMouseEventArgs)e).Handled = true;
         }
 
         private void ShowDate()

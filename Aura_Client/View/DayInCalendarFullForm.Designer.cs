@@ -36,6 +36,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dateLabel = new System.Windows.Forms.Label();
+            this.proceduresCountTextBox = new System.Windows.Forms.RichTextBox();
             this.mainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -118,11 +119,23 @@
             this.dateLabel.TabIndex = 1;
             this.dateLabel.Text = "09.08.2018";
             // 
+            // proceduresCountTextBox
+            // 
+            this.proceduresCountTextBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.proceduresCountTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.proceduresCountTextBox.Location = new System.Drawing.Point(329, 63);
+            this.proceduresCountTextBox.Name = "proceduresCountTextBox";
+            this.proceduresCountTextBox.ReadOnly = true;
+            this.proceduresCountTextBox.Size = new System.Drawing.Size(201, 377);
+            this.proceduresCountTextBox.TabIndex = 2;
+            this.proceduresCountTextBox.Text = "";
+            // 
             // DayInCalendarFullForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(335, 452);
+            this.ClientSize = new System.Drawing.Size(542, 452);
+            this.Controls.Add(this.proceduresCountTextBox);
             this.Controls.Add(this.dateLabel);
             this.Controls.Add(this.mainPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -146,5 +159,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.RichTextBox proceduresCountTextBox;
     }
 }
