@@ -167,6 +167,13 @@ namespace Aura_Client.Network
 
         }
 
+        protected internal void GetFile(string request, string savingFilePath)
+        {
+            SendMessage(request);
+            ReceiveFile(stream, savingFilePath);
+            Console.WriteLine("File received successfull");
+        }
+
 
 
 
@@ -249,6 +256,55 @@ namespace Aura_Client.Network
                 TryConnect();
                 return null;
             }
+
+        }
+
+        private void ReceiveFile(NetworkStream st, string filePath)
+        {
+            //получить бинарный файл и сохранить его на диск
+
+
+            var ms = new MemoryStream();
+            var binaryWriter = new BinaryWriter(ms);
+
+            var data = new byte[64];
+            var size = new byte[4];
+            int readCount;
+            int totalReadMessageBytes = 0;
+
+            st.Read(size, 0, 4);
+            int messageLenght = BitConverter.ToInt32(size, 0);
+
+            while ((readCount = st.Read(data, 0, data.Length)) != 0)
+            {
+                binaryWriter.Write(data, 0, readCount);
+                totalReadMessageBytes += readCount;
+                if (totalReadMessageBytes >= messageLenght)
+                    break;
+            }
+
+            if (ms.Length > 0)
+            {
+                BinaryFormatter bf = new BinaryFormatter();
+                ms.Seek(0, SeekOrigin.Begin);
+
+                var buffer = ms.GetBuffer();
+                using (FileStream file = new FileStream(filePath, FileMode.Create, FileAccess.Write))
+                {
+                    file.Write(buffer, 0, (int)ms.Length);
+                    ms.Close();
+
+
+                }
+
+            }
+            else
+            {
+                Disconnect();
+                TryConnect();
+
+            }
+
 
         }
 

@@ -31,12 +31,12 @@ namespace Aura_Client
                 Application.Run(new MainForm());
                 Environment.Exit(0);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
                 Console.Read();
             }
-           
+
         }
 
         static void StartProgram()
@@ -57,10 +57,8 @@ namespace Aura_Client
 
             }
 
-            
+
         }
-
-
     }
 
 }

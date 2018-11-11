@@ -67,6 +67,11 @@ namespace Aura_Client.Network
             return gate.GetObject<T>(PrepareString(request, "gobj"));
         }
 
+        public void GetFile(string request, string savingFilePath)
+        {
+            gate.GetFile(PrepareString(request, "gfl"), savingFilePath);
+        }
+
     }
 
 }

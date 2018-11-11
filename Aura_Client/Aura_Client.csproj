@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{776916EC-BBBA-408D-9812-C65B05A94C9F}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>Aura_Client</RootNamespace>
     <AssemblyName>Aura_Client</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
@@ -227,6 +227,12 @@
     <Compile Include="View\SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\ToExcelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ToExcelForm.Designer.cs">
+      <DependentUpon>ToExcelForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\UsersDataBaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -238,6 +244,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="addNewPurchaseIcon.png" />
+    <None Include="delete.png" />
+    <None Include="excelIcon.png" />
     <Content Include="license.txt" />
     <None Include="UncheckAll_Icon.png" />
     <None Include="Remove_Icon.png" />
@@ -313,6 +322,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ToExcelForm.resx">
+      <DependentUpon>ToExcelForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UsersDataBaseForm.resx">
       <DependentUpon>UsersDataBaseForm.cs</DependentUpon>

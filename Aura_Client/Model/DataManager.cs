@@ -159,5 +159,10 @@ namespace Aura_Client.Model
             Program.bridge.SendMessage("EXECUTECOMMAND#DELETE FROM Contracts WHERE id ='" + id + "'");
         }
 
+        public void GetExcelFile(string filePath, string sqlCommand)
+        {
+            Program.bridge.GetFile("GETXLFILE#" + sqlCommand, filePath);
+        }
+
     }
 }

@@ -73,6 +73,16 @@ namespace Aura_Client.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap addNewPurchaseIcon {
+            get {
+                object obj = ResourceManager.GetObject("addNewPurchaseIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap CheckAll_Icon {
             get {
                 object obj = ResourceManager.GetObject("CheckAll_Icon", resourceCulture);
@@ -86,6 +96,26 @@ namespace Aura_Client.Properties {
         internal static System.Drawing.Bitmap ClearFilter_Icon {
             get {
                 object obj = ResourceManager.GetObject("ClearFilter_Icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap delete {
+            get {
+                object obj = ResourceManager.GetObject("delete", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap excelIcon {
+            get {
+                object obj = ResourceManager.GetObject("excelIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

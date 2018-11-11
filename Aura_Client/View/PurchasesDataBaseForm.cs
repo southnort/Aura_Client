@@ -251,7 +251,7 @@ namespace Aura_Client.View
                             if (org == null || org.id < 1)
                                 newRow.Cells["organizationID"].Value = "<не указано>";
                             else
-                                newRow.Cells["organizationID"].Value = org.name;                            
+                                newRow.Cells["organizationID"].Value = org.name;
 
                             newRow.Cells["purchaseMethodID"].Value =
                                 Catalog.purchaseMethods[pur.purchaseMethodID].name;
@@ -309,12 +309,12 @@ namespace Aura_Client.View
                                     Color.FromArgb(pur.resultOfControlColor);
                             }
 
-                            newRow.Cells["protocolStatusID"].Value =                               
-                                Catalog.protocolStatuses[pur.protocolStatusID];                          
+                            newRow.Cells["protocolStatusID"].Value =
+                                Catalog.protocolStatuses[pur.protocolStatusID];
 
                             newRow.Cells["protocolStatusID"].Style.BackColor =
                                 GetProtocolStatusColor(pur.protocolStatusID);
-                          
+
                             newRow.Cells["bidsReviewDate"].Value = ConvertDateToText(pur.bidsReviewDate);
 
                             newRow.Cells["bidsRatingDate"].Value = ConvertDateToText(pur.bidsRatingDate);
@@ -387,7 +387,7 @@ namespace Aura_Client.View
 
             }
         }
-        
+
         private string HandleDate(string input)
         {
             DateTime date = Convert.ToDateTime(input);
@@ -410,6 +410,10 @@ namespace Aura_Client.View
             toolTip1.SetToolTip(refreshButton, "Обновить");
             toolTip1.SetToolTip(columnsOptionsButton, "Настроить список");
             toolTip1.SetToolTip(clearFilterButton, "Очистить фильтр");
+
+            toolTip1.SetToolTip(addNewPurchaseButton, "Добавить новую закупку");
+            toolTip1.SetToolTip(deletePurchaseButton, "Удалить закупку");
+            toolTip1.SetToolTip(toExcelButton, "Выгрузка данных в файл Excel");
 
         }
 
@@ -567,7 +571,7 @@ namespace Aura_Client.View
             organisationInn.Clear();
 
             creator.ClearFilters();
-            
+
         }
 
         private void contextMenuStrip1_Closing(object sender, ToolStripDropDownClosingEventArgs e)
@@ -601,6 +605,14 @@ namespace Aura_Client.View
                 creator.AddFilter("organizationID_Equal", org.id.ToString());
                 organizationID_Equal.Text = org.name;
             }
+        }
+
+        private void toExcelButton_Click(object sender, EventArgs e)
+        {
+            ToExcelForm form = new ToExcelForm();
+            form.ShowDialog();
+
+
         }
     }
 }
