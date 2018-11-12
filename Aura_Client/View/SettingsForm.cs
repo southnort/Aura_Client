@@ -1,4 +1,4 @@
-﻿using Aura_Client.Model;
+﻿using Aura.Model;
 using System.Drawing;
 using System.Windows.Forms;
 

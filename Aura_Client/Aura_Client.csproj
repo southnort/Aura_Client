@@ -79,9 +79,9 @@
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Aura_DLL, Version=0.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Aura_DLL, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\Aura_DLL.dll</HintPath>
+      <HintPath>..\..\Aura_DLL\Aura_DLL\bin\Debug\Aura_DLL.dll</HintPath>
     </Reference>
     <Reference Include="LumiSoft.Net, Version=2.0.4492.11923, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\LumiSoft.Net.2.0.4492.11923\lib\LumiSoft.Net.dll</HintPath>
@@ -105,10 +105,8 @@
     <Compile Include="Controller\Network\NetworkBridge.cs" />
     <Compile Include="Controller\Network\NetworkGate.cs" />
     <Compile Include="Controller\Network\NetworkManager.cs" />
-    <Compile Include="Model\Catalog.cs" />
     <Compile Include="Model\ComboBoxItem.cs" />
     <Compile Include="Model\DataManager.cs" />
-    <Compile Include="Model\PurchaseMethod.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">

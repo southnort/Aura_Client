@@ -80,3 +80,6 @@ C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\LumiSoft.
 C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.csprojAssemblyReference.cache
 C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.View.ToExcelForm.resources
 C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.View.ToExcelForm.resources
+C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\Aura_DLL.dll
+C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\Aura_DLL.pdb
+C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\Aura_DLL.dll.config
