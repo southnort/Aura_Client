@@ -122,5 +122,12 @@ namespace Aura_Client.View
 
             }            
         }
+
+        private void toExcelButton_Click(object sender, EventArgs e)
+        {
+            ToExcelForm form = new ToExcelForm();
+            form.ShowDialog();
+
+        }
     }
 }

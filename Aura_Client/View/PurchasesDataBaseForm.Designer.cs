@@ -35,6 +35,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.organisationInn = new System.Windows.Forms.TextBox();
             this.organisationSelectButton = new System.Windows.Forms.Button();
+            this.clearFilterButton = new System.Windows.Forms.Button();
             this.organizationID_Equal = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -47,16 +48,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.purchaseName = new System.Windows.Forms.TextBox();
+            this.columnsOptionsButton = new System.Windows.Forms.Button();
+            this.refreshButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.deletePurchaseButton = new System.Windows.Forms.Button();
+            this.addNewPurchaseButton = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toExcelButton = new System.Windows.Forms.Button();
-            this.deletePurchaseButton = new System.Windows.Forms.Button();
-            this.addNewPurchaseButton = new System.Windows.Forms.Button();
-            this.clearFilterButton = new System.Windows.Forms.Button();
-            this.columnsOptionsButton = new System.Windows.Forms.Button();
-            this.refreshButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.purchasesDataGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -136,6 +135,17 @@
             this.organisationSelectButton.Text = "...";
             this.organisationSelectButton.UseVisualStyleBackColor = true;
             this.organisationSelectButton.Click += new System.EventHandler(this.organisationSelectButton_Click);
+            // 
+            // clearFilterButton
+            // 
+            this.clearFilterButton.BackgroundImage = global::Aura_Client.Properties.Resources.ClearFilter_Icon;
+            this.clearFilterButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.clearFilterButton.Location = new System.Drawing.Point(41, 3);
+            this.clearFilterButton.Name = "clearFilterButton";
+            this.clearFilterButton.Size = new System.Drawing.Size(32, 32);
+            this.clearFilterButton.TabIndex = 13;
+            this.clearFilterButton.UseVisualStyleBackColor = true;
+            this.clearFilterButton.Click += new System.EventHandler(this.clearFilterButton_Click);
             // 
             // organizationID_Equal
             // 
@@ -249,40 +259,39 @@
             this.purchaseName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.anyKey_KeyUp);
             this.purchaseName.Leave += new System.EventHandler(this.textBox_ValueChanged);
             // 
+            // columnsOptionsButton
+            // 
+            this.columnsOptionsButton.BackgroundImage = global::Aura_Client.Properties.Resources.Settings_Icon;
+            this.columnsOptionsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.columnsOptionsButton.Location = new System.Drawing.Point(3, 40);
+            this.columnsOptionsButton.Name = "columnsOptionsButton";
+            this.columnsOptionsButton.Size = new System.Drawing.Size(32, 32);
+            this.columnsOptionsButton.TabIndex = 1;
+            this.columnsOptionsButton.UseVisualStyleBackColor = true;
+            this.columnsOptionsButton.Click += new System.EventHandler(this.columnsOptionsButton_Click);
+            // 
+            // refreshButton
+            // 
+            this.refreshButton.BackgroundImage = global::Aura_Client.Properties.Resources.Refresh_Icon;
+            this.refreshButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.refreshButton.Location = new System.Drawing.Point(3, 3);
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Size = new System.Drawing.Size(32, 32);
+            this.refreshButton.TabIndex = 0;
+            this.refreshButton.UseVisualStyleBackColor = true;
+            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
+            // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.SystemColors.Control;
-            this.panel2.Controls.Add(this.toExcelButton);
             this.panel2.Controls.Add(this.deletePurchaseButton);
             this.panel2.Controls.Add(this.addNewPurchaseButton);
             this.panel2.Location = new System.Drawing.Point(12, 435);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1064, 61);
             this.panel2.TabIndex = 2;
-            // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 200;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            this.contextMenuStrip1.Closing += new System.Windows.Forms.ToolStripDropDownClosingEventHandler(this.contextMenuStrip1_Closing);
-            // 
-            // toExcelButton
-            // 
-            this.toExcelButton.BackgroundImage = global::Aura_Client.Properties.Resources.excelIcon;
-            this.toExcelButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.toExcelButton.Location = new System.Drawing.Point(1006, 3);
-            this.toExcelButton.Name = "toExcelButton";
-            this.toExcelButton.Size = new System.Drawing.Size(55, 55);
-            this.toExcelButton.TabIndex = 2;
-            this.toExcelButton.UseVisualStyleBackColor = true;
-            this.toExcelButton.Click += new System.EventHandler(this.toExcelButton_Click);
             // 
             // deletePurchaseButton
             // 
@@ -307,38 +316,16 @@
             this.addNewPurchaseButton.UseVisualStyleBackColor = true;
             this.addNewPurchaseButton.Click += new System.EventHandler(this.addNewPurchaseButton_Click);
             // 
-            // clearFilterButton
+            // timer1
             // 
-            this.clearFilterButton.BackgroundImage = global::Aura_Client.Properties.Resources.ClearFilter_Icon;
-            this.clearFilterButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.clearFilterButton.Location = new System.Drawing.Point(41, 3);
-            this.clearFilterButton.Name = "clearFilterButton";
-            this.clearFilterButton.Size = new System.Drawing.Size(32, 32);
-            this.clearFilterButton.TabIndex = 13;
-            this.clearFilterButton.UseVisualStyleBackColor = true;
-            this.clearFilterButton.Click += new System.EventHandler(this.clearFilterButton_Click);
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 200;
             // 
-            // columnsOptionsButton
+            // contextMenuStrip1
             // 
-            this.columnsOptionsButton.BackgroundImage = global::Aura_Client.Properties.Resources.Settings_Icon;
-            this.columnsOptionsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.columnsOptionsButton.Location = new System.Drawing.Point(3, 40);
-            this.columnsOptionsButton.Name = "columnsOptionsButton";
-            this.columnsOptionsButton.Size = new System.Drawing.Size(32, 32);
-            this.columnsOptionsButton.TabIndex = 1;
-            this.columnsOptionsButton.UseVisualStyleBackColor = true;
-            this.columnsOptionsButton.Click += new System.EventHandler(this.columnsOptionsButton_Click);
-            // 
-            // refreshButton
-            // 
-            this.refreshButton.BackgroundImage = global::Aura_Client.Properties.Resources.Refresh_Icon;
-            this.refreshButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.refreshButton.Location = new System.Drawing.Point(3, 3);
-            this.refreshButton.Name = "refreshButton";
-            this.refreshButton.Size = new System.Drawing.Size(32, 32);
-            this.refreshButton.TabIndex = 0;
-            this.refreshButton.UseVisualStyleBackColor = true;
-            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            this.contextMenuStrip1.Closing += new System.Windows.Forms.ToolStripDropDownClosingEventHandler(this.contextMenuStrip1_Closing);
             // 
             // PurchasesDataBaseForm
             // 
@@ -390,6 +377,5 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox organisationInn;
-        private System.Windows.Forms.Button toExcelButton;
     }
 }

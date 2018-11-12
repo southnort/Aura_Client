@@ -42,6 +42,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.calendarButton = new System.Windows.Forms.Button();
             this.purchasesListButton = new System.Windows.Forms.Button();
+            this.toExcelButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -128,6 +129,7 @@
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.Controls.Add(this.toExcelButton);
             this.panel3.Controls.Add(this.button3);
             this.panel3.Controls.Add(this.button2);
             this.panel3.Controls.Add(this.button1);
@@ -188,6 +190,17 @@
             this.purchasesListButton.UseVisualStyleBackColor = true;
             this.purchasesListButton.Click += new System.EventHandler(this.purchasesListButton_Click);
             // 
+            // toExcelButton
+            // 
+            this.toExcelButton.BackgroundImage = global::Aura_Client.Properties.Resources.excelIcon;
+            this.toExcelButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.toExcelButton.Location = new System.Drawing.Point(693, 105);
+            this.toExcelButton.Name = "toExcelButton";
+            this.toExcelButton.Size = new System.Drawing.Size(55, 55);
+            this.toExcelButton.TabIndex = 4;
+            this.toExcelButton.UseVisualStyleBackColor = true;
+            this.toExcelButton.Click += new System.EventHandler(this.toExcelButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -224,5 +237,6 @@
         private System.Windows.Forms.Button switchUserButton;
         private System.Windows.Forms.Button changePasswordButton;
         private System.Windows.Forms.Button settingsButton;
+        private System.Windows.Forms.Button toExcelButton;
     }
 }

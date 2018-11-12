@@ -413,7 +413,6 @@ namespace Aura_Client.View
 
             toolTip1.SetToolTip(addNewPurchaseButton, "Добавить новую закупку");
             toolTip1.SetToolTip(deletePurchaseButton, "Удалить закупку");
-            toolTip1.SetToolTip(toExcelButton, "Выгрузка данных в файл Excel");
 
         }
 
@@ -606,13 +605,6 @@ namespace Aura_Client.View
                 organizationID_Equal.Text = org.name;
             }
         }
-
-        private void toExcelButton_Click(object sender, EventArgs e)
-        {
-            ToExcelForm form = new ToExcelForm();
-            form.ShowDialog();
-
-
-        }
+       
     }
 }
