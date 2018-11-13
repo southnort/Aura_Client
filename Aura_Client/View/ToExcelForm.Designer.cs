@@ -35,7 +35,10 @@
             this.filePathTextBox = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.clearQueryTextBoxButton = new System.Windows.Forms.Button();
+            this.sqlQueryTextBox = new System.Windows.Forms.RichTextBox();
+            this.sendSQLqueryButton = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -46,7 +49,7 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.browseeButton);
             this.panel1.Controls.Add(this.filePathTextBox);
@@ -59,6 +62,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.SpringGreen;
             this.label1.Location = new System.Drawing.Point(0, 14);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(115, 13);
@@ -77,6 +81,8 @@
             // 
             // filePathTextBox
             // 
+            this.filePathTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.filePathTextBox.ForeColor = System.Drawing.SystemColors.Window;
             this.filePathTextBox.Location = new System.Drawing.Point(3, 30);
             this.filePathTextBox.Name = "filePathTextBox";
             this.filePathTextBox.Size = new System.Drawing.Size(219, 20);
@@ -99,27 +105,62 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.BackColor = System.Drawing.SystemColors.Control;
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.clearQueryTextBoxButton);
+            this.panel2.Controls.Add(this.sqlQueryTextBox);
+            this.panel2.Controls.Add(this.sendSQLqueryButton);
             this.panel2.Location = new System.Drawing.Point(12, 160);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(977, 247);
             this.panel2.TabIndex = 1;
             // 
-            // button1
+            // label2
             // 
-            this.button1.Location = new System.Drawing.Point(332, 63);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(191, 77);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Test";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.SpringGreen;
+            this.label2.Location = new System.Drawing.Point(33, 14);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(142, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "SQL-запрос в базу данных";
+            // 
+            // clearQueryTextBoxButton
+            // 
+            this.clearQueryTextBoxButton.Location = new System.Drawing.Point(11, 172);
+            this.clearQueryTextBoxButton.Name = "clearQueryTextBoxButton";
+            this.clearQueryTextBoxButton.Size = new System.Drawing.Size(104, 33);
+            this.clearQueryTextBoxButton.TabIndex = 6;
+            this.clearQueryTextBoxButton.Text = "clear";
+            this.clearQueryTextBoxButton.UseVisualStyleBackColor = true;
+            this.clearQueryTextBoxButton.Click += new System.EventHandler(this.clearQueryTextBoxButton_Click);
+            // 
+            // sqlQueryTextBox
+            // 
+            this.sqlQueryTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.sqlQueryTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.sqlQueryTextBox.ForeColor = System.Drawing.Color.SpringGreen;
+            this.sqlQueryTextBox.Location = new System.Drawing.Point(3, 30);
+            this.sqlQueryTextBox.Name = "sqlQueryTextBox";
+            this.sqlQueryTextBox.Size = new System.Drawing.Size(525, 136);
+            this.sqlQueryTextBox.TabIndex = 5;
+            this.sqlQueryTextBox.Text = "SELECT * FROM Organisations";
+            // 
+            // sendSQLqueryButton
+            // 
+            this.sendSQLqueryButton.Location = new System.Drawing.Point(534, 50);
+            this.sendSQLqueryButton.Name = "sendSQLqueryButton";
+            this.sendSQLqueryButton.Size = new System.Drawing.Size(191, 77);
+            this.sendSQLqueryButton.TabIndex = 4;
+            this.sendSQLqueryButton.Text = "Запросить";
+            this.sendSQLqueryButton.UseVisualStyleBackColor = true;
+            this.sendSQLqueryButton.Click += new System.EventHandler(this.sendSQLqueryButton_Click);
             // 
             // ToExcelForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(1001, 419);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -131,6 +172,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -144,6 +186,9 @@
         private System.Windows.Forms.Button browseeButton;
         private System.Windows.Forms.TextBox filePathTextBox;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button sendSQLqueryButton;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button clearQueryTextBoxButton;
+        private System.Windows.Forms.RichTextBox sqlQueryTextBox;
     }
 }

@@ -83,3 +83,6 @@ C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Clie
 C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\Aura_DLL.dll
 C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\Aura_DLL.pdb
 C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\Aura_DLL.dll.config
+C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\Aura_DLL.dll
+C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\Aura_DLL.pdb
+C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\Aura_DLL.dll.config

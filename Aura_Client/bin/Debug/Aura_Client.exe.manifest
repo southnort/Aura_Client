@@ -43,26 +43,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Aura_Client.exe" size="3926432">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Aura_Client.exe" size="3928456">
       <assemblyIdentity name="Aura_Client" version="1.0.4.2" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>MtH/4n8dkXqHJYz11RUSkqgwoHE=</dsig:DigestValue>
+        <dsig:DigestValue>sxpGZWT1fiu/wAgWgUPC6tInuT8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Aura_DLL.dll" size="17920">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Aura_DLL.dll" size="22016">
       <assemblyIdentity name="Aura_DLL" version="1.0.5.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>yztrc1reaneCUijv49sifMOSbo4=</dsig:DigestValue>
+        <dsig:DigestValue>I8cwcpbYtqcEYZ/IO7txZEPtMh8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
