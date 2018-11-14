@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Aura_Client.exe" size="3934088">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Aura_Client.exe" size="3941792">
       <assemblyIdentity name="Aura_Client" version="1.0.4.2" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>+6mX5sUpZrK7BHOhCB9OVEeisgU=</dsig:DigestValue>
+        <dsig:DigestValue>BNKeT23F3vnpYsnhsMsNA60025Q=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -62,7 +62,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>I8cwcpbYtqcEYZ/IO7txZEPtMh8=</dsig:DigestValue>
+        <dsig:DigestValue>LZGiLkvQuHkr7sLrpOyR6Qwtlgo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

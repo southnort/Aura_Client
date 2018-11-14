@@ -24,8 +24,8 @@ namespace Aura_Client.View
                 //если закупка новая, она должна автоматически создаваться
                 //для того закона, для которого создан пользователь
                 purchase.law = Program.user.roleID;
-                creator.Add("law", purchase.law.ToString());
-                creator.Add("colorMark", purchase.colorMark.ToString());
+                creator.AddChange("law", purchase.law.ToString());
+                creator.AddChange("colorMark", purchase.colorMark.ToString());
                 showLogsButton.Hide();
 
             }
@@ -211,7 +211,7 @@ namespace Aura_Client.View
                 purchase.controlStatus = 1;
             else purchase.controlStatus = 0;
 
-            creator.Add("controlStatus", purchase.controlStatus.ToString());
+            creator.AddChange("controlStatus", purchase.controlStatus.ToString());
 
             SetControllButton();
 
@@ -307,7 +307,7 @@ namespace Aura_Client.View
 
         private void SendToServer()
         {
-            if (creator.IsNotEmpty())
+            if (creator.ChangesIsNotEmpty())
             {
                 if (purchase.id < 1)
                 {
@@ -347,7 +347,7 @@ namespace Aura_Client.View
             {
                 int argb = colorDialog1.Color.ToArgb();
                 purchase.colorMark = argb;
-                creator.Add("colorMark", argb.ToString());
+                creator.AddChange("colorMark", argb.ToString());
                 SwitchColorMark();
             }
         }
@@ -357,7 +357,7 @@ namespace Aura_Client.View
             string fieldName = ((Button)sender).Name.Replace("Clr", "");
             DateTimePicker picker = Controls[fieldName] as DateTimePicker;
             SetDate(picker, DateTime.MinValue);
-            creator.Add(fieldName, DateTime.MinValue.ToShortDateString());
+            creator.AddChange(fieldName, DateTime.MinValue.ToShortDateString());
 
         }
 
@@ -367,7 +367,7 @@ namespace Aura_Client.View
             if (result == DialogResult.OK)
             {
                 comments.ForeColor = colorDialog1.Color;
-                creator.Add("commentsFontColor", colorDialog1.Color.ToArgb().ToString());
+                creator.AddChange("commentsFontColor", colorDialog1.Color.ToArgb().ToString());
             }
         }
 
@@ -377,7 +377,7 @@ namespace Aura_Client.View
             if (result == DialogResult.OK)
             {
                 resultOfControl.ForeColor = colorDialog1.Color;
-                creator.Add("resultOfControlColor", colorDialog1.Color.ToArgb().ToString());
+                creator.AddChange("resultOfControlColor", colorDialog1.Color.ToArgb().ToString());
             }
         }
 
@@ -388,8 +388,8 @@ namespace Aura_Client.View
             if (result == DialogResult.OK)
             {
                 Organisation org = form.returnedOrganisation;
-                creator.Add("organizationID", org.id.ToString());
-                creator.Add("organisationInn", org.inn.ToString());
+                creator.AddChange("organizationID", org.id.ToString());
+                creator.AddChange("organisationInn", org.inn.ToString());
                 organizationID.Text = org.name;
             }
 

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Text;
 
 namespace Aura_Client.Controller
@@ -13,7 +11,8 @@ namespace Aura_Client.Controller
         private string tableName;                       //название таблицы в БД, с которой нужно работать
         private string objectID;                        //ID объекта в БД
         private Dictionary<string, string> changes;     //key - название поля, value - его новое значение
-        private Dictionary<string, string> filters;      //настройка фильтрации для одного запроса
+        private Dictionary<string, string> filters;     //настройка фильтрации для одного запроса
+        private List<string> fields;                    //поля, которые нужны для вывода
 
         public CommandStringCreator(string nameOfTable, string id)
         {
@@ -31,7 +30,15 @@ namespace Aura_Client.Controller
 
         }
 
-        public void Add(string columnName, string value)
+        public CommandStringCreator()
+        {
+            //использование для получения файлов. Можно менять таблицу в процессе
+            fields = new List<string>();
+            filters = new Dictionary<string, string>();
+        }
+
+
+        public void AddChange(string columnName, string value)
         {
             if (changes.ContainsKey(columnName))
                 changes[columnName] = value;
@@ -46,6 +53,23 @@ namespace Aura_Client.Controller
 
             else filters.Add(columnName, value);
 
+        }
+
+        public void AddField(string fieldName)
+        {
+            if (!fields.Contains(fieldName))
+                fields.Add(fieldName);
+        }
+
+        public void RemoveField(string fieldName)
+        {
+            if (fields.Contains(fieldName))
+                fields.Remove(fieldName);
+        }
+
+        public void SetTableName(string tableName)
+        {
+            this.tableName = tableName;
         }
 
 
@@ -105,16 +129,46 @@ namespace Aura_Client.Controller
 
         }
 
-
         public string ToFilterCommand()
         {
             //запрос на получение отфильтрованной информации
             StringBuilder sb = new StringBuilder();
-            sb.Append("SELECT * FROM ");
+            sb.Append("SELECT ");
+            sb.Append(GetFields());
+            sb.Append(" FROM ");
             sb.Append(tableName);
 
-            if (filters.Count > 0)
+            sb.Append(GetFilters());
+
+            return sb.ToString();
+
+        }
+
+
+
+        private string GetFields()
+        {
+            if (fields != null && fields.Count > 0)
             {
+                StringBuilder sb = new StringBuilder();
+                foreach (var field in fields)
+                {
+                    sb.Append(field);
+                    sb.Append(", ");
+                }
+                sb.Length -= 2;
+                return sb.ToString();
+            }
+
+            else return "*";
+
+        }
+
+        private string GetFilters()
+        {
+            if (filters != null && filters.Count > 0)
+            {
+                StringBuilder sb = new StringBuilder();
                 sb.Append(" WHERE ");
                 foreach (var pair in filters)
                 {
@@ -123,11 +177,16 @@ namespace Aura_Client.Controller
                 }
 
                 sb.Length -= 5;
+                return sb.ToString();
             }
 
-            return sb.ToString();
-
+            else return string.Empty;
         }
+
+
+
+       
+
 
         private string ToFilterString(string columnName, string value)
         {
@@ -167,7 +226,7 @@ namespace Aura_Client.Controller
 
         }
 
-        public void Clear()
+        public void ClearChanges()
         {
             changes.Clear();
         }
@@ -177,11 +236,22 @@ namespace Aura_Client.Controller
             filters.Clear();
         }
 
+        public void ClearFields()
+        {
+            fields.Clear();
+        }
 
-        public bool IsNotEmpty()
+
+        public bool ChangesIsNotEmpty()
         {
             //Добавлялись ли значения для изменения
             return changes.Count > 0;
+        }
+
+        public bool FiltersInNotEmpty()
+        {
+            //добавлялись ли поля для фильтрации
+            return filters.Count > 0;
         }
 
     }

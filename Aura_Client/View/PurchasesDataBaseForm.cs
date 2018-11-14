@@ -479,7 +479,7 @@ namespace Aura_Client.View
             if (sender is RichTextBox)
             {
                 var textBox = (RichTextBox)sender;
-                creator.Add(textBox.Name, textBox.Text);
+                creator.AddChange(textBox.Name, textBox.Text);
             }
 
         }

@@ -44,7 +44,7 @@ namespace Aura_Client.View
             var picker = (DateTimePicker)sender;
             SetDate(picker, picker.Value);
 
-            creator.Add(picker.Name, picker.Value.ToString("yyyy-MM-dd-HH-mm"));
+            creator.AddChange(picker.Name, picker.Value.ToString("yyyy-MM-dd-HH-mm"));
         }
 
         protected virtual void textBox_ValueChanged(object sender, EventArgs e)
@@ -52,12 +52,12 @@ namespace Aura_Client.View
             if (sender is TextBox)
             {
                 var textBox = (TextBox)sender;
-                creator.Add(textBox.Name, textBox.Text);
+                creator.AddChange(textBox.Name, textBox.Text);
             }
             if (sender is RichTextBox)
             {
                 var textBox = (RichTextBox)sender;
-                creator.Add(textBox.Name, textBox.Text);
+                creator.AddChange(textBox.Name, textBox.Text);
             }
 
 
@@ -70,7 +70,7 @@ namespace Aura_Client.View
             try
             {
                 if (item != null)
-                    creator.Add(box.Name, ((int)item.Value).ToString());
+                    creator.AddChange(box.Name, ((int)item.Value).ToString());
             }
             catch
             {
@@ -81,7 +81,7 @@ namespace Aura_Client.View
         protected virtual void numericUpDown_ValueChanges(object sender, EventArgs e)
         {
             var box = (NumericUpDown)sender;
-            creator.Add(box.Name, box.Value.ToString().Replace(",", "."));
+            creator.AddChange(box.Name, box.Value.ToString().Replace(",", "."));
         }
 
 

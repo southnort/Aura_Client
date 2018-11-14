@@ -14,7 +14,7 @@ namespace Aura_Client.View
             InitializeComponent();
             InitializeAuraForm();
             creator = new Controller.CommandStringCreator("Contracts", contract.id.ToString());
-            creator.Add("organisationID", contract.organisationID.ToString());
+            creator.AddChange("organisationID", contract.organisationID.ToString());
             this.contract = contract;
             Fill(contract);
         }
@@ -30,7 +30,7 @@ namespace Aura_Client.View
         private void SendToServer()
         {
             //отправить на сервер в БД новые данные
-            if (creator.IsNotEmpty())
+            if (creator.ChangesIsNotEmpty())
             {
                 if (contract.id < 1)
                 {

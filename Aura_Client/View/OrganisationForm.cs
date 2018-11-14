@@ -107,7 +107,7 @@ namespace Aura_Client.View
             var picker = (DateTimePicker)sender;
             SetDate(picker, picker.Value.ToString("yyyy-MM-dd"));
 
-            creator.Add(picker.Name, picker.Value.ToString("yyyy-MM-dd"));
+            creator.AddChange(picker.Name, picker.Value.ToString("yyyy-MM-dd"));
         }
 
         protected override void textBox_ValueChanged(object sender, EventArgs e)
@@ -115,12 +115,12 @@ namespace Aura_Client.View
             if (sender is TextBox)
             {
                 var textBox = (TextBox)sender;
-                creator.Add(textBox.Name, textBox.Text);
+                creator.AddChange(textBox.Name, textBox.Text);
             }
             if (sender is RichTextBox)
             {
                 var textBox = (RichTextBox)sender;
-                creator.Add(textBox.Name, textBox.Text);
+                creator.AddChange(textBox.Name, textBox.Text);
             }
 
 
@@ -129,7 +129,7 @@ namespace Aura_Client.View
         protected override void comboBox_ValueChanged(object sender, EventArgs e)
         {
             var box = (ComboBox)sender;
-            creator.Add(box.Name, box.SelectedIndex.ToString());
+            creator.AddChange(box.Name, box.SelectedIndex.ToString());
         }
 
 
@@ -190,7 +190,7 @@ namespace Aura_Client.View
 
         private void SendToServer()
         {
-            if (creator.IsNotEmpty())
+            if (creator.ChangesIsNotEmpty())
             {
                 if (organisation.id < 1)
                 {
@@ -240,9 +240,9 @@ namespace Aura_Client.View
                 if (dialogResult == DialogResult.Yes)
                 {
                     Program.dataManager.DeleteContract(id);
-                    creator.Add("contractNumber", "");
-                    creator.Add("contractStart", DateTime.MinValue.ToString());
-                    creator.Add("contractEnd", DateTime.MinValue.ToString());
+                    creator.AddChange("contractNumber", "");
+                    creator.AddChange("contractStart", DateTime.MinValue.ToString());
+                    creator.AddChange("contractEnd", DateTime.MinValue.ToString());
                     timer2.Start();                    
                     
                     contractsDataGridView.Rows.Remove(row);
