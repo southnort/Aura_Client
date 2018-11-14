@@ -13,7 +13,7 @@ namespace Aura_Client.Controller
         private string tableName;                       //название таблицы в БД, с которой нужно работать
         private string objectID;                        //ID объекта в БД
         private Dictionary<string, string> changes;     //key - название поля, value - его новое значение
-        private Dictionary<string,string> filters;      //настройка фильтрации для одного запроса
+        private Dictionary<string, string> filters;      //настройка фильтрации для одного запроса
 
         public CommandStringCreator(string nameOfTable, string id)
         {
@@ -111,7 +111,7 @@ namespace Aura_Client.Controller
             //запрос на получение отфильтрованной информации
             StringBuilder sb = new StringBuilder();
             sb.Append("SELECT * FROM ");
-            sb.Append(tableName);            
+            sb.Append(tableName);
 
             if (filters.Count > 0)
             {
