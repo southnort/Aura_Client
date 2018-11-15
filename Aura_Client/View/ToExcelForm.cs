@@ -10,7 +10,7 @@ namespace Aura_Client.View
     {
         //основное окно формы, и общие элементы
         private string filePath = Environment.GetFolderPath
-            (Environment.SpecialFolder.Desktop) + @"\Aura Organisations.xls";
+            (Environment.SpecialFolder.Desktop) + @"\Aura export.xls";
         
 
         public ToExcelForm()

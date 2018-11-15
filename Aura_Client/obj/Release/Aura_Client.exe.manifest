@@ -4,7 +4,7 @@
   <description asmv2:iconFile="Icon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="Aura_Client" version="1.0.4.2" language="neutral" processorArchitecture="x86" />
+    <assemblyIdentity name="Aura_Client" version="1.0.5.0" language="neutral" processorArchitecture="x86" />
     <commandLine file="Aura_Client.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -43,26 +43,38 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Aura_Client.exe" size="3424648">
-      <assemblyIdentity name="Aura_Client" version="1.0.4.2" language="neutral" processorArchitecture="x86" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Aura_Client.exe" size="3930504">
+      <assemblyIdentity name="Aura_Client" version="1.0.5.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>FVr3Bn65EEH2J/Le6dU5Bb6JzIA=</dsig:DigestValue>
+        <dsig:DigestValue>TsydOrrJwm071ndHVzga81peqpY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Aura_DLL.dll" size="14848">
-      <assemblyIdentity name="Aura_DLL" version="1.0.4.1" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Aura_DLL.dll" size="22016">
+      <assemblyIdentity name="Aura_DLL" version="1.0.5.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>yjB9zlUUpOHik/M5EaV8x7ec9gM=</dsig:DigestValue>
+        <dsig:DigestValue>sxU0s7zRRjTUTcHmxwoVthPdEZE=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Interop.NATUPNPLib.dll" size="7680">
+      <assemblyIdentity name="Interop.NATUPNPLib" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>nRGwT5bGW5K/puCtL6DR6dWaKKY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
