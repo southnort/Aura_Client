@@ -16,7 +16,7 @@ namespace Aura_Client.Network
         protected MessageHandler messageHandler;
 
         public NetworkManager()
-        {           
+        {
             messageHandler = new MessageHandler();
 
             gate = new NetworkGate(
@@ -53,7 +53,7 @@ namespace Aura_Client.Network
 
         public string ReceiveMessage(string request)
         {
-            return gate.GetMessage(PrepareString(request,"rqst"));
+            return gate.GetMessage(PrepareString(request, "rqst"));
         }
 
         public void SendObject(string message, object ob)
@@ -67,9 +67,9 @@ namespace Aura_Client.Network
             return gate.GetObject<T>(PrepareString(request, "gobj"));
         }
 
-        public void GetFile(string request, string savingFilePath)
+        public string GetFile(string request, string savingFilePath)
         {
-            gate.GetFile(PrepareString(request, "gfl"), savingFilePath);
+            return gate.GetFile(PrepareString(request, "gfl"), savingFilePath);
         }
 
     }

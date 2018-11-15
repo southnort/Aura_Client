@@ -167,11 +167,20 @@ namespace Aura_Client.Network
 
         }
 
-        protected internal void GetFile(string request, string savingFilePath)
+        protected internal string GetFile(string request, string savingFilePath)
         {
-            SendMessage(request);
-            ReceiveFile(stream, savingFilePath);
-            Console.WriteLine("File received successfull");
+            try
+            {
+                SendMessage(request);
+                string response = ReceiveString(stream);
+                ReceiveFile(stream, savingFilePath);
+                return response;
+            }
+
+            catch (Exception ex)
+            {
+                return "Ошибка при получении файла: \n" + ex.Message;
+            }
         }
 
 

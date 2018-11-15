@@ -179,7 +179,10 @@ namespace Aura_Client.View
         {
             try
             {
-                Program.dataManager.GetExcelFile(filePath, creator.ToFilterCommand());
+                string message = Program.dataManager.GetExcelFile
+                     (filePath, sqlCommand);
+
+                MessageBox.Show(message);
             }
 
             catch (Exception ex)
