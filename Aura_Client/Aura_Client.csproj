@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{776916EC-BBBA-408D-9812-C65B05A94C9F}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>Aura_Client</RootNamespace>
     <AssemblyName>Aura_Client</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
@@ -79,7 +79,7 @@
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Aura_DLL, Version=1.0.4.1, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Aura_DLL, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Aura_DLL\Aura_DLL\bin\Debug\Aura_DLL.dll</HintPath>
     </Reference>
@@ -245,6 +245,7 @@
     <None Include="addNewPurchaseIcon.png" />
     <None Include="delete.png" />
     <None Include="excelIcon.png" />
+    <None Include="copyPurchaseIcon.png" />
     <Content Include="license.txt" />
     <None Include="UncheckAll_Icon.png" />
     <None Include="Remove_Icon.png" />

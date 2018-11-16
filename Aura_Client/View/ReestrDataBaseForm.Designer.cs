@@ -49,6 +49,7 @@
             this.columnsOptionsButton = new System.Windows.Forms.Button();
             this.refreshButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.copyReestrButton = new System.Windows.Forms.Button();
             this.addNewPurchaseButton = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -261,19 +262,32 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.SystemColors.Control;
+            this.panel2.Controls.Add(this.copyReestrButton);
             this.panel2.Controls.Add(this.addNewPurchaseButton);
             this.panel2.Location = new System.Drawing.Point(12, 444);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1342, 61);
             this.panel2.TabIndex = 2;
             // 
+            // copyReestrButton
+            // 
+            this.copyReestrButton.BackgroundImage = global::Aura_Client.Properties.Resources.copyPurchaseIcon;
+            this.copyReestrButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.copyReestrButton.Location = new System.Drawing.Point(64, 3);
+            this.copyReestrButton.Name = "copyReestrButton";
+            this.copyReestrButton.Size = new System.Drawing.Size(55, 55);
+            this.copyReestrButton.TabIndex = 3;
+            this.copyReestrButton.UseVisualStyleBackColor = true;
+            this.copyReestrButton.Click += new System.EventHandler(this.copyReestrButton_Click);
+            // 
             // addNewPurchaseButton
             // 
+            this.addNewPurchaseButton.BackgroundImage = global::Aura_Client.Properties.Resources.addNewPurchaseIcon;
+            this.addNewPurchaseButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.addNewPurchaseButton.Location = new System.Drawing.Point(3, 3);
             this.addNewPurchaseButton.Name = "addNewPurchaseButton";
-            this.addNewPurchaseButton.Size = new System.Drawing.Size(162, 55);
+            this.addNewPurchaseButton.Size = new System.Drawing.Size(55, 55);
             this.addNewPurchaseButton.TabIndex = 1;
-            this.addNewPurchaseButton.Text = "Добавить информацию о договоре";
             this.addNewPurchaseButton.UseVisualStyleBackColor = true;
             this.addNewPurchaseButton.Click += new System.EventHandler(this.addNewPurchaseButton_Click);
             // 
@@ -335,5 +349,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox organisationInn;
+        private System.Windows.Forms.Button copyReestrButton;
     }
 }

@@ -128,13 +128,33 @@ namespace Aura_Client.View
             }
         }
 
+        protected void LoadFromCopy()
+        {
+            foreach (var control in Controls)
+            {
+                if (control is TextBoxBase)
+                    textBox_ValueChanged(control, EventArgs.Empty);
+
+                if (control is ComboBox)
+                    comboBox_ValueChanged(control, EventArgs.Empty);
+
+                if (control is NumericUpDown)
+                    numericUpDown_ValueChanges(control, EventArgs.Empty);
+
+                if (control is DateTimePicker)
+                {
+                    if ((control as DateTimePicker).CustomFormat != "''")
+                        dateTime_ValueChanged(control, EventArgs.Empty);
+
+                }
+
+            }
+
+        }
+
 
         protected void SetCombobox(ComboBox box, int id)
-        {
-            //для случаев, когда в ComboBox элементы не по порядку, с разрывами
-            //id элемента, например статуса
-            // box.SelectedIndex = 0;
-
+        {           
             for (int i = 0; i < box.Items.Count; i++)
             {
                 ComboBoxItem cbItem = box.Items[i] as ComboBoxItem;

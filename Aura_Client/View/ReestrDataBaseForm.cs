@@ -219,6 +219,9 @@ namespace Aura_Client.View
             toolTip1.SetToolTip(columnsOptionsButton, "Настроить список");
             toolTip1.SetToolTip(clearFilterButton, "Очистить фильтра");
 
+            toolTip1.SetToolTip(addNewPurchaseButton, "Добавить новый договор");
+            toolTip1.SetToolTip(copyReestrButton, "Создать договор с копированием");
+
         }
 
         private void InitContextMenuStrip()
@@ -401,11 +404,11 @@ namespace Aura_Client.View
             else return date.ToShortDateString();
         }
 
-        private void ShowPurchase(Purchase purchase)
+        private void ShowPurchase(Purchase purchase, bool copy = false)
         {
             //открыть форму просмотра закупки
 
-            var form = new ReestrForm(purchase);
+            var form = new ReestrForm(purchase, copy);
             var result = form.ShowDialog();
             if (result == DialogResult.OK)
             {
@@ -502,6 +505,19 @@ namespace Aura_Client.View
 
         }
 
+        private void copyReestrButton_Click(object sender, EventArgs e)
+        {
+            if (reestrDataGridView.CurrentRow != null)
+            {
+                string id = reestrDataGridView.CurrentRow.Cells["id"].Value.ToString();
+                Purchase pur = Program.dataManager.GetPurchase(id);
+
+                pur.id = 0;
+
+                ShowPurchase(pur, true);
+            }
+        }
+
         private void contextMenuStrip1_Closing(object sender, ToolStripDropDownClosingEventArgs e)
         {
             if (e.CloseReason == ToolStripDropDownCloseReason.ItemClicked)
@@ -538,5 +554,7 @@ namespace Aura_Client.View
                 organizationID_Equal.Text = org.name;
             }
         }
+
+       
     }
 }

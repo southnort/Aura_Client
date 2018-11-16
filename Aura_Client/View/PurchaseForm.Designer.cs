@@ -41,7 +41,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.purchaseEisNum = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.purchaseEisDate = new System.Windows.Forms.DateTimePicker();
             this.comments = new System.Windows.Forms.RichTextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.buttonOK = new System.Windows.Forms.Button();
@@ -95,6 +94,7 @@
             this.auctionDate = new System.Windows.Forms.DateTimePicker();
             this.label20 = new System.Windows.Forms.Label();
             this.showLogsButton = new System.Windows.Forms.Button();
+            this.purchaseEisDate = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.purchacePrice)).BeginInit();
             this.SuspendLayout();
             // 
@@ -207,17 +207,6 @@
             this.label7.TabIndex = 12;
             this.label7.Text = "Извещение в ЕИС";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // purchaseEisDate
-            // 
-            this.purchaseEisDate.CustomFormat = "";
-            this.purchaseEisDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.purchaseEisDate.Location = new System.Drawing.Point(313, 166);
-            this.purchaseEisDate.Name = "purchaseEisDate";
-            this.purchaseEisDate.Size = new System.Drawing.Size(81, 20);
-            this.purchaseEisDate.TabIndex = 14;
-            this.purchaseEisDate.CloseUp += new System.EventHandler(this.dateTime_ValueChanged);
-            this.purchaseEisDate.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dateTimeField_KeyUp);
             // 
             // comments
             // 
@@ -753,6 +742,18 @@
             this.showLogsButton.UseVisualStyleBackColor = true;
             this.showLogsButton.Click += new System.EventHandler(this.showLogsButton_Click);
             // 
+            // purchaseEisDate
+            // 
+            this.purchaseEisDate.CustomFormat = "";
+            this.purchaseEisDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.purchaseEisDate.Location = new System.Drawing.Point(313, 166);
+            this.purchaseEisDate.Name = "purchaseEisDate";
+            this.purchaseEisDate.Size = new System.Drawing.Size(81, 20);
+            this.purchaseEisDate.TabIndex = 14;
+            this.purchaseEisDate.Value = new System.DateTime(2019, 12, 25, 23, 59, 59, 0);
+            this.purchaseEisDate.CloseUp += new System.EventHandler(this.dateTime_ValueChanged);
+            this.purchaseEisDate.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dateTimeField_KeyUp);
+            // 
             // PurchaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -846,7 +847,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox purchaseEisNum;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DateTimePicker purchaseEisDate;
         private System.Windows.Forms.RichTextBox comments;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Button buttonOK;
@@ -900,5 +900,6 @@
         private System.Windows.Forms.DateTimePicker auctionDate;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Button showLogsButton;
+        private System.Windows.Forms.DateTimePicker purchaseEisDate;
     }
 }

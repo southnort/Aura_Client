@@ -348,21 +348,29 @@ namespace Aura_Client.View
             //админы видят все закупки  
             //завершенные закупки не добавляются в список
 
+
+
+
             if (pur.withoutPurchase == 1) return false;
 
-            else
+            if (Program.user.roleID != 0)
             {
-                if (Program.user.roleID == 0)
-                    return true;
-
-                else
-                {
-                    //юзеры должны видеть только закупки по их законам
-                    return Program.user.roleID == pur.law;
-                }
+                //юзеры должны видеть только закупки по их законам
+                return Program.user.roleID == pur.law;
             }
 
+            if (!showNotActualCheckBox.Checked)
+            {
+                if (pur.statusID == 8)
+                    return false;
+                if (pur.statusID == 9)
+                    return false;
+
+            }
+
+            return true;
         }
+        
 
         private void RecolorRow(DataGridViewRow row, int statusID)
         {
@@ -412,6 +420,7 @@ namespace Aura_Client.View
             toolTip1.SetToolTip(clearFilterButton, "Очистить фильтр");
 
             toolTip1.SetToolTip(addNewPurchaseButton, "Добавить новую закупку");
+            toolTip1.SetToolTip(copyPurchaseButton, "Создать закупку с копированием");
             toolTip1.SetToolTip(deletePurchaseButton, "Удалить закупку");
 
         }
@@ -453,11 +462,11 @@ namespace Aura_Client.View
 
 
 
-        private void ShowPurchase(Purchase purchase)
+        private void ShowPurchase(Purchase purchase, bool copy = false)
         {
             //открыть форму просмотра закупки
 
-            PurchaseForm form = new PurchaseForm(purchase);
+            PurchaseForm form = new PurchaseForm(purchase, copy);
             var result = form.ShowDialog();
             if (result == DialogResult.OK)
             {
@@ -508,6 +517,19 @@ namespace Aura_Client.View
         private void addNewPurchaseButton_Click(object sender, EventArgs e)
         {
             ShowPurchase(new Purchase());
+        }
+
+        private void copyPurchaseButton_Click(object sender, EventArgs e)
+        {
+            if (purchasesDataGridView.CurrentRow != null)
+            {
+                string id = purchasesDataGridView.CurrentRow.Cells["id"].Value.ToString();
+                Purchase pur = Program.dataManager.GetPurchase(id);
+
+                pur.id = 0;
+
+                ShowPurchase(pur, true);
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -605,6 +627,6 @@ namespace Aura_Client.View
                 organizationID_Equal.Text = org.name;
             }
         }
-       
+        
     }
 }

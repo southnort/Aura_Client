@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PurchasesDataBaseForm));
             this.purchasesDataGridView = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.showNotActualCheckBox = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
             this.organisationInn = new System.Windows.Forms.TextBox();
             this.organisationSelectButton = new System.Windows.Forms.Button();
@@ -51,6 +52,7 @@
             this.columnsOptionsButton = new System.Windows.Forms.Button();
             this.refreshButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.copyPurchaseButton = new System.Windows.Forms.Button();
             this.deletePurchaseButton = new System.Windows.Forms.Button();
             this.addNewPurchaseButton = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -72,10 +74,10 @@
             this.purchasesDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.purchasesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.purchasesDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.purchasesDataGridView.Location = new System.Drawing.Point(12, 96);
+            this.purchasesDataGridView.Location = new System.Drawing.Point(12, 107);
             this.purchasesDataGridView.Name = "purchasesDataGridView";
             this.purchasesDataGridView.ReadOnly = true;
-            this.purchasesDataGridView.Size = new System.Drawing.Size(1064, 333);
+            this.purchasesDataGridView.Size = new System.Drawing.Size(1064, 322);
             this.purchasesDataGridView.TabIndex = 0;
             this.purchasesDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -84,6 +86,7 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.showNotActualCheckBox);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.organisationInn);
             this.panel1.Controls.Add(this.organisationSelectButton);
@@ -104,8 +107,18 @@
             this.panel1.Controls.Add(this.refreshButton);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1064, 78);
+            this.panel1.Size = new System.Drawing.Size(1064, 89);
             this.panel1.TabIndex = 1;
+            // 
+            // showNotActualCheckBox
+            // 
+            this.showNotActualCheckBox.AutoSize = true;
+            this.showNotActualCheckBox.Location = new System.Drawing.Point(404, 58);
+            this.showNotActualCheckBox.Name = "showNotActualCheckBox";
+            this.showNotActualCheckBox.Size = new System.Drawing.Size(208, 17);
+            this.showNotActualCheckBox.TabIndex = 97;
+            this.showNotActualCheckBox.Text = "Показывать неактуальные закупки";
+            this.showNotActualCheckBox.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
@@ -286,6 +299,7 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.SystemColors.Control;
+            this.panel2.Controls.Add(this.copyPurchaseButton);
             this.panel2.Controls.Add(this.deletePurchaseButton);
             this.panel2.Controls.Add(this.addNewPurchaseButton);
             this.panel2.Location = new System.Drawing.Point(12, 435);
@@ -293,12 +307,23 @@
             this.panel2.Size = new System.Drawing.Size(1064, 61);
             this.panel2.TabIndex = 2;
             // 
+            // copyPurchaseButton
+            // 
+            this.copyPurchaseButton.BackgroundImage = global::Aura_Client.Properties.Resources.copyPurchaseIcon;
+            this.copyPurchaseButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.copyPurchaseButton.Location = new System.Drawing.Point(64, 3);
+            this.copyPurchaseButton.Name = "copyPurchaseButton";
+            this.copyPurchaseButton.Size = new System.Drawing.Size(55, 55);
+            this.copyPurchaseButton.TabIndex = 2;
+            this.copyPurchaseButton.UseVisualStyleBackColor = true;
+            this.copyPurchaseButton.Click += new System.EventHandler(this.copyPurchaseButton_Click);
+            // 
             // deletePurchaseButton
             // 
             this.deletePurchaseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.deletePurchaseButton.BackgroundImage = global::Aura_Client.Properties.Resources.delete;
             this.deletePurchaseButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.deletePurchaseButton.Location = new System.Drawing.Point(64, 3);
+            this.deletePurchaseButton.Location = new System.Drawing.Point(1006, 3);
             this.deletePurchaseButton.Name = "deletePurchaseButton";
             this.deletePurchaseButton.Size = new System.Drawing.Size(55, 55);
             this.deletePurchaseButton.TabIndex = 1;
@@ -377,5 +402,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox organisationInn;
+        private System.Windows.Forms.Button copyPurchaseButton;
+        private System.Windows.Forms.CheckBox showNotActualCheckBox;
     }
 }

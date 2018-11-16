@@ -11,7 +11,7 @@ namespace Aura_Client.View
     {
         private Purchase purchase;
 
-        public PurchaseForm(Purchase purchase) : base()
+        public PurchaseForm(Purchase purchase, bool copy = false) : base()
         {
             InitializeComponent();
             InitializeAuraForm();
@@ -32,7 +32,17 @@ namespace Aura_Client.View
 
             FillForm();
 
+            if (copy)
+            {
+                LoadFromCopy();
+                creator.AddChange("organizationID", purchase.organizationID.ToString());
+
+            }
+
+
         }
+
+
 
         private void LoadCatalogs()
         {
