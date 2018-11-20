@@ -155,7 +155,7 @@ namespace Aura_Client.View
             purchasesDataGridView.Columns.Add("bidsSecondPartDate", "Рассмотрение вторых частей");
             purchasesDataGridView.Columns["bidsSecondPartDate"].Width = 100;
 
-            purchasesDataGridView.Columns.Add("bidsFinishDate", "Дата подведения итогов");
+            purchasesDataGridView.Columns.Add("bidsFinishDate", "Дата публикации итогового протокола");
             purchasesDataGridView.Columns["bidsFinishDate"].Width = 100;
 
             purchasesDataGridView.Columns.Add("contractPrice", "Сумма договора");

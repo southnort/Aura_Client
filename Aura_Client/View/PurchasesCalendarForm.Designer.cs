@@ -150,7 +150,7 @@
             this.Controls.Add(this.upperPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PurchasesCalendarForm";
-            this.Text = "PurchasesCalendarForm";
+            this.Text = "Календарь закупок";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.PurchasesCalendarForm_KeyUp);
             this.upperPanel.ResumeLayout(false);

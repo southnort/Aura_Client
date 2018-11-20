@@ -72,7 +72,7 @@ namespace Aura_Client.View
             reestrDataGridView.Columns.Add("bidsSecondPartDate", "Рассмотрение вторых частей");
             reestrDataGridView.Columns["bidsSecondPartDate"].Width = 100;
 
-            reestrDataGridView.Columns.Add("bidsFinishDate", "Дата подведения итогов");
+            reestrDataGridView.Columns.Add("bidsFinishDate", "Дата публикации итогового протокола");
             reestrDataGridView.Columns["bidsFinishDate"].Width = 100;
 
             reestrDataGridView.Columns.Add("contractPrice", "Сумма договора");

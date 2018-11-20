@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DayInCalendarFullForm));
             this.mainPanel = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
@@ -37,7 +38,10 @@
             this.button1 = new System.Windows.Forms.Button();
             this.dateLabel = new System.Windows.Forms.Label();
             this.proceduresCountTextBox = new System.Windows.Forms.RichTextBox();
+            this.dayInCalendarDataGridView = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mainPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dayInCalendarDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // mainPanel
@@ -49,9 +53,9 @@
             this.mainPanel.Controls.Add(this.button3);
             this.mainPanel.Controls.Add(this.button2);
             this.mainPanel.Controls.Add(this.button1);
-            this.mainPanel.Location = new System.Drawing.Point(12, 63);
+            this.mainPanel.Location = new System.Drawing.Point(12, 310);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(311, 377);
+            this.mainPanel.Size = new System.Drawing.Size(311, 130);
             this.mainPanel.TabIndex = 0;
             // 
             // button5
@@ -123,28 +127,46 @@
             // 
             this.proceduresCountTextBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.proceduresCountTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.proceduresCountTextBox.Location = new System.Drawing.Point(329, 63);
+            this.proceduresCountTextBox.Location = new System.Drawing.Point(329, 310);
             this.proceduresCountTextBox.Name = "proceduresCountTextBox";
             this.proceduresCountTextBox.ReadOnly = true;
-            this.proceduresCountTextBox.Size = new System.Drawing.Size(201, 377);
+            this.proceduresCountTextBox.Size = new System.Drawing.Size(201, 130);
             this.proceduresCountTextBox.TabIndex = 2;
             this.proceduresCountTextBox.Text = "";
+            // 
+            // dayInCalendarDataGridView
+            // 
+            this.dayInCalendarDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dayInCalendarDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dayInCalendarDataGridView.Location = new System.Drawing.Point(12, 43);
+            this.dayInCalendarDataGridView.Name = "dayInCalendarDataGridView";
+            this.dayInCalendarDataGridView.Size = new System.Drawing.Size(808, 228);
+            this.dayInCalendarDataGridView.TabIndex = 3;
+            this.dayInCalendarDataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dayInCalendarDataGridView_CellEndEdit);
+            this.dayInCalendarDataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dayInCalendarDataGridView_EditingControlShowing);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            this.contextMenuStrip1.Closing += new System.Windows.Forms.ToolStripDropDownClosingEventHandler(this.contextMenuStrip1_Closing);
             // 
             // DayInCalendarFullForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(542, 452);
+            this.ClientSize = new System.Drawing.Size(832, 452);
+            this.Controls.Add(this.dayInCalendarDataGridView);
             this.Controls.Add(this.proceduresCountTextBox);
             this.Controls.Add(this.dateLabel);
             this.Controls.Add(this.mainPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "DayInCalendarFullForm";
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.DayInCalendarFullForm_KeyUp);
             this.mainPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dayInCalendarDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -160,5 +182,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.RichTextBox proceduresCountTextBox;
+        private System.Windows.Forms.DataGridView dayInCalendarDataGridView;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }

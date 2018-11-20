@@ -515,11 +515,11 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(391, 339);
+            this.label18.Location = new System.Drawing.Point(292, 343);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(106, 13);
+            this.label18.Size = new System.Drawing.Size(205, 13);
             this.label18.TabIndex = 72;
-            this.label18.Text = "Подведение итогов";
+            this.label18.Text = "Дата публикации итогового протокола";
             // 
             // controlStatus
             // 
