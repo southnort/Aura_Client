@@ -60,21 +60,11 @@ namespace Aura_Client.View
             dayInCalendarDataGridView.Columns["statusID"].Width = 150;
 
 
-            DataGridViewComboBoxColumn protocolStatusColumn = new DataGridViewComboBoxColumn();
+            DataGridViewButtonColumn protocolStatusColumn = new DataGridViewButtonColumn();
             protocolStatusColumn.Name = "protocolStatusID";
             protocolStatusColumn.HeaderText = "Статус протокола";
-
-            for (int i = 0; i < Catalog.protocolStatuses.Count; i++)
-            {
-                ComboBoxItem item = new ComboBoxItem();
-                item.Text = Catalog.protocolStatuses[i];
-                item.Value = i;
-                protocolStatusColumn.Items.Add(item);
-
-            }
             dayInCalendarDataGridView.Columns.Add(protocolStatusColumn);
-            dayInCalendarDataGridView.Columns["protocolStatusID"].Width = 150;
-
+            dayInCalendarDataGridView.Columns["protocolStatusID"].Width = 150;            
 
         }
 
@@ -102,6 +92,28 @@ namespace Aura_Client.View
             }
 
 
+
+            foreach (ToolStripMenuItem item in contextMenuStrip2.Items)
+            {
+                item.Click -= ProtocolStatusMenuItemClick;
+            }
+
+            contextMenuStrip2.Items.Clear();
+
+            for(int i = 0;i<Catalog.protocolStatuses.Count;i++)
+            {
+                var item = new ToolStripMenuItem()
+                {
+                    Checked = false,
+                    Text = Catalog.protocolStatuses[i],
+                    Name = i.ToString(),
+                };
+
+                item.Click += ProtocolStatusMenuItemClick;
+                contextMenuStrip2.Items.Add(item);
+            }
+
+
         }
 
         private void MenuItemOnClick(object sender, EventArgs eventArgs)
@@ -111,6 +123,15 @@ namespace Aura_Client.View
             target.Checked = !target.Checked;
 
             dayInCalendarDataGridView.Columns[target.Name].Visible = target.Checked;
+        }
+
+        private void ProtocolStatusMenuItemClick(object sender, EventArgs eventArgs)
+        {
+            int statusID = int.Parse((sender as ToolStripMenuItem).Name);
+            string text = Catalog.protocolStatuses[statusID];
+
+            dayInCalendarDataGridView.CurrentCell.Value = text;
+
         }
 
         private void ReloadTable(DayInCalendar day)
@@ -155,8 +176,7 @@ namespace Aura_Client.View
 
                     newRow.Cells["statusID"].Value = Catalog.allStatuses[ev.Key.statusID];
 
-                    //var cell = (DataGridViewComboBoxCell)newRow.Cells["protocolStatusID"];
-                    //cell.Value = ev.Key.protocolStatusID;
+                    newRow.Cells["protocolStatusID"].Value = Catalog.protocolStatuses[ev.Key.protocolStatusID];
 
                 }
 
@@ -275,6 +295,11 @@ namespace Aura_Client.View
                     = currentComboBox.SelectedIndex;
 
             
+        }
+
+        private void dayInCalendarDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+
         }
     }
 }

@@ -40,6 +40,7 @@
             this.proceduresCountTextBox = new System.Windows.Forms.RichTextBox();
             this.dayInCalendarDataGridView = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dayInCalendarDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -136,6 +137,8 @@
             // 
             // dayInCalendarDataGridView
             // 
+            this.dayInCalendarDataGridView.AllowUserToAddRows = false;
+            this.dayInCalendarDataGridView.AllowUserToOrderColumns = true;
             this.dayInCalendarDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dayInCalendarDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -143,14 +146,18 @@
             this.dayInCalendarDataGridView.Name = "dayInCalendarDataGridView";
             this.dayInCalendarDataGridView.Size = new System.Drawing.Size(808, 228);
             this.dayInCalendarDataGridView.TabIndex = 3;
-            this.dayInCalendarDataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dayInCalendarDataGridView_CellEndEdit);
-            this.dayInCalendarDataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dayInCalendarDataGridView_EditingControlShowing);
+            this.dayInCalendarDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dayInCalendarDataGridView_DataError);
             // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             this.contextMenuStrip1.Closing += new System.Windows.Forms.ToolStripDropDownClosingEventHandler(this.contextMenuStrip1_Closing);
+            // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(181, 26);
             // 
             // DayInCalendarFullForm
             // 
@@ -184,5 +191,6 @@
         private System.Windows.Forms.RichTextBox proceduresCountTextBox;
         private System.Windows.Forms.DataGridView dayInCalendarDataGridView;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
     }
 }
