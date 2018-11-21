@@ -15,9 +15,7 @@ namespace Aura_Client.View
 
         //Максимально подробная форма дня из календаря
         public DayInCalendarFullForm(DayInCalendar day) : base()
-        {
-            try
-            {
+        {            
                 InitializeComponent();
                 InitializeAuraForm();
 
@@ -26,14 +24,7 @@ namespace Aura_Client.View
 
                 CreateTable();
                 InitContextMenuStrip();
-                ReloadTable(day);
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-
+                ReloadTable(day);           
 
 
         }
@@ -64,7 +55,7 @@ namespace Aura_Client.View
             protocolStatusColumn.Name = "protocolStatusID";
             protocolStatusColumn.HeaderText = "Статус протокола";
             dayInCalendarDataGridView.Columns.Add(protocolStatusColumn);
-            dayInCalendarDataGridView.Columns["protocolStatusID"].Width = 150;            
+            dayInCalendarDataGridView.Columns["protocolStatusID"].Width = 150;               
 
         }
 
@@ -127,9 +118,14 @@ namespace Aura_Client.View
 
         private void ProtocolStatusMenuItemClick(object sender, EventArgs eventArgs)
         {
-            int statusID = int.Parse((sender as ToolStripMenuItem).Name);
-            string text = Catalog.protocolStatuses[statusID];
+            var target = sender as ToolStripMenuItem;
+            string text = target.Text;
+            string newStatusID = target.Name;
 
+            string purID = dayInCalendarDataGridView.CurrentRow.Cells["id"].Value.ToString();
+
+            SwitchProtocolStatusOfPurchase(purID, newStatusID);
+              
             dayInCalendarDataGridView.CurrentCell.Value = text;
 
         }
@@ -176,7 +172,9 @@ namespace Aura_Client.View
 
                     newRow.Cells["statusID"].Value = Catalog.allStatuses[ev.Key.statusID];
 
-                    newRow.Cells["protocolStatusID"].Value = Catalog.protocolStatuses[ev.Key.protocolStatusID];
+
+                    var protocolStatusCell = newRow.Cells["protocolStatusID"] as DataGridViewButtonCell;
+                    protocolStatusCell.Value = Catalog.protocolStatuses[ev.Key.protocolStatusID];
 
                 }
 
@@ -300,6 +298,35 @@ namespace Aura_Client.View
         private void dayInCalendarDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
 
+        }
+
+        private void columnsOptionsButton_Click(object sender, EventArgs e)
+        {            
+            contextMenuStrip1.Show();
+        }
+
+
+        private void dayInCalendarDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+
+            if (e.RowIndex >= 0)
+            {
+                if (senderGrid.CurrentCell.OwningColumn.Name == "protocolStatusID")
+                    ClickOnPrototolStatusButton();
+            }
+        }
+
+        private void ClickOnPrototolStatusButton()
+        {            
+            contextMenuStrip2.Show(Cursor.Position);
+        }
+
+        private void SwitchProtocolStatusOfPurchase(string purchaseID, string newStatusID)
+        {
+            creator = new Controller.CommandStringCreator("Purchases", purchaseID);
+            creator.AddChange("protocolStatusID", newStatusID);
+            Program.bridge.SendMessage("UPDATEPURCHASE#" + creator.ToUpdate());
         }
     }
 }

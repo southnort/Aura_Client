@@ -41,6 +41,7 @@
             this.dayInCalendarDataGridView = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.columnsOptionsButton = new System.Windows.Forms.Button();
             this.mainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dayInCalendarDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -146,6 +147,7 @@
             this.dayInCalendarDataGridView.Name = "dayInCalendarDataGridView";
             this.dayInCalendarDataGridView.Size = new System.Drawing.Size(808, 228);
             this.dayInCalendarDataGridView.TabIndex = 3;
+            this.dayInCalendarDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dayInCalendarDataGridView_CellClick);
             this.dayInCalendarDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dayInCalendarDataGridView_DataError);
             // 
             // contextMenuStrip1
@@ -157,13 +159,26 @@
             // contextMenuStrip2
             // 
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(181, 26);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
+            // 
+            // columnsOptionsButton
+            // 
+            this.columnsOptionsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.columnsOptionsButton.BackgroundImage = global::Aura_Client.Properties.Resources.Settings_Icon;
+            this.columnsOptionsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.columnsOptionsButton.Location = new System.Drawing.Point(788, 5);
+            this.columnsOptionsButton.Name = "columnsOptionsButton";
+            this.columnsOptionsButton.Size = new System.Drawing.Size(32, 32);
+            this.columnsOptionsButton.TabIndex = 17;
+            this.columnsOptionsButton.UseVisualStyleBackColor = true;
+            this.columnsOptionsButton.Click += new System.EventHandler(this.columnsOptionsButton_Click);
             // 
             // DayInCalendarFullForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(832, 452);
+            this.Controls.Add(this.columnsOptionsButton);
             this.Controls.Add(this.dayInCalendarDataGridView);
             this.Controls.Add(this.proceduresCountTextBox);
             this.Controls.Add(this.dateLabel);
@@ -192,5 +207,6 @@
         private System.Windows.Forms.DataGridView dayInCalendarDataGridView;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+        private System.Windows.Forms.Button columnsOptionsButton;
     }
 }

@@ -387,20 +387,7 @@ namespace Aura_Client.View
                 string fieldName = senderGrid.Columns[e.ColumnIndex].Name;
                 string fieldValue = monthYear;
 
-                //var cell = dataGridView1.CurrentCell as DataGridViewButtonCell;
-                //if (cell.Style.BackColor == readyColor)
-                //{
-                //    RemoveValue(orgID, fieldName, fieldValue);
-                //    cell.Style.BackColor = notReadyColor;
-                //}
-
-
-                //else
-                //{
-                //    AddValue(orgID, fieldName, fieldValue);
-                //    cell.Style.BackColor = readyColor;
-                //}
-
+               
                 var cell = dataGridView1.CurrentCell as DataGridViewCheckBoxCell;
                 if ((bool)cell.Value == true)
                 {
