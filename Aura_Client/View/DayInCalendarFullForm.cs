@@ -302,7 +302,7 @@ namespace Aura_Client.View
 
         private void columnsOptionsButton_Click(object sender, EventArgs e)
         {            
-            contextMenuStrip1.Show();
+            contextMenuStrip1.Show(Cursor.Position);
         }
 
 
