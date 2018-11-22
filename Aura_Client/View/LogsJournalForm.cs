@@ -18,7 +18,7 @@ namespace Aura_Client.View
             InitializeAuraForm();
 
             headerTextBox.Text = item.LogObjectName;
-            DataTable table = Program.dataManager.GetLogs(item.GetSqlString());
+            DataTable table = Program.dataManager.GetLogs(item.GetSqlStringForLog());
 
             FillDataGrid(table);
         }

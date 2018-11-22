@@ -48,6 +48,28 @@ namespace Aura_Client.View
         {
             //заполнить справочники для выпадающих меню
 
+            //статусы закупки
+            for (int i = 0; i < Catalog.allStatuses.Count; i++)
+            {
+                ComboBoxItem item = new ComboBoxItem();
+                item.Text = Catalog.allStatuses[i];
+                item.Value = i;
+
+                statusID.Items.Add(item);
+
+            }
+
+            //число заявок
+            for (int i = 0; i < Catalog.countOfBidsTexts.Count; i++)
+            {
+                ComboBoxItem item = new ComboBoxItem();
+                item.Text = Catalog.countOfBidsTexts[i];
+                item.Value = i;
+
+                bidsCount.Items.Add(item);
+
+            }
+
             //способы определения поставщика
             for (int i = 0; i < Catalog.purchaseMethods.Count; i++)
             {
@@ -113,22 +135,21 @@ namespace Aura_Client.View
 
         }
 
-        private void ReloadStatuses()
+        private void ReloadStages()
         {
             //изменить статусы в зависимости от выбранного способа определения поставщика
-            statusID.Items.Clear();
+            stageID.Items.Clear();
 
             ComboBoxItem selectedItem = purchaseMethodID.SelectedItem as ComboBoxItem;
             PurchaseMethod method = Catalog.purchaseMethods[(int)selectedItem.Value];
-            foreach (var st in method.purchaseStatuses)
+            foreach (var st in method.purchaseStages)
             {
                 ComboBoxItem item = new ComboBoxItem();
                 item.Text = st.Value;
                 item.Value = st.Key;
 
-                statusID.Items.Add(item);
-                statusID.SelectedIndex = 0;
-
+                stageID.Items.Add(item);
+                stageID.SelectedIndex = 0;
             }
 
         }
@@ -201,9 +222,11 @@ namespace Aura_Client.View
             withAZK.SelectedIndex = purchase.withAZK;
 
             SetControllButton();
-            ReloadStatuses();
+            ReloadStages();
             SetCombobox(statusID, purchase.statusID);
-            SetCombobox(protocolStatusID, purchase.protocolStatusID);
+            SetCombobox(stageID, purchase.stageID);
+            FillBidsCount();
+            FillProtocolStatus();
             SwitchColorMark();
 
 
@@ -213,6 +236,17 @@ namespace Aura_Client.View
             }
 
             FillOrganisationName();
+        }
+
+        private void FillBidsCount()
+        {
+            здесь
+        }
+
+        private void FillProtocolStatus()
+        {
+            здесь
+            SetCombobox(protocolStatusID, purchase.protocolStatusID);
         }
 
         private void SwitchControlStatus()
@@ -346,7 +380,7 @@ namespace Aura_Client.View
 
         private void purchaseMethodID_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ReloadStatuses();
+            ReloadStages();
         }
 
         private void colorMark_Click(object sender, EventArgs e)

@@ -128,6 +128,12 @@ namespace Aura_Client.View
             purchasesDataGridView.Columns.Add("statusID", "Статус");
             purchasesDataGridView.Columns["statusID"].Width = 150;
 
+            purchasesDataGridView.Columns.Add("stageID", "Этап закупки");
+            purchasesDataGridView.Columns["stageID"].Width = 150;
+
+            purchasesDataGridView.Columns.Add("bidsCount", "Количество заявок");
+            purchasesDataGridView.Columns["bidsCount"].Width = 100;
+
             purchasesDataGridView.Columns.Add("purchacePrice", "Сумма закупки");
             purchasesDataGridView.Columns["purchacePrice"].Width = 100;
 
@@ -259,6 +265,10 @@ namespace Aura_Client.View
                             newRow.Cells["purchaseName"].Value = pur.purchaseName;
 
                             newRow.Cells["statusID"].Value = Catalog.allStatuses[pur.statusID];
+
+                            newRow.Cells["stageID"].Value = Catalog.allStages[pur.stageID];
+
+                            newRow.Cells["bidsCount"].Value = GetCountOfBids(pur);
 
                             newRow.Cells["purchacePrice"].Value = pur.purchacePrice.ToString("### ### ### ### ###.##");
 
@@ -402,6 +412,18 @@ namespace Aura_Client.View
             if (date == DateTime.MinValue) return "< - >";
 
             else return date.ToShortDateString();
+        }
+
+        private string GetCountOfBids(Purchase pur)
+        {
+            int indexOfCountText;
+
+            if (pur.stageID == 5)
+                indexOfCountText = int.Parse(pur.bidsCount[3].ToString());
+            else indexOfCountText = int.Parse(pur.bidsCount[4].ToString());
+
+
+            return Catalog.countOfBidsTexts[indexOfCountText];
         }
 
         private void ClearTable()

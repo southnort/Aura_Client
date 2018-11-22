@@ -109,7 +109,7 @@ namespace Aura_Client.View
 
             ComboBoxItem selectedItem = purchaseMethodID.SelectedItem as ComboBoxItem;
             PurchaseMethod method = Catalog.purchaseMethods[(int)selectedItem.Value];
-            foreach (var st in method.purchaseStatuses)
+            foreach (var st in method.purchaseStages)
             {
                 ComboBoxItem item = new ComboBoxItem();
                 item.Text = st.Value;

@@ -45,6 +45,12 @@ namespace Aura_Client.View
             reestrDataGridView.Columns.Add("statusID", "Статус");
             reestrDataGridView.Columns["statusID"].Width = 150;
 
+            reestrDataGridView.Columns.Add("stageID", "Этап закупки");
+            reestrDataGridView.Columns["stageID"].Width = 150;
+
+            reestrDataGridView.Columns.Add("bidsCount", "Количество заявок");
+            reestrDataGridView.Columns["bidsCount"].Width = 100;
+
             reestrDataGridView.Columns.Add("purchacePrice", "Сумма закупки");
             reestrDataGridView.Columns["purchacePrice"].Width = 100;
 
@@ -309,6 +315,10 @@ namespace Aura_Client.View
 
                         newRow.Cells["statusID"].Value = Catalog.allStatuses[pur.statusID];
 
+                        newRow.Cells["stageID"].Value = Catalog.allStages[pur.stageID];
+
+                        newRow.Cells["bidsCount"].Value = GetCountOfBids(pur);
+
                         newRow.Cells["purchacePrice"].Value = pur.purchacePrice.ToString("### ### ### ### ###.##");
 
                         newRow.Cells["purchaseEisNum"].Value = pur.purchaseEisNum;
@@ -393,6 +403,18 @@ namespace Aura_Client.View
 
                 }
             }
+        }
+
+        private string GetCountOfBids(Purchase pur)
+        {
+            int indexOfCountText;
+
+            if (pur.stageID == 5)
+                indexOfCountText = int.Parse(pur.bidsCount[3].ToString());
+            else indexOfCountText = int.Parse(pur.bidsCount[4].ToString());
+
+
+            return Catalog.countOfBidsTexts[indexOfCountText];            
         }
 
 

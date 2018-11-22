@@ -95,9 +95,9 @@
             this.label20 = new System.Windows.Forms.Label();
             this.showLogsButton = new System.Windows.Forms.Button();
             this.purchaseEisDate = new System.Windows.Forms.DateTimePicker();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.stageID = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.bidsCount = new System.Windows.Forms.ComboBox();
             this.label23 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.purchacePrice)).BeginInit();
             this.SuspendLayout();
@@ -758,14 +758,14 @@
             this.purchaseEisDate.CloseUp += new System.EventHandler(this.dateTime_ValueChanged);
             this.purchaseEisDate.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dateTimeField_KeyUp);
             // 
-            // comboBox1
+            // stageID
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(652, 37);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(176, 21);
-            this.comboBox1.TabIndex = 97;
-            this.comboBox1.Text = "1 части";
+            this.stageID.FormattingEnabled = true;
+            this.stageID.Location = new System.Drawing.Point(652, 37);
+            this.stageID.Name = "stageID";
+            this.stageID.Size = new System.Drawing.Size(176, 21);
+            this.stageID.TabIndex = 97;
+            this.stageID.Text = "1 части";
             // 
             // label21
             // 
@@ -777,14 +777,14 @@
             this.label21.Text = "Этап закупки";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // comboBox2
+            // bidsCount
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(652, 64);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(176, 21);
-            this.comboBox2.TabIndex = 99;
-            this.comboBox2.Text = "0";
+            this.bidsCount.FormattingEnabled = true;
+            this.bidsCount.Location = new System.Drawing.Point(652, 64);
+            this.bidsCount.Name = "bidsCount";
+            this.bidsCount.Size = new System.Drawing.Size(176, 21);
+            this.bidsCount.TabIndex = 99;
+            this.bidsCount.Text = "0";
             // 
             // label23
             // 
@@ -801,9 +801,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(840, 615);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.bidsCount);
             this.Controls.Add(this.label23);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.stageID);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.showLogsButton);
             this.Controls.Add(this.auctionDateClr);
@@ -948,9 +948,9 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Button showLogsButton;
         private System.Windows.Forms.DateTimePicker purchaseEisDate;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox stageID;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox bidsCount;
         private System.Windows.Forms.Label label23;
     }
 }
