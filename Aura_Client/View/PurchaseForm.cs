@@ -10,7 +10,7 @@ namespace Aura_Client.View
     public partial class PurchaseForm : AuraForm
     {
         private Purchase purchase;
-
+       
         public PurchaseForm(Purchase purchase, bool copy = false) : base()
         {
             InitializeComponent();
@@ -137,7 +137,7 @@ namespace Aura_Client.View
 
         private void ReloadStages()
         {
-            //изменить статусы в зависимости от выбранного способа определения поставщика
+            //изменить этапы в зависимости от выбранного способа определения поставщика
             stageID.Items.Clear();
 
             ComboBoxItem selectedItem = purchaseMethodID.SelectedItem as ComboBoxItem;
@@ -240,13 +240,13 @@ namespace Aura_Client.View
 
         private void FillBidsCount()
         {
-            здесь
+            SetCombobox(stageID, purchase.BidsCountIndex);
         }
 
         private void FillProtocolStatus()
         {
-            здесь
-            SetCombobox(protocolStatusID, purchase.protocolStatusID);
+
+            SetCombobox(protocolStatusID, purchase.ProtocolStatus);
         }
 
         private void SwitchControlStatus()
@@ -383,6 +383,27 @@ namespace Aura_Client.View
             ReloadStages();
         }
 
+        private void stageID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            purchase.stageID = stageID.SelectedIndex;
+            creator.AddChange("stageID", stageID.SelectedIndex.ToString());
+
+            FillProtocolStatus();
+            FillBidsCount();
+        }
+
+        private void bidsCount_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            purchase.BidsCountIndex = bidsCount.SelectedIndex.ToString()[0];
+            creator.AddChange("bidsCount", purchase.bidsCount.ToString());
+        }
+
+        private void protocolStatusID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            purchase.ProtocolStatus = protocolStatusID.SelectedIndex;
+            creator.AddChange("protocolStatusID", purchase.protocolStatusID.ToString());
+        }
+
         private void colorMark_Click(object sender, EventArgs e)
         {
             colorDialog1.AllowFullOpen = true;
@@ -452,6 +473,8 @@ namespace Aura_Client.View
             LogsJournalForm form = new LogsJournalForm(purchase);
             form.ShowDialog();
         }
+
+        
     }
 
 }

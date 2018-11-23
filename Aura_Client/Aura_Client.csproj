@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{776916EC-BBBA-408D-9812-C65B05A94C9F}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>Aura_Client</RootNamespace>
     <AssemblyName>Aura_Client</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>

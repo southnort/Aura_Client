@@ -59,15 +59,15 @@ namespace Aura_Client.View
             }
 
             //статусы протоколов
-            for (int i = 0; i < Catalog.protocolStatuses.Count; i++)
-            {
-                ComboBoxItem item = new ComboBoxItem();
-                item.Text = Catalog.protocolStatuses[i];
-                item.Value = i;
+            //for (int i = 0; i < Catalog.protocolStatuses.Count; i++)
+            //{
+            //    ComboBoxItem item = new ComboBoxItem();
+            //    item.Text = Catalog.protocolStatuses[i];
+            //    item.Value = i;
 
-                protocolStatusID.Items.Add(item);
+            //    protocolStatusID.Items.Add(item);
 
-            }
+            //}
 
             //ответственный за размещение договора в реестре           
             foreach (var user in Program.dataManager.GetUserNames())
@@ -183,7 +183,7 @@ namespace Aura_Client.View
             SetControllButton();
             ReloadStatuses();
             SetCombobox(statusID, purchase.statusID);
-            SetCombobox(protocolStatusID, purchase.protocolStatusID);
+         //   SetCombobox(protocolStatusID, purchase.protocolStatusID);
             SwitchColorMark();
 
 

@@ -323,7 +323,7 @@ namespace Aura_Client.View
                                 Catalog.protocolStatuses[pur.protocolStatusID];
 
                             newRow.Cells["protocolStatusID"].Style.BackColor =
-                                GetProtocolStatusColor(pur.protocolStatusID);
+                                GetProtocolStatusColor(pur.ProtocolStatus);
 
                             newRow.Cells["bidsReviewDate"].Value = ConvertDateToText(pur.bidsReviewDate);
 
@@ -416,13 +416,7 @@ namespace Aura_Client.View
 
         private string GetCountOfBids(Purchase pur)
         {
-            int indexOfCountText;
-
-            if (pur.stageID == 5)
-                indexOfCountText = int.Parse(pur.bidsCount[3].ToString());
-            else indexOfCountText = int.Parse(pur.bidsCount[4].ToString());
-
-
+            int indexOfCountText = pur.BidsCountIndex;
             return Catalog.countOfBidsTexts[indexOfCountText];
         }
 

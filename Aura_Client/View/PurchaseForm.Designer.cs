@@ -334,6 +334,7 @@
             this.protocolStatusID.TabIndex = 55;
             this.protocolStatusID.Text = "<не указано>";
             this.protocolStatusID.DropDownClosed += new System.EventHandler(this.comboBox_ValueChanged);
+            this.protocolStatusID.Leave += new System.EventHandler(this.protocolStatusID_SelectedIndexChanged);
             // 
             // label9
             // 
@@ -766,6 +767,7 @@
             this.stageID.Size = new System.Drawing.Size(176, 21);
             this.stageID.TabIndex = 97;
             this.stageID.Text = "1 части";
+            this.stageID.Leave += new System.EventHandler(this.stageID_SelectedIndexChanged);
             // 
             // label21
             // 
@@ -785,6 +787,7 @@
             this.bidsCount.Size = new System.Drawing.Size(176, 21);
             this.bidsCount.TabIndex = 99;
             this.bidsCount.Text = "0";
+            this.bidsCount.Leave += new System.EventHandler(this.bidsCount_SelectedIndexChanged);
             // 
             // label23
             // 

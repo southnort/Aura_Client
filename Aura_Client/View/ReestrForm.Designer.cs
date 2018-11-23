@@ -51,8 +51,6 @@
             this.label16 = new System.Windows.Forms.Label();
             this.resultOfControl = new System.Windows.Forms.RichTextBox();
             this.purchaseName = new System.Windows.Forms.RichTextBox();
-            this.protocolStatusID = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.employeReestID = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.reestrStatus = new System.Windows.Forms.Button();
@@ -299,26 +297,6 @@
             this.purchaseName.TabIndex = 53;
             this.purchaseName.Text = "Закупка меховых изделий";
             this.purchaseName.Leave += new System.EventHandler(this.textBox_ValueChanged);
-            // 
-            // protocolStatusID
-            // 
-            this.protocolStatusID.FormattingEnabled = true;
-            this.protocolStatusID.Location = new System.Drawing.Point(609, 44);
-            this.protocolStatusID.Name = "protocolStatusID";
-            this.protocolStatusID.Size = new System.Drawing.Size(176, 21);
-            this.protocolStatusID.TabIndex = 55;
-            this.protocolStatusID.Text = "<не указано>";
-            this.protocolStatusID.DropDownClosed += new System.EventHandler(this.comboBox_ValueChanged);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(500, 47);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(103, 13);
-            this.label9.TabIndex = 54;
-            this.label9.Text = "Статус протоколов";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // employeReestID
             // 
@@ -574,8 +552,6 @@
             this.Controls.Add(this.reestrStatus);
             this.Controls.Add(this.employeReestID);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.protocolStatusID);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.purchaseName);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.resultOfControl);
@@ -632,8 +608,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.RichTextBox resultOfControl;
         private System.Windows.Forms.RichTextBox purchaseName;
-        private System.Windows.Forms.ComboBox protocolStatusID;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox employeReestID;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button reestrStatus;
