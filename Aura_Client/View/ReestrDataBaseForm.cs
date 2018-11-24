@@ -26,7 +26,7 @@ namespace Aura_Client.View
 
         private void CreateTable()
         {
-            //программно создаем колонки в таблице
+            //программно создаем колонки в таблице         
             reestrDataGridView.Columns.Add("id", "id");
             reestrDataGridView.Columns["id"].Width = 50;
 
@@ -134,9 +134,6 @@ namespace Aura_Client.View
             checkColumn.HeaderText = "Внесено";
             reestrDataGridView.Columns.Add(checkColumn);
             reestrDataGridView.Columns["reestrStatus"].Width = 60;
-
-
-
             SetColumnOrder(reestrDataGridView);
 
         }
@@ -214,7 +211,7 @@ namespace Aura_Client.View
         private void RefreshCreator()
         {
             //при открытии окна или при сбросе фильтрации нужно добавлять в фильтрацию статус закупки
-            creator.AddFilter("statusID_Min", "8");
+            creator.AddFilter("statusID", "2");
         }
 
 
@@ -369,9 +366,9 @@ namespace Aura_Client.View
                         }
 
                         newRow.Cells["protocolStatusID"].Value =
-                            Catalog.protocolStatuses[pur.protocolStatusID];
+                            Catalog.protocolStatuses[pur.ProtocolStatus];
                         Color color = Color.White;
-                        switch (pur.protocolStatusID)
+                        switch (pur.ProtocolStatus)
                         {
                             case 1: color = Color.DodgerBlue; break;
                             case 2: color = Color.Yellow; break;
@@ -407,14 +404,9 @@ namespace Aura_Client.View
 
         private string GetCountOfBids(Purchase pur)
         {
-            int indexOfCountText;
+            int indexOfCountText = pur.BidsCountIndex;
+            return Catalog.countOfBidsTexts[indexOfCountText];
 
-            if (pur.stageID == 5)
-                indexOfCountText = int.Parse(pur.bidsCount[3].ToString());
-            else indexOfCountText = int.Parse(pur.bidsCount[4].ToString());
-
-
-            return Catalog.countOfBidsTexts[indexOfCountText];            
         }
 
 
@@ -519,7 +511,7 @@ namespace Aura_Client.View
                 new Purchase
                 {
                     purchaseMethodID = 1,
-                    statusID = 8,
+                    statusID = 2,
                     withoutPurchase = 1,
 
                 }

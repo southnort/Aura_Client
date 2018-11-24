@@ -320,7 +320,7 @@ namespace Aura_Client.View
                             }
 
                             newRow.Cells["protocolStatusID"].Value =
-                                Catalog.protocolStatuses[pur.protocolStatusID];
+                                Catalog.protocolStatuses[pur.ProtocolStatus];
 
                             newRow.Cells["protocolStatusID"].Style.BackColor =
                                 GetProtocolStatusColor(pur.ProtocolStatus);
@@ -369,11 +369,12 @@ namespace Aura_Client.View
                 return Program.user.roleID == pur.law;
             }
 
+            //скрытие завершенных/отмененных закупок
             if (!showNotActualCheckBox.Checked)
             {
-                if (pur.statusID == 8)
+                if (pur.statusID == 2)
                     return false;
-                if (pur.statusID == 9)
+                if (pur.statusID == 3)
                     return false;
 
             }
@@ -418,6 +419,7 @@ namespace Aura_Client.View
         {
             int indexOfCountText = pur.BidsCountIndex;
             return Catalog.countOfBidsTexts[indexOfCountText];
+
         }
 
         private void ClearTable()

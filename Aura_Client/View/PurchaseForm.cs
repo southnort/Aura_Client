@@ -15,7 +15,7 @@ namespace Aura_Client.View
         {
             InitializeComponent();
             InitializeAuraForm();
-            this.purchase = purchase;
+            this.purchase = purchase;            
             LoadCatalogs();
             creator = new CommandStringCreator("Purchases", purchase.id.ToString());
 
@@ -47,7 +47,7 @@ namespace Aura_Client.View
         private void LoadCatalogs()
         {
             //заполнить справочники для выпадающих меню
-
+            
             //статусы закупки
             for (int i = 0; i < Catalog.allStatuses.Count; i++)
             {
@@ -149,7 +149,6 @@ namespace Aura_Client.View
                 item.Value = st.Key;
 
                 stageID.Items.Add(item);
-                stageID.SelectedIndex = 0;
             }
 
         }
@@ -224,9 +223,11 @@ namespace Aura_Client.View
             SetControllButton();
             ReloadStages();
             SetCombobox(statusID, purchase.statusID);
-            SetCombobox(stageID, purchase.stageID);
-            FillBidsCount();
+
+            FillStage();
+            FillBidsCount();            
             FillProtocolStatus();
+
             SwitchColorMark();
 
 
@@ -240,12 +241,17 @@ namespace Aura_Client.View
 
         private void FillBidsCount()
         {
-            SetCombobox(stageID, purchase.BidsCountIndex);
+            SetCombobox(bidsCount, purchase.BidsCountIndex);
+        }
+
+        private void FillStage()
+        {
+            Console.WriteLine("######"+purchase.stageID);
+            SetCombobox(stageID, purchase.stageID);
         }
 
         private void FillProtocolStatus()
         {
-
             SetCombobox(protocolStatusID, purchase.ProtocolStatus);
         }
 
@@ -308,18 +314,6 @@ namespace Aura_Client.View
         protected override void comboBox_ValueChanged(object sender, EventArgs e)
         {
             base.comboBox_ValueChanged(sender, e);
-
-            //var box = (ComboBox)sender;
-            //ComboBoxItem item = box.SelectedItem as ComboBoxItem;
-            //try
-            //{
-            //    if (item != null)
-            //        creator.Add(box.Name, ((int)item.Value).ToString());
-            //}
-            //catch
-            //{
-            //    MessageBox.Show(item.Value.GetType().ToString());
-            //}
         }
 
         protected override void numericUpDown_ValueChanges(object sender, EventArgs e)
@@ -385,8 +379,11 @@ namespace Aura_Client.View
 
         private void stageID_SelectedIndexChanged(object sender, EventArgs e)
         {
-            purchase.stageID = stageID.SelectedIndex;
-            creator.AddChange("stageID", stageID.SelectedIndex.ToString());
+            var box = (ComboBox)sender;
+            ComboBoxItem item = box.SelectedItem as ComboBoxItem;
+           
+            purchase.stageID = (int)item.Value;
+            creator.AddChange("stageID", purchase.stageID.ToString());
 
             FillProtocolStatus();
             FillBidsCount();
@@ -394,14 +391,43 @@ namespace Aura_Client.View
 
         private void bidsCount_SelectedIndexChanged(object sender, EventArgs e)
         {
-            purchase.BidsCountIndex = bidsCount.SelectedIndex.ToString()[0];
-            creator.AddChange("bidsCount", purchase.bidsCount.ToString());
+            purchase.BidsCountIndex = bidsCount.SelectedIndex;
+            var columnName = string.Empty;
+            switch (purchase.stageID)
+            {
+                case 2: columnName = "bidsCount2"; break;
+                case 3: columnName = "bidsCount3"; break;
+
+                case 5: columnName = "bidsCount2"; break;
+                case 6: columnName = "bidsCount3"; break;
+
+                default: columnName = "bidsCount1"; break;
+            }
+            creator.AddChange(columnName, purchase.BidsCountIndex.ToString());
+            Console.WriteLine("\n\nBidsCount changed "
+                + purchase.BidsCountIndex + " " +
+                bidsCount.SelectedIndex + " " +
+                creator.ToUpdate());
+
         }
 
         private void protocolStatusID_SelectedIndexChanged(object sender, EventArgs e)
         {
             purchase.ProtocolStatus = protocolStatusID.SelectedIndex;
-            creator.AddChange("protocolStatusID", purchase.protocolStatusID.ToString());
+            var columnName = "protocolStatusID";
+
+            switch (purchase.stageID)
+            {
+                case 2: columnName = "protocolStatusID2"; break;
+                case 3: columnName = "protocolStatusID3"; break;
+
+                case 5: columnName = "protocolStatusID2"; break;
+                case 6: columnName = "protocolStatusID3"; break;
+
+                
+            }
+
+            creator.AddChange(columnName, purchase.ProtocolStatus.ToString());
         }
 
         private void colorMark_Click(object sender, EventArgs e)

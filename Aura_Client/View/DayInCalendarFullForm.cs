@@ -174,7 +174,7 @@ namespace Aura_Client.View
 
 
                     var protocolStatusCell = newRow.Cells["protocolStatusID"] as DataGridViewButtonCell;
-                    protocolStatusCell.Value = Catalog.protocolStatuses[ev.Key.protocolStatusID];
+                    protocolStatusCell.Value = Catalog.protocolStatuses[ev.Key.ProtocolStatus];
 
                 }
 
@@ -206,7 +206,7 @@ namespace Aura_Client.View
                 int y = (mainPanel.Controls.Count) * (button.Height + 5) + 5;
                 button.Location = new Point(x, y);
 
-                button.BackColor = GetProtocolStatusColor(ev.Key.protocolStatusID);
+                button.BackColor = GetProtocolStatusColor(ev.Key.ProtocolStatus);
 
                 mainPanel.Controls.Add(button);
             }

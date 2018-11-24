@@ -34,8 +34,6 @@
             this.purchaseMethodID = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.statusID = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.purchaseEisNum = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -96,7 +94,6 @@
             this.purchaseMethodID.Size = new System.Drawing.Size(272, 21);
             this.purchaseMethodID.TabIndex = 5;
             this.purchaseMethodID.Text = "Электронный аукцион";
-            this.purchaseMethodID.SelectedIndexChanged += new System.EventHandler(this.purchaseMethodID_SelectedIndexChanged);
             this.purchaseMethodID.DropDownClosed += new System.EventHandler(this.comboBox_ValueChanged);
             // 
             // label3
@@ -118,26 +115,6 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Наименование закупки";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // statusID
-            // 
-            this.statusID.FormattingEnabled = true;
-            this.statusID.Location = new System.Drawing.Point(609, 17);
-            this.statusID.Name = "statusID";
-            this.statusID.Size = new System.Drawing.Size(176, 21);
-            this.statusID.TabIndex = 9;
-            this.statusID.Text = "Опубликована";
-            this.statusID.DropDownClosed += new System.EventHandler(this.comboBox_ValueChanged);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(518, 20);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(85, 13);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Статус закупки";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label6
             // 
@@ -566,8 +543,6 @@
             this.Controls.Add(this.purchaseEisNum);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.statusID);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.purchaseMethodID);
             this.Controls.Add(this.label3);
@@ -591,8 +566,6 @@
         private System.Windows.Forms.ComboBox purchaseMethodID;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox statusID;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox purchaseEisNum;
         private System.Windows.Forms.Label label7;

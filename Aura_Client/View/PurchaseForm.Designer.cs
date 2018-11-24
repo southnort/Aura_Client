@@ -767,7 +767,7 @@
             this.stageID.Size = new System.Drawing.Size(176, 21);
             this.stageID.TabIndex = 97;
             this.stageID.Text = "1 части";
-            this.stageID.Leave += new System.EventHandler(this.stageID_SelectedIndexChanged);
+            this.stageID.SelectedIndexChanged += new System.EventHandler(this.stageID_SelectedIndexChanged);
             // 
             // label21
             // 

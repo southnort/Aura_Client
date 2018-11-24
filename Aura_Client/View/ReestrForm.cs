@@ -56,18 +56,7 @@ namespace Aura_Client.View
 
                 purchaseMethodID.Items.Add(item);
 
-            }
-
-            //статусы протоколов
-            //for (int i = 0; i < Catalog.protocolStatuses.Count; i++)
-            //{
-            //    ComboBoxItem item = new ComboBoxItem();
-            //    item.Text = Catalog.protocolStatuses[i];
-            //    item.Value = i;
-
-            //    protocolStatusID.Items.Add(item);
-
-            //}
+            }            
 
             //ответственный за размещение договора в реестре           
             foreach (var user in Program.dataManager.GetUserNames())
@@ -90,38 +79,10 @@ namespace Aura_Client.View
 
             withAZK.Items.Add(new ComboBoxItem() { Text = "С АЦК", Value = 0, });
             withAZK.Items.Add(new ComboBoxItem() { Text = "БЕЗ АЦК", Value = 1, });
-
-
-            //purchaseMethodID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
-            //statusID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
-            //protocolStatusID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
-            //employeReestID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
-            //employeReestID.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
-            //law.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
-            //withAZK.MouseWheel += new MouseEventHandler(comboBox_ValueChanged);
+           
 
         }
-
-        private void ReloadStatuses()
-        {
-            //изменить статусы в зависимости от выбранного способа определения поставщика
-            statusID.Items.Clear();
-
-            ComboBoxItem selectedItem = purchaseMethodID.SelectedItem as ComboBoxItem;
-            PurchaseMethod method = Catalog.purchaseMethods[(int)selectedItem.Value];
-            foreach (var st in method.purchaseStages)
-            {
-                ComboBoxItem item = new ComboBoxItem();
-                item.Text = st.Value;
-                item.Value = st.Key;
-
-                statusID.Items.Add(item);
-                statusID.SelectedIndex = 0;
-
-            }
-
-        }
-
+        
         private void SetControllButton()
         {
             if (purchase.reestrStatus == 0)
@@ -180,9 +141,8 @@ namespace Aura_Client.View
 
             withAZK.SelectedIndex = purchase.withAZK;
 
-            SetControllButton();
-            ReloadStatuses();
-            SetCombobox(statusID, purchase.statusID);
+            SetControllButton();           
+          //  SetCombobox(statusID, purchase.statusID);
          //   SetCombobox(protocolStatusID, purchase.protocolStatusID);
             SwitchColorMark();
 
@@ -323,12 +283,7 @@ namespace Aura_Client.View
         {
             SwitchReestrStatus();
         }
-
-        private void purchaseMethodID_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ReloadStatuses();
-        }
-
+       
         private void colorMark_Click(object sender, EventArgs e)
         {
             colorDialog1.AllowFullOpen = false;

@@ -76,7 +76,7 @@ namespace Aura_Client.View
 
             };
 
-            button.BackColor = GetProtocolStatusColor(pair.Key.protocolStatusID);
+            button.BackColor = GetProtocolStatusColor(pair.Key.ProtocolStatus);
 
             button.Click += Button_Click;
 
