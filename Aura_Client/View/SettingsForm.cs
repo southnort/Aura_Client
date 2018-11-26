@@ -38,17 +38,44 @@ namespace Aura_Client.View
         {
             statusColorsDataGrd.Rows.Clear();
 
-            for(int i = 0; i< Catalog.allStatuses.Count;i++)
+
+            int rowIndex = statusColorsDataGrd.Rows.Add();
+            var newRow = statusColorsDataGrd.Rows[rowIndex];
+            newRow.Cells["id"].Value = 0;
+            newRow.Cells["nameOfStatus"].Value = Catalog.allStatuses[0];
+            newRow.Cells["selectedColor"].Style.BackColor = GetStatusColor(0);
+
+            rowIndex = statusColorsDataGrd.Rows.Add();
+            newRow = statusColorsDataGrd.Rows[rowIndex];
+            newRow.Cells["id"].Value = 1;
+            newRow.Cells["nameOfStatus"].Value = Catalog.allStatuses[1];
+            newRow.Cells["selectedColor"].Style.BackColor = GetStatusColor(1);
+
+
+            for (int i = 0; i< Catalog.allStages.Count;i++)
             {
-                var status = Catalog.allStatuses[i];
+                var status = Catalog.allStages[i];
 
-                int rowIndex = statusColorsDataGrd.Rows.Add();
-                var newRow = statusColorsDataGrd.Rows[rowIndex];
+                rowIndex = statusColorsDataGrd.Rows.Add();
+                newRow = statusColorsDataGrd.Rows[rowIndex];
 
-                newRow.Cells["id"].Value = i;
+                newRow.Cells["id"].Value = i+2;
                 newRow.Cells["nameOfStatus"].Value = status;
-                newRow.Cells["selectedColor"].Style.BackColor = GetStatusColor(i);
+                newRow.Cells["selectedColor"].Style.BackColor = GetStatusColor(i+2);
             }
+
+            rowIndex = statusColorsDataGrd.Rows.Add();
+            newRow = statusColorsDataGrd.Rows[rowIndex];
+            newRow.Cells["id"].Value = 8;
+            newRow.Cells["nameOfStatus"].Value = Catalog.allStatuses[2];
+            newRow.Cells["selectedColor"].Style.BackColor = GetStatusColor(8);
+
+            rowIndex = statusColorsDataGrd.Rows.Add();
+            newRow = statusColorsDataGrd.Rows[rowIndex];
+            newRow.Cells["id"].Value = 9;
+            newRow.Cells["nameOfStatus"].Value = Catalog.allStatuses[3];
+            newRow.Cells["selectedColor"].Style.BackColor = GetStatusColor(9);
+
         }
 
 

@@ -339,7 +339,7 @@ namespace Aura_Client.View
                             newRow.Cells["reestrStatus"].Value =
                                 pur.reestrStatus == 1;
 
-                            RecolorRow(newRow, pur.statusID);
+                            RecolorRow(newRow, pur);
 
                         }
 
@@ -383,14 +383,30 @@ namespace Aura_Client.View
         }
         
 
-        private void RecolorRow(DataGridViewRow row, int statusID)
+        private void RecolorRow(DataGridViewRow row, Purchase pur)
         {
-            Color color = GetColor(statusID);
+            var indexOfColor = GetIndexOfColor(pur);
+            Color color = GetColor(indexOfColor);
 
             DataGridViewRow tempRow = new DataGridViewRow();
             row.DefaultCellStyle.BackColor = color;
 
 
+        }
+
+        private int GetIndexOfColor(Purchase pur)
+        {
+            int result = 0;
+
+            if (pur.statusID == 2) result = 8;
+            else if (pur.statusID == 3) result = 9;
+            else if (pur.statusID == 1)
+            {
+                result = pur.stageID + 1;
+            }
+
+
+            return result;
         }
 
         private Color GetColor(int indexOfStatus)
