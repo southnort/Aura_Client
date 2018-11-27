@@ -87,5 +87,17 @@ namespace Aura_Client.Network
 
         }
 
+        public void SwitchProtocolStatusOfPurchase(string purchaseID, string newStatus)
+        {
+            //направить на сервер команду на смену статуса закупки. Из окна дня календаря
+            StringBuilder sb = new StringBuilder();
+            sb.Append("SWITCHPROTOCOLSTATUSOFPURCHASE#");
+            sb.Append(purchaseID);
+            sb.Append("#");
+            sb.Append(newStatus);
+            SendMessage(sb.ToString());
+
+        }
+
     }
 }

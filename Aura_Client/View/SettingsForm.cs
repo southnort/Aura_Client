@@ -52,16 +52,16 @@ namespace Aura_Client.View
             newRow.Cells["selectedColor"].Style.BackColor = GetStatusColor(1);
 
 
-            for (int i = 0; i< Catalog.allStages.Count;i++)
+            for (int i = 1; i< Catalog.allStages.Count;i++)
             {
                 var status = Catalog.allStages[i];
 
                 rowIndex = statusColorsDataGrd.Rows.Add();
                 newRow = statusColorsDataGrd.Rows[rowIndex];
 
-                newRow.Cells["id"].Value = i+2;
+                newRow.Cells["id"].Value = i+1;
                 newRow.Cells["nameOfStatus"].Value = status;
-                newRow.Cells["selectedColor"].Style.BackColor = GetStatusColor(i+2);
+                newRow.Cells["selectedColor"].Style.BackColor = GetStatusColor(i+1);
             }
 
             rowIndex = statusColorsDataGrd.Rows.Add();
@@ -125,21 +125,7 @@ namespace Aura_Client.View
                 return Color.FromArgb(argb);
 
             }
-        }
-
-        private Color GetProtocolStatusColor(int indexOfStatus)
-        {
-            if (Properties.settings.Default.ProtocolStatus.Count < indexOfStatus)
-                return Color.White;
-
-            else
-            {
-                var item = Properties.settings.Default.ProtocolStatus[indexOfStatus];
-                int argb = int.Parse(item);
-                return Color.FromArgb(argb);
-
-            }
-        }
+        }       
 
         private void statusColorsDataGrd_CellClick(object sender, DataGridViewCellEventArgs e)
         {

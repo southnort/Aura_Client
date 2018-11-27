@@ -321,8 +321,9 @@ namespace Aura_Client.View
 
             if (e.RowIndex >= 0)
             {
-                if (senderGrid.CurrentCell.OwningColumn.Name == "protocolStatusID")
+                if (senderGrid.CurrentCell.OwningColumn.Name == "ProtocolStatus")
                     ClickOnPrototolStatusButton();
+
             }
         }
 
@@ -333,14 +334,28 @@ namespace Aura_Client.View
 
         private void SwitchProtocolStatusOfPurchase(string purchaseID, string newStatusID)
         {
-            creator = new Controller.CommandStringCreator("Purchases", purchaseID);
+            Program.bridge.SwitchProtocolStatusOfPurchase(purchaseID, newStatusID);
 
-            string protocolStatusFieldName;
+        }
 
-            switch(
+        private void dayInCalendarDataGridView_CellDoubleClick
+            (object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                var dg = (DataGridView)sender;
+                var purchaseID = dg.Rows[e.RowIndex].Cells["id"].Value.ToString();
+                Purchase purchase = Program.dataManager.GetPurchase(purchaseID);
+                ShowPurchase(purchase);
 
-            creator.AddChange("protocolStatusID", newStatusID);
-            Program.bridge.SendMessage("UPDATEPURCHASE#" + creator.ToUpdate());
+            }
+        }
+
+        private void ShowPurchase(Purchase purchase)
+        {
+            PurchaseForm form = new PurchaseForm(purchase);
+            var result = form.ShowDialog();            
+
         }
     }
 }

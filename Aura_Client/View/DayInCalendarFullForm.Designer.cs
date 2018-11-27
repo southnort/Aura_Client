@@ -148,6 +148,7 @@
             this.dayInCalendarDataGridView.Size = new System.Drawing.Size(808, 228);
             this.dayInCalendarDataGridView.TabIndex = 3;
             this.dayInCalendarDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dayInCalendarDataGridView_CellClick);
+            this.dayInCalendarDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dayInCalendarDataGridView_CellDoubleClick);
             this.dayInCalendarDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dayInCalendarDataGridView_DataError);
             // 
             // contextMenuStrip1
