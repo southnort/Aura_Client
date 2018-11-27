@@ -50,12 +50,17 @@ namespace Aura_Client.View
             dayInCalendarDataGridView.Columns.Add("statusID", "Статус");
             dayInCalendarDataGridView.Columns["statusID"].Width = 150;
 
+            dayInCalendarDataGridView.Columns.Add("stageID", "Этап");
+            dayInCalendarDataGridView.Columns["stageID"].Width = 150;
+
+            dayInCalendarDataGridView.Columns.Add("BidsCountIndex","Количество заявок");
+            dayInCalendarDataGridView.Columns["BidsCountIndex"].Width = 150;
 
             DataGridViewButtonColumn protocolStatusColumn = new DataGridViewButtonColumn();
-            protocolStatusColumn.Name = "protocolStatusID";
+            protocolStatusColumn.Name = "ProtocolStatus";
             protocolStatusColumn.HeaderText = "Статус протокола";
             dayInCalendarDataGridView.Columns.Add(protocolStatusColumn);
-            dayInCalendarDataGridView.Columns["protocolStatusID"].Width = 150;               
+            dayInCalendarDataGridView.Columns["ProtocolStatus"].Width = 150;               
 
         }
 
@@ -172,8 +177,12 @@ namespace Aura_Client.View
 
                     newRow.Cells["statusID"].Value = Catalog.allStatuses[ev.Key.statusID];
 
+                    newRow.Cells["stageID"].Value = Catalog.allStages[ev.Key.stageID];
 
-                    var protocolStatusCell = newRow.Cells["protocolStatusID"] as DataGridViewButtonCell;
+                    newRow.Cells["BidsCountIndex"].Value =
+                        Catalog.countOfBidsTexts[ev.Key.BidsCountIndex];
+
+                    var protocolStatusCell = newRow.Cells["ProtocolStatus"] as DataGridViewButtonCell;
                     protocolStatusCell.Value = Catalog.protocolStatuses[ev.Key.ProtocolStatus];
 
                 }
@@ -325,6 +334,11 @@ namespace Aura_Client.View
         private void SwitchProtocolStatusOfPurchase(string purchaseID, string newStatusID)
         {
             creator = new Controller.CommandStringCreator("Purchases", purchaseID);
+
+            string protocolStatusFieldName;
+
+            switch(
+
             creator.AddChange("protocolStatusID", newStatusID);
             Program.bridge.SendMessage("UPDATEPURCHASE#" + creator.ToUpdate());
         }
