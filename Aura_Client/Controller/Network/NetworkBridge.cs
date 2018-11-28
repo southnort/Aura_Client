@@ -44,7 +44,7 @@ namespace Aura_Client.Network
         public void SendUpdateReport(Aura.Model.Report report)
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("UPDATEREPORT#");            
+            sb.Append("UPDATEREPORT#");
             sb.Append("REPLACE INTO Reports (organisationID, commonPurchasesContractsReport, ");
             sb.Append("singleSupplierContractsReport, failedPurchasesContractsReport)");
             sb.Append(" VALUES ('");
@@ -98,6 +98,19 @@ namespace Aura_Client.Network
             SendMessage(sb.ToString());
 
         }
+
+        public void ChangeBidsCountInPurchase(string purID, string newBidsCountID)
+        {
+
+            //направить на сервер команду на смену количества пподанных заявок. Из окна календаря
+            StringBuilder sb = new StringBuilder();
+            sb.Append("CHANGEBIDSCOUNTINPURCHASE#");
+            sb.Append(purID);
+            sb.Append("#");
+            sb.Append(newBidsCountID);
+            SendMessage(sb.ToString());
+        }
+
 
     }
 }

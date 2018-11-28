@@ -2,10 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Windows.Forms;
-using System.Text;
-using Aura_Client.Model;
 using System.Linq;
+using System.Text;
+using System.Windows.Forms;
 
 namespace Aura_Client.View
 {
@@ -51,16 +50,19 @@ namespace Aura_Client.View
             dayInCalendarDataGridView.Columns["statusID"].Width = 150;
 
             dayInCalendarDataGridView.Columns.Add("stageID", "Этап");
-            dayInCalendarDataGridView.Columns["stageID"].Width = 150;
+            dayInCalendarDataGridView.Columns["stageID"].Width = 150;            
 
-            dayInCalendarDataGridView.Columns.Add("BidsCountIndex","Количество заявок");
+            DataGridViewButtonColumn bidsCountColumn = new DataGridViewButtonColumn();
+            bidsCountColumn.Name = "BidsCountIndex";
+            bidsCountColumn.HeaderText = "Количество заявок";
+            dayInCalendarDataGridView.Columns.Add(bidsCountColumn);
             dayInCalendarDataGridView.Columns["BidsCountIndex"].Width = 150;
 
             DataGridViewButtonColumn protocolStatusColumn = new DataGridViewButtonColumn();
             protocolStatusColumn.Name = "ProtocolStatus";
             protocolStatusColumn.HeaderText = "Статус протокола";
             dayInCalendarDataGridView.Columns.Add(protocolStatusColumn);
-            dayInCalendarDataGridView.Columns["ProtocolStatus"].Width = 150;               
+            dayInCalendarDataGridView.Columns["ProtocolStatus"].Width = 150;  
 
         }
 
@@ -96,7 +98,7 @@ namespace Aura_Client.View
 
             contextMenuStrip2.Items.Clear();
 
-            for(int i = 0;i<Catalog.protocolStatuses.Count;i++)
+            for (int i = 0; i < Catalog.protocolStatuses.Count; i++)
             {
                 var item = new ToolStripMenuItem()
                 {
@@ -108,6 +110,29 @@ namespace Aura_Client.View
                 item.Click += ProtocolStatusMenuItemClick;
                 contextMenuStrip2.Items.Add(item);
             }
+
+
+
+            foreach (ToolStripMenuItem item in contextMenuStrip3.Items)
+            {
+                item.Click -= BidsCountMenuItemClick;
+            }
+
+            contextMenuStrip3.Items.Clear();
+
+            for (int i = 0; i < Catalog.countOfBidsTexts.Count; i++)
+            {
+                var item = new ToolStripMenuItem()
+                {
+                    Checked = false,
+                    Text = Catalog.countOfBidsTexts[i],
+                    Name = i.ToString(),
+                };
+
+                item.Click += BidsCountMenuItemClick;
+                contextMenuStrip3.Items.Add(item);
+            }
+            
 
 
         }
@@ -131,6 +156,20 @@ namespace Aura_Client.View
 
             SwitchProtocolStatusOfPurchase(purID, newStatusID);
               
+            dayInCalendarDataGridView.CurrentCell.Value = text;
+
+        }
+
+        private void BidsCountMenuItemClick(object sender, EventArgs eventArgs)
+        {
+            var target = sender as ToolStripMenuItem;
+            string text = target.Text;
+            string newBidsCountID = target.Name;
+
+            string purID = dayInCalendarDataGridView.CurrentRow.Cells["id"].Value.ToString();
+
+            ChangeBidsCount(purID, newBidsCountID);
+
             dayInCalendarDataGridView.CurrentCell.Value = text;
 
         }
@@ -179,12 +218,13 @@ namespace Aura_Client.View
 
                     newRow.Cells["stageID"].Value = Catalog.allStages[ev.Key.stageID];
 
-                    newRow.Cells["BidsCountIndex"].Value =
-                        Catalog.countOfBidsTexts[ev.Key.BidsCountIndex];
+                    var countOfBidsCell = newRow.Cells["BidsCountIndex"] as DataGridViewButtonCell;
+                    countOfBidsCell.Value = Catalog.countOfBidsTexts[ev.Key.BidsCountIndex];
 
                     var protocolStatusCell = newRow.Cells["ProtocolStatus"] as DataGridViewButtonCell;
                     protocolStatusCell.Value = Catalog.protocolStatuses[ev.Key.ProtocolStatus];
 
+                    
                 }
 
 
@@ -304,11 +344,6 @@ namespace Aura_Client.View
             
         }
 
-        private void dayInCalendarDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
-        {
-
-        }
-
         private void columnsOptionsButton_Click(object sender, EventArgs e)
         {            
             contextMenuStrip1.Show(Cursor.Position);
@@ -324,6 +359,9 @@ namespace Aura_Client.View
                 if (senderGrid.CurrentCell.OwningColumn.Name == "ProtocolStatus")
                     ClickOnPrototolStatusButton();
 
+                if (senderGrid.CurrentCell.OwningColumn.Name == "BidsCountIndex")
+                    ClickOnBidsCountButton();
+
             }
         }
 
@@ -332,10 +370,21 @@ namespace Aura_Client.View
             contextMenuStrip2.Show(Cursor.Position);
         }
 
+        private void ClickOnBidsCountButton()
+        {
+            contextMenuStrip3.Show(Cursor.Position);
+        }
+
+
         private void SwitchProtocolStatusOfPurchase(string purchaseID, string newStatusID)
         {
             Program.bridge.SwitchProtocolStatusOfPurchase(purchaseID, newStatusID);
 
+        }
+
+        private void ChangeBidsCount(string purchaseID, string newBidsCountID)
+        {
+            Program.bridge.ChangeBidsCountInPurchase(purchaseID, newBidsCountID);
         }
 
         private void dayInCalendarDataGridView_CellDoubleClick
