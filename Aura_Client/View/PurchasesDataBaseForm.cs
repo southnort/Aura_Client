@@ -242,107 +242,105 @@ namespace Aura_Client.View
                 {
                     if (pur != null)
                     {
-                        //проверяем закупку на необходимость добавления
-                        if (VisiblePurchase(pur))
+
+                        int rowIndex = purchasesDataGridView.Rows.Add();
+                        var newRow = purchasesDataGridView.Rows[rowIndex];
+
+
+                        newRow.Cells["id"].Value = pur.id;
+
+                        newRow.Cells["employeID"].Value =
+                            users[pur.employeID.ToString()];
+
+                        Organisation org = orgs.SingleOrDefault(o => o.id == pur.organizationID);
+                        if (org == null || org.id < 1)
+                            newRow.Cells["organizationID"].Value = "<не указано>";
+                        else
+                            newRow.Cells["organizationID"].Value = org.name;
+
+                        newRow.Cells["purchaseMethodID"].Value =
+                            Catalog.purchaseMethods[pur.purchaseMethodID].name;
+
+                        newRow.Cells["purchaseName"].Value = pur.purchaseName;
+
+                        newRow.Cells["statusID"].Value = Catalog.allStatuses[pur.statusID];
+
+                        newRow.Cells["stageID"].Value = Catalog.allStages[pur.stageID];
+
+                        newRow.Cells["bidsCount"].Value = GetCountOfBids(pur);
+
+                        newRow.Cells["purchacePrice"].Value = pur.purchacePrice.ToString("### ### ### ### ###.##");
+
+                        newRow.Cells["purchaseEisNum"].Value = pur.purchaseEisNum;
+
+                        newRow.Cells["purchaseEisDate"].Value = ConvertDateToText(pur.purchaseEisDate);
+
+                        newRow.Cells["bidsStartDate"].Value = ConvertDateToText(pur.bidsStartDate);
+
+                        newRow.Cells["bidsEndDate"].Value = ConvertDateToText(pur.bidsEndDate);
+
+                        newRow.Cells["bidsOpenDate"].Value = ConvertDateToText(pur.bidsOpenDate);
+
+                        newRow.Cells["bidsFirstPartDate"].Value = ConvertDateToText(pur.bidsFirstPartDate);
+
+                        newRow.Cells["auctionDate"].Value = ConvertDateToText(pur.auctionDate);
+
+                        newRow.Cells["bidsSecondPartDate"].Value = ConvertDateToText(pur.bidsSecondPartDate);
+
+                        newRow.Cells["bidsFinishDate"].Value = ConvertDateToText(pur.bidsFinishDate);
+
+                        newRow.Cells["contractPrice"].Value = pur.contractPrice.ToString("### ### ### ### ### ### ###.##");
+
+                        newRow.Cells["contractDateReal"].Value = ConvertDateToText(pur.contractDateReal);
+
+                        newRow.Cells["reestrDateLast"].Value = ConvertDateToText(pur.reestrDateLast);
+
+                        newRow.Cells["reestrNumber"].Value = pur.reestrNumber;
+
+                        newRow.Cells["comments"].Value = pur.comments;
+
+                        switch (pur.law)
                         {
-                            int rowIndex = purchasesDataGridView.Rows.Add();
-                            var newRow = purchasesDataGridView.Rows[rowIndex];
-
-
-                            newRow.Cells["id"].Value = pur.id;
-
-                            newRow.Cells["employeID"].Value =
-                                users[pur.employeID.ToString()];
-
-                            Organisation org = orgs.SingleOrDefault(o => o.id == pur.organizationID);
-                            if (org == null || org.id < 1)
-                                newRow.Cells["organizationID"].Value = "<не указано>";
-                            else
-                                newRow.Cells["organizationID"].Value = org.name;
-
-                            newRow.Cells["purchaseMethodID"].Value =
-                                Catalog.purchaseMethods[pur.purchaseMethodID].name;
-
-                            newRow.Cells["purchaseName"].Value = pur.purchaseName;
-
-                            newRow.Cells["statusID"].Value = Catalog.allStatuses[pur.statusID];
-
-                            newRow.Cells["stageID"].Value = Catalog.allStages[pur.stageID];
-
-                            newRow.Cells["bidsCount"].Value = GetCountOfBids(pur);
-
-                            newRow.Cells["purchacePrice"].Value = pur.purchacePrice.ToString("### ### ### ### ###.##");
-
-                            newRow.Cells["purchaseEisNum"].Value = pur.purchaseEisNum;
-
-                            newRow.Cells["purchaseEisDate"].Value = ConvertDateToText(pur.purchaseEisDate);
-
-                            newRow.Cells["bidsStartDate"].Value = ConvertDateToText(pur.bidsStartDate);
-
-                            newRow.Cells["bidsEndDate"].Value = ConvertDateToText(pur.bidsEndDate);
-
-                            newRow.Cells["bidsOpenDate"].Value = ConvertDateToText(pur.bidsOpenDate);
-
-                            newRow.Cells["bidsFirstPartDate"].Value = ConvertDateToText(pur.bidsFirstPartDate);
-
-                            newRow.Cells["auctionDate"].Value = ConvertDateToText(pur.auctionDate);
-
-                            newRow.Cells["bidsSecondPartDate"].Value = ConvertDateToText(pur.bidsSecondPartDate);
-
-                            newRow.Cells["bidsFinishDate"].Value = ConvertDateToText(pur.bidsFinishDate);
-
-                            newRow.Cells["contractPrice"].Value = pur.contractPrice.ToString("### ### ### ### ### ### ###.##");
-
-                            newRow.Cells["contractDateReal"].Value = ConvertDateToText(pur.contractDateReal);
-
-                            newRow.Cells["reestrDateLast"].Value = ConvertDateToText(pur.reestrDateLast);
-
-                            newRow.Cells["reestrNumber"].Value = pur.reestrNumber;
-
-                            newRow.Cells["comments"].Value = pur.comments;
-
-                            switch (pur.law)
-                            {
-                                case 1: newRow.Cells["law"].Value = "44 ФЗ"; break;
-                                case 2: newRow.Cells["law"].Value = "223 ФЗ"; break;
-                                default: newRow.Cells["law"].Value = ""; break;
-                            }
-
-                            newRow.Cells["withAZK"].Value = pur.withAZK == 0 ? "С АЦК" : "БЕЗ АЦК";
-
-                            newRow.Cells["employeDocumentationID"].Value =
-                                users[pur.employeDocumentationID.ToString()];
-
-                            newRow.Cells["resultOfControl"].Value = pur.resultOfControl;
-                            if (pur.resultOfControlColor != 0)
-                            {
-                                newRow.Cells["resultOfControl"].Style.ForeColor =
-                                    Color.FromArgb(pur.resultOfControlColor);
-                            }
-
-                            newRow.Cells["protocolStatusID"].Value =
-                                Catalog.protocolStatuses[pur.ProtocolStatus];
-
-                            newRow.Cells["protocolStatusID"].Style.BackColor =
-                                GetProtocolStatusColor(pur.ProtocolStatus);
-
-                            newRow.Cells["bidsReviewDate"].Value = ConvertDateToText(pur.bidsReviewDate);
-
-                            newRow.Cells["bidsRatingDate"].Value = ConvertDateToText(pur.bidsRatingDate);
-
-                            newRow.Cells["controlStatus"].Value =
-                                  pur.controlStatus == 1;
-
-                            newRow.Cells["colorMark"].Style.BackColor = Color.FromArgb(pur.colorMark);
-
-                            newRow.Cells["employeReestID"].Value = users[pur.employeReestID.ToString()];
-
-                            newRow.Cells["reestrStatus"].Value =
-                                pur.reestrStatus == 1;
-
-                            RecolorRow(newRow, pur);
-
+                            case 1: newRow.Cells["law"].Value = "44 ФЗ"; break;
+                            case 2: newRow.Cells["law"].Value = "223 ФЗ"; break;
+                            default: newRow.Cells["law"].Value = ""; break;
                         }
+
+                        newRow.Cells["withAZK"].Value = pur.withAZK == 0 ? "С АЦК" : "БЕЗ АЦК";
+
+                        newRow.Cells["employeDocumentationID"].Value =
+                            users[pur.employeDocumentationID.ToString()];
+
+                        newRow.Cells["resultOfControl"].Value = pur.resultOfControl;
+                        if (pur.resultOfControlColor != 0)
+                        {
+                            newRow.Cells["resultOfControl"].Style.ForeColor =
+                                Color.FromArgb(pur.resultOfControlColor);
+                        }
+
+                        newRow.Cells["protocolStatusID"].Value =
+                            Catalog.protocolStatuses[pur.ProtocolStatus];
+
+                        newRow.Cells["protocolStatusID"].Style.BackColor =
+                            GetProtocolStatusColor(pur.ProtocolStatus);
+
+                        newRow.Cells["bidsReviewDate"].Value = ConvertDateToText(pur.bidsReviewDate);
+
+                        newRow.Cells["bidsRatingDate"].Value = ConvertDateToText(pur.bidsRatingDate);
+
+                        newRow.Cells["controlStatus"].Value =
+                              pur.controlStatus == 1;
+
+                        newRow.Cells["colorMark"].Style.BackColor = Color.FromArgb(pur.colorMark);
+
+                        newRow.Cells["employeReestID"].Value = users[pur.employeReestID.ToString()];
+
+                        newRow.Cells["reestrStatus"].Value =
+                            pur.reestrStatus == 1;
+
+                        RecolorRow(newRow, pur);
+
+
 
 
                     }
@@ -363,14 +361,15 @@ namespace Aura_Client.View
 
             creator.ClearFilters();
 
-            AddStandartFilters();           
+            AddStandartFilters();
 
 
         }
 
         private void AddStandartFilters()
         {
-            creator.AddFilter("withoutPurchase", "NULL");
+            //creator.AddFilter("withoutPurchase NOT",
+            //    new List<string> { "1" });
 
             if (Program.user.roleID != 0)
             {
@@ -380,29 +379,14 @@ namespace Aura_Client.View
 
             if (!showNotActualCheckBox.Checked)
             {
-                creator.AddField
+                //скрытие завершенных/отмененных закупок
+                creator.AddFilter("statusID NOT",
+                   new List<string> { "2", "3" });
             }
-           
+
 
         }
 
-
-        private bool VisiblePurchase(Purchase pur)
-        {
-            
-            //скрытие завершенных/отмененных закупок
-            if (!showNotActualCheckBox.Checked)
-            {
-                if (pur.statusID == 2)
-                    return false;
-                if (pur.statusID == 3)
-                    return false;
-
-            }
-
-            return true;
-        }
-        
 
         private void RecolorRow(DataGridViewRow row, Purchase pur)
         {
@@ -641,7 +625,7 @@ namespace Aura_Client.View
             ClearFilters();
 
         }
-        
+
         private void contextMenuStrip1_Closing(object sender, ToolStripDropDownClosingEventArgs e)
         {
             if (e.CloseReason == ToolStripDropDownCloseReason.ItemClicked)
@@ -674,6 +658,6 @@ namespace Aura_Client.View
                 organizationID_Equal.Text = org.name;
             }
         }
-        
+
     }
 }

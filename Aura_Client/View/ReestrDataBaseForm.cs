@@ -569,6 +569,6 @@ namespace Aura_Client.View
             }
         }
 
-       
+
     }
 }

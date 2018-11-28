@@ -55,6 +55,31 @@ namespace Aura_Client.Controller
 
         }
 
+        public void AddFilter(string columnName, List<string> values)
+        {
+            //добавить фильтрацию типа "одно значение из списка"
+
+            StringBuilder sb = new StringBuilder();
+            var header = columnName + " IN ";
+
+            sb.Append("(");
+
+            foreach (var str in values)
+            {
+                sb.Append("'");
+                sb.Append(str);
+                sb.Append("', ");
+            }
+
+            sb.Length -= 2;
+            sb.Append(")");
+
+            if (filters.ContainsKey(header))
+                filters[header] = sb.ToString();
+
+            else filters.Add(header, sb.ToString());
+        }
+
         public void AddField(string fieldName)
         {
             if (!fields.Contains(fieldName))
@@ -213,6 +238,12 @@ namespace Aura_Client.Controller
 
             }
 
+            else if (columnName.Contains(" IN "))
+            {
+                type = FilterTypes.InList;
+                nameOfField = columnName;
+            }
+
             else
             {
                 type = FilterTypes.Contains;
@@ -290,6 +321,9 @@ namespace Aura_Client.Controller
                 case FilterTypes.Between:
                     return ToBetweenString();
 
+                case FilterTypes.InList:
+                    return ToInListString();
+
                 default:
                     return ToContainsString();
             }
@@ -352,6 +386,15 @@ namespace Aura_Client.Controller
 
         }
 
+        private string ToInListString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(fieldName);
+            sb.Append(fieldValue);
+            return sb.ToString();
+
+        }
+
         private string ToContainsString()
         {
             StringBuilder sb = new StringBuilder();
@@ -373,7 +416,8 @@ namespace Aura_Client.Controller
         Less,           //меньше
         Above,          //больше
         Between,        //между двух значений
-        Contains,       //содержит
+        Contains,       //содержит часть текста
+        InList,          //значение из списка значений
 
     };
 }
