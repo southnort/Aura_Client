@@ -4,7 +4,7 @@
   <description asmv2:iconFile="Icon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="Aura_Client" version="1.0.5.1" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="Aura_Client" version="1.0.6.0" language="neutral" processorArchitecture="msil" />
     <commandLine file="Aura_Client.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -44,13 +44,13 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Aura_Client.exe" size="3963784">
-      <assemblyIdentity name="Aura_Client" version="1.0.5.1" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="Aura_Client" version="1.0.6.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>EBV8nWiSkDINUaDxqSD+OyGclnY=</dsig:DigestValue>
+        <dsig:DigestValue>wGRO5lMIq5r5Bfcic1TDD04pOJQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

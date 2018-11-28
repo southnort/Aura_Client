@@ -20,6 +20,7 @@ namespace Aura_Client.View
             creator = new Controller.CommandStringCreator("Purchases");
             CreateTable();
             InitContextMenuStrip();
+            ClearFilters();
             ReloadTable();
 
         }
@@ -350,25 +351,45 @@ namespace Aura_Client.View
             }
         }
 
-        private bool VisiblePurchase(Purchase pur)
+        private void ClearFilters()
         {
-            //проверка, должна ли закупка добавляться в список
+            purchaseName.Clear();
+            purchaseMethodID.SelectedIndex = 0;
+            purchaseEisNum.Clear();
+            statusID.SelectedIndex = 0;
+            protocolStatusID.SelectedIndex = 0;
+            organizationID_Equal.Clear();
+            organisationInn.Clear();
 
-            //проверяем права юзера
-            //админы видят все закупки  
-            //завершенные закупки не добавляются в список
+            creator.ClearFilters();
+
+            AddStandartFilters();           
 
 
+        }
 
-
-            if (pur.withoutPurchase == 1) return false;
+        private void AddStandartFilters()
+        {
+            creator.AddFilter("withoutPurchase", "NULL");
 
             if (Program.user.roleID != 0)
             {
                 //юзеры должны видеть только закупки по их законам
-                return Program.user.roleID == pur.law;
+                creator.AddFilter("law", Program.user.roleID.ToString());
             }
 
+            if (!showNotActualCheckBox.Checked)
+            {
+                creator.AddField
+            }
+           
+
+        }
+
+
+        private bool VisiblePurchase(Purchase pur)
+        {
+            
             //скрытие завершенных/отмененных закупок
             if (!showNotActualCheckBox.Checked)
             {
@@ -617,18 +638,10 @@ namespace Aura_Client.View
 
         private void clearFilterButton_Click(object sender, EventArgs e)
         {
-            purchaseName.Clear();
-            purchaseMethodID.SelectedIndex = 0;
-            purchaseEisNum.Clear();
-            statusID.SelectedIndex = 0;
-            protocolStatusID.SelectedIndex = 0;
-            organizationID_Equal.Clear();
-            organisationInn.Clear();
-
-            creator.ClearFilters();
+            ClearFilters();
 
         }
-
+        
         private void contextMenuStrip1_Closing(object sender, ToolStripDropDownClosingEventArgs e)
         {
             if (e.CloseReason == ToolStripDropDownCloseReason.ItemClicked)
