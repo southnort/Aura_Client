@@ -48,10 +48,10 @@
             this.lowerLabel.AutoSize = true;
             this.lowerLabel.Location = new System.Drawing.Point(7, 151);
             this.lowerLabel.Name = "lowerLabel";
-            this.lowerLabel.Size = new System.Drawing.Size(58, 13);
+            this.lowerLabel.Size = new System.Drawing.Size(63, 13);
             this.lowerLabel.TabIndex = 5;
             this.lowerLabel.TabStop = true;
-            this.lowerLabel.Text = "... и еще 1";
+            this.lowerLabel.Text = "Подробнее";
             this.lowerLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lowerLabel_LinkClicked);
             // 
             // panel1

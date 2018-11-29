@@ -384,6 +384,11 @@ namespace Aura_Client.View
                    new List<string> { "2", "3" });
             }
 
+            else
+            {
+                creator.RemoveFilter("statusID NOT IN ");
+            }
+
 
         }
 
@@ -659,5 +664,10 @@ namespace Aura_Client.View
             }
         }
 
+        private void showNotActualCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            AddStandartFilters();
+            Console.WriteLine(creator.ToFilterCommand());
+        }
     }
 }

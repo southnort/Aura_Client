@@ -119,6 +119,7 @@
             this.showNotActualCheckBox.TabIndex = 97;
             this.showNotActualCheckBox.Text = "Показывать неактуальные закупки";
             this.showNotActualCheckBox.UseVisualStyleBackColor = true;
+            this.showNotActualCheckBox.CheckedChanged += new System.EventHandler(this.showNotActualCheckBox_CheckedChanged);
             // 
             // label7
             // 

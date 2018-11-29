@@ -313,7 +313,15 @@ namespace Aura_Client.View
 
         protected override void comboBox_ValueChanged(object sender, EventArgs e)
         {
-            base.comboBox_ValueChanged(sender, e);
+            var box = sender as ComboBox;
+            if (box.Name == "bidsCount")
+                bidsCount_SelectedIndexChanged(sender, e);
+            else if (box.Name == "protocolStatusID")
+                protocolStatusID_SelectedIndexChanged(sender, e);
+
+
+            else
+                base.comboBox_ValueChanged(sender, e);
         }
 
         protected override void numericUpDown_ValueChanges(object sender, EventArgs e)

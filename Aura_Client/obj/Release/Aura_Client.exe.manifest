@@ -4,7 +4,7 @@
   <description asmv2:iconFile="Icon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="Aura_Client" version="1.0.5.1" language="neutral" processorArchitecture="x86" />
+    <assemblyIdentity name="Aura_Client" version="1.0.6.1" language="neutral" processorArchitecture="x86" />
     <commandLine file="Aura_Client.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -43,26 +43,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Aura_Client.exe" size="3944840">
-      <assemblyIdentity name="Aura_Client" version="1.0.5.1" language="neutral" processorArchitecture="x86" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Aura_Client.exe" size="3950984">
+      <assemblyIdentity name="Aura_Client" version="1.0.6.1" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>aVmof2bjpYiNtJ8Mh+eWRYWhe2I=</dsig:DigestValue>
+        <dsig:DigestValue>mXMRY+jgtms+Clu08enLzPfiPqc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Aura_DLL.dll" size="22016">
-      <assemblyIdentity name="Aura_DLL" version="1.0.5.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Aura_DLL.dll" size="23040">
+      <assemblyIdentity name="Aura_DLL" version="1.0.6.1" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>gkixFyTEZJsDcxgWlRcQmgbdhhs=</dsig:DigestValue>
+        <dsig:DigestValue>+tQNgX4gNFrUoiB+Wt8fdK3b9TE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -74,7 +74,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>ATdBmtF35Sg25HYkZt98FizQNzI=</dsig:DigestValue>
+        <dsig:DigestValue>QbcYwdAvUIFxYr1zeCYPHbG0vKE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -80,6 +80,14 @@ namespace Aura_Client.Controller
             else filters.Add(header, sb.ToString());
         }
 
+        public void RemoveFilter(string columnName)
+        {           
+            if (filters.ContainsKey(columnName))
+                filters.Remove(columnName);
+
+           
+        }
+
         public void AddField(string fieldName)
         {
             if (!fields.Contains(fieldName))

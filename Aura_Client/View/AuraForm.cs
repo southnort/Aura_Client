@@ -68,7 +68,7 @@ namespace Aura_Client.View
             var box = (ComboBox)sender;
             ComboBoxItem item = box.SelectedItem as ComboBoxItem;
             try
-            {
+            {                
                 if (item != null)
                     creator.AddChange(box.Name, ((int)item.Value).ToString());
             }

@@ -19,12 +19,10 @@ namespace Aura_Client.View
                 InitializeAuraForm();
 
                 dateLabel.Text = day.date.ToShortDateString();
-                // RefreshTable(day);
-
+               
                 CreateTable();
                 InitContextMenuStrip();
-                ReloadTable(day);           
-
+                ReloadTable(day);   
 
         }
 
@@ -192,10 +190,20 @@ namespace Aura_Client.View
         {
             if (day.events.Count > 0)
             {
+                //для подсчёта и отображения количества событий на дату
+                Dictionary<string, int> countsOfProcedures
+                    = new Dictionary<string, int>();
+
                 var orgs = Program.dataManager.GetAllOrganisations();
 
                 foreach (var ev in day.events)
                 {
+                    if (countsOfProcedures.ContainsKey(ev.Value))
+                        countsOfProcedures[ev.Value]++;
+                    else
+                        countsOfProcedures.Add(ev.Value, 1);
+
+
                     int rowIndex = dayInCalendarDataGridView.Rows.Add();
                     var newRow = dayInCalendarDataGridView.Rows[rowIndex];
 
@@ -223,44 +231,15 @@ namespace Aura_Client.View
 
                     var protocolStatusCell = newRow.Cells["ProtocolStatus"] as DataGridViewButtonCell;
                     protocolStatusCell.Value = Catalog.protocolStatuses[ev.Key.ProtocolStatus];
-
-                    
+                                       
                 }
 
+                RefreshCountText(countsOfProcedures);
+
 
             }
 
 
-        }
-
-
-        private void RefreshTable(DayInCalendar day)
-        {
-            mainPanel.Controls.Clear();
-            proceduresCountTextBox.Clear();
-
-            //для подсчёта и отображения количества событий на дату
-            Dictionary<string, int> countsOfProcedures  
-                = new Dictionary<string, int>();
-
-            foreach (var ev in day.events)
-            {
-                Button button = CreateButton(ev);
-                if (countsOfProcedures.ContainsKey(ev.Value))
-                    countsOfProcedures[ev.Value]++;
-                else
-                    countsOfProcedures.Add(ev.Value, 1);
-
-                int x = 15;
-                int y = (mainPanel.Controls.Count) * (button.Height + 5) + 5;
-                button.Location = new Point(x, y);
-
-                button.BackColor = GetProtocolStatusColor(ev.Key.ProtocolStatus);
-
-                mainPanel.Controls.Add(button);
-            }
-
-            RefreshCountText(countsOfProcedures);
         }
 
         private void RefreshCountText(Dictionary<string, int> countsOfProcedures)
@@ -273,45 +252,9 @@ namespace Aura_Client.View
                 sb.Append(" - ");
                 sb.Append(pair.Value);
                 sb.Append("\n");
-            }           
+            }
 
             proceduresCountTextBox.Text = sb.ToString();
-        }
-
-        private Button CreateButton(KeyValuePair<Purchase, string> eventOb)
-        {
-            int end = eventOb.Key.purchaseName.Length > 45 ? 45 
-                : eventOb.Key.purchaseName.Length;
-            string buttonText = eventOb.Key.purchaseName.Substring(0, end);
-
-
-            Button button = new Button()
-            {
-                TextAlign = ContentAlignment.MiddleLeft,
-                Size = new Size(284, 40),
-                Text = buttonText + "\n" + eventOb.Value,
-                Name = eventOb.Key.id.ToString(),
-
-            };
-
-            button.Click += Button_Click;
-
-            return button;
-        }
-
-
-        private void Button_Click(object sender, EventArgs e)
-        {
-            var id = ((Button)sender).Name;
-            Purchase pur = Program.dataManager.GetPurchase(id);
-            OpenPurchase(pur);
-
-        }
-
-        private void OpenPurchase(Purchase pur)
-        {
-            PurchaseForm form = new PurchaseForm(pur);
-            form.ShowDialog();
         }
 
         private void DayInCalendarFullForm_KeyUp(object sender, KeyEventArgs e)

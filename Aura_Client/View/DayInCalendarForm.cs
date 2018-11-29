@@ -25,12 +25,14 @@ namespace Aura_Client.View
                 Button btn;
                 if (panel1.Controls.Count == 0)
                 {
+                    lowerLabel.Show();
                     btn = CreateButton(pair);
                     panel1.Controls.Add(btn);
                     btn.Location = new Point(0, 0);
                 }
                 else if (panel1.Controls.Count == 1)
                 {
+                    lowerLabel.Show();
                     btn = CreateButton(pair);
                     panel1.Controls.Add(btn);
                     btn.Location = new Point(0, 50);
