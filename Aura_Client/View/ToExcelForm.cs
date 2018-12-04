@@ -10,7 +10,7 @@ namespace Aura_Client.View
     {
         //основное окно формы, и общие элементы
         private string filePath = Environment.GetFolderPath
-            (Environment.SpecialFolder.Desktop) + @"\Aura export.ods";
+            (Environment.SpecialFolder.Desktop) + @"\Aura export.xlsx";
         
 
         public ToExcelForm()
@@ -92,7 +92,7 @@ namespace Aura_Client.View
 
         private void InitializeSaveFileDialog()
         {
-            saveFileDialog1.Filter = "Open Office Document (*.ods)|*.ods|All files (*.*)|*.*";
+            saveFileDialog1.Filter = "Таблица (*.xlsx)|*.xlsx|All files (*.*)|*.*";
         }
 
 
