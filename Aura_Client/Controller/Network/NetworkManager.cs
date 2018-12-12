@@ -37,6 +37,7 @@ namespace Aura_Client.Network
             /// 2. rqst - сообщение требующее ответа с сервера
             /// 3. sobj - клиент посылает серверу объект
             /// 4. gobj - клиент запрашивает с сервера объект
+            /// 5. gfl - клиент запрашивает с сервера файл
             /// </summary>
             /// <param name="original"></param>
             /// <param name="prefix"></param>
