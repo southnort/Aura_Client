@@ -93,31 +93,7 @@ namespace Aura_Client.Network
             
           //  Environment.Exit(0); //завершение процесса
         }
-
-        private void ReceivingBroadcasts()
-        {
-            // метод постоянного прослушивания порта и получения сообщений без запросов
-            while (true)
-            {
-                try
-                {
-                    string message = ReceiveBroadcast();
-                    object ob = ReceiveBroadcastedObject();
-                    HandleMessage(message, ob);
-
-                }
-
-                catch
-                {                    
-                //    Console.WriteLine("Error " + ex.ToString());
-                //    Console.WriteLine("Connection closed!"); //соединение было прервано             
-                    Disconnect();
-                    break;  
-
-                }
-            }
-        }
-
+       
         protected internal void SendMessage(string message)
         {
             //отправить сообщение, не требующее ответа
@@ -187,6 +163,7 @@ namespace Aura_Client.Network
 
 
 
+
         private string ReceiveString(NetworkStream st)
         {
             //метод получения одного сообщения
@@ -209,6 +186,8 @@ namespace Aura_Client.Network
                     if (totalReadMessageBytes >= messageLenght)
                         break;
                 }
+
+                Disconnect();
 
                 string message = sb.ToString();
                 return message;
@@ -248,13 +227,13 @@ namespace Aura_Client.Network
                 {
                     BinaryFormatter bf = new BinaryFormatter();
                     ms.Seek(0, SeekOrigin.Begin);
+                    Disconnect();
                     object ob = bf.Deserialize(ms);
                     return ob;
                 }
                 else
                 {
                     Disconnect();
-                    TryConnect();
                     return null;
                 }
             }
@@ -314,24 +293,10 @@ namespace Aura_Client.Network
 
             }
 
-
+            Disconnect();
         }
 
-        private string ReceiveBroadcast()
-        {
-            //метод получения одного оповещения
-            return ReceiveString(listeningStream);
-
-        }
-
-
-        private object ReceiveBroadcastedObject()
-        {
-            return
-            ReceiveObject(listeningStream);
-
-        }
-
+       
         private void Send(byte[] data)
         {
             TryConnect();
@@ -344,8 +309,8 @@ namespace Aura_Client.Network
                 Console.WriteLine("Size = " + size);
                 stream.Write(preparedSize, 0, preparedSize.Length);
                 stream.Write(data, 0, data.Length);
-            }            
-
+            }   
+            
         }
 
 
