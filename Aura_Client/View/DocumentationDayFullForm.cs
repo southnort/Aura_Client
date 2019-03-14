@@ -10,7 +10,7 @@ namespace Aura_Client.View
 {
     public partial class DocumentationDayFullForm : AuraForm
     {
-        private ComboBox currentComboBox = null;
+        private DateTime _dateTime;
 
         //Максимально подробная форма дня из календаря
         public DocumentationDayFullForm(DateTime dateTime) : base()
@@ -20,8 +20,10 @@ namespace Aura_Client.View
 
             dateLabel.Text = dateTime.ToShortDateString();
 
+            _dateTime = dateTime;
+
             CreateTable();
-            ReloadTable(dateTime);
+            ReloadTable(_dateTime);
 
         }
 
@@ -79,71 +81,10 @@ namespace Aura_Client.View
                 DialogResult = DialogResult.Cancel;
             }
         }
-
-        private void contextMenuStrip1_Closing(object sender, 
-            ToolStripDropDownClosingEventArgs e)
-        {
-            if (e.CloseReason == ToolStripDropDownCloseReason.ItemClicked)
-                e.Cancel = true;
-        }
-
-        private void dayInCalendarDataGridView_EditingControlShowing(object sender, 
-            DataGridViewEditingControlShowingEventArgs e)
-        {
-            currentComboBox = e.Control as ComboBox;
-        }
-
-        private void dayInCalendarDataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
-            if (currentComboBox != null)
-                dayInCalendarDataGridView[e.ColumnIndex, e.RowIndex].Tag
-                    = currentComboBox.SelectedIndex;
-
-            
-        }
-
-        private void columnsOptionsButton_Click(object sender, EventArgs e)
-        {            
-            contextMenuStrip1.Show(Cursor.Position);
-        }
-
-
-        private void dayInCalendarDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            var senderGrid = (DataGridView)sender;
-
-            if (e.RowIndex >= 0)
-            {
-                if (senderGrid.CurrentCell.OwningColumn.Name == "ProtocolStatus")
-                    ClickOnPrototolStatusButton();
-
-                if (senderGrid.CurrentCell.OwningColumn.Name == "BidsCountIndex")
-                    ClickOnBidsCountButton();
-
-            }
-        }
-
-        private void ClickOnPrototolStatusButton()
-        {            
-            contextMenuStrip2.Show(Cursor.Position);
-        }
-
-        private void ClickOnBidsCountButton()
-        {
-            contextMenuStrip3.Show(Cursor.Position);
-        }
-
-
-        private void SwitchProtocolStatusOfPurchase(string purchaseID, string newStatusID)
-        {
-            Program.bridge.SwitchProtocolStatusOfPurchase(purchaseID, newStatusID);
-
-        }
-
-        private void ChangeBidsCount(string purchaseID, string newBidsCountID)
-        {
-            Program.bridge.ChangeBidsCountInPurchase(purchaseID, newBidsCountID);
-        }
+                
+                    
+        
+       
 
         private void dayInCalendarDataGridView_CellDoubleClick
             (object sender, DataGridViewCellEventArgs e)
@@ -151,18 +92,34 @@ namespace Aura_Client.View
             if (e.RowIndex >= 0)
             {
                 var dg = (DataGridView)sender;
-                var purchaseID = dg.Rows[e.RowIndex].Cells["id"].Value.ToString();
-                Purchase purchase = Program.dataManager.GetPurchase(purchaseID);
-                ShowPurchase(purchase);
+                var documentationId = dg.Rows[e.RowIndex].Cells["id"].Value.ToString();
+
+                DocumentationNode node = Program.dataManager.GetDocumentationNode(documentationId);
+                ShowDocumentationNode(node);               
 
             }
         }
 
-        private void ShowPurchase(Purchase purchase)
+        private void ShowDocumentationNode(DocumentationNode node)
         {
-            PurchaseForm form = new PurchaseForm(purchase);
-            var result = form.ShowDialog();            
+            DocumentationNodeForm form = new DocumentationNodeForm(node);
+            var result = form.ShowDialog();
 
+            ReloadTable(_dateTime);
+        }
+
+        private void addNewNodeButton_Click(object sender, EventArgs e)
+        {
+            DocumentationNode newNode = new DocumentationNode
+            {
+                nodeDate = _dateTime,
+            };
+
+            DocumentationNodeForm form = new DocumentationNodeForm(newNode);
+            var result = form.ShowDialog();
+
+            if (result == DialogResult.OK)
+                FillTable(_dateTime);
         }
     }
 }

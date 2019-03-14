@@ -61,14 +61,12 @@
             this.dayInCalendarDataGridView.Name = "dayInCalendarDataGridView";
             this.dayInCalendarDataGridView.Size = new System.Drawing.Size(416, 457);
             this.dayInCalendarDataGridView.TabIndex = 3;
-            this.dayInCalendarDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dayInCalendarDataGridView_CellClick);
             this.dayInCalendarDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dayInCalendarDataGridView_CellDoubleClick);
             // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            this.contextMenuStrip1.Closing += new System.Windows.Forms.ToolStripDropDownClosingEventHandler(this.contextMenuStrip1_Closing);
             // 
             // contextMenuStrip2
             // 
@@ -88,6 +86,7 @@
             this.addNewNodeButton.TabIndex = 4;
             this.addNewNodeButton.Text = "Добавить";
             this.addNewNodeButton.UseVisualStyleBackColor = true;
+            this.addNewNodeButton.Click += new System.EventHandler(this.addNewNodeButton_Click);
             // 
             // DocumentationDayFullForm
             // 

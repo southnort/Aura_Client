@@ -70,7 +70,7 @@
             this.yearComboBox.Name = "yearComboBox";
             this.yearComboBox.Size = new System.Drawing.Size(94, 39);
             this.yearComboBox.TabIndex = 3;
-            this.yearComboBox.SelectedIndexChanged += new System.EventHandler(this.yearComboBox_SelectedIndexChanged);
+            this.yearComboBox.ValueMemberChanged += new System.EventHandler(this.yearComboBox_SelectedIndexChanged);
             // 
             // nextMonthButton
             // 
@@ -116,7 +116,7 @@
             this.monthComboBox.Name = "monthComboBox";
             this.monthComboBox.Size = new System.Drawing.Size(256, 39);
             this.monthComboBox.TabIndex = 0;
-            this.monthComboBox.SelectedIndexChanged += new System.EventHandler(this.monthComboBox_SelectedIndexChanged);
+            this.monthComboBox.VisibleChanged += new System.EventHandler(this.monthComboBox_SelectedIndexChanged);
             // 
             // mainPanel
             // 

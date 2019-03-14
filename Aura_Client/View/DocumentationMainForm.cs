@@ -24,9 +24,9 @@ namespace Aura_Client.View
 
             month = DateTime.Today.Month - 1;
             year = DateTime.Today.Year - 2016;
-            ShowDate();  
-            
+            ShowDate();
 
+            nextMonthButton.Focus();
 
             RefreshTable();
 
@@ -110,6 +110,7 @@ namespace Aura_Client.View
 
                 DocumentationDay form = new DocumentationDay(day.date,
                     day.documentationNodes);
+                form.ReloadTableDelegate = RefreshTable;
                 
                 mainPanel.Controls.Add(form);
 

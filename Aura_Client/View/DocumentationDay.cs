@@ -13,7 +13,7 @@ namespace Aura_Client.View
 {
     public partial class DocumentationDay : UserControl, IShowable
     {
-       // public Action ReloadTableDelegate;
+        public Action ReloadTableDelegate;
         private List<DocumentationNode> nodes;
         private DateTime date;
 
@@ -73,10 +73,10 @@ namespace Aura_Client.View
 
             DocumentationNodeForm form = new DocumentationNodeForm(newNode);
             var result = form.ShowDialog();
-            //if (result == DialogResult.OK)
-            //{
-            //    ReloadTableDelegate();
-            //}
+            if (result == DialogResult.OK)
+            {
+                ReloadTableDelegate();
+            }
 
 
         }

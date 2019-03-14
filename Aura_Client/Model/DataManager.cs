@@ -190,6 +190,16 @@ namespace Aura_Client.Model
             return result;
         }
 
+        public DocumentationNode GetDocumentationNode(string id)
+        {
+            var table = GetDataTable($"SELECT * FROM Documentation WHERE id= '{id}'");
+            var result = new DocumentationNode(table.Rows[0]);
+
+            return result;
+
+            
+        }
+
 
 
 
