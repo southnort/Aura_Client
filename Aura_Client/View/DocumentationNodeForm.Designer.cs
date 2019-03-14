@@ -29,45 +29,37 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.nodeDate = new System.Windows.Forms.DateTimePicker();
-            this.text = new System.Windows.Forms.RichTextBox();
-            this.okButton = new System.Windows.Forms.Button();
-            this.cancelButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cancelButton = new System.Windows.Forms.Button();
+            this.okButton = new System.Windows.Forms.Button();
+            this.text = new System.Windows.Forms.RichTextBox();
+            this.nodeDate = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
-            // nodeDate
+            // timer1
             // 
-            this.nodeDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.nodeDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.nodeDate.Location = new System.Drawing.Point(12, 25);
-            this.nodeDate.Name = "nodeDate";
-            this.nodeDate.Size = new System.Drawing.Size(200, 23);
-            this.nodeDate.TabIndex = 1;
+            this.timer1.Interval = 2000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // text
+            // label2
             // 
-            this.text.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.text.Location = new System.Drawing.Point(12, 79);
-            this.text.Name = "text";
-            this.text.Size = new System.Drawing.Size(341, 191);
-            this.text.TabIndex = 2;
-            this.text.Text = "";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 66);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(37, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Текст";
             // 
-            // okButton
+            // label1
             // 
-            this.okButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.okButton.Location = new System.Drawing.Point(36, 276);
-            this.okButton.Name = "okButton";
-            this.okButton.Size = new System.Drawing.Size(124, 38);
-            this.okButton.TabIndex = 3;
-            this.okButton.Text = "OK";
-            this.okButton.UseVisualStyleBackColor = true;
-            this.okButton.Click += new System.EventHandler(this.okButton_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(33, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Дата";
             // 
             // cancelButton
             // 
@@ -80,28 +72,38 @@
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
-            // label1
+            // okButton
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(33, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Дата";
+            this.okButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.okButton.Location = new System.Drawing.Point(36, 276);
+            this.okButton.Name = "okButton";
+            this.okButton.Size = new System.Drawing.Size(124, 38);
+            this.okButton.TabIndex = 3;
+            this.okButton.Text = "OK";
+            this.okButton.UseVisualStyleBackColor = true;
+            this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
-            // label2
+            // text
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 63);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Текст";
+            this.text.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.text.Location = new System.Drawing.Point(12, 83);
+            this.text.Name = "text";
+            this.text.Size = new System.Drawing.Size(341, 187);
+            this.text.TabIndex = 2;
+            this.text.Text = "";
+            this.text.Leave += new System.EventHandler(this.textBox_ValueChanged);
             // 
-            // timer1
+            // nodeDate
             // 
-            this.timer1.Interval = 200;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.nodeDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.nodeDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.nodeDate.Location = new System.Drawing.Point(12, 28);
+            this.nodeDate.Name = "nodeDate";
+            this.nodeDate.Size = new System.Drawing.Size(200, 23);
+            this.nodeDate.TabIndex = 1;
+            this.nodeDate.Leave += new System.EventHandler(this.dateTime_ValueChanged);
             // 
             // DocumentationNodeForm
             // 

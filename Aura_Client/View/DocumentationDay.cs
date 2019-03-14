@@ -11,8 +11,9 @@ using Aura.Model;
 
 namespace Aura_Client.View
 {
-    public partial class DocumentationDay : UserControl,IShowable
+    public partial class DocumentationDay : UserControl, IShowable
     {
+       // public Action ReloadTableDelegate;
         private List<DocumentationNode> nodes;
         private DateTime date;
 
@@ -24,16 +25,28 @@ namespace Aura_Client.View
             nodes = documentationNodes;
 
             Fill();
-           
+
         }
 
         private void Fill()
         {
             dateLabel.Text = date.Day.ToString();
             openButton.Text = "Записей - " + nodes.Count;
+
+            if (date.DayOfWeek == DayOfWeek.Sunday ||
+                date.DayOfWeek == DayOfWeek.Saturday)
+            {
+                BackColor = Color.MistyRose;
+            }
+
+            if (date == DateTime.Today)
+            {
+                BackColor = Color.LightYellow;
+            }
+
         }
 
-                       
+
 
         public void OpenAuraForm()
         {
@@ -47,7 +60,8 @@ namespace Aura_Client.View
 
         private void openButton_Click(object sender, EventArgs e)
         {
-
+            var form = new DocumentationDayFullForm(date);
+            form.ShowDialog();
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -59,13 +73,13 @@ namespace Aura_Client.View
 
             DocumentationNodeForm form = new DocumentationNodeForm(newNode);
             var result = form.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                nodes.Add(newNode);
-                Fill();
-            }
+            //if (result == DialogResult.OK)
+            //{
+            //    ReloadTableDelegate();
+            //}
 
 
         }
+
     }
 }

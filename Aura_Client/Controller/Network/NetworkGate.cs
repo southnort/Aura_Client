@@ -44,6 +44,8 @@ namespace Aura_Client.Network
 
         private void TryConnect()
         {
+            Disconnect();
+
             if (stream == null)
             {
                 try
@@ -131,7 +133,7 @@ namespace Aura_Client.Network
         {
             //отправить запрос, предполагающий возвращение сериализованного объекта
             try
-            {
+            {               
                 SendMessage(request);
                 return (T)ReceiveObject(stream);
             }
@@ -146,7 +148,7 @@ namespace Aura_Client.Network
         protected internal string GetFile(string request, string savingFilePath)
         {
             try
-            {
+            {                
                 SendMessage(request);
                 string response = ReceiveString(stream);
                 ReceiveFile(stream, savingFilePath);

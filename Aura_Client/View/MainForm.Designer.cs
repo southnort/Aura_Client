@@ -37,13 +37,13 @@
             this.userNameLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.documentationButton = new System.Windows.Forms.Button();
             this.toExcelButton = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.calendarButton = new System.Windows.Forms.Button();
             this.purchasesListButton = new System.Windows.Forms.Button();
-            this.documentationButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -142,6 +142,16 @@
             this.panel3.Size = new System.Drawing.Size(795, 226);
             this.panel3.TabIndex = 3;
             // 
+            // documentationButton
+            // 
+            this.documentationButton.Location = new System.Drawing.Point(400, 144);
+            this.documentationButton.Name = "documentationButton";
+            this.documentationButton.Size = new System.Drawing.Size(140, 57);
+            this.documentationButton.TabIndex = 5;
+            this.documentationButton.Text = " Документация";
+            this.documentationButton.UseVisualStyleBackColor = true;
+            this.documentationButton.Click += new System.EventHandler(this.documentationButton_Click);
+            // 
             // toExcelButton
             // 
             this.toExcelButton.BackgroundImage = global::Aura_Client.Properties.Resources.excelIcon;
@@ -202,15 +212,6 @@
             this.purchasesListButton.Text = "Список закупок";
             this.purchasesListButton.UseVisualStyleBackColor = true;
             this.purchasesListButton.Click += new System.EventHandler(this.purchasesListButton_Click);
-            // 
-            // documentationButton
-            // 
-            this.documentationButton.Location = new System.Drawing.Point(400, 144);
-            this.documentationButton.Name = "documentationButton";
-            this.documentationButton.Size = new System.Drawing.Size(140, 57);
-            this.documentationButton.TabIndex = 5;
-            this.documentationButton.Text = " Документация";
-            this.documentationButton.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 

@@ -1,6 +1,7 @@
 ﻿using Aura.Model;
 using System.Collections.Generic;
 using System.Data;
+using System;
 
 
 namespace Aura_Client.Model
@@ -165,7 +166,7 @@ namespace Aura_Client.Model
 
         public List<DocumentationNode> GetDocumentation()
         {
-            var table = Program.dataManager.GetDataTable("SELECT * FROM Documentation");
+            var table = GetDataTable("SELECT * FROM Documentation");
             var result = new List<DocumentationNode>();
             foreach (DataRow item in table.Rows)
             {
@@ -174,6 +175,21 @@ namespace Aura_Client.Model
 
             return result;
         }
+
+        public List<DocumentationNode> GetDocumentation(DateTime dateTime)
+        {
+            string data = dateTime.ToString("yyyy-MM-dd-00-00");
+            var table = GetDataTable("SELECT * FROM Documentation WHERE nodeDate ='" +
+                data + "'");
+            var result = new List<DocumentationNode>();
+            foreach (DataRow item in table.Rows)
+            {
+                result.Add(new DocumentationNode(item));
+            }
+
+            return result;
+        }
+
 
 
 

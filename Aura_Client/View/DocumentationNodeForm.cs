@@ -24,6 +24,8 @@ namespace Aura_Client.View
 
             Fill();
 
+            text.Focus();
+
         }
 
         private void Fill()
@@ -50,6 +52,7 @@ namespace Aura_Client.View
         {
             SendToserver();
             timer1.Start();
+            
         }
 
         private void SendToserver()
@@ -64,7 +67,6 @@ namespace Aura_Client.View
                 {
                     Program.bridge.SendMessage("EXECUTECOMMAND#" + creator.ToUpdate());
                 }
-
             }
         }
 

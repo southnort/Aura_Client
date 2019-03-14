@@ -89,51 +89,35 @@ namespace Aura_Client.View
         //заполнение календаря
         private void RefreshTable()
         {
-            Clear();            
-            var documentations = new List<DocumentationNode>();
-            foreach (var node in nodes)
-            {
-                if (node.nodeDate.Month == month + 1)
-                    documentations.Add(node);
-            }
-            
-            Fill(documentations);
+            Clear();
+            var calendar = new Calendar(Program.dataManager.GetDocumentation());
+            Fill(calendar.GetDays(month + 1, year + 2016));
         }
 
         private void Clear()
         {
             mainPanel.Controls.Clear();
         }
-        
 
-        private void Fill(List<DocumentationNode> listOfNodes)
+
+        private void Fill(List<DayInCalendar> days)
         {
             //заполнить таблицу днями недели из List'а
             //в листе должны быть даты только из текущего месяца
-
-            здесь переписать все с использованием календаря
-           
-
-            for (int i = 0; i < listOfNodes.Count; i++)
+            for (int i = 0; i < days.Count; i++)
             {
-                var item = listOfNodes[i];
+                DayInCalendar day = days[i];
 
+                DocumentationDay form = new DocumentationDay(day.date,
+                    day.documentationNodes);
+                
+                mainPanel.Controls.Add(form);
 
-               
-
-               //// DayInCalendar day = days[i];
-
-               // DayInCalendarForm form = new DayInCalendarForm(day);
-               // mainPanel.Controls.Add(form);
-
-               // form.Location = GetLocationForButton(day.date, form);
-
-
+                form.Location = GetLocationForButton(day.date, form);
             }
 
         }
-
-        private Point GetLocationForButton(DateTime day, DayInCalendarForm form)
+        private Point GetLocationForButton(DateTime day, UserControl form)
         {
             //американская неделя начинается с воскресенья. Поэтому сдвигаем в конец.
             int x = day.DayOfWeek == DayOfWeek.Sunday ? 7 : (int)day.DayOfWeek;

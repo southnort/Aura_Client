@@ -129,5 +129,11 @@ namespace Aura_Client.View
             form.ShowDialog();
 
         }
+
+        private void documentationButton_Click(object sender, EventArgs e)
+        {
+            DocumentationMainForm form = new DocumentationMainForm();
+            form.ShowDialog();
+        }
     }
 }
