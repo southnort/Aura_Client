@@ -70,7 +70,7 @@ namespace Aura_Client.Model
         public Purchase GetPurchase(string id)
         {
             return Program.bridge.GetObject<Purchase>("GETPURCHASE#" + id);
-        }        
+        }
 
         public List<Purchase> GetReestr(string filterQuery)
         {
@@ -123,7 +123,7 @@ namespace Aura_Client.Model
 
         public Contract GetContract(string id)
         {
-            string query = "SELECT * FROM Contracts WHERE id = '" + id+"'";
+            string query = "SELECT * FROM Contracts WHERE id = '" + id + "'";
 
             var table = GetDataTable(query);
             var row = table.Rows[0];
@@ -131,7 +131,7 @@ namespace Aura_Client.Model
             return new Contract(row);
 
         }
-           
+
         public DataTable GetDataTable(string query)
         {
             //запрос от сервера любой информации
@@ -153,16 +153,29 @@ namespace Aura_Client.Model
         }
 
 
-
         public void DeleteContract(string id)
         {
             Program.bridge.SendMessage("EXECUTECOMMAND#DELETE FROM Contracts WHERE id ='" + id + "'");
         }
 
         public string GetExcelFile(string filePath, string sqlCommand)
-        {            
-           return Program.bridge.GetFile("GETXLFILE#" + sqlCommand, filePath);
+        {
+            return Program.bridge.GetFile("GETXLFILE#" + sqlCommand, filePath);
         }
+
+        public List<DocumentationNode> GetDocumentation()
+        {
+            var table = Program.dataManager.GetDataTable("SELECT * FROM Documentation");
+            var result = new List<DocumentationNode>();
+            foreach (DataRow item in table.Rows)
+            {
+                result.Add(new DocumentationNode(item));
+            }
+
+            return result;
+        }
+
+
 
     }
 }

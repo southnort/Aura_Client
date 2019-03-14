@@ -37,12 +37,13 @@
             this.userNameLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.toExcelButton = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.calendarButton = new System.Windows.Forms.Button();
             this.purchasesListButton = new System.Windows.Forms.Button();
-            this.toExcelButton = new System.Windows.Forms.Button();
+            this.documentationButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -129,6 +130,7 @@
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.Controls.Add(this.documentationButton);
             this.panel3.Controls.Add(this.toExcelButton);
             this.panel3.Controls.Add(this.button3);
             this.panel3.Controls.Add(this.button2);
@@ -140,9 +142,20 @@
             this.panel3.Size = new System.Drawing.Size(795, 226);
             this.panel3.TabIndex = 3;
             // 
+            // toExcelButton
+            // 
+            this.toExcelButton.BackgroundImage = global::Aura_Client.Properties.Resources.excelIcon;
+            this.toExcelButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.toExcelButton.Location = new System.Drawing.Point(692, 80);
+            this.toExcelButton.Name = "toExcelButton";
+            this.toExcelButton.Size = new System.Drawing.Size(55, 55);
+            this.toExcelButton.TabIndex = 4;
+            this.toExcelButton.UseVisualStyleBackColor = true;
+            this.toExcelButton.Click += new System.EventHandler(this.toExcelButton_Click);
+            // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(547, 104);
+            this.button3.Location = new System.Drawing.Point(546, 79);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(140, 57);
             this.button3.TabIndex = 4;
@@ -152,7 +165,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(547, 41);
+            this.button2.Location = new System.Drawing.Point(546, 16);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(140, 57);
             this.button2.TabIndex = 3;
@@ -172,7 +185,7 @@
             // 
             // calendarButton
             // 
-            this.calendarButton.Location = new System.Drawing.Point(401, 104);
+            this.calendarButton.Location = new System.Drawing.Point(400, 79);
             this.calendarButton.Name = "calendarButton";
             this.calendarButton.Size = new System.Drawing.Size(140, 57);
             this.calendarButton.TabIndex = 1;
@@ -182,7 +195,7 @@
             // 
             // purchasesListButton
             // 
-            this.purchasesListButton.Location = new System.Drawing.Point(401, 41);
+            this.purchasesListButton.Location = new System.Drawing.Point(400, 16);
             this.purchasesListButton.Name = "purchasesListButton";
             this.purchasesListButton.Size = new System.Drawing.Size(140, 57);
             this.purchasesListButton.TabIndex = 0;
@@ -190,16 +203,14 @@
             this.purchasesListButton.UseVisualStyleBackColor = true;
             this.purchasesListButton.Click += new System.EventHandler(this.purchasesListButton_Click);
             // 
-            // toExcelButton
+            // documentationButton
             // 
-            this.toExcelButton.BackgroundImage = global::Aura_Client.Properties.Resources.excelIcon;
-            this.toExcelButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.toExcelButton.Location = new System.Drawing.Point(693, 105);
-            this.toExcelButton.Name = "toExcelButton";
-            this.toExcelButton.Size = new System.Drawing.Size(55, 55);
-            this.toExcelButton.TabIndex = 4;
-            this.toExcelButton.UseVisualStyleBackColor = true;
-            this.toExcelButton.Click += new System.EventHandler(this.toExcelButton_Click);
+            this.documentationButton.Location = new System.Drawing.Point(400, 144);
+            this.documentationButton.Name = "documentationButton";
+            this.documentationButton.Size = new System.Drawing.Size(140, 57);
+            this.documentationButton.TabIndex = 5;
+            this.documentationButton.Text = " Документация";
+            this.documentationButton.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -238,5 +249,6 @@
         private System.Windows.Forms.Button changePasswordButton;
         private System.Windows.Forms.Button settingsButton;
         private System.Windows.Forms.Button toExcelButton;
+        private System.Windows.Forms.Button documentationButton;
     }
 }

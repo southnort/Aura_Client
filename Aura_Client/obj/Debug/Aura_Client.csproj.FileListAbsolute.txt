@@ -86,3 +86,7 @@ C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\Aura_DLL.dll.
 C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\Aura_DLL.dll
 C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\Aura_DLL.pdb
 C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\bin\Debug\Aura_DLL.dll.config
+C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.View.DocumentationDay.resources
+C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.View.DocumentationDayFullForm.resources
+C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.View.DocumentationNodeForm.resources
+C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Debug\Aura_Client.View.DocumentationMainForm.resources
