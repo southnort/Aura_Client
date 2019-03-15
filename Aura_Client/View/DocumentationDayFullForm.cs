@@ -105,7 +105,10 @@ namespace Aura_Client.View
             DocumentationNodeForm form = new DocumentationNodeForm(node);
             var result = form.ShowDialog();
 
-            ReloadTable(_dateTime);
+            if (result == DialogResult.OK)
+            {
+                ReloadTable(_dateTime);
+            }
         }
 
         private void addNewNodeButton_Click(object sender, EventArgs e)
@@ -119,7 +122,8 @@ namespace Aura_Client.View
             var result = form.ShowDialog();
 
             if (result == DialogResult.OK)
-                FillTable(_dateTime);
+                ReloadTable(_dateTime);
         }
+       
     }
 }

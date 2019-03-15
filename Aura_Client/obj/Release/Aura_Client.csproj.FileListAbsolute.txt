@@ -42,3 +42,7 @@ C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\bin\Release\Aura_DL
 C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\bin\Release\Aura_DLL.dll.config
 C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Release\Aura_Client.View.ToExcelForm.resources
 C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Release\Aura_Client.csprojAssemblyReference.cache
+C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Release\Aura_Client.View.DocumentationDay.resources
+C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Release\Aura_Client.View.DocumentationDayFullForm.resources
+C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Release\Aura_Client.View.DocumentationNodeForm.resources
+C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Release\Aura_Client.View.DocumentationMainForm.resources
