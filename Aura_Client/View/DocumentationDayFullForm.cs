@@ -32,6 +32,10 @@ namespace Aura_Client.View
         {
             dayInCalendarDataGridView.Columns.Add("id", "id");
             dayInCalendarDataGridView.Columns["id"].Width = 50;
+            dayInCalendarDataGridView.Columns["id"].Visible = false;
+
+            dayInCalendarDataGridView.Columns.Add("num", "№");
+            dayInCalendarDataGridView.Columns["num"].Width = 50;
 
             dayInCalendarDataGridView.Columns.Add("text","Содержание");
             dayInCalendarDataGridView.Columns["text"].Width = 400;
@@ -60,16 +64,22 @@ namespace Aura_Client.View
 
 
             if (documentations.Count > 0)
-            {                    
-                foreach (var item in documentations)
-                {        
+            {
+
+
+
+                for (int i = 0; i < documentations.Count; i++)
+                {
+                    var item = documentations[i];
+
                     int rowIndex = dayInCalendarDataGridView.Rows.Add();
                     var newRow = dayInCalendarDataGridView.Rows[rowIndex];
 
                     newRow.Cells["id"].Value = item.id;
-                    newRow.Cells["text"].Value = item.text;   
+                    newRow.Cells["num"].Value = i + 1;
+                    newRow.Cells["text"].Value = item.text;
                 }
-              
+
             }
         }
         
