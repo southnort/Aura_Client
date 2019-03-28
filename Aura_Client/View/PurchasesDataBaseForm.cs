@@ -511,7 +511,9 @@ namespace Aura_Client.View
             //открыть форму просмотра закупки
 
             PurchaseForm form = new PurchaseForm(purchase, copy);
+            Hide();
             var result = form.ShowDialog();
+            Show();
             if (result == DialogResult.OK)
             {
                 ReloadTable();

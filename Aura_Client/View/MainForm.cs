@@ -27,14 +27,18 @@ namespace Aura_Client.View
         {
             var purchasesDataBaseForm =
                 new PurchasesDataBaseForm();
+            Hide();
             purchasesDataBaseForm.ShowDialog();
+            Show();
 
         }
 
         private void OpenCalendar()
         {
             var purchasesCalendarForm = new PurchasesCalendarForm();
+            Hide();
             purchasesCalendarForm.ShowDialog();
+            Show();
         }
 
         private void usersButton_Click(object sender, EventArgs e)
@@ -46,20 +50,26 @@ namespace Aura_Client.View
         private void button1_Click(object sender, EventArgs e)
         {
             OrganisationsDataBaseForm form = new OrganisationsDataBaseForm();
+            Hide();
             form.ShowDialog();
+            Show();
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             ReestrDataBaseForm form = new ReestrDataBaseForm();
+            Hide();
             form.ShowDialog();
+            Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             ReportsDataBaseForm form = new ReportsDataBaseForm();
+            Hide();
             form.ShowDialog();
+            Show();
         }
 
         private void switchUserButton_Click(object sender, EventArgs e)
@@ -133,7 +143,9 @@ namespace Aura_Client.View
         private void documentationButton_Click(object sender, EventArgs e)
         {
             DocumentationMainForm form = new DocumentationMainForm();
+            Hide(); 
             form.ShowDialog();
+            Show();
         }
     }
 }

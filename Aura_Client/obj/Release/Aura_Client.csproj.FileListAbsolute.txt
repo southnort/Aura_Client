@@ -45,3 +45,4 @@ C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Release\Aura_Cl
 C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Release\Aura_Client.View.DocumentationDayFullForm.resources
 C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Release\Aura_Client.View.DocumentationNodeForm.resources
 C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Release\Aura_Client.View.DocumentationMainForm.resources
+C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Release\Aura_Client.csprojAssemblyReference.cache

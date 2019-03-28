@@ -327,7 +327,7 @@ namespace Aura_Client.View
         {
             if (ActiveControl is TextBoxBase)
             {
-                ((TextBoxBase)ActiveControl).Text = Clipboard.GetText();
+                ((TextBoxBase)ActiveControl).SelectedText = Clipboard.GetText();
             }
 
             else if (ActiveControl is NumericUpDown)

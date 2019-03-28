@@ -7,13 +7,13 @@
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
 AppId={{4F11F8E2-978C-46EB-B68F-34EF706331E7}
 AppName=Aura
-AppVersion=1.1.0.2
-;AppVerName=Aura 1.1.0.2
+AppVersion=1.1.0.4
+;AppVerName=Aura 1.1.0.4
 AppPublisher=ASTIKS
 DefaultDirName={pf}\Aura
 DefaultGroupName=Aura
 AllowNoIcons=yes
-OutputBaseFilename=Setup 1.1.0.2
+OutputBaseFilename=Setup 1.1.0.4
 SetupIconFile=C:\Users\ярик\Documents\Projects\Aura_Client\Aura_Client\Icon.ico
 Compression=lzma
 SolidCompression=yes
