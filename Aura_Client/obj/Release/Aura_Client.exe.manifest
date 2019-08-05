@@ -4,7 +4,7 @@
   <description asmv2:iconFile="Icon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="Aura_Client" version="1.1.0.4" language="neutral" processorArchitecture="x86" />
+    <assemblyIdentity name="Aura_Client" version="1.1.0.5" language="neutral" processorArchitecture="x86" />
     <commandLine file="Aura_Client.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -43,26 +43,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Aura_Client.exe" size="4320672">
-      <assemblyIdentity name="Aura_Client" version="1.1.0.4" language="neutral" processorArchitecture="x86" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Aura_Client.exe" size="4320648">
+      <assemblyIdentity name="Aura_Client" version="1.1.0.5" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>9WgxjehJeNMwvc0v8yVQ3R5WfjU=</dsig:DigestValue>
+        <dsig:DigestValue>gLiiOSUfAlZBHn9L7QpsMlIwknw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Aura_DLL.dll" size="24064">
-      <assemblyIdentity name="Aura_DLL" version="1.1.0.1" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Aura_DLL.dll" size="24576">
+      <assemblyIdentity name="Aura_DLL" version="1.1.0.5" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>ftxrYoYm+FiJUUXRii8fCyd/ULE=</dsig:DigestValue>
+        <dsig:DigestValue>bmknAfJRpF6Yk5urURfoAAe1dvE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -74,7 +74,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>ZJGG05ywBCDbsF6JuA6+XwSPJss=</dsig:DigestValue>
+        <dsig:DigestValue>duPLxODswhShz05LEq0Whk+5NdE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -87,18 +87,6 @@
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
         <dsig:DigestValue>k70rPjaCSJAcKjqFcdDvGXKy6iA=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Data.SQLite.dll" size="364544">
-      <assemblyIdentity name="System.Data.SQLite" version="1.0.106.0" publicKeyToken="DB937BC2D44FF139" language="neutral" processorArchitecture="msil" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>7BzhUsMsoYy+Fsmw14K7qFIwjpw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -266,11 +266,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="license.txt" />
     <None Include="addNewPurchaseIcon.png" />
     <None Include="delete.png" />
     <None Include="excelIcon.png" />
     <None Include="copyPurchaseIcon.png" />
-    <Content Include="license.txt" />
     <None Include="UncheckAll_Icon.png" />
     <None Include="Remove_Icon.png" />
     <None Include="Aura_Client_TemporaryKey.pfx" />
