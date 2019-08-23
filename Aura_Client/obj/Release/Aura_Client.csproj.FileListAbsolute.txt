@@ -42,7 +42,6 @@ C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Release\Aura_Cl
 C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Release\Aura_Client.View.DocumentationDayFullForm.resources
 C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Release\Aura_Client.View.DocumentationNodeForm.resources
 C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Release\Aura_Client.View.DocumentationMainForm.resources
-C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Release\Aura_Client.csprojAssemblyReference.cache
 C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\bin\Release\Aura_Client.exe.config
 C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\bin\Release\Aura_Client.exe.manifest
 C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\bin\Release\Aura_Client.application

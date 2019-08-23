@@ -91,31 +91,7 @@ namespace Aura_Client.View
         private void Clear()
         {
             mainPanel.Controls.Clear();
-        }
-
-        //private List<DayInCalendar> GetDays(Calendar calendar)
-        //{
-        //    //создаем лист дней для выбранного месяца
-        //    List<DayInCalendar> days = new List<DayInCalendar>();            
-
-        //    //добавляем в нужные пустые дни события из календаря
-        //    foreach (var pair in calendar)
-        //    {
-        //        if (pair.Key.Month == month + 1)
-        //            days.Add(pair.Value);
-        //    }
-
-        //    for (int i = 0; i < DateTime.DaysInMonth(year + 2016, month + 1); i++)
-        //    {
-        //        var date = new DayInCalendar(new DateTime(year + 2016, month + 1, i + 1));
-        //        if (!days.Contains(date))
-        //        {
-        //            days.Add(date);
-        //        }
-        //    }
-
-        //    return days;
-        //}
+        }        
 
         private void Fill(List<DayInCalendar> days)
         {
