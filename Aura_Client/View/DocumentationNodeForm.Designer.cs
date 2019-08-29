@@ -34,6 +34,7 @@
             this.okButton = new System.Windows.Forms.Button();
             this.text = new System.Windows.Forms.RichTextBox();
             this.nodeDate = new System.Windows.Forms.DateTimePicker();
+            this.deleteButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label2
@@ -98,11 +99,23 @@
             this.nodeDate.TabIndex = 1;
             this.nodeDate.Leave += new System.EventHandler(this.dateTime_ValueChanged);
             // 
+            // deleteButton
+            // 
+            this.deleteButton.BackgroundImage = global::Aura_Client.Properties.Resources.delete;
+            this.deleteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.deleteButton.Location = new System.Drawing.Point(321, 12);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(32, 32);
+            this.deleteButton.TabIndex = 7;
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            // 
             // DocumentationNodeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(365, 326);
+            this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cancelButton);
@@ -123,5 +136,6 @@
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button deleteButton;
     }
 }

@@ -32,6 +32,7 @@ namespace Aura_Client.View
         {
             nodeDate.Value = documentationNode.nodeDate;
             text.Text = documentationNode.text;
+            if (documentationNode.id < 1) deleteButton.Enabled = false;
         }
 
 
@@ -73,6 +74,21 @@ namespace Aura_Client.View
         private void cancelButton_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
-        }        
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Вы действительно хотите удалить этот пункт?",
+                "Требуется подтверждение", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (result == DialogResult.OK)
+                ConfirmDelete();
+        }
+
+        private void ConfirmDelete()
+        {
+            string command = "EXECUTECOMMAND#DELETE FROM Documentation WHERE id =" + documentationNode.id;
+            Program.bridge.SendMessage(command);
+            DialogResult = DialogResult.OK;
+        }
     }
 }

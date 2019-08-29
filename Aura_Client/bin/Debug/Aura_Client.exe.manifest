@@ -4,7 +4,7 @@
   <description asmv2:iconFile="Icon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="Aura_Client" version="1.1.0.5" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="Aura_Client" version="1.1.0.7" language="neutral" processorArchitecture="msil" />
     <commandLine file="Aura_Client.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Aura_Client.exe" size="4332936">
-      <assemblyIdentity name="Aura_Client" version="1.1.0.5" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Aura_Client.exe" size="4333448">
+      <assemblyIdentity name="Aura_Client" version="1.1.0.7" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>aCP76w68R8IllluxZfh6P4DMMJ4=</dsig:DigestValue>
+        <dsig:DigestValue>X6iPBoecwWhTL58VDdOHWXnQeVM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -62,7 +62,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>bmknAfJRpF6Yk5urURfoAAe1dvE=</dsig:DigestValue>
+        <dsig:DigestValue>1cHeilszRwPK3mUZKYuTQCmxvpo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -74,7 +74,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>bTQwqmlSXde0zRjdy4Wy4vc9sn0=</dsig:DigestValue>
+        <dsig:DigestValue>mQm16Nsq1X/XHHmD1JCp2a3yy9o=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
