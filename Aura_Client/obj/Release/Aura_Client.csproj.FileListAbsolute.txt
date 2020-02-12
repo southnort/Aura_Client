@@ -90,3 +90,4 @@ C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\obj\Release\Aura_Client
 C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\obj\Release\Aura_Client.csproj.CopyComplete
 C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\obj\Release\Aura_Client.exe
 C:\Users\User\Documents\Projects\Aura_Client\Aura_Client\obj\Release\Aura_Client.pdb
+C:\Users\Ярик\Documents\Projects\Aura_Client\Aura_Client\obj\Release\Aura_Client.csprojAssemblyReference.cache

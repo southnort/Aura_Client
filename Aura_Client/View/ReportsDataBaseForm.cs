@@ -80,6 +80,14 @@ namespace Aura_Client.View
             yearComboBox.Items.Add(new ComboBoxItem { Text = "2020", Value = "2020" });
             yearComboBox.Items.Add(new ComboBoxItem { Text = "2021", Value = "2021" });
             yearComboBox.Items.Add(new ComboBoxItem { Text = "2022", Value = "2022" });
+            yearComboBox.Items.Add(new ComboBoxItem { Text = "2023", Value = "2023" });
+            yearComboBox.Items.Add(new ComboBoxItem { Text = "2024", Value = "2024" });
+            yearComboBox.Items.Add(new ComboBoxItem { Text = "2025", Value = "2025" });
+            yearComboBox.Items.Add(new ComboBoxItem { Text = "2026", Value = "2026" });
+            yearComboBox.Items.Add(new ComboBoxItem { Text = "2027", Value = "2027" });
+            yearComboBox.Items.Add(new ComboBoxItem { Text = "2028", Value = "2028" });
+            yearComboBox.Items.Add(new ComboBoxItem { Text = "2029", Value = "2029" });
+            yearComboBox.Items.Add(new ComboBoxItem { Text = "2030", Value = "2030" });
 
         }
 

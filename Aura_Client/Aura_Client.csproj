@@ -64,7 +64,7 @@
     <StartupObject>Aura_Client.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>760218F37193DDF7AF6347640898BEF8FD6FA99F</ManifestCertificateThumbprint>

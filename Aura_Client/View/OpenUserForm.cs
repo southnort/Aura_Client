@@ -47,9 +47,9 @@ namespace Aura_Client.View
         {
             Text = "Редактирование - " + user.name;
             nameTextBox.Text = user.name;
-            nameTextBox.Enabled = false;
+           // nameTextBox.Enabled = false;
             loginTextBox.Text = user.login;
-            loginTextBox.Enabled = false;
+           // loginTextBox.Enabled = false;
             passwordTextBox.Text = user.password;
             accessLevelNumericUpDown.Value = user.roleID;
 
