@@ -227,8 +227,10 @@ namespace Aura_Client.View
 
         private void ReloadTable()
         {
+            StartLoading();
             ClearTable();
             FillTable(Program.dataManager.GetFilteredPurchases(creator.ToFilterCommand()));
+            FinishLoading();
         }
 
         private void FillTable(List<Purchase> purchases)
@@ -509,7 +511,6 @@ namespace Aura_Client.View
         private void ShowPurchase(Purchase purchase, bool copy = false)
         {
             //открыть форму просмотра закупки
-
             PurchaseForm form = new PurchaseForm(purchase, copy);
             Hide();
             var result = form.ShowDialog();
@@ -562,19 +563,23 @@ namespace Aura_Client.View
 
         private void addNewPurchaseButton_Click(object sender, EventArgs e)
         {
+            StartLoading();
             ShowPurchase(new Purchase());
+            FinishLoading();
         }
 
         private void copyPurchaseButton_Click(object sender, EventArgs e)
         {
             if (purchasesDataGridView.CurrentRow != null)
             {
+                StartLoading();
                 string id = purchasesDataGridView.CurrentRow.Cells["id"].Value.ToString();
                 Purchase pur = Program.dataManager.GetPurchase(id);
 
                 pur.id = 0;
 
                 ShowPurchase(pur, true);
+                FinishLoading();
             }
         }
 
@@ -582,10 +587,12 @@ namespace Aura_Client.View
         {
             if (e.RowIndex >= 0)
             {
+                StartLoading();
                 DataGridView dg = (DataGridView)sender;
                 var purchaseID = dg.Rows[e.RowIndex].Cells["id"].Value.ToString();
                 Purchase purchase = Program.dataManager.GetPurchase(purchaseID);
                 ShowPurchase(purchase);
+                FinishLoading();
             }
 
         }

@@ -15,22 +15,27 @@ namespace Aura_Client.View
 
         private void purchasesListButton_Click(object sender, EventArgs e)
         {
+            StartLoading();
             OpenPurchasesList();
+            FinishLoading();
         }
 
         private void calendarButton_Click(object sender, EventArgs e)
         {
+            StartLoading();
             OpenCalendar();
+            FinishLoading();
         }
 
         private void OpenPurchasesList()
         {
+            StartLoading();
             var purchasesDataBaseForm =
                 new PurchasesDataBaseForm();
             Hide();
             purchasesDataBaseForm.ShowDialog();
             Show();
-
+            FinishLoading();
         }
 
         private void OpenCalendar()
@@ -43,33 +48,40 @@ namespace Aura_Client.View
 
         private void usersButton_Click(object sender, EventArgs e)
         {
+            StartLoading();
             UsersDataBaseForm usersDataBaseForm = new UsersDataBaseForm();
             usersDataBaseForm.ShowDialog();
+            FinishLoading();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            StartLoading();
             OrganisationsDataBaseForm form = new OrganisationsDataBaseForm();
             Hide();
             form.ShowDialog();
             Show();
-
+            FinishLoading();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            StartLoading();
             ReestrDataBaseForm form = new ReestrDataBaseForm();
             Hide();
             form.ShowDialog();
             Show();
+            FinishLoading();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            StartLoading();
             ReportsDataBaseForm form = new ReportsDataBaseForm();
             Hide();
             form.ShowDialog();
             Show();
+            FinishLoading();
         }
 
         private void switchUserButton_Click(object sender, EventArgs e)
@@ -135,17 +147,20 @@ namespace Aura_Client.View
 
         private void toExcelButton_Click(object sender, EventArgs e)
         {
+            StartLoading();
             ToExcelForm form = new ToExcelForm();
             form.ShowDialog();
-
+            FinishLoading();
         }
 
         private void documentationButton_Click(object sender, EventArgs e)
         {
+            StartLoading();
             DocumentationMainForm form = new DocumentationMainForm();
             Hide(); 
             form.ShowDialog();
             Show();
+            FinishLoading();
         }
     }
 }

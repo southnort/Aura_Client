@@ -267,8 +267,10 @@ namespace Aura_Client.View
 
         private void ReloadTable()
         {
+            StartLoading();
             ClearTable();
             FillTable(Program.dataManager.GetReestr(creator.ToFilterCommand()));
+            FinishLoading();
         }
 
         private void ClearTable()
@@ -471,10 +473,12 @@ namespace Aura_Client.View
         {
             if (e.RowIndex >= 0)
             {
+                StartLoading();
                 DataGridView dg = (DataGridView)sender;
                 var purchaseID = dg.Rows[e.RowIndex].Cells["id"].Value.ToString();
                 Purchase purchase = Program.dataManager.GetPurchase(purchaseID);
                 ShowPurchase(purchase);
+                FinishLoading();
             }
 
         }
@@ -509,6 +513,7 @@ namespace Aura_Client.View
 
         private void addNewPurchaseButton_Click(object sender, EventArgs e)
         {
+            StartLoading();
             ShowPurchase(
                 new Purchase
                 {
@@ -518,19 +523,21 @@ namespace Aura_Client.View
 
                 }
                 );
-
+            FinishLoading();
         }
 
         private void copyReestrButton_Click(object sender, EventArgs e)
         {
             if (reestrDataGridView.CurrentRow != null)
             {
+                StartLoading();
                 string id = reestrDataGridView.CurrentRow.Cells["id"].Value.ToString();
                 Purchase pur = Program.dataManager.GetPurchase(id);
 
                 pur.id = 0;
 
                 ShowPurchase(pur, true);
+                FinishLoading();
             }
         }
 

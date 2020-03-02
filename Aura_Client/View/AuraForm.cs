@@ -10,23 +10,34 @@ namespace Aura_Client.View
 {
     //базовый класс для форм
     public partial class AuraForm : Form, IShowable
-    {
+    {       
         public AuraForm()
-        {
+        {            
             KeyPreview = true;
             KeyUp += EscapeKeyPressed;
             InitializeRightMenuButtonMenu();
-
         }
 
         protected void InitializeAuraForm()
         {
-            //вызов методов, общих для всех наследников AuraForm
+            //вызов методов, общих для всех наследников AuraForm           
             InitializeRightMenuButtonMenu();
         }
 
         protected CommandStringCreator creator;
         protected ContextMenuStrip rightMouseButtonMenu;
+
+        protected void StartLoading()
+        {
+            Cursor = Cursors.WaitCursor;
+        }
+
+        protected void FinishLoading()
+        {
+            Cursor = Cursors.Default;
+        }
+
+
 
         public void OpenAuraForm()
         {
@@ -346,8 +357,17 @@ namespace Aura_Client.View
 
         }
 
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // AuraForm
+            // 
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Name = "AuraForm";
+            this.ResumeLayout(false);
 
-
+        }
     }
 
     interface IShowable
