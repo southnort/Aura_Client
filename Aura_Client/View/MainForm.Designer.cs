@@ -30,10 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.adminPanel = new System.Windows.Forms.Panel();
+            this.methodsButton = new System.Windows.Forms.Button();
+            this.statusesButton = new System.Windows.Forms.Button();
+            this.usersButton = new System.Windows.Forms.Button();
             this.settingsButton = new System.Windows.Forms.Button();
             this.switchUserButton = new System.Windows.Forms.Button();
             this.changePasswordButton = new System.Windows.Forms.Button();
-            this.usersButton = new System.Windows.Forms.Button();
             this.userNameLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -45,6 +48,7 @@
             this.calendarButton = new System.Windows.Forms.Button();
             this.purchasesListButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            this.adminPanel.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,15 +56,57 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.adminPanel);
             this.panel1.Controls.Add(this.settingsButton);
             this.panel1.Controls.Add(this.switchUserButton);
             this.panel1.Controls.Add(this.changePasswordButton);
-            this.panel1.Controls.Add(this.usersButton);
             this.panel1.Controls.Add(this.userNameLabel);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(795, 101);
             this.panel1.TabIndex = 1;
+            // 
+            // adminPanel
+            // 
+            this.adminPanel.Controls.Add(this.methodsButton);
+            this.adminPanel.Controls.Add(this.statusesButton);
+            this.adminPanel.Controls.Add(this.usersButton);
+            this.adminPanel.Location = new System.Drawing.Point(496, 3);
+            this.adminPanel.Name = "adminPanel";
+            this.adminPanel.Size = new System.Drawing.Size(296, 95);
+            this.adminPanel.TabIndex = 6;
+            // 
+            // methodsButton
+            // 
+            this.methodsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.methodsButton.Location = new System.Drawing.Point(149, 28);
+            this.methodsButton.Name = "methodsButton";
+            this.methodsButton.Size = new System.Drawing.Size(140, 32);
+            this.methodsButton.TabIndex = 4;
+            this.methodsButton.Text = "Способы закупок";
+            this.methodsButton.UseVisualStyleBackColor = true;
+            // 
+            // statusesButton
+            // 
+            this.statusesButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.statusesButton.Location = new System.Drawing.Point(3, 63);
+            this.statusesButton.Name = "statusesButton";
+            this.statusesButton.Size = new System.Drawing.Size(140, 32);
+            this.statusesButton.TabIndex = 3;
+            this.statusesButton.Text = "Этапы закупок";
+            this.statusesButton.UseVisualStyleBackColor = true;
+            this.statusesButton.Click += new System.EventHandler(this.statusesButton_Click);
+            // 
+            // usersButton
+            // 
+            this.usersButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.usersButton.Location = new System.Drawing.Point(3, 28);
+            this.usersButton.Name = "usersButton";
+            this.usersButton.Size = new System.Drawing.Size(140, 32);
+            this.usersButton.TabIndex = 2;
+            this.usersButton.Text = "Пользователи";
+            this.usersButton.UseVisualStyleBackColor = true;
+            this.usersButton.Click += new System.EventHandler(this.usersButton_Click);
             // 
             // settingsButton
             // 
@@ -94,17 +140,6 @@
             this.changePasswordButton.Text = "Сменить пароль";
             this.changePasswordButton.UseVisualStyleBackColor = true;
             this.changePasswordButton.Click += new System.EventHandler(this.changePasswordButton_Click);
-            // 
-            // usersButton
-            // 
-            this.usersButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.usersButton.Location = new System.Drawing.Point(652, 66);
-            this.usersButton.Name = "usersButton";
-            this.usersButton.Size = new System.Drawing.Size(140, 32);
-            this.usersButton.TabIndex = 2;
-            this.usersButton.Text = "Пользователи";
-            this.usersButton.UseVisualStyleBackColor = true;
-            this.usersButton.Click += new System.EventHandler(this.usersButton_Click);
             // 
             // userNameLabel
             // 
@@ -229,6 +264,7 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.adminPanel.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -251,5 +287,8 @@
         private System.Windows.Forms.Button settingsButton;
         private System.Windows.Forms.Button toExcelButton;
         private System.Windows.Forms.Button documentationButton;
+        private System.Windows.Forms.Panel adminPanel;
+        private System.Windows.Forms.Button methodsButton;
+        private System.Windows.Forms.Button statusesButton;
     }
 }

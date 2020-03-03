@@ -201,7 +201,27 @@ namespace Aura_Client.Model
         }
 
 
+        public List<PurchaseStage> GetAllStages()
+        {
+            var table = GetDataTable("SELECT * FROM Stages");
+            var result = new List<PurchaseStage>();
+            foreach (DataRow item in table.Rows)
+            {
+                result.Add(new PurchaseStage(item));
+            }
 
+            return result;
+        }
+
+        public PurchaseStage GetPurchaseStage(string id)
+        {
+            string query = "SELECT * FROM Stages WHERE id = '" + id + "'";
+
+            var table = GetDataTable(query);
+            var row = table.Rows[0];
+
+            return new PurchaseStage(row);
+        }
 
     }
 }

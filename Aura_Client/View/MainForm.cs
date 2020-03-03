@@ -89,14 +89,14 @@ namespace Aura_Client.View
             Program.user.ID = -1;
             LoginWindow window = new LoginWindow();
             if (window.ShowDialog() != DialogResult.OK)
-            {              
+            {
                 Environment.Exit(0);
             }
             else
             {
                 userNameLabel.Text = "Пользователь: " + Program.user.name;
                 if (Program.user.roleID != 0)
-                    usersButton.Hide();
+                    adminPanel.Hide();
             }
         }
 
@@ -122,7 +122,7 @@ namespace Aura_Client.View
 
             //если пользователь не имеет полномочий администратора, убрать кнопку "Пользователи"
             if (Program.user.roleID != 0)
-                usersButton.Hide();            
+                adminPanel.Hide();
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -142,7 +142,7 @@ namespace Aura_Client.View
             if (form.ShowDialog() == DialogResult.OK)
             {
 
-            }            
+            }
         }
 
         private void toExcelButton_Click(object sender, EventArgs e)
@@ -157,7 +157,17 @@ namespace Aura_Client.View
         {
             StartLoading();
             DocumentationMainForm form = new DocumentationMainForm();
-            Hide(); 
+            Hide();
+            form.ShowDialog();
+            Show();
+            FinishLoading();
+        }
+
+        private void statusesButton_Click(object sender, EventArgs e)
+        {
+            StartLoading();
+            StagesForm form = new StagesForm();
+            Hide();
             form.ShowDialog();
             Show();
             FinishLoading();
