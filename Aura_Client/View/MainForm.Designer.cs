@@ -85,6 +85,7 @@
             this.methodsButton.TabIndex = 4;
             this.methodsButton.Text = "Способы закупок";
             this.methodsButton.UseVisualStyleBackColor = true;
+            this.methodsButton.Click += new System.EventHandler(this.methodsButton_Click);
             // 
             // statusesButton
             // 

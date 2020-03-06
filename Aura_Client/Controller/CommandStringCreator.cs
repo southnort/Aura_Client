@@ -287,7 +287,7 @@ namespace Aura_Client.Controller
             return changes.Count > 0;
         }
 
-        public bool FiltersInNotEmpty()
+        public bool FiltersIsNotEmpty()
         {
             //добавлялись ли поля для фильтрации
             return filters.Count > 0;

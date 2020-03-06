@@ -201,9 +201,12 @@ namespace Aura_Client.Model
         }
 
 
-        public List<PurchaseStage> GetAllStages()
+        public List<PurchaseStage> GetAllStages(bool actual = false)
         {
-            var table = GetDataTable("SELECT * FROM Stages");
+            string query = "SELECT * FROM Stages";
+            if (actual) query += " WHERE isActual = '1'";
+
+            var table = GetDataTable(query);
             var result = new List<PurchaseStage>();
             foreach (DataRow item in table.Rows)
             {
@@ -212,6 +215,7 @@ namespace Aura_Client.Model
 
             return result;
         }
+        
 
         public PurchaseStage GetPurchaseStage(string id)
         {
@@ -223,5 +227,27 @@ namespace Aura_Client.Model
             return new PurchaseStage(row);
         }
 
+
+        public List<PurchaseMethod> GetAllMethods()
+        {
+            var table = GetDataTable("SELECT * FROM Methods");
+            var result = new List<PurchaseMethod>();
+            foreach (DataRow item in table.Rows)
+            {
+                result.Add(new PurchaseMethod(item));
+            }
+
+            return result;
+        }
+
+        public PurchaseMethod GetPurchaseMethod(string id)
+        {
+            string query = "SELECT * FROM Methods WHERE id = '" + id + "'";
+
+            var table = GetDataTable(query);
+            var row = table.Rows[0];
+
+            return new PurchaseMethod(row);
+        }
     }
 }

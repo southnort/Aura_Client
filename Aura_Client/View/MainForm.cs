@@ -166,7 +166,17 @@ namespace Aura_Client.View
         private void statusesButton_Click(object sender, EventArgs e)
         {
             StartLoading();
-            StagesForm form = new StagesForm();
+            var form = new StagesForm();
+            Hide();
+            form.ShowDialog();
+            Show();
+            FinishLoading();
+        }
+
+        private void methodsButton_Click(object sender, EventArgs e)
+        {
+            StartLoading();
+            var form = new MethodsForm();
             Hide();
             form.ShowDialog();
             Show();
