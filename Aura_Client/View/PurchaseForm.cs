@@ -71,10 +71,10 @@ namespace Aura_Client.View
             }
 
             //способы определения поставщика
-            for (int i = 0; i < Catalog.purchaseMethods.Count; i++)
+            for (int i = 0; i < CCatalog.purchaseMethods.Count; i++)
             {
                 ComboBoxItem item = new ComboBoxItem();
-                item.Text = Catalog.purchaseMethods[i].name;
+                item.Text = CCatalog.purchaseMethods[i].name;
                 item.Value = i;
 
                 purchaseMethodID.Items.Add(item);
@@ -141,7 +141,7 @@ namespace Aura_Client.View
             stageID.Items.Clear();
 
             ComboBoxItem selectedItem = purchaseMethodID.SelectedItem as ComboBoxItem;
-            PurchaseMethod method = Catalog.purchaseMethods[(int)selectedItem.Value];
+            PurchaseMethod method = CCatalog.purchaseMethods[(int)selectedItem.Value];
             foreach (var st in method.purchaseStages)
             {
                 ComboBoxItem item = new ComboBoxItem();

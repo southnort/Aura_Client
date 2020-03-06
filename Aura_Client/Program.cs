@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Aura.Model;
 using Aura_Client.Model;
+using Aura_Client.Model;
 using Aura_Client.View;
 using Aura_Client.Network;
 using System.Windows.Forms;
@@ -23,27 +24,26 @@ namespace Aura_Client
         [STAThread]
         static void Main()
         {
-            try
-            {
+            //try
+            //{
                 user.ID = -1;
                 SetSettingsSetting();
                 StartProgram();
                 Application.Run(new MainForm());
                 Environment.Exit(0);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-                Console.Read();
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine(ex.ToString());
+            //    Console.Read();
+            //}
 
         }
 
         static void StartProgram()
         {
             bridge = new NetworkBridge();
-            dataManager = new DataManager();
-
+            dataManager = new DataManager();            
         }
 
         static void SetSettingsSetting()

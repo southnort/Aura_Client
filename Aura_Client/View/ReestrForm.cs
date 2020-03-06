@@ -48,10 +48,10 @@ namespace Aura_Client.View
             //заполнить справочники для выпадающих меню
 
             //способы определения поставщика
-            for (int i = 0; i < Catalog.purchaseMethods.Count; i++)
+            for (int i = 0; i < CCatalog.purchaseMethods.Count; i++)
             {
                 ComboBoxItem item = new ComboBoxItem();
-                item.Text = Catalog.purchaseMethods[i].name;
+                item.Text = CCatalog.purchaseMethods[i].name;
                 item.Value = i;
 
                 purchaseMethodID.Items.Add(item);

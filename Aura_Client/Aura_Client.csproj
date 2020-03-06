@@ -105,6 +105,7 @@
     <Compile Include="Controller\Network\NetworkBridge.cs" />
     <Compile Include="Controller\Network\NetworkGate.cs" />
     <Compile Include="Controller\Network\NetworkManager.cs" />
+    <Compile Include="Model\CCatalog.cs" />
     <Compile Include="Model\ComboBoxItem.cs" />
     <Compile Include="Model\DataManager.cs" />
     <Compile Include="Program.cs" />

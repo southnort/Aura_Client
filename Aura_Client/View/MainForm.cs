@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Aura_Client.Model;
 
 namespace Aura_Client.View
 {
@@ -7,6 +8,7 @@ namespace Aura_Client.View
     {
         public MainForm()
         {
+            CCatalog.LoadCatalog();
             InitializeComponent();
             InitializeAuraForm();
             Text = "Aura " + Application.ProductVersion;

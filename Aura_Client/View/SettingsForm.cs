@@ -1,4 +1,5 @@
 ﻿using Aura.Model;
+using Aura_Client.Model;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -52,9 +53,9 @@ namespace Aura_Client.View
             newRow.Cells["selectedColor"].Style.BackColor = GetStatusColor(1);
 
 
-            for (int i = 1; i< Catalog.allStages.Count;i++)
+            for (int i = 1; i< CCatalog.allStages.Count;i++)
             {
-                var status = Catalog.allStages[i];
+                var status = CCatalog.allStages[i];
 
                 rowIndex = statusColorsDataGrd.Rows.Add();
                 newRow = statusColorsDataGrd.Rows[rowIndex];

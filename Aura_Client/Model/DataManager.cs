@@ -228,9 +228,12 @@ namespace Aura_Client.Model
         }
 
 
-        public List<PurchaseMethod> GetAllMethods()
+        public List<PurchaseMethod> GetAllMethods(bool actual = false)
         {
-            var table = GetDataTable("SELECT * FROM Methods");
+            string query = "SELECT * FROM Methods";
+            if (actual) query += " WHERE isActual = '1'";
+
+            var table = GetDataTable(query);
             var result = new List<PurchaseMethod>();
             foreach (DataRow item in table.Rows)
             {

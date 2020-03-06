@@ -4,7 +4,7 @@
   <description asmv2:iconFile="Icon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="Aura_Client" version="1.2.0.3" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="Aura_Client" version="1.2.0.5" language="neutral" processorArchitecture="msil" />
     <commandLine file="Aura_Client.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -44,25 +44,25 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Aura_Client.exe" size="5066240">
-      <assemblyIdentity name="Aura_Client" version="1.2.0.3" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="Aura_Client" version="1.2.0.5" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>NCuVvpGy5fKNcUwOFsrWmsgplDw=</dsig:DigestValue>
+        <dsig:DigestValue>7lv0lKvO3xJMQbdNTZNq1YkuoPY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Aura_DLL.dll" size="25088">
-      <assemblyIdentity name="Aura_DLL" version="1.2.0.3" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Aura_DLL.dll" size="22528">
+      <assemblyIdentity name="Aura_DLL" version="1.2.0.5" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>quLyNjpjSmZdq3I1bhAQigCANBg=</dsig:DigestValue>
+        <dsig:DigestValue>k5riDYodxXuDdMY5TFVLSWob3SY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

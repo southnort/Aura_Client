@@ -1,4 +1,5 @@
 ﻿using Aura.Model;
+using Aura_Client.Model;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -218,13 +219,13 @@ namespace Aura_Client.View
                         newRow.Cells["organizationID"].Value = org.name;
 
                     newRow.Cells["purchaseMethodID"].Value =
-                                Catalog.purchaseMethods[ev.Key.purchaseMethodID].name;
+                                CCatalog.purchaseMethods[ev.Key.purchaseMethodID].name;
 
                     newRow.Cells["eventName"].Value = ev.Value;
 
                     newRow.Cells["statusID"].Value = Catalog.allStatuses[ev.Key.statusID];
 
-                    newRow.Cells["stageID"].Value = Catalog.allStages[ev.Key.stageID];
+                    newRow.Cells["stageID"].Value = CCatalog.allStages[ev.Key.stageID];
 
                     var countOfBidsCell = newRow.Cells["BidsCountIndex"] as DataGridViewButtonCell;
                     countOfBidsCell.Value = Catalog.countOfBidsTexts[ev.Key.BidsCountIndex];

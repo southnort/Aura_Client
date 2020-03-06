@@ -143,10 +143,10 @@ namespace Aura_Client.View
             //заполнить справочники для выпадающих меню
 
             //способы определения поставщика
-            for (int i = 0; i < Catalog.purchaseMethods.Count; i++)
+            for (int i = 0; i < CCatalog.purchaseMethods.Count; i++)
             {
                 ComboBoxItem item = new ComboBoxItem();
-                item.Text = Catalog.purchaseMethods[i].name;
+                item.Text = CCatalog.purchaseMethods[i].name;
                 item.Value = i;
 
                 purchaseMethodID.Items.Add(item);
@@ -308,13 +308,13 @@ namespace Aura_Client.View
                                 orgs.SingleOrDefault(o => o.id == pur.organizationID).name;
 
                         newRow.Cells["purchaseMethodID"].Value =
-                            Catalog.purchaseMethods[pur.purchaseMethodID].name;
+                            CCatalog.purchaseMethods[pur.purchaseMethodID].name;
 
                         newRow.Cells["purchaseName"].Value = pur.purchaseName;
 
                         newRow.Cells["statusID"].Value = Catalog.allStatuses[pur.statusID];
 
-                        newRow.Cells["stageID"].Value = Catalog.allStages[pur.stageID];
+                        newRow.Cells["stageID"].Value = CCatalog.allStages[pur.stageID];
 
                         newRow.Cells["bidsCount"].Value = GetCountOfBids(pur);
 
